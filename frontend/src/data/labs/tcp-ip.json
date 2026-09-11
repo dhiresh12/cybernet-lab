@@ -1,0 +1,2544 @@
+[
+  {
+    "id": "9",
+    "title": "IP Address Classes and Types",
+    "category": "TCP/IP",
+    "level": "basic",
+    "time": "15 minutes",
+    "objectives": "Identify class A/B/C addresses and special ranges.",
+    "scenario": "Configure TCP/IP stack and verify end-to-end connectivity in a multi-device network",
+    "concepts": [
+      "Class A: 1-126, B: 128-191, C: 192-223",
+      "Private: 10/172.16-31/192.168",
+      "Loopback 127.0.0.1",
+      "APIPA 169.254.0.0/16"
+    ],
+    "errors": [
+      {
+        "error": "Confusing public vs private",
+        "solution": "Memorize private ranges."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Is 172.20.1.5 private?",
+        "solution": "Yes, within 172.16.0.0-172.31.255.255."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "9-S-01",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "9-S-02",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "9-S-03",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "9-S-04",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "9-S-05",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "9-S-06",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-9-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-1",
+        "title": "Step 1: Review the lab objectives and identify the devices involved...",
+        "instruction": "Review the lab objectives and identify the devices involved",
+        "commands": [],
+        "expectedOutput": "Completed: Review the lab objectives and identify the devices involved",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-2",
+        "title": "Step 2: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)...",
+        "instruction": "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-3",
+        "title": "Step 3: Power on all devices and wait for them to fully boot...",
+        "instruction": "Power on all devices and wait for them to fully boot",
+        "commands": [],
+        "expectedOutput": "Completed: Power on all devices and wait for them to fully boot",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-4",
+        "title": "Step 4: Configure IP addresses on each device according to the lab specifications...",
+        "instruction": "Configure IP addresses on each device according to the lab specifications",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on each device according to the lab specifications",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-5",
+        "title": "Step 5: Verify IP configuration using appropriate show/commands...",
+        "instruction": "Verify IP configuration using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify IP configuration using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-6",
+        "title": "Step 6: Test connectivity using ping between devices...",
+        "instruction": "Test connectivity using ping between devices",
+        "commands": [],
+        "expectedOutput": "Completed: Test connectivity using ping between devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-7",
+        "title": "Step 7: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections...",
+        "instruction": "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-STEP-8",
+        "title": "Step 8: Document findings and verify all lab objectives are met...",
+        "instruction": "Document findings and verify all lab objectives are met",
+        "commands": [],
+        "expectedOutput": "Completed: Document findings and verify all lab objectives are met",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-9-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+      "Review the lab objectives and identify the devices involved",
+      "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+      "Power on all devices and wait for them to fully boot",
+      "Configure IP addresses on each device according to the lab specifications",
+      "Verify IP configuration using appropriate show/commands",
+      "Test connectivity using ping between devices",
+      "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+      "Document findings and verify all lab objectives are met",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Class A: 1-126, B: 128-191, C: 192-223",
+      "Private: 10/172.16-31/192.168",
+      "Loopback 127.0.0.1",
+      "APIPA 169.254.0.0/16"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Is 172.20.1.5 private?",
+        "solution": "Yes, within 172.16.0.0-172.31.255.255."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure TCP/IP stack and verify connectivity between network devices",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches TCP/IP through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "113",
+    "title": "Enterprise Lab: IP SLA and Tracking",
+    "category": "TCP/IP",
+    "level": "advanced",
+    "time": "40 minutes",
+    "objectives": "Use IP SLA for dynamic failover.",
+    "scenario": "Configure TCP/IP stack and verify end-to-end connectivity in a multi-device network",
+    "concepts": [
+      "ip sla measures reachability",
+      "track object associates with SLA",
+      "Floating static with track",
+      "Automatic failover"
+    ],
+    "errors": [
+      {
+        "error": "Track not triggering",
+        "solution": "Verify SLA frequency, threshold, and track association."
+      }
+    ],
+    "questions": [
+      {
+        "question": "IP SLA probe types?",
+        "solution": "ICMP echo, HTTP, TCP connect, DNS, etc."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "113-S-01",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-02",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-03",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-04",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-05",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-06",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-07",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-08",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-09",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-10",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-11",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-12",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "113-S-13",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-113-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-113-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "ip sla measures reachability",
+      "track object associates with SLA",
+      "Floating static with track",
+      "Automatic failover"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "IP SLA probe types?",
+        "solution": "ICMP echo, HTTP, TCP connect, DNS, etc."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure TCP/IP stack and verify connectivity between network devices",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches TCP/IP through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "159",
+    "title": "Understanding IP Addresses",
+    "category": "TCP/IP",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Learn what IP addresses are and how they work",
+    "scenario": "Configure TCP/IP stack and verify end-to-end connectivity in a multi-device network",
+    "concepts": [
+      "IP address is like a home address for computers",
+      "IPv4 addresses have 4 octets (numbers)",
+      "Each device needs a unique IP address",
+      "IP addresses identify location on a network"
+    ],
+    "errors": [
+      {
+        "error": "Duplicate IP addresses",
+        "solution": "Each device must have a unique IP on the same network"
+      }
+    ],
+    "questions": [
+      {
+        "question": "How many octets does an IPv4 address have?",
+        "solution": "4"
+      },
+      {
+        "question": "What is an example of a private IP address range?",
+        "solution": "192.168.x.x"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "159-S-01",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-02",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-03",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-04",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-05",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-06",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "159-S-07",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "IP address is like a home address for computers",
+      "IPv4 addresses have 4 octets (numbers)",
+      "Each device needs a unique IP address",
+      "IP addresses identify location on a network"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "How many octets does an IPv4 address have?",
+        "solution": "4"
+      },
+      {
+        "question": "What is an example of a private IP address range?",
+        "solution": "192.168.x.x"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure TCP/IP stack and verify connectivity between network devices",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches TCP/IP through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "209",
+    "title": "Understanding IP Address Classes",
+    "category": "TCP/IP",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Learn IPv4 address classes A, B, C, D, E",
+    "scenario": "Configure TCP/IP stack and verify end-to-end connectivity in a multi-device network",
+    "concepts": [
+      "Class A: 1-126, /8 mask, large networks",
+      "Class B: 128-191, /16 mask, medium networks",
+      "Class C: 192-223, /24 mask, small networks",
+      "Class D: 224-239, multicast",
+      "Class E: 240-255, experimental"
+    ],
+    "errors": [
+      {
+        "error": "Wrong class identification",
+        "solution": "Memorize class ranges: A=1-126, B=128-191, C=192-223"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the default mask for Class B?",
+        "solution": "255.255.0.0 (/16)"
+      },
+      {
+        "question": "What is 127.0.0.1 used for?",
+        "solution": "Loopback address"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "209-S-01",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "209-S-02",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "209-S-03",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "209-S-04",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "209-S-05",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "209-S-06",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Class A: 1-126, /8 mask, large networks",
+      "Class B: 128-191, /16 mask, medium networks",
+      "Class C: 192-223, /24 mask, small networks",
+      "Class D: 224-239, multicast",
+      "Class E: 240-255, experimental"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the default mask for Class B?",
+        "solution": "255.255.0.0 (/16)"
+      },
+      {
+        "question": "What is 127.0.0.1 used for?",
+        "solution": "Loopback address"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure TCP/IP stack and verify connectivity between network devices",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches TCP/IP through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "236",
+    "title": "Configure Switch Management IP",
+    "category": "TCP/IP",
+    "level": "basic",
+    "time": "15 min",
+    "difficulty": "basic",
+    "objectives": "Set an IP address on a switch VLAN interface for remote management",
+    "scenario": "Configure TCP/IP stack and verify end-to-end connectivity in a multi-device network",
+    "concepts": [
+      "Switch management uses VLAN interface (SVI)",
+      "Default VLAN is VLAN 1",
+      "IP must be in management VLAN subnet"
+    ],
+    "errors": [
+      {
+        "error": "Cannot ping switch",
+        "solution": "Check VLAN interface is up and IP is correct"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is an SVI?",
+        "solution": "Switched Virtual Interface - logical interface for management"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "236-S-01",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-02",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-03",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-04",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-05",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-06",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      },
+      {
+        "stepId": "236-S-07",
+        "title": "Configure TCP/IP Stack",
+        "instruction": "Configure TCP/IP Stack for TCP/IP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "TCP/IP stack configured and operational",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Configuration failed",
+            "solution": "Verify IP address format and mask"
+          }
+        ],
+        "hints": [
+          "Check IP and mask syntax",
+          "Use show ip interface brief"
+        ],
+        "challenge": "Configure secondary IP"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Set an IP address on a switch VLAN interface for remote management",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Switch management uses VLAN interface (SVI)",
+      "Default VLAN is VLAN 1",
+      "IP must be in management VLAN subnet"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is an SVI?",
+        "solution": "Switched Virtual Interface - logical interface for management"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What is an SVI?",
+        "options": [
+          "Switched Virtual Interface - logical interface for management",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Switched Virtual Interface - logical interface for management"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure TCP/IP stack and verify connectivity between network devices",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches TCP/IP through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

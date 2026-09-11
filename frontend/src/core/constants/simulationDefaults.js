@@ -1,0 +1,9 @@
+export const SIM_DEFAULTS = {
+  GLOBE_RADIUS: 1.5,
+  NODE_COUNT: 28,
+  PULSE_COUNT: 16,
+  ICE_BLUE_PRIMARY: '#00e5ff',
+  ICE_BLUE_BRIGHT: '#7fe8ff',
+  ICE_BLUE_DEEP: '#0099cc',
+  ICE_BLUE_DARK: '#003a55',
+};

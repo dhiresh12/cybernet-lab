@@ -1,0 +1,392 @@
+[
+  {
+    "id": "227",
+    "title": "Configure L2 EtherChannel Between Switches",
+    "category": "EtherChannel",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "difficulty": "intermediate",
+    "objectives": "Bundle two physical links into one logical EtherChannel link",
+    "scenario": "Bundle multiple switch links into a single EtherChannel for redundancy and bandwidth",
+    "concepts": [
+      "EtherChannel",
+      "LACP",
+      "PAgP"
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "devices": [
+      "Switch0",
+      "Switch1"
+    ],
+    "connections": [
+      "Switch0 Gi0/1-0/2 -> Switch1 Gi0/1-0/2"
+    ],
+    "ipScheme": "10.0.0.0/24",
+    "ipTable": [],
+    "task": "Configure LACP EtherChannel with 2 links",
+    "steps": [
+      {
+        "stepId": "227-S-01",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-02",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-03",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-04",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-05",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-06",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-07",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      },
+      {
+        "stepId": "227-S-08",
+        "title": "Configure EtherChannel Bundle",
+        "instruction": "Configure EtherChannel Bundle for EtherChannel",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface range GigabitEthernet0/1 - 2",
+          "channel-group 1 mode active",
+          "exit",
+          "interface port-channel 1",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "EtherChannel bundle created, Po1 active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show etherchannel summary"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "EtherChannel not forming",
+            "solution": "Verify mode matches on both ends"
+          }
+        ],
+        "hints": [
+          "Both sides must use same channel-group",
+          "LACP and PAgP modes"
+        ],
+        "challenge": "Configure with LACP"
+      }
+    ],
+    "errors": [
+      {
+        "error": "EtherChannel not forming",
+        "solution": "Check both sides have same group number and compatible modes"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the LACP standard?",
+        "solution": "IEEE 802.3ad"
+      }
+    ],
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Use show etherchannel summary to verify",
+      "Check all member ports"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VLAN concepts to optimize network performance",
+    "solution": "Set both sides with matching group number and LACP active mode",
+    "keyConcepts": [
+      "EtherChannel",
+      "LACP",
+      "Link aggregation"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is PAgP?",
+        "solution": "Cisco-proprietary EtherChannel protocol"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Which is the IEEE EtherChannel standard?",
+        "options": [
+          "LACP",
+          "PAgP",
+          "STP"
+        ],
+        "correct": "LACP"
+      }
+    ],
+    "topology": "Switch0 Gi0/1-0/2 -> Switch1 Gi0/1-0/2",
+    "packetTracer": {
+      "devices": [
+        "Switch0",
+        "Switch1"
+      ],
+      "connections": [
+        "Switch0 Gi0/1-0/2 -> Switch1 Gi0/1-0/2"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Aggregate multiple physical links into a single logical EtherChannel",
+    "deviceList": [
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "Switch1",
+        "type": "switch"
+      }
+    ],
+    "ipAddressing": [],
+    "explanation": "This lab teaches EtherChannel through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VLAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

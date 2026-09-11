@@ -1,0 +1,5203 @@
+[
+  {
+    "id": "115",
+    "title": "Enterprise Lab: GRE over IPSec VPN",
+    "category": "VPN",
+    "level": "advanced",
+    "time": "50 minutes",
+    "objectives": "Build site-to-site VPN.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "GRE tunnels non-encrypted traffic",
+      "IPSec provides encryption",
+      "Crypto map on outside",
+      "Combine for routed VPN"
+    ],
+    "errors": [
+      {
+        "error": "VPN tunnel down",
+        "solution": "Check ISAKMP/IKE, transform set, ACL, crypto map."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why GRE over IPSec instead of IPSec alone?",
+        "solution": "GRE supports multicast/broadcast and non-IP protocols."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "115-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-09",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-10",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-11",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-12",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "115-S-13",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-115-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-115-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "GRE tunnels non-encrypted traffic",
+      "IPSec provides encryption",
+      "Crypto map on outside",
+      "Combine for routed VPN"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why GRE over IPSec instead of IPSec alone?",
+        "solution": "GRE supports multicast/broadcast and non-IP protocols."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "128",
+    "title": "ISP Lab: MPLS L3VPN Overview and Configuration",
+    "category": "VPN",
+    "level": "advanced",
+    "time": "50 minutes",
+    "objectives": "Configure simple MPLS VPN backbone.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "MPLS labels packets",
+      "VRF separates customer routes",
+      "MP-BGP exchanges VPNv4 routes",
+      "PE-CE routing protocol"
+    ],
+    "errors": [
+      {
+        "error": "VPNv4 route not installing",
+        "solution": "Check VRF, route-target, BGP VPNv4 config."
+      }
+    ],
+    "questions": [
+      {
+        "question": "PE router role?",
+        "solution": "Provider Edge; connects CE to MP-BGP backbone."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "128-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-09",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-10",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "128-S-11",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-128-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab simulates Internet Service Provider networking concepts including BGP, MPLS, and customer edge connections.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-1",
+        "title": "Step 1: Identify the ISP infrastructure and customer connection points...",
+        "instruction": "Identify the ISP infrastructure and customer connection points",
+        "commands": [],
+        "expectedOutput": "Completed: Identify the ISP infrastructure and customer connection points",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-2",
+        "title": "Step 2: Configure core ISP routing (typically BGP for Internet connectivity)...",
+        "instruction": "Configure core ISP routing (typically BGP for Internet connectivity)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core ISP routing (typically BGP for Internet connectivity)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-3",
+        "title": "Step 3: Set up MPLS or other transport mechanisms if required...",
+        "instruction": "Set up MPLS or other transport mechanisms if required",
+        "commands": [],
+        "expectedOutput": "Completed: Set up MPLS or other transport mechanisms if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-4",
+        "title": "Step 4: Configure customer edge (CE) connections to the ISP network...",
+        "instruction": "Configure customer edge (CE) connections to the ISP network",
+        "commands": [],
+        "expectedOutput": "Completed: Configure customer edge (CE) connections to the ISP network",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-5",
+        "title": "Step 5: Implement quality of service and traffic shaping policies...",
+        "instruction": "Implement quality of service and traffic shaping policies",
+        "commands": [],
+        "expectedOutput": "Completed: Implement quality of service and traffic shaping policies",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-6",
+        "title": "Step 6: Verify ISP routing tables and BGP peer relationships...",
+        "instruction": "Verify ISP routing tables and BGP peer relationships",
+        "commands": [],
+        "expectedOutput": "Completed: Verify ISP routing tables and BGP peer relationships",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-7",
+        "title": "Step 7: Test customer connectivity through the ISP network...",
+        "instruction": "Test customer connectivity through the ISP network",
+        "commands": [],
+        "expectedOutput": "Completed: Test customer connectivity through the ISP network",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-8",
+        "title": "Step 8: Troubleshoot ISP-specific issues like route flapping or bandwidth congestion...",
+        "instruction": "Troubleshoot ISP-specific issues like route flapping or bandwidth congestion",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot ISP-specific issues like route flapping or bandwidth congestion",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-STEP-9",
+        "title": "Step 9: Save configurations and verify ISP service level agreements...",
+        "instruction": "Save configurations and verify ISP service level agreements",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify ISP service level agreements",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-128-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab simulates Internet Service Provider networking concepts including BGP, MPLS, and customer edge connections.",
+      "Identify the ISP infrastructure and customer connection points",
+      "Configure core ISP routing (typically BGP for Internet connectivity)",
+      "Set up MPLS or other transport mechanisms if required",
+      "Configure customer edge (CE) connections to the ISP network",
+      "Implement quality of service and traffic shaping policies",
+      "Verify ISP routing tables and BGP peer relationships",
+      "Test customer connectivity through the ISP network",
+      "Troubleshoot ISP-specific issues like route flapping or bandwidth congestion",
+      "Save configurations and verify ISP service level agreements",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VPN concepts concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "MPLS labels packets",
+      "VRF separates customer routes",
+      "MP-BGP exchanges VPNv4 routes",
+      "PE-CE routing protocol"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "PE router role?",
+        "solution": "Provider Edge; connects CE to MP-BGP backbone."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VPN concepts?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "133",
+    "title": "Data Center Lab: VXLAN Tunnel Configuration",
+    "category": "VPN",
+    "level": "basic",
+    "time": "45 minutes",
+    "objectives": "Configure VXLAN for L2 extension over L3.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "VXLAN in UDP 4789",
+      "VTEP tunnel endpoint",
+      "VNI identifies tenant",
+      "Scales beyond 4094 VLANs"
+    ],
+    "errors": [
+      {
+        "error": "VXLAN traffic not flowing",
+        "solution": "Check UDP port, VTEP reachability, VNI mapping."
+      }
+    ],
+    "questions": [
+      {
+        "question": "VXLAN solves what limit?",
+        "solution": "4094 VLAN limit of 802.1Q."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "133-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "133-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "133-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "133-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "133-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "133-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-133-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers important networking concepts and practical configuration skills.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-1",
+        "title": "Step 1: Review lab objectives and understand what needs to be accomplished...",
+        "instruction": "Review lab objectives and understand what needs to be accomplished",
+        "commands": [],
+        "expectedOutput": "Completed: Review lab objectives and understand what needs to be accomplished",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-2",
+        "title": "Step 2: Analyze the provided topology and identify all devices...",
+        "instruction": "Analyze the provided topology and identify all devices",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the provided topology and identify all devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-3",
+        "title": "Step 3: Configure devices according to lab specifications...",
+        "instruction": "Configure devices according to lab specifications",
+        "commands": [],
+        "expectedOutput": "Completed: Configure devices according to lab specifications",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-4",
+        "title": "Step 4: Verify configuration using appropriate show/commands...",
+        "instruction": "Verify configuration using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify configuration using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-5",
+        "title": "Step 5: Test functionality to ensure everything works as expected...",
+        "instruction": "Test functionality to ensure everything works as expected",
+        "commands": [],
+        "expectedOutput": "Completed: Test functionality to ensure everything works as expected",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-6",
+        "title": "Step 6: Troubleshoot any issues that arise during configuration...",
+        "instruction": "Troubleshoot any issues that arise during configuration",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot any issues that arise during configuration",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-7",
+        "title": "Step 7: Document the configuration and verification steps...",
+        "instruction": "Document the configuration and verification steps",
+        "commands": [],
+        "expectedOutput": "Completed: Document the configuration and verification steps",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-STEP-8",
+        "title": "Step 8: Save work and verify all lab objectives are met...",
+        "instruction": "Save work and verify all lab objectives are met",
+        "commands": [],
+        "expectedOutput": "Completed: Save work and verify all lab objectives are met",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-133-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers important networking concepts and practical configuration skills.",
+      "Review lab objectives and understand what needs to be accomplished",
+      "Analyze the provided topology and identify all devices",
+      "Configure devices according to lab specifications",
+      "Verify configuration using appropriate show/commands",
+      "Test functionality to ensure everything works as expected",
+      "Troubleshoot any issues that arise during configuration",
+      "Document the configuration and verification steps",
+      "Save work and verify all lab objectives are met",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced data center concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "VXLAN in UDP 4789",
+      "VTEP tunnel endpoint",
+      "VNI identifies tenant",
+      "Scales beyond 4094 VLANs"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "VXLAN solves what limit?",
+        "solution": "4094 VLAN limit of 802.1Q."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of data center?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "134",
+    "title": "Data Center Lab: EVPN Control Plane for VXLAN",
+    "category": "VPN",
+    "level": "basic",
+    "time": "50 minutes",
+    "objectives": "Use EVPN as control plane.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "EVPN Type 2 for MAC/IP",
+      "Eliminates flooding",
+      "Multitenancy",
+      "Integrated with BGP"
+    ],
+    "errors": [
+      {
+        "error": "MAC not learning remotely",
+        "solution": "Check EVPN propagation and VNI binding."
+      }
+    ],
+    "questions": [
+      {
+        "question": "EVPN advantage over static VXLAN?",
+        "solution": "Control-plane learning reduces flooding and scales better."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "134-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "134-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-134-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers important networking concepts and practical configuration skills.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-1",
+        "title": "Step 1: Review lab objectives and understand what needs to be accomplished...",
+        "instruction": "Review lab objectives and understand what needs to be accomplished",
+        "commands": [],
+        "expectedOutput": "Completed: Review lab objectives and understand what needs to be accomplished",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-2",
+        "title": "Step 2: Analyze the provided topology and identify all devices...",
+        "instruction": "Analyze the provided topology and identify all devices",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the provided topology and identify all devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-3",
+        "title": "Step 3: Configure devices according to lab specifications...",
+        "instruction": "Configure devices according to lab specifications",
+        "commands": [],
+        "expectedOutput": "Completed: Configure devices according to lab specifications",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-4",
+        "title": "Step 4: Verify configuration using appropriate show/commands...",
+        "instruction": "Verify configuration using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify configuration using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-5",
+        "title": "Step 5: Test functionality to ensure everything works as expected...",
+        "instruction": "Test functionality to ensure everything works as expected",
+        "commands": [],
+        "expectedOutput": "Completed: Test functionality to ensure everything works as expected",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-6",
+        "title": "Step 6: Troubleshoot any issues that arise during configuration...",
+        "instruction": "Troubleshoot any issues that arise during configuration",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot any issues that arise during configuration",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-7",
+        "title": "Step 7: Document the configuration and verification steps...",
+        "instruction": "Document the configuration and verification steps",
+        "commands": [],
+        "expectedOutput": "Completed: Document the configuration and verification steps",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-STEP-8",
+        "title": "Step 8: Save work and verify all lab objectives are met...",
+        "instruction": "Save work and verify all lab objectives are met",
+        "commands": [],
+        "expectedOutput": "Completed: Save work and verify all lab objectives are met",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-134-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers important networking concepts and practical configuration skills.",
+      "Review lab objectives and understand what needs to be accomplished",
+      "Analyze the provided topology and identify all devices",
+      "Configure devices according to lab specifications",
+      "Verify configuration using appropriate show/commands",
+      "Test functionality to ensure everything works as expected",
+      "Troubleshoot any issues that arise during configuration",
+      "Document the configuration and verification steps",
+      "Save work and verify all lab objectives are met",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VPN concepts concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "EVPN Type 2 for MAC/IP",
+      "Eliminates flooding",
+      "Multitenancy",
+      "Integrated with BGP"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "EVPN advantage over static VXLAN?",
+        "solution": "Control-plane learning reduces flooding and scales better."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VPN concepts?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "136",
+    "title": "Cloud Lab: AWS VPC and VPN Connectivity",
+    "category": "VPN",
+    "level": "basic",
+    "time": "50 minutes",
+    "objectives": "Design AWS VPC and connect to on-prem via VPN.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "VPC, subnets, route tables",
+      "IGW and NAT GW",
+      "Site-to-site VPN IPsec",
+      "VPC peering"
+    ],
+    "errors": [
+      {
+        "error": "VPN tunnel down",
+        "solution": "Check BGP/static routes, IKE, security groups."
+      }
+    ],
+    "questions": [
+      {
+        "question": "NAT gateway vs instance?",
+        "solution": "NAT gateway is managed, highly available, scales automatically."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "136-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "136-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-136-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers cloud networking concepts including virtual networks, peering, and hybrid connectivity.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-1",
+        "title": "Step 1: Identify cloud service providers and virtual network components...",
+        "instruction": "Identify cloud service providers and virtual network components",
+        "commands": [],
+        "expectedOutput": "Completed: Identify cloud service providers and virtual network components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-2",
+        "title": "Step 2: Configure virtual networks, subnets, and IP address spaces...",
+        "instruction": "Configure virtual networks, subnets, and IP address spaces",
+        "commands": [],
+        "expectedOutput": "Completed: Configure virtual networks, subnets, and IP address spaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-3",
+        "title": "Step 3: Set up network security groups and access controls...",
+        "instruction": "Set up network security groups and access controls",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network security groups and access controls",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-4",
+        "title": "Step 4: Establish virtual network peering or equivalent connectivity...",
+        "instruction": "Establish virtual network peering or equivalent connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Establish virtual network peering or equivalent connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-5",
+        "title": "Step 5: Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks...",
+        "instruction": "Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+        "commands": [],
+        "expectedOutput": "Completed: Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-6",
+        "title": "Step 6: Implement load balancing and auto-scaling groups...",
+        "instruction": "Implement load balancing and auto-scaling groups",
+        "commands": [],
+        "expectedOutput": "Completed: Implement load balancing and auto-scaling groups",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-7",
+        "title": "Step 7: Verify cloud network connectivity and security policies...",
+        "instruction": "Verify cloud network connectivity and security policies",
+        "commands": [],
+        "expectedOutput": "Completed: Verify cloud network connectivity and security policies",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-8",
+        "title": "Step 8: Test application deployment and connectivity in cloud environment...",
+        "instruction": "Test application deployment and connectivity in cloud environment",
+        "commands": [],
+        "expectedOutput": "Completed: Test application deployment and connectivity in cloud environment",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-9",
+        "title": "Step 9: Troubleshoot cloud networking issues by checking routing and firewall rules...",
+        "instruction": "Troubleshoot cloud networking issues by checking routing and firewall rules",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot cloud networking issues by checking routing and firewall rules",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-STEP-10",
+        "title": "Step 10: Save configurations and verify cloud network operation...",
+        "instruction": "Save configurations and verify cloud network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify cloud network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-136-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers cloud networking concepts including virtual networks, peering, and hybrid connectivity.",
+      "Identify cloud service providers and virtual network components",
+      "Configure virtual networks, subnets, and IP address spaces",
+      "Set up network security groups and access controls",
+      "Establish virtual network peering or equivalent connectivity",
+      "Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+      "Implement load balancing and auto-scaling groups",
+      "Verify cloud network connectivity and security policies",
+      "Test application deployment and connectivity in cloud environment",
+      "Troubleshoot cloud networking issues by checking routing and firewall rules",
+      "Save configurations and verify cloud network operation",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VPN concepts concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "VPC, subnets, route tables",
+      "IGW and NAT GW",
+      "Site-to-site VPN IPsec",
+      "VPC peering"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "NAT gateway vs instance?",
+        "solution": "NAT gateway is managed, highly available, scales automatically."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VPN concepts?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "153",
+    "title": "Advanced DMVPN: Dynamic Multipoint VPN with NHRP",
+    "category": "VPN",
+    "level": "advanced",
+    "time": "50 minutes",
+    "objectives": "Configure DMVPN Phase 2 with NHRP and dynamic spoke-to-spoke tunnels.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "DMVPN uses multipoint GRE tunnels",
+      "NHRP resolves spoke IPs dynamically",
+      "Phase 2 allows spoke-to-spoke via hub",
+      "EIGRP/OSPF can run over DMVPN"
+    ],
+    "errors": [
+      {
+        "error": "Spoke cannot reach other spoke",
+        "solution": "Check NHRP mapping, spoke-to-spoke settings, and routing protocol."
+      },
+      {
+        "error": "Tunnel flapping",
+        "solution": "Check IPSec, NHRP timers, and routing adjacency."
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is NHRP?",
+        "solution": "Next Hop Resolution Protocol for dynamic tunnel endpoint mapping."
+      },
+      {
+        "question": "DMVPN advantage over static VPN?",
+        "solution": "Dynamic spoke registration and reduced configuration overhead."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "153-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-09",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "153-S-10",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-153-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-153-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "DMVPN uses multipoint GRE tunnels",
+      "NHRP resolves spoke IPs dynamically",
+      "Phase 2 allows spoke-to-spoke via hub",
+      "EIGRP/OSPF can run over DMVPN"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is NHRP?",
+        "solution": "Next Hop Resolution Protocol for dynamic tunnel endpoint mapping."
+      },
+      {
+        "question": "DMVPN advantage over static VPN?",
+        "solution": "Dynamic spoke registration and reduced configuration overhead."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "154",
+    "title": "Advanced SD-WAN: Overlay Routing and Application-Aware Policies",
+    "category": "VPN",
+    "level": "advanced",
+    "time": "50 minutes",
+    "objectives": "Configure SD-WAN overlay with application-aware path selection.",
+    "scenario": "Configure VPN tunnels including DMVPN and IPSec for secure remote site connectivity",
+    "concepts": [
+      "SD-WAN overlay abstracts transport links",
+      "Application recognition steers traffic",
+      "Policy maps define path preferences",
+      "Tunnel health monitoring triggers failover"
+    ],
+    "errors": [
+      {
+        "error": "Voice still going over broadband",
+        "solution": "Verify application policy and path preference order."
+      },
+      {
+        "error": "Tunnel not forming",
+        "solution": "Check underlay connectivity, authentication, and control plane."
+      }
+    ],
+    "questions": [
+      {
+        "question": "SD-WAN vs traditional WAN?",
+        "solution": "SD-WAN uses application-aware dynamic path selection over multiple transports."
+      },
+      {
+        "question": "What is a transport profile?",
+        "solution": "Defines link characteristics for path calculation."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "154-S-01",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-02",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-03",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-04",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-05",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-06",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-07",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-08",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-09",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-10",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-11",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-12",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      },
+      {
+        "stepId": "154-S-13",
+        "title": "Configure DMVPN Tunnel",
+        "instruction": "Configure DMVPN Tunnel for VPN",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface Tunnel0",
+          "ip address 10.0.0.1 255.255.255.0",
+          "tunnel source GigabitEthernet0/0",
+          "tunnel mode gre multipoint",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DMVPN tunnel configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface tunnel0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Tunnel not working",
+            "solution": "Verify tunnel source and mode"
+          }
+        ],
+        "hints": [
+          "Use GRE multipoint",
+          "Configure NHRP"
+        ],
+        "challenge": "Configure IPSec for tunnel"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-154-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers cloud networking concepts including virtual networks, peering, and hybrid connectivity.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-1",
+        "title": "Step 1: Identify cloud service providers and virtual network components...",
+        "instruction": "Identify cloud service providers and virtual network components",
+        "commands": [],
+        "expectedOutput": "Completed: Identify cloud service providers and virtual network components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-2",
+        "title": "Step 2: Configure virtual networks, subnets, and IP address spaces...",
+        "instruction": "Configure virtual networks, subnets, and IP address spaces",
+        "commands": [],
+        "expectedOutput": "Completed: Configure virtual networks, subnets, and IP address spaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-3",
+        "title": "Step 3: Set up network security groups and access controls...",
+        "instruction": "Set up network security groups and access controls",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network security groups and access controls",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-4",
+        "title": "Step 4: Establish virtual network peering or equivalent connectivity...",
+        "instruction": "Establish virtual network peering or equivalent connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Establish virtual network peering or equivalent connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-5",
+        "title": "Step 5: Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks...",
+        "instruction": "Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+        "commands": [],
+        "expectedOutput": "Completed: Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-6",
+        "title": "Step 6: Implement load balancing and auto-scaling groups...",
+        "instruction": "Implement load balancing and auto-scaling groups",
+        "commands": [],
+        "expectedOutput": "Completed: Implement load balancing and auto-scaling groups",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-7",
+        "title": "Step 7: Verify cloud network connectivity and security policies...",
+        "instruction": "Verify cloud network connectivity and security policies",
+        "commands": [],
+        "expectedOutput": "Completed: Verify cloud network connectivity and security policies",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-8",
+        "title": "Step 8: Test application deployment and connectivity in cloud environment...",
+        "instruction": "Test application deployment and connectivity in cloud environment",
+        "commands": [],
+        "expectedOutput": "Completed: Test application deployment and connectivity in cloud environment",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-9",
+        "title": "Step 9: Troubleshoot cloud networking issues by checking routing and firewall rules...",
+        "instruction": "Troubleshoot cloud networking issues by checking routing and firewall rules",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot cloud networking issues by checking routing and firewall rules",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-STEP-10",
+        "title": "Step 10: Save configurations and verify cloud network operation...",
+        "instruction": "Save configurations and verify cloud network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify cloud network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-154-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers cloud networking concepts including virtual networks, peering, and hybrid connectivity.",
+      "Identify cloud service providers and virtual network components",
+      "Configure virtual networks, subnets, and IP address spaces",
+      "Set up network security groups and access controls",
+      "Establish virtual network peering or equivalent connectivity",
+      "Configure hybrid connectivity (VPN, Direct Connect, etc.) to on-premises networks",
+      "Implement load balancing and auto-scaling groups",
+      "Verify cloud network connectivity and security policies",
+      "Test application deployment and connectivity in cloud environment",
+      "Troubleshoot cloud networking issues by checking routing and firewall rules",
+      "Save configurations and verify cloud network operation",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced WAN concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "SD-WAN overlay abstracts transport links",
+      "Application recognition steers traffic",
+      "Policy maps define path preferences",
+      "Tunnel health monitoring triggers failover"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "SD-WAN vs traditional WAN?",
+        "solution": "SD-WAN uses application-aware dynamic path selection over multiple transports."
+      },
+      {
+        "question": "What is a transport profile?",
+        "solution": "Defines link characteristics for path calculation."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up VPN tunnels including DMVPN, GRE over IPSec for secure connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches VPN through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of WAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

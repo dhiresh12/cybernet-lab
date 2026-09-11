@@ -1,0 +1,3976 @@
+[
+  {
+    "id": "142",
+    "title": "Troubleshooting Lab: End-to-End Connectivity",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "50 minutes",
+    "objectives": "Diagnose broken multi-router network.",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "Top-down troubleshooting",
+      "Layer 1-3 checks",
+      "Interface errors",
+      "Routing, ACL, NAT"
+    ],
+    "errors": [
+      {
+        "error": "Intermittent ping",
+        "solution": "Check duplex, routing flaps, ACL logs."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Troubleshooting methodology?",
+        "solution": "Top-down OSI model: application to physical."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "142-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "142-S-08",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-142-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on systematic troubleshooting methodologies for network issues.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-1",
+        "title": "Step 1: Gather information about the reported problem or symptoms...",
+        "instruction": "Gather information about the reported problem or symptoms",
+        "commands": [],
+        "expectedOutput": "Completed: Gather information about the reported problem or symptoms",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-2",
+        "title": "Step 2: Define the problem clearly and establish what should be working...",
+        "instruction": "Define the problem clearly and establish what should be working",
+        "commands": [],
+        "expectedOutput": "Completed: Define the problem clearly and establish what should be working",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-3",
+        "title": "Step 3: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)...",
+        "instruction": "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-4",
+        "title": "Step 4: Check physical layer first (cables, power, interface status)...",
+        "instruction": "Check physical layer first (cables, power, interface status)",
+        "commands": [],
+        "expectedOutput": "Completed: Check physical layer first (cables, power, interface status)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-5",
+        "title": "Step 5: Verify data link layer (VLANs, trunking, MAC addresses)...",
+        "instruction": "Verify data link layer (VLANs, trunking, MAC addresses)",
+        "commands": [],
+        "expectedOutput": "Completed: Verify data link layer (VLANs, trunking, MAC addresses)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-6",
+        "title": "Step 6: Test network layer (IP addressing, routing, ARP)...",
+        "instruction": "Test network layer (IP addressing, routing, ARP)",
+        "commands": [],
+        "expectedOutput": "Completed: Test network layer (IP addressing, routing, ARP)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-7",
+        "title": "Step 7: Check transport and application layers as needed...",
+        "instruction": "Check transport and application layers as needed",
+        "commands": [],
+        "expectedOutput": "Completed: Check transport and application layers as needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-8",
+        "title": "Step 8: Use appropriate diagnostic commands (ping, traceroute, show commands)...",
+        "instruction": "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "commands": [],
+        "expectedOutput": "Completed: Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-9",
+        "title": "Step 9: Document each step and eliminate possibilities systematically...",
+        "instruction": "Document each step and eliminate possibilities systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Document each step and eliminate possibilities systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-10",
+        "title": "Step 10: Implement solution and verify problem resolution...",
+        "instruction": "Implement solution and verify problem resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Implement solution and verify problem resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-11",
+        "title": "Step 11: Perform root cause analysis to prevent recurrence...",
+        "instruction": "Perform root cause analysis to prevent recurrence",
+        "commands": [],
+        "expectedOutput": "Completed: Perform root cause analysis to prevent recurrence",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 11 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-STEP-12",
+        "title": "Step 12: Document troubleshooting process and lessons learned...",
+        "instruction": "Document troubleshooting process and lessons learned",
+        "commands": [],
+        "expectedOutput": "Completed: Document troubleshooting process and lessons learned",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 12 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-142-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on systematic troubleshooting methodologies for network issues.",
+      "Gather information about the reported problem or symptoms",
+      "Define the problem clearly and establish what should be working",
+      "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+      "Check physical layer first (cables, power, interface status)",
+      "Verify data link layer (VLANs, trunking, MAC addresses)",
+      "Test network layer (IP addressing, routing, ARP)",
+      "Check transport and application layers as needed",
+      "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+      "Document each step and eliminate possibilities systematically",
+      "Implement solution and verify problem resolution",
+      "Perform root cause analysis to prevent recurrence",
+      "Document troubleshooting process and lessons learned",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Top-down troubleshooting",
+      "Layer 1-3 checks",
+      "Interface errors",
+      "Routing, ACL, NAT"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Troubleshooting methodology?",
+        "solution": "Top-down OSI model: application to physical."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "143",
+    "title": "Troubleshooting Lab: Routing Protocol Failure",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "45 minutes",
+    "objectives": "Debug OSPF/EIGRP adjacency issues.",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "Check neighbor state",
+      "Verify network statements",
+      "Interface status",
+      "Debug carefully"
+    ],
+    "errors": [
+      {
+        "error": "Adjacency stuck in 2-Way",
+        "solution": "Check DR/BDR priority or neighbor statement."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Common OSPF neighbor failure causes?",
+        "solution": "Area mismatch, subnet mismatch, authentication, MTU."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "143-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "143-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-143-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on systematic troubleshooting methodologies for network issues.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-1",
+        "title": "Step 1: Gather information about the reported problem or symptoms...",
+        "instruction": "Gather information about the reported problem or symptoms",
+        "commands": [],
+        "expectedOutput": "Completed: Gather information about the reported problem or symptoms",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-2",
+        "title": "Step 2: Define the problem clearly and establish what should be working...",
+        "instruction": "Define the problem clearly and establish what should be working",
+        "commands": [],
+        "expectedOutput": "Completed: Define the problem clearly and establish what should be working",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-3",
+        "title": "Step 3: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)...",
+        "instruction": "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-4",
+        "title": "Step 4: Check physical layer first (cables, power, interface status)...",
+        "instruction": "Check physical layer first (cables, power, interface status)",
+        "commands": [],
+        "expectedOutput": "Completed: Check physical layer first (cables, power, interface status)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-5",
+        "title": "Step 5: Verify data link layer (VLANs, trunking, MAC addresses)...",
+        "instruction": "Verify data link layer (VLANs, trunking, MAC addresses)",
+        "commands": [],
+        "expectedOutput": "Completed: Verify data link layer (VLANs, trunking, MAC addresses)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-6",
+        "title": "Step 6: Test network layer (IP addressing, routing, ARP)...",
+        "instruction": "Test network layer (IP addressing, routing, ARP)",
+        "commands": [],
+        "expectedOutput": "Completed: Test network layer (IP addressing, routing, ARP)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-7",
+        "title": "Step 7: Check transport and application layers as needed...",
+        "instruction": "Check transport and application layers as needed",
+        "commands": [],
+        "expectedOutput": "Completed: Check transport and application layers as needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-8",
+        "title": "Step 8: Use appropriate diagnostic commands (ping, traceroute, show commands)...",
+        "instruction": "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "commands": [],
+        "expectedOutput": "Completed: Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-9",
+        "title": "Step 9: Document each step and eliminate possibilities systematically...",
+        "instruction": "Document each step and eliminate possibilities systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Document each step and eliminate possibilities systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-10",
+        "title": "Step 10: Implement solution and verify problem resolution...",
+        "instruction": "Implement solution and verify problem resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Implement solution and verify problem resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-11",
+        "title": "Step 11: Perform root cause analysis to prevent recurrence...",
+        "instruction": "Perform root cause analysis to prevent recurrence",
+        "commands": [],
+        "expectedOutput": "Completed: Perform root cause analysis to prevent recurrence",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 11 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-STEP-12",
+        "title": "Step 12: Document troubleshooting process and lessons learned...",
+        "instruction": "Document troubleshooting process and lessons learned",
+        "commands": [],
+        "expectedOutput": "Completed: Document troubleshooting process and lessons learned",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 12 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-143-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on systematic troubleshooting methodologies for network issues.",
+      "Gather information about the reported problem or symptoms",
+      "Define the problem clearly and establish what should be working",
+      "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+      "Check physical layer first (cables, power, interface status)",
+      "Verify data link layer (VLANs, trunking, MAC addresses)",
+      "Test network layer (IP addressing, routing, ARP)",
+      "Check transport and application layers as needed",
+      "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+      "Document each step and eliminate possibilities systematically",
+      "Implement solution and verify problem resolution",
+      "Perform root cause analysis to prevent recurrence",
+      "Document troubleshooting process and lessons learned",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Check neighbor state",
+      "Verify network statements",
+      "Interface status",
+      "Debug carefully"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Common OSPF neighbor failure causes?",
+        "solution": "Area mismatch, subnet mismatch, authentication, MTU."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "145",
+    "title": "Troubleshooting Lab: Interface Error Analysis",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "30 minutes",
+    "objectives": "Analyze interface counters.",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "Input errors, CRC, giants",
+      "Runts, frame errors",
+      "Late collisions = duplex mismatch",
+      "Output drops = congestion"
+    ],
+    "errors": [
+      {
+        "error": "High late collisions",
+        "solution": "Fix duplex mismatch or bad cable."
+      }
+    ],
+    "questions": [
+      {
+        "question": "What causes CRC errors?",
+        "solution": "Noise, bad cable, duplex mismatch, faulty NIC."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "145-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "145-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "145-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "145-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "145-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "145-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-145-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on systematic troubleshooting methodologies for network issues.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-1",
+        "title": "Step 1: Gather information about the reported problem or symptoms...",
+        "instruction": "Gather information about the reported problem or symptoms",
+        "commands": [],
+        "expectedOutput": "Completed: Gather information about the reported problem or symptoms",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-2",
+        "title": "Step 2: Define the problem clearly and establish what should be working...",
+        "instruction": "Define the problem clearly and establish what should be working",
+        "commands": [],
+        "expectedOutput": "Completed: Define the problem clearly and establish what should be working",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-3",
+        "title": "Step 3: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)...",
+        "instruction": "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-4",
+        "title": "Step 4: Check physical layer first (cables, power, interface status)...",
+        "instruction": "Check physical layer first (cables, power, interface status)",
+        "commands": [],
+        "expectedOutput": "Completed: Check physical layer first (cables, power, interface status)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-5",
+        "title": "Step 5: Verify data link layer (VLANs, trunking, MAC addresses)...",
+        "instruction": "Verify data link layer (VLANs, trunking, MAC addresses)",
+        "commands": [],
+        "expectedOutput": "Completed: Verify data link layer (VLANs, trunking, MAC addresses)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-6",
+        "title": "Step 6: Test network layer (IP addressing, routing, ARP)...",
+        "instruction": "Test network layer (IP addressing, routing, ARP)",
+        "commands": [],
+        "expectedOutput": "Completed: Test network layer (IP addressing, routing, ARP)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-7",
+        "title": "Step 7: Check transport and application layers as needed...",
+        "instruction": "Check transport and application layers as needed",
+        "commands": [],
+        "expectedOutput": "Completed: Check transport and application layers as needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-8",
+        "title": "Step 8: Use appropriate diagnostic commands (ping, traceroute, show commands)...",
+        "instruction": "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "commands": [],
+        "expectedOutput": "Completed: Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-9",
+        "title": "Step 9: Document each step and eliminate possibilities systematically...",
+        "instruction": "Document each step and eliminate possibilities systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Document each step and eliminate possibilities systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-10",
+        "title": "Step 10: Implement solution and verify problem resolution...",
+        "instruction": "Implement solution and verify problem resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Implement solution and verify problem resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-11",
+        "title": "Step 11: Perform root cause analysis to prevent recurrence...",
+        "instruction": "Perform root cause analysis to prevent recurrence",
+        "commands": [],
+        "expectedOutput": "Completed: Perform root cause analysis to prevent recurrence",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 11 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-STEP-12",
+        "title": "Step 12: Document troubleshooting process and lessons learned...",
+        "instruction": "Document troubleshooting process and lessons learned",
+        "commands": [],
+        "expectedOutput": "Completed: Document troubleshooting process and lessons learned",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 12 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-145-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on systematic troubleshooting methodologies for network issues.",
+      "Gather information about the reported problem or symptoms",
+      "Define the problem clearly and establish what should be working",
+      "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+      "Check physical layer first (cables, power, interface status)",
+      "Verify data link layer (VLANs, trunking, MAC addresses)",
+      "Test network layer (IP addressing, routing, ARP)",
+      "Check transport and application layers as needed",
+      "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+      "Document each step and eliminate possibilities systematically",
+      "Implement solution and verify problem resolution",
+      "Perform root cause analysis to prevent recurrence",
+      "Document troubleshooting process and lessons learned",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Input errors, CRC, giants",
+      "Runts, frame errors",
+      "Late collisions = duplex mismatch",
+      "Output drops = congestion"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What causes CRC errors?",
+        "solution": "Noise, bad cable, duplex mismatch, faulty NIC."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "146",
+    "title": "Troubleshooting Lab: CPU and Memory Monitoring",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Identify high CPU/memory causes.",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "show processes cpu sorted",
+      "show memory",
+      "High CPU from debug or protocol",
+      "Memory leaks rare"
+    ],
+    "errors": [
+      {
+        "error": "CPU constantly high",
+        "solution": "Check for debug left on, routing flaps, high traffic."
+      }
+    ],
+    "questions": [
+      {
+        "question": "What causes CPU spike?",
+        "solution": "Routing updates, ACL logging, debug, or attacks."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "146-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "146-S-08",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-146-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on systematic troubleshooting methodologies for network issues.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-1",
+        "title": "Step 1: Gather information about the reported problem or symptoms...",
+        "instruction": "Gather information about the reported problem or symptoms",
+        "commands": [],
+        "expectedOutput": "Completed: Gather information about the reported problem or symptoms",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-2",
+        "title": "Step 2: Define the problem clearly and establish what should be working...",
+        "instruction": "Define the problem clearly and establish what should be working",
+        "commands": [],
+        "expectedOutput": "Completed: Define the problem clearly and establish what should be working",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-3",
+        "title": "Step 3: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)...",
+        "instruction": "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-4",
+        "title": "Step 4: Check physical layer first (cables, power, interface status)...",
+        "instruction": "Check physical layer first (cables, power, interface status)",
+        "commands": [],
+        "expectedOutput": "Completed: Check physical layer first (cables, power, interface status)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-5",
+        "title": "Step 5: Verify data link layer (VLANs, trunking, MAC addresses)...",
+        "instruction": "Verify data link layer (VLANs, trunking, MAC addresses)",
+        "commands": [],
+        "expectedOutput": "Completed: Verify data link layer (VLANs, trunking, MAC addresses)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-6",
+        "title": "Step 6: Test network layer (IP addressing, routing, ARP)...",
+        "instruction": "Test network layer (IP addressing, routing, ARP)",
+        "commands": [],
+        "expectedOutput": "Completed: Test network layer (IP addressing, routing, ARP)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-7",
+        "title": "Step 7: Check transport and application layers as needed...",
+        "instruction": "Check transport and application layers as needed",
+        "commands": [],
+        "expectedOutput": "Completed: Check transport and application layers as needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-8",
+        "title": "Step 8: Use appropriate diagnostic commands (ping, traceroute, show commands)...",
+        "instruction": "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "commands": [],
+        "expectedOutput": "Completed: Use appropriate diagnostic commands (ping, traceroute, show commands)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-9",
+        "title": "Step 9: Document each step and eliminate possibilities systematically...",
+        "instruction": "Document each step and eliminate possibilities systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Document each step and eliminate possibilities systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-10",
+        "title": "Step 10: Implement solution and verify problem resolution...",
+        "instruction": "Implement solution and verify problem resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Implement solution and verify problem resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-11",
+        "title": "Step 11: Perform root cause analysis to prevent recurrence...",
+        "instruction": "Perform root cause analysis to prevent recurrence",
+        "commands": [],
+        "expectedOutput": "Completed: Perform root cause analysis to prevent recurrence",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 11 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-STEP-12",
+        "title": "Step 12: Document troubleshooting process and lessons learned...",
+        "instruction": "Document troubleshooting process and lessons learned",
+        "commands": [],
+        "expectedOutput": "Completed: Document troubleshooting process and lessons learned",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 12 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-146-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on systematic troubleshooting methodologies for network issues.",
+      "Gather information about the reported problem or symptoms",
+      "Define the problem clearly and establish what should be working",
+      "Apply a structured troubleshooting methodology (divide and conquer, top-down/bottom-up)",
+      "Check physical layer first (cables, power, interface status)",
+      "Verify data link layer (VLANs, trunking, MAC addresses)",
+      "Test network layer (IP addressing, routing, ARP)",
+      "Check transport and application layers as needed",
+      "Use appropriate diagnostic commands (ping, traceroute, show commands)",
+      "Document each step and eliminate possibilities systematically",
+      "Implement solution and verify problem resolution",
+      "Perform root cause analysis to prevent recurrence",
+      "Document troubleshooting process and lessons learned",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Monitoring concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "show processes cpu sorted",
+      "show memory",
+      "High CPU from debug or protocol",
+      "Memory leaks rare"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What causes CPU spike?",
+        "solution": "Routing updates, ACL logging, debug, or attacks."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Monitoring?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "195",
+    "title": "Basic Network Troubleshooting",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "30 minutes",
+    "objectives": "Learn basic troubleshooting steps",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "Identify the problem",
+      "Establish theory of probable cause",
+      "Test theory",
+      "Establish plan and solve",
+      "Verify solution",
+      "Document"
+    ],
+    "errors": [
+      {
+        "error": "Skipping steps in troubleshooting",
+        "solution": "Follow systematic approach; don't assume"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the first step in troubleshooting?",
+        "solution": "Identify the problem"
+      },
+      {
+        "question": "What command shows interface status?",
+        "solution": "show interfaces"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "195-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "195-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Identify the problem",
+      "Establish theory of probable cause",
+      "Test theory",
+      "Establish plan and solve",
+      "Verify solution",
+      "Document"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the first step in troubleshooting?",
+        "solution": "Identify the problem"
+      },
+      {
+        "question": "What command shows interface status?",
+        "solution": "show interfaces"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "225",
+    "title": "Basic Network Troubleshooting Scenario",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "35 minutes",
+    "objectives": "Complete troubleshooting scenario",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "PC can't reach server",
+      "Check physical, IP, routing",
+      "Use show commands",
+      "Document findings"
+    ],
+    "errors": [
+      {
+        "error": "Skipping troubleshooting steps",
+        "solution": "Follow systematic approach: identify, gather, isolate, fix, verify"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the first step in troubleshooting?",
+        "solution": "Identify the problem"
+      },
+      {
+        "question": "Why is systematic troubleshooting important?",
+        "solution": "It ensures you don't miss anything and find root cause"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "225-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "225-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "PC can't reach server",
+      "Check physical, IP, routing",
+      "Use show commands",
+      "Document findings"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the first step in troubleshooting?",
+        "solution": "Identify the problem"
+      },
+      {
+        "question": "Why is systematic troubleshooting important?",
+        "solution": "It ensures you don't miss anything and find root cause"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "244",
+    "title": "Troubleshoot Interface Not Coming Up",
+    "category": "Troubleshooting",
+    "level": "basic",
+    "time": "20 min",
+    "difficulty": "basic",
+    "objectives": "Diagnose why a router interface is in down/down state",
+    "scenario": "Diagnose and resolve network connectivity failures using systematic methodology",
+    "concepts": [
+      "down/down = Layer 1 issue",
+      "Check cable, remote device, configuration"
+    ],
+    "errors": [
+      {
+        "error": "Interface down",
+        "solution": "Check cable, remote device, and shutdown status"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does down/down mean?",
+        "solution": "Layer 1 issue - physical problem"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "244-S-01",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-02",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-03",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-04",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-05",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-06",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      },
+      {
+        "stepId": "244-S-07",
+        "title": "Diagnose Network Connectivity Issue",
+        "instruction": "Diagnose Network Connectivity Issue for Troubleshooting",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "show arp",
+          "ping 192.168.1.10",
+          "traceroute 192.168.1.20",
+          "end"
+        ],
+        "expectedOutput": "Issue identified and documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Issue not found",
+            "solution": "Use systematic methodology"
+          }
+        ],
+        "hints": [
+          "Start from physical layer",
+          "Use OSI model top-down"
+        ],
+        "challenge": "Document findings"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Diagnose why a router interface is in down/down state",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "down/down = Layer 1 issue",
+      "Check cable, remote device, configuration"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does down/down mean?",
+        "solution": "Layer 1 issue - physical problem"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What does down/down mean?",
+        "options": [
+          "Layer 1 issue - physical problem",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Layer 1 issue - physical problem"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Diagnose and resolve network connectivity issues systematically",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Troubleshooting through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

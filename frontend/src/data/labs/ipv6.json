@@ -1,0 +1,1603 @@
+[
+  {
+    "id": "119",
+    "title": "Enterprise Lab: IPv6 Addressing and Routing",
+    "category": "IPv6",
+    "level": "intermediate",
+    "time": "45 minutes",
+    "objectives": "Deploy IPv6 with SLAAC and DHCPv6.",
+    "scenario": "Assign IPv6 addresses and configure IPv6 routing and connectivity",
+    "concepts": [
+      "Global unicast",
+      "Link-local fe80::/10",
+      "SLAAC with RA",
+      "DHCPv6 stateful"
+    ],
+    "errors": [
+      {
+        "error": "IPv6 ping fails",
+        "solution": "Check IPv6 address, prefix, neighbor discovery."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Link-local scope?",
+        "solution": "Only same subnet/segment."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "119-S-01",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-02",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-03",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-04",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-05",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-06",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-07",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-08",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "119-S-09",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-119-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-119-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Global unicast",
+      "Link-local fe80::/10",
+      "SLAAC with RA",
+      "DHCPv6 stateful"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Link-local scope?",
+        "solution": "Only same subnet/segment."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Assign IPv6 addresses and configure basic IPv6 connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches IPv6 through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "181",
+    "title": "IPv6 Address Basics",
+    "category": "IPv6",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Learn IPv6 addressing fundamentals",
+    "scenario": "Assign IPv6 addresses and configure IPv6 routing and connectivity",
+    "concepts": [
+      "IPv6 has 128-bit addresses",
+      "Format uses hexadecimal",
+      "Simpler than IPv4 subnetting",
+      "Types: Global, Link-local, Unique local"
+    ],
+    "errors": [
+      {
+        "error": "Wrong IPv6 format",
+        "solution": "IPv6 uses hex groups separated by colons"
+      }
+    ],
+    "questions": [
+      {
+        "question": "How many bits in IPv6?",
+        "solution": "128 bits"
+      },
+      {
+        "question": "What is the link-local prefix in IPv6?",
+        "solution": "fe80::/10"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "181-S-01",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-02",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-03",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-04",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-05",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-06",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-07",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-08",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-09",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "181-S-10",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "IPv6 has 128-bit addresses",
+      "Format uses hexadecimal",
+      "Simpler than IPv4 subnetting",
+      "Types: Global, Link-local, Unique local"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "How many bits in IPv6?",
+        "solution": "128 bits"
+      },
+      {
+        "question": "What is the link-local prefix in IPv6?",
+        "solution": "fe80::/10"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Assign IPv6 addresses and configure basic IPv6 connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches IPv6 through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "240",
+    "title": "Configure IPv6 Address on Interface",
+    "category": "IPv6",
+    "level": "intermediate",
+    "time": "15 min",
+    "difficulty": "intermediate",
+    "objectives": "Set an IPv6 address on a router interface",
+    "scenario": "Assign IPv6 addresses and configure IPv6 routing and connectivity",
+    "concepts": [
+      "IPv6 uses 128-bit addresses",
+      "Link-local starts with FE80",
+      "Global unicast starts with 2000::/3"
+    ],
+    "errors": [
+      {
+        "error": "IPv6 not working",
+        "solution": "Verify ipv6 unicast-routing is enabled"
+      }
+    ],
+    "questions": [
+      {
+        "question": "How many bits in IPv6 address?",
+        "solution": "128 bits"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "240-S-01",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-02",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-03",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-04",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-05",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-06",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-07",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      },
+      {
+        "stepId": "240-S-08",
+        "title": "Configure IPv6 Address on Interface",
+        "instruction": "Configure IPv6 Address on Interface for IPv6",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ipv6 address 2001:db8::1/64",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "IPv6 address configured, interface up",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ipv6 interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "IPv6 not configured",
+            "solution": "Verify IPv6 unicast routing enabled"
+          }
+        ],
+        "hints": [
+          "Use ipv6 address command",
+          "Check link-local addresses"
+        ],
+        "challenge": "Configure multiple IPv6 addresses"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Set an IPv6 address on a router interface",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "IPv6 uses 128-bit addresses",
+      "Link-local starts with FE80",
+      "Global unicast starts with 2000::/3"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "How many bits in IPv6 address?",
+        "solution": "128 bits"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "How many bits in IPv6 address?",
+        "options": [
+          "128 bits",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "128 bits"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Assign IPv6 addresses and configure basic IPv6 connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches IPv6 through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

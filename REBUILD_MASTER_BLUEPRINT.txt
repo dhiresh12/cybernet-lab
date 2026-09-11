@@ -1,0 +1,1116 @@
+CYBERNET LAB - MASTER REBUILD BLUEPRINT
+========================================
+Version: 1.0
+Purpose: A complete implementation contract for rebuilding CyberNet Lab from zero.
+Audience: An AI coding agent, product engineer, or development team.
+Language: English technical specification with simple wording.
+
+IMPORTANT IMPLEMENTATION RULE
+-----------------------------
+Do not build a visually impressive fake simulator. Build only behavior that is
+implemented, testable, and explainable. If a protocol, command, device behavior,
+verification method, or topology is not supported, label it clearly as unsupported
+or conceptual. Never return fake success, invented output, invented devices, or
+invented packet behavior.
+
+This document is the source of truth for the rebuild. Before writing code, the
+implementer must convert this document into a tracked task list and a traceability
+matrix. Every feature must have: data contract, UI location, runtime behavior,
+error state, test, and documentation.
+
+
+1. PRODUCT PURPOSE
+------------------
+CyberNet Lab is a beginner-to-advanced practical learning platform for computer
+networking, network engineering, defensive security, and automation.
+
+The platform must teach this complete engineering loop:
+
+  understand the problem
+  -> inspect the topology and current state
+  -> predict the expected behavior
+  -> plan a safe change
+  -> configure one controlled change
+  -> verify from evidence
+  -> troubleshoot the first failed check
+  -> fix and verify again
+  -> document the result and rollback
+
+The product is not only a command reference. It must teach reasoning, evidence,
+communication, and safe operational practice.
+
+Primary users:
+  A. New student with no networking experience.
+  B. Beginner who knows basic IP and wants guided labs.
+  C. Intermediate student preparing for practical networking work.
+  D. Advanced learner practicing routing, security, observability, and automation.
+  E. Instructor or mentor who needs reliable progress and evidence.
+
+Primary constraints:
+  - Windows, macOS, and Linux development.
+  - Low-resource browser-first mode.
+  - No requirement for real hardware for beginner labs.
+  - Real emulator/container support only when the host can support it.
+  - Safe isolation for security labs.
+  - Honest simulator limits.
+  - Accessible UI and keyboard operation.
+
+
+2. RESEARCH PRINCIPLES TO FOLLOW
+---------------------------------
+Use these principles in product and curriculum decisions:
+
+1. Progressive fidelity:
+   Start with deterministic browser simulation. Later offer protocol simulation,
+   emulators, containers, and VMs. Do not pretend a browser model is a real IOS.
+
+2. Outcomes before tools:
+   A learning objective must remain meaningful even if the student changes from
+   Packet Tracer to GNS3 or another backend.
+
+3. Active learning:
+   Every important activity should follow:
+   predict -> perform -> observe -> explain -> retry -> reflect.
+
+4. Evidence-based troubleshooting:
+   Grade diagnosis, evidence, safe change, verification, and documentation, not
+   command memorization or speed alone.
+
+5. Universal access:
+   Target WCAG 2.2 AA. Provide text alternatives to diagrams, keyboard controls,
+   readable contrast, terminal font controls, and no unnecessary time pressure.
+
+6. Role-based engineering:
+   Map advanced outcomes to NIST NICE roles and skills. Map selected security
+   labs to MITRE ATT&CK techniques without treating ATT&CK coverage as a checklist.
+
+7. Japanese practical pattern:
+   Include recurring incident "fire drill" exercises, role-play, mentor feedback,
+   iteration, and long-running build projects. NICT CYDER and SecHack365 are
+   reference patterns. Do not make unsupported cultural claims about China;
+   obtain primary Chinese-language education sources before localization.
+
+Research references:
+  Cisco Packet Tracer:
+    https://www.netacad.com/cisco-packet-tracer
+  GNS3:
+    https://github.com/GNS3/gns3-server
+    https://github.com/GNS3/gns3-gui
+  NIST NICE:
+    https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center
+  NIST SP 800-115:
+    https://csrc.nist.gov/pubs/sp/800/115/final
+  NIST SP 800-61 Rev. 3:
+    https://csrc.nist.gov/pubs/sp/800/61/r3/final
+  MITRE ATT&CK:
+    https://attack.mitre.org/
+  WCAG 2.2:
+    https://www.w3.org/TR/WCAG22/
+  CAST UDL 3.0:
+    https://udlguidelines.cast.org/
+  OpenTelemetry:
+    https://opentelemetry.io/docs/
+  NICT CYDER:
+    https://cyder.nict.go.jp/
+  NICT SecHack365:
+    https://sechack365.nict.go.jp/
+
+
+3. CURRICULUM AND LEARNING LEVELS
+----------------------------------
+Do not expose hundreds of ungrouped labs as the default learner experience.
+The catalog may contain many labs, but the learner sees a guided path first.
+
+LEVEL 0 - DIGITAL AND CLI FOUNDATIONS
+  - Files, folders, browser, terminal, copy/paste, screenshots.
+  - Windows and Linux network commands.
+  - Decimal, binary, hexadecimal, bits, bytes.
+  - What a device, interface, cable, IP, MAC, and port are.
+  - Authorization, lab safety, and responsible use.
+  - Assessment: identify a device/interface and explain a simple command.
+
+LEVEL 1 - NETWORKING FOUNDATIONS
+  - Ethernet and switching.
+  - IPv4 structure and subnet masks.
+  - Same-subnet communication.
+  - Default gateway.
+  - ARP and ICMP.
+  - Ping and traceroute concepts.
+  - Interface status and basic topology.
+  - Assessment: build a two-host network and prove connectivity.
+
+LEVEL 2 - SWITCHING
+  - VLANs, access ports, trunks.
+  - Native VLAN concept.
+  - Inter-VLAN routing.
+  - MAC address table.
+  - STP purpose and safe verification.
+  - EtherChannel concept.
+  - Port security.
+  - Assessment: isolate departments and verify intended reachability.
+
+LEVEL 3 - ROUTING
+  - Connected, static, and default routes.
+  - Routing table interpretation.
+  - OSPF concepts, neighbors, areas, and route selection.
+  - EIGRP/RIP only when the selected backend actually supports them.
+  - Route failure and convergence concepts.
+  - Assessment: repair a multi-network topology and provide evidence.
+
+LEVEL 4 - SERVICES
+  - DHCP DORA.
+  - DNS resolution.
+  - NAT/PAT.
+  - NTP, syslog, SSH.
+  - HTTP/service reachability.
+  - Service failure troubleshooting.
+
+LEVEL 5 - SECURITY FOUNDATIONS
+  - Authentication and authorization.
+  - Secure management.
+  - ACL logic and first-match behavior.
+  - Segmentation and least privilege.
+  - Port security and logging.
+  - Safe scanning only inside an isolated authorized lab.
+  - Security incident evidence and containment.
+
+LEVEL 6 - ADVANCED ENGINEERING
+  - Multi-site routing.
+  - Redundancy concepts only if simulated truthfully.
+  - VPN concepts.
+  - QoS concepts and measurement.
+  - IPv6.
+  - Network automation, JSON/YAML, APIs, Ansible concepts.
+  - Config backup, diff, rollback, Git workflow.
+  - Packet capture and protocol analysis.
+
+LEVEL 7 - PROFESSIONAL CAPSTONE
+  - Ambiguous ticket or incident.
+  - Multiple plausible causes.
+  - Hidden seeded fault.
+  - Evidence collection.
+  - Smallest safe fix.
+  - Independent verification.
+  - Root-cause report, prevention, and stakeholder summary.
+
+Mastery gates:
+  - A learner may open any lab, but the UI must show missing prerequisites.
+  - Recommended path requires passing the previous gate.
+  - Gates must test transfer to a new topology, not only repeat the same steps.
+  - A gate records attempts, hints, verification evidence, and explanation quality.
+
+
+4. PRODUCT INFORMATION ARCHITECTURE
+------------------------------------
+The application shell contains:
+
+  1. Dashboard
+  2. Virtual Lab
+  3. Learning Path
+  4. Engineer Mode
+  5. Security
+  6. Analytics
+  7. Progress
+  8. Settings
+  9. Command Library
+  10. Persistent Study Deck
+
+Global shell requirements:
+  - Persistent header and navigation.
+  - Current lab and session state must survive navigation.
+  - Study Deck must remain mounted while changing views.
+  - Every async action has loading, success, and error states.
+  - Every destructive action requires confirmation and explains what is lost.
+  - Every unsupported operation explains the limitation and provides an alternate.
+  - Search must find labs, commands, concepts, errors, and devices.
+  - Keyboard focus must be visible.
+  - Screen-reader labels must describe controls, not only icons.
+
+
+5. DASHBOARD SPECIFICATION
+---------------------------
+Purpose:
+  Give the learner a clear starting point, not fake NOC metrics.
+
+Dashboard sections:
+
+  A. Welcome and current role
+     - Learner name or local profile.
+     - Current level.
+     - Recommended next action.
+     - No fabricated organizational statistics.
+
+  B. Continue learning
+     - Current lab.
+     - Current step.
+     - Progress percentage.
+     - Last verification result.
+     - Continue button.
+
+  C. Learning path
+     - Foundation through capstone stages.
+     - Locked, available, in-progress, mastered state.
+     - Explain why a stage is locked.
+
+  D. System status
+     - Frontend status.
+     - Simulation status.
+     - Backend/WebSocket status.
+     - Current lab worker status.
+     - Show "not connected" honestly.
+
+  E. Recent activity
+     - Lab started, step passed, hint used, reset, reflection submitted.
+     - No secrets or full terminal output in analytics by default.
+
+  F. Quick actions
+     - Start recommended lab.
+     - Browse labs.
+     - Open command library.
+     - Start engineer ticket.
+     - Open tutorial.
+
+  G. Optional topology overview
+     - Must be clearly labeled as an educational visualization.
+     - Do not show fake live network metrics.
+     - Status colors must have text/icon equivalents.
+
+Dashboard failure states:
+  - Labs unavailable: show retry and offline catalog option.
+  - Backend unavailable: show which functions still work locally.
+  - No progress: show a real first-step recommendation.
+
+
+6. VIRTUAL LAB AND LAB DETAIL SPECIFICATION
+--------------------------------------------
+Lab Explorer:
+  - Guided path is the default.
+  - Filters: level, category, backend, duration, device type, skill, status.
+  - Search: title, objective, command, concept, error, protocol.
+  - Each card shows:
+      title, level, category, duration, prerequisites,
+      real device count, topology availability,
+      fidelity badge, verification coverage, resource needs.
+  - Do not show a card as "complete" only because it was opened.
+
+Lab Detail tabs:
+  1. Mission
+  2. Required Devices
+  3. Topology and IP Plan
+  4. Configuration
+  5. Verification
+  6. Errors
+  7. Troubleshooting
+  8. Failure Practice
+  9. Questions
+  10. Beginner Tutorial
+  11. Evidence and Report
+  12. Capability and Limitations
+
+Mission:
+  - Objective.
+  - Business/technical scenario.
+  - Why it matters.
+  - Prerequisites.
+  - Estimated time.
+  - What the learner must submit.
+
+Required Devices:
+  - Device name, type, quantity, role.
+  - Required interfaces and ports.
+  - Device source: simulated, container, VM, emulator, or physical.
+  - Resource requirements.
+  - If absent in source data, display "not specified"; never invent.
+
+Topology and IP Plan:
+  - Diagram generated from canonical topology data.
+  - Device key with icon, label, and type.
+  - Link labels and link type.
+  - Text/table equivalent for accessibility.
+  - Addressing table with device, interface, IP, mask/prefix, gateway, VLAN.
+  - Clear blank-data messages.
+
+Configuration:
+  - One step per card.
+  - Target device and target interface.
+  - Why this step exists.
+  - Commands supported by the selected backend.
+  - Copy command button with keyboard support.
+  - Expected prompt/mode.
+  - Expected effect.
+  - Rollback command where safe.
+
+Verification:
+  - A verification checkpoint after each meaningful change.
+  - Show expected result and actual result separately.
+  - Explain what a pass proves and what it does not prove.
+  - Do not award completion for a command that was typed but not verified.
+
+Errors:
+  - Symptom, likely cause, evidence command, fix, verification, rollback.
+  - Separate source-authored errors from generated guidance.
+
+Troubleshooting:
+  - Scope and impact.
+  - Layer-by-layer order.
+  - Hypothesis log.
+  - Evidence collection.
+  - Smallest safe change.
+  - Independent verification.
+  - Root-cause and prevention.
+
+Questions:
+  - At least 15 usable questions for published labs.
+  - Four or more options for MCQ.
+  - Correct answer index must be valid.
+  - Explanations must use lab-specific facts.
+  - Avoid repetitive fallback questions in reviewed capstones.
+
+Evidence and Report:
+  - Command history selected by learner.
+  - Before/after state.
+  - Verification results.
+  - Screenshots or text evidence.
+  - Root cause.
+  - Fix.
+  - Rollback.
+  - Remaining risk.
+  - Export as JSON/text/Markdown.
+
+Capability and Limitations:
+  - Backend name and version.
+  - Supported commands.
+  - Unsupported commands.
+  - Simulated versus real behavior.
+  - Production differences.
+  - Image/license requirements.
+  - Resource requirements.
+  - Reset and isolation behavior.
+
+
+7. LAB DATA CONTRACT
+--------------------
+Every lab must use one canonical schema, regardless of source format.
+
+Required fields:
+  id: stable unique string
+  version: integer
+  title: string
+  slug: string
+  category: string
+  level: foundation|basic|intermediate|advanced|capstone
+  objectives: string[]
+  scenario: string
+  prerequisites: prerequisite[]
+  learningObjectives: outcome[]
+  estimatedMinutes: number
+  tags: string[]
+  niceMappings: string[]
+  attackMappings: string[]
+  backendProfile: backendProfile
+  topology: topology
+  requiredDevices: deviceRequirement[]
+  addressingPlan: addressingEntry[]
+  initialState: initialState
+  steps: labStep[]
+  seededFaults: fault[]
+  verification: verificationDefinition[]
+  questions: question[]
+  evidenceRequirements: evidenceRequirement[]
+  rubric: rubric
+  resetPolicy: resetPolicy
+  limitations: limitation[]
+  qualityStatus: draft|review|published|quarantined
+
+backendProfile:
+  type: browser-simulation|packet-tracer|gns3|container|vm|physical
+  requiredCapabilities: string[]
+  supportedCommands: string[]
+  unsupportedCommands: string[]
+  fidelity: concept|protocol|cli|emulator|real-system
+  cpuMb: number
+  memoryMb: number
+  requiresImage: boolean
+  imageLicenseNote: string
+
+topology:
+  devices: device[]
+  connections: connection[]
+  interfaces: interfaceDefinition[]
+  diagramLayout: optional layout
+  textDescription: string
+
+device:
+  id, name, type, role, vendor, model, interfaces, managementAccess
+
+connection:
+  id, fromDevice, fromInterface, toDevice, toInterface, type, status
+
+labStep:
+  id, order, title, phase, targetDevice, targetInterface
+  instruction, why, commands, supportedModes
+  predictionPrompt, expectedOutput, expectedState
+  verification, hints, commonMistakes, rollback
+  completionCondition, evidenceRequired
+
+Never allow raw legacy data to render directly. Normalize it first, validate it,
+and mark missing/uncertain fields.
+
+
+8. RUNTIME ARCHITECTURE
+-----------------------
+Use one authoritative runtime state per session.
+
+Recommended layers:
+
+  frontend/
+    app shell and views
+    feature modules
+    accessible components
+    API client
+    WebSocket client
+
+  domain/
+    canonical lab model
+    state machine
+    command contracts
+    verification contracts
+    scoring contracts
+
+  simulation/
+    browser deterministic simulation
+    protocol models
+    packet/event model
+    device adapters
+
+  workers/
+    container/VM/emulator orchestration
+    never run untrusted lab workloads in the web process
+
+  backend/
+    REST API
+    WebSocket session events
+    session ownership
+    lab catalog
+    verification service
+    evidence service
+    telemetry
+
+State rules:
+  - One session has one authoritative device state.
+  - UI state is a projection, never a second source of truth.
+  - Every state mutation has an event and timestamp.
+  - Reset restores a versioned initial snapshot.
+  - A command result includes command, target, mode, output, state change,
+    verification impact, and error category.
+  - Backend and frontend use the same verification contract.
+
+Avoid:
+  - three competing device stores;
+  - verification that always returns success;
+  - UI-only progress;
+  - command handlers that are registered but not used;
+  - dead duplicate components without an archive note.
+
+
+9. COMMAND SYSTEM
+-----------------
+The command registry is the single source for:
+  - command parsing;
+  - required mode;
+  - aliases;
+  - target device type;
+  - syntax;
+  - state mutation;
+  - output;
+  - errors;
+  - verification hooks;
+  - documentation.
+
+Every command must have:
+  name
+  aliases
+  requiredMode
+  acceptedDeviceTypes
+  syntax
+  argument parser
+  handler
+  state mutation contract
+  output contract
+  error contract
+  verification examples
+  rollback behavior
+  support status
+
+Initial supported groups:
+  - mode navigation
+  - show commands
+  - hostname
+  - interface/IP
+  - VLAN/access/trunk
+  - static/default routing
+  - DHCP
+  - NAT
+  - ACL
+  - SSH
+  - port security
+  - selected OSPF features only if fully implemented
+
+If a command is not implemented:
+  - return an explicit unsupported-command result;
+  - explain whether it is planned, conceptual, or requires another backend;
+  - never imitate a successful device response.
+
+
+10. VERIFICATION AND SCORING
+----------------------------
+Verification types:
+  - cli_output
+  - state_check
+  - topology_check
+  - interface_check
+  - addressing_check
+  - route_check
+  - ping/connectivity
+  - service_check
+  - configuration_diff
+  - evidence_submission
+  - reflection
+
+Every verifier returns:
+  passed
+  verifierVersion
+  message
+  expected
+  actual
+  evidence
+  affectedDevices
+  hint
+  limitations
+  score
+
+Verification must fail safely:
+  - missing state is not a pass;
+  - unavailable simulation is not a pass;
+  - unsupported verification is clearly shown;
+  - error details are useful to the learner;
+  - no broad silent catch.
+
+Scoring:
+  - configuration correctness
+  - reasoning/prediction
+  - evidence quality
+  - verification
+  - safe change
+  - documentation
+  - reflection
+  - hint usage as a learning signal, not a punishment
+
+Do not make speed the main score. Offer untimed learning mode.
+
+
+11. ENGINEER MODE
+-----------------
+Engineer Mode is ticket-based, not a static checklist.
+
+Workflow:
+  1. Read ticket.
+  2. Confirm authorization and scope.
+  3. Inspect topology and baseline.
+  4. Define impact and affected users.
+  5. Write two or more hypotheses.
+  6. Collect evidence.
+  7. Choose smallest safe change.
+  8. Configure.
+  9. Verify independently.
+  10. Document root cause, rollback, and prevention.
+
+Ticket types:
+  - branch connectivity loss
+  - VLAN isolation failure
+  - DHCP outage
+  - DNS resolution failure
+  - route missing
+  - ACL blocks approved service
+  - SSH management unavailable
+  - suspicious traffic investigation
+  - change request with rollback
+
+Engineer Mode must show:
+  - ticket severity;
+  - scope;
+  - time window without forcing a timer;
+  - allowed tools;
+  - prohibited actions;
+  - success criteria;
+  - evidence rubric;
+  - post-incident report.
+
+
+12. SECURITY MODE
+-----------------
+Security labs must be authorized and isolated.
+
+Every security lab includes:
+  - rules of engagement;
+  - exact synthetic target scope;
+  - prohibited external targets;
+  - default-deny network egress;
+  - reset/teardown;
+  - expected evidence;
+  - defensive mitigation;
+  - debrief.
+
+Tracks:
+  A. Security foundations
+     Authentication, permissions, logs, network segmentation, secure management.
+  B. Blue team
+     Alert triage, PCAP, DNS anomaly, firewall logs, timeline, detection, IR.
+  C. Safe offensive learning
+     Only isolated synthetic targets, with scope and remediation.
+  D. Network security
+     ACL, port security, SSH, NAT boundary, VPN concepts.
+
+Store ATT&CK technique ID and version only where the lab genuinely demonstrates
+the technique. Do not pursue matrix coverage for its own sake.
+
+
+13. LEARNING PATH
+-----------------
+Learning Path shows:
+  - stage;
+  - skills;
+  - labs;
+  - prerequisite graph;
+  - mastery evidence;
+  - remediation labs;
+  - transfer challenge;
+  - capstone connection.
+
+Each skill status:
+  not_started
+  introduced
+  practiced
+  verified
+  transferred
+  mastered
+
+The learner must be able to see:
+  - why a lab is recommended;
+  - what skill it teaches;
+  - what previous knowledge it needs;
+  - how it connects to real work;
+  - what to do after failure.
+
+
+14. ANALYTICS AND PROGRESS
+--------------------------
+Student progress:
+  - completed labs;
+  - verified skills;
+  - transfer performance;
+  - hints;
+  - retries;
+  - resets;
+  - reflection quality;
+  - evidence quality;
+  - time-to-first-success (informational only);
+  - unsafe changes;
+  - common misconceptions.
+
+Instructor analytics:
+  - cohort progress;
+  - stuck steps;
+  - failed verification clusters;
+  - lab quality problems;
+  - infrastructure failures;
+  - accessibility completion.
+
+Privacy:
+  - do not store secrets;
+  - redact credentials;
+  - separate operational telemetry from grading;
+  - define retention;
+  - restrict access by role;
+  - provide export/delete controls where applicable.
+
+Use correlation IDs for lab/session/worker events. OpenTelemetry may be used for
+traces, metrics, and logs, but telemetry must be protected because it can contain
+PII, application data, and network patterns.
+
+
+15. APPEARANCE, THEMES, BACKGROUNDS, PANELS
+--------------------------------------------
+The visual style should be inspired by a professional NOC/SOC, not a fake
+corporate dashboard with invented metrics.
+
+Design modes:
+
+  DARK NOC NEON
+    dark navy background, cyan/blue/purple accents, glass panels, topology focus.
+
+  OPERATIONS LIGHT
+    light gray/white panels, readable navy text, blue status, low visual fatigue.
+
+  SERVER ROOM CONSOLE
+    dark charcoal, amber terminal accents, square panels, equipment-console feel.
+
+Design mode requirements:
+  - changes actual background, panel surfaces, borders, text, buttons, cards,
+    tables, topology, tabs, navigation, and Study Deck;
+  - persists in local storage;
+  - applies to every view;
+  - works with theme selection;
+  - has contrast validation;
+  - does not depend only on CSS variable names that are overridden later;
+  - browser test must compare visible styles after switching.
+
+Theme options:
+  - Cyber Blue
+  - Emerald Matrix
+  - Crimson Command
+  - Purple Galaxy
+  - Deep Space
+  - Neon Cyan
+  - Stealth
+
+Background requirements:
+  - background is decorative and optional;
+  - animation toggle must stop animation loops, not only CSS transitions;
+  - static fallback must exist;
+  - WebGL failure must not break the application;
+  - backgrounds must not reduce text contrast;
+  - use no fake operational metrics.
+
+Invert:
+  - should be an accessibility/high-contrast alternative;
+  - avoid destructive inversion of topology and images where possible;
+  - test readable labels and controls after enabling.
+
+
+16. MUSIC / STUDY DECK
+----------------------
+Purpose:
+  Optional focus support. It must never interfere with learning or navigation.
+
+Behavior:
+  - floating compact panel in a corner;
+  - remains mounted across routes;
+  - real bundled tracks only;
+  - focus tones separated from songs;
+  - play/pause;
+  - mute;
+  - volume;
+  - track selection;
+  - persistent selected track and volume;
+  - browser autoplay policy handled honestly;
+  - audio errors visible;
+  - keyboard accessible;
+  - mobile layout.
+
+Focus categories:
+  - Focus Pulse
+  - Focus Drift
+  - Deep Focus
+  - project songs
+  - None
+
+Do not claim music is required for learning. Provide a simple off state.
+
+
+17. ACCESSIBILITY AND BEGINNER SUPPORT
+--------------------------------------
+Target WCAG 2.2 AA:
+  - all controls keyboard accessible;
+  - visible focus;
+  - semantic headings;
+  - labels for form controls;
+  - error messages connected to inputs;
+  - no color-only status;
+  - topology has text/table equivalent;
+  - terminal has readable font-size and contrast controls;
+  - focus mode does not hide necessary information;
+  - no forced timer for learning;
+  - responsive reflow;
+  - reduced-motion support;
+  - captions/transcripts if media is added.
+
+Beginner tutorial:
+  - explain the screen;
+  - explain device and interface names;
+  - explain mode prompts;
+  - show one safe command;
+  - explain expected output;
+  - show how to reset;
+  - show how to ask for a hint;
+  - show how to read an error;
+  - show how to produce evidence.
+
+Use simple English first. Show advanced detail on demand.
+
+
+18. SECURE INFRASTRUCTURE AND DEPLOYMENT
+----------------------------------------
+Browser simulation:
+  - deterministic;
+  - no host access;
+  - bounded memory;
+  - resettable;
+  - testable in CI.
+
+Container/VM/emulator workers:
+  - separate worker service, never inside web process;
+  - per-user or per-team ephemeral worker;
+  - default-deny egress;
+  - management network separated from learner network;
+  - no host filesystem mounts;
+  - CPU, memory, process, disk, and time quotas;
+  - signed/scanned/patched images;
+  - short-lived credentials;
+  - snapshots and guaranteed teardown;
+  - emergency kill/reset;
+  - audit events;
+  - image/license tracking.
+
+Deployment environments:
+  A. local development: frontend + backend.
+  B. single-machine classroom: local catalog and browser simulation.
+  C. hosted simulation: API, WebSocket, database/cache, worker pool.
+  D. advanced range: isolated worker cluster with emulator/VM support.
+
+Configuration:
+  - environment variables for URLs and ports;
+  - never commit secrets;
+  - health endpoint;
+  - readiness endpoint;
+  - migration/version check;
+  - graceful shutdown;
+  - backup and restore;
+  - rate limits;
+  - authentication and role authorization before multi-user deployment.
+
+
+19. BUILD ORDER FROM ZERO
+--------------------------
+PHASE 0 - SPEC AND REPOSITORY
+  - Create monorepo structure.
+  - Add TypeScript or strict JSDoc types.
+  - Add lint, format, unit test, integration test, and build commands.
+  - Add architecture decision records.
+  - Add traceability matrix.
+
+PHASE 1 - CANONICAL DOMAIN
+  - Implement Lab schema.
+  - Implement schema validation.
+  - Implement catalog manifest.
+  - Implement versioned lab data.
+  - Add quality report and quarantine status.
+
+PHASE 2 - DETERMINISTIC SIMULATOR
+  - Implement one authoritative session state.
+  - Implement devices, interfaces, links, addresses.
+  - Implement mode-aware command registry.
+  - Implement explicit unsupported command behavior.
+  - Implement snapshot/reset.
+
+PHASE 3 - VERIFICATION
+  - Implement state, topology, CLI, address, route, service, and ping verifiers.
+  - Use the same contracts in frontend/backend.
+  - Add tests for pass, fail, missing state, and unsupported state.
+
+PHASE 4 - BEGINNER UX
+  - Build shell, dashboard, lab explorer, lab detail, tutorial.
+  - Build topology diagram and device key.
+  - Build step workflow and verification checkpoints.
+  - Add accessibility and responsive tests.
+
+PHASE 5 - CURRICULUM
+  - Add guided path, prerequisites, mastery gates, remediation.
+  - Add authored labs for Level 0 through Level 3.
+  - Add transfer tasks.
+
+PHASE 6 - ENGINEER AND SECURITY
+  - Add ticket workflow.
+  - Add hypothesis/evidence log.
+  - Add seeded faults.
+  - Add security rules of engagement.
+  - Add evidence report and scoring rubric.
+
+PHASE 7 - SERVICES AND ADVANCED
+  - Add services labs, packet flow, logs, PCAP.
+  - Add automation/API labs.
+  - Add emulator/container worker adapters only after isolation is proven.
+
+PHASE 8 - DASHBOARD EXPERIENCE
+  - Add real progress and analytics.
+  - Add theme, background, design modes.
+  - Add Study Deck.
+  - Add reduced motion, low-resource mode, accessibility controls.
+
+PHASE 9 - RELEASE
+  - Run full tests.
+  - Run browser smoke path.
+  - Validate all published labs.
+  - Verify reset, isolation, permissions, and teardown.
+  - Build production assets.
+  - Deploy to staging.
+  - Run student pilot.
+  - Fix observed confusion before adding more labs.
+
+
+20. TESTING AND ACCEPTANCE CRITERIA
+------------------------------------
+Unit tests:
+  - schema validation;
+  - normalization;
+  - command parsing;
+  - mode restrictions;
+  - state transitions;
+  - reset;
+  - each verifier;
+  - scoring;
+  - hint progression;
+  - storage persistence.
+
+Integration tests:
+  - start lab;
+  - create devices;
+  - connect topology;
+  - configure;
+  - verify;
+  - inject fault;
+  - troubleshoot;
+  - fix;
+  - reset;
+  - session isolation;
+  - unauthorized session access denied.
+
+Browser tests:
+  - first-time beginner flow;
+  - keyboard-only lab;
+  - topology and device key;
+  - required devices;
+  - configuration and verification;
+  - error and troubleshooting;
+  - question options and explanations;
+  - Engineer Mode ticket;
+  - Security rules of engagement;
+  - theme/design switching visibly changes panels;
+  - Study Deck persists across navigation;
+  - reduced motion;
+  - WebGL failure fallback;
+  - mobile layout.
+
+Content quality gates:
+  - no duplicate lab IDs;
+  - no invalid level/category;
+  - every published lab has objective, steps, verification, limitations;
+  - every physical lab has topology or explicit not-applicable status;
+  - every required device is present in topology;
+  - every command is supported by selected backend;
+  - every expected output is generated by the verifier or labeled illustrative;
+  - every question has valid options and correct index;
+  - every security lab has authorization and reset instructions.
+
+Release must fail if:
+  - build fails;
+  - critical tests fail;
+  - verification can pass without evidence;
+  - one learner can access another learner's session;
+  - unsupported command returns fake success;
+  - a published lab has invented topology/device data;
+  - worker teardown is not guaranteed.
+
+
+21. STUDENT PROBLEM MATRIX
+---------------------------
+Problem: "I do not know where to start."
+  Fix: recommended path, first lab, beginner tutorial, visible next action.
+
+Problem: "I typed the command but nothing makes sense."
+  Fix: target device, mode prompt, expected state, explanation, verification.
+
+Problem: "Topology and command do not match."
+  Fix: canonical lab validator and step-to-device/interface references.
+
+Problem: "Ping failed; I changed everything."
+  Fix: hypothesis log and layer-by-layer troubleshooting checklist.
+
+Problem: "The simulator says success but Packet Tracer differs."
+  Fix: fidelity badge, capability matrix, production-difference panel.
+
+Problem: "There are too many labs."
+  Fix: guided curriculum, filters, prerequisite graph, curated first 20 labs.
+
+Problem: "I cannot see which device is which."
+  Fix: topology key, device role, interface table, text equivalent.
+
+Problem: "I forgot what I changed."
+  Fix: command history, before/after diff, evidence export, rollback.
+
+Problem: "I have a slow computer."
+  Fix: browser simulation, low-resource mode, no WebGL requirement for core labs.
+
+Problem: "I am afraid to break something."
+  Fix: isolated session, reset, snapshots, safe-failure labels, no host access.
+
+Problem: "I cannot use the mouse or distinguish colors."
+  Fix: keyboard navigation, focus indicators, text/icons, accessible diagrams.
+
+Problem: "I learned commands but cannot solve a new problem."
+  Fix: transfer labs, hidden faults, prediction, reflection, capstones.
+
+
+22. AI IMPLEMENTATION INSTRUCTIONS
+-----------------------------------
+When an AI agent receives this file:
+
+1. Inspect the repository before editing.
+2. Create a file map and dependency map.
+3. Identify active versus legacy code.
+4. Do not delete existing user work.
+5. Build the canonical schema and validation before adding UI.
+6. Implement one vertical slice: one beginner lab from catalog to reset.
+7. Add tests before expanding to more labs.
+8. Never generate data that is not supported by a source or explicit model.
+9. Use small, reviewable commits or checkpoints.
+10. After each phase run targeted tests, build, and browser smoke tests.
+11. Keep an implementation ledger mapping each requirement to files and tests.
+12. Stop and report a limitation instead of silently approximating behavior.
+
+For every feature, answer:
+  - What student problem does it solve?
+  - Where does its data come from?
+  - What is the source of truth?
+  - What happens on missing data?
+  - What happens on unsupported behavior?
+  - How is it reset?
+  - How is it tested?
+  - How is it accessible?
+  - How is it secured?
+
+The AI must not claim the entire rebuild is complete until:
+  - all acceptance criteria pass;
+  - all published labs pass content validation;
+  - the beginner vertical slice works end-to-end;
+  - advanced unsupported features are labeled;
+  - deployment and rollback are documented;
+  - browser testing covers every major navigation surface.
+
+
+23. FINAL PRODUCT DEFINITION
+----------------------------
+The rebuilt CyberNet Lab is successful when:
+
+  - a new student can start without prior networking knowledge;
+  - an intermediate learner can practice real configuration reasoning;
+  - an advanced learner can investigate ambiguous faults and produce evidence;
+  - the platform never hides simulator limitations;
+  - every lab has truthful data, topology/device clarity, and executable checks;
+  - security labs are isolated and authorized;
+  - instructors can see skill evidence, not only completion;
+  - the UI is accessible, responsive, and visually consistent;
+  - themes, backgrounds, panels, and Study Deck are optional enhancements;
+  - the learning experience remains useful even if all decorative features are off.
+
+END OF BLUEPRINT

@@ -1,0 +1,1641 @@
+[
+  {
+    "id": "81",
+    "title": "VLAN Lab: Trunk Port Configuration",
+    "category": "Trunking",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Configure trunk between switches.",
+    "scenario": "Configure 802.1Q trunk links between switches to carry multiple VLAN traffic",
+    "concepts": [
+      "switchport mode trunk",
+      "802.1Q tagging",
+      "Native VLAN untagged",
+      "Allowed VLAN list"
+    ],
+    "errors": [
+      {
+        "error": "Trunk not forming",
+        "solution": "Check encapsulation and matching native/allowed VLANs."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Default native VLAN?",
+        "solution": "VLAN 1."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "81-S-01",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-02",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-03",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-04",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-05",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-06",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-07",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-08",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "81-S-09",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-81-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-1",
+        "title": "Step 1: Identify all switches and their interconnections in the topology...",
+        "instruction": "Identify all switches and their interconnections in the topology",
+        "commands": [],
+        "expectedOutput": "Completed: Identify all switches and their interconnections in the topology",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-2",
+        "title": "Step 2: Configure IP addresses on management interfaces if applicable...",
+        "instruction": "Configure IP addresses on management interfaces if applicable",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on management interfaces if applicable",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-3",
+        "title": "Step 3: Create and name VLANs according to lab requirements...",
+        "instruction": "Create and name VLANs according to lab requirements",
+        "commands": [],
+        "expectedOutput": "Completed: Create and name VLANs according to lab requirements",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-4",
+        "title": "Step 4: Assign switch ports to appropriate VLANs (access mode)...",
+        "instruction": "Assign switch ports to appropriate VLANs (access mode)",
+        "commands": [],
+        "expectedOutput": "Completed: Assign switch ports to appropriate VLANs (access mode)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-5",
+        "title": "Step 5: Configure trunk ports between switches to carry multiple VLANs...",
+        "instruction": "Configure trunk ports between switches to carry multiple VLANs",
+        "commands": [],
+        "expectedOutput": "Completed: Configure trunk ports between switches to carry multiple VLANs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-6",
+        "title": "Step 6: Set trunk encapsulation and allowed VLAN lists...",
+        "instruction": "Set trunk encapsulation and allowed VLAN lists",
+        "commands": [],
+        "expectedOutput": "Completed: Set trunk encapsulation and allowed VLAN lists",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-7",
+        "title": "Step 7: Verify VLAN database and port assignments...",
+        "instruction": "Verify VLAN database and port assignments",
+        "commands": [],
+        "expectedOutput": "Completed: Verify VLAN database and port assignments",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-8",
+        "title": "Step 8: Test inter-VLAN communication (requires router or Layer 3 switch)...",
+        "instruction": "Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-9",
+        "title": "Step 9: Configure and verify spanning tree protocol if enabled...",
+        "instruction": "Configure and verify spanning tree protocol if enabled",
+        "commands": [],
+        "expectedOutput": "Completed: Configure and verify spanning tree protocol if enabled",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-STEP-10",
+        "title": "Step 10: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership...",
+        "instruction": "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-81-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+      "Identify all switches and their interconnections in the topology",
+      "Configure IP addresses on management interfaces if applicable",
+      "Create and name VLANs according to lab requirements",
+      "Assign switch ports to appropriate VLANs (access mode)",
+      "Configure trunk ports between switches to carry multiple VLANs",
+      "Set trunk encapsulation and allowed VLAN lists",
+      "Verify VLAN database and port assignments",
+      "Test inter-VLAN communication (requires router or Layer 3 switch)",
+      "Configure and verify spanning tree protocol if enabled",
+      "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Trunking concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "switchport mode trunk",
+      "802.1Q tagging",
+      "Native VLAN untagged",
+      "Allowed VLAN list"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Default native VLAN?",
+        "solution": "VLAN 1."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure trunk links to carry traffic for multiple VLANs between switches",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Trunking through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Trunking?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "190",
+    "title": "Basic Trunk Configuration",
+    "category": "Trunking",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Configure trunk links between switches",
+    "scenario": "Configure 802.1Q trunk links between switches to carry multiple VLAN traffic",
+    "concepts": [
+      "Trunk carries multiple VLANs",
+      "802.1Q is the standard",
+      "Tagging identifies which VLAN each frame belongs to",
+      "Native VLAN is untagged"
+    ],
+    "errors": [
+      {
+        "error": "Trunk not carrying VLANs",
+        "solution": "Check allowed VLAN list and native VLAN settings"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What protocol is used for trunking?",
+        "solution": "802.1Q"
+      },
+      {
+        "question": "What is a native VLAN?",
+        "solution": "VLAN whose traffic is not tagged on a trunk"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "190-S-01",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-02",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-03",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-04",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-05",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-06",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-07",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-08",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-09",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "190-S-10",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Trunking concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Trunk carries multiple VLANs",
+      "802.1Q is the standard",
+      "Tagging identifies which VLAN each frame belongs to",
+      "Native VLAN is untagged"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What protocol is used for trunking?",
+        "solution": "802.1Q"
+      },
+      {
+        "question": "What is a native VLAN?",
+        "solution": "VLAN whose traffic is not tagged on a trunk"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure trunk links to carry traffic for multiple VLANs between switches",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Trunking through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Trunking?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "226",
+    "title": "Configure 802.1Q Trunk Between Two Switches",
+    "category": "Trunking",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "difficulty": "intermediate",
+    "objectives": "Configure an 802.1Q trunk link between two switches to carry multiple VLANs",
+    "scenario": "Configure 802.1Q trunk links between switches to carry multiple VLAN traffic",
+    "concepts": [
+      "Trunk mode",
+      "802.1Q",
+      "VLAN tagging"
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "devices": [
+      "Switch0",
+      "Switch1"
+    ],
+    "connections": [
+      "Switch0 Gi0/1 -> Switch1 Gi0/1"
+    ],
+    "ipScheme": "10.10.10.0/24",
+    "ipTable": [
+      {
+        "device": "Switch0",
+        "interface": "VLAN 99",
+        "ip": "10.10.10.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Switch1",
+        "interface": "VLAN 99",
+        "ip": "10.10.10.2",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure trunk link between two switches",
+    "steps": [
+      {
+        "stepId": "226-S-01",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-02",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-03",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-04",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-05",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-06",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-07",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-08",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      },
+      {
+        "stepId": "226-S-09",
+        "title": "Configure 802.1Q Trunk Between Switches",
+        "instruction": "Configure 802.1Q Trunk Between Switches for Trunking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/1",
+          "switchport mode trunk",
+          "switchport trunk encapsulation dot1q",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "802.1Q trunk configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show interfaces trunk"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Trunk not forming",
+            "solution": "Verify encapsulation matches on both ends"
+          }
+        ],
+        "hints": [
+          "Use dot1q encapsulation",
+          "Verify with show interfaces trunk"
+        ],
+        "challenge": "Configure allowed VLAN list"
+      }
+    ],
+    "errors": [
+      {
+        "error": "Trunk not coming up",
+        "solution": "Check both sides are set to trunk mode"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What encapsulation is used for trunking?",
+        "solution": "802.1Q"
+      }
+    ],
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Use show interfaces trunk to verify",
+      "Check both sides match"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VLAN concepts to optimize network performance",
+    "solution": "Configure both sides with switchport mode trunk and matching allowed VLANs",
+    "keyConcepts": [
+      "802.1Q trunking",
+      "VLAN tagging",
+      "Native VLAN"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the default native VLAN?",
+        "solution": "VLAN 1"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Which standard is used for trunking?",
+        "options": [
+          "802.1Q",
+          "802.3",
+          "802.11"
+        ],
+        "correct": "802.1Q"
+      }
+    ],
+    "topology": "Switch0 Gi0/1 -> Switch1 Gi0/1",
+    "packetTracer": {
+      "devices": [
+        "Switch0",
+        "Switch1"
+      ],
+      "connections": [
+        "Switch0 Gi0/1 -> Switch1 Gi0/1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure trunk links to carry traffic for multiple VLANs between switches",
+    "deviceList": [
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "Switch1",
+        "type": "switch"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Switch0",
+        "interface": "VLAN 99",
+        "ip": "10.10.10.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Switch1",
+        "interface": "VLAN 99",
+        "ip": "10.10.10.2",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Trunking through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VLAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

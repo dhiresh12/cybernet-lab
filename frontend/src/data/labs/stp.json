@@ -1,0 +1,2513 @@
+[
+  {
+    "id": "86",
+    "title": "VLAN Lab: Spanning Tree Protocol Basics",
+    "category": "STP",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Observe STP operation.",
+    "scenario": "Configure Spanning Tree Protocol to prevent broadcast loops in a switched network",
+    "concepts": [
+      "STP prevents Layer 2 loops",
+      "Root bridge by lowest Bridge ID",
+      "Root port and designated port",
+      "Blocking port provides redundancy"
+    ],
+    "errors": [
+      {
+        "error": "Network loop when adding redundant link",
+        "solution": "STP should block one port; verify enabled."
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does STP block?",
+        "solution": "One or more ports in redundant topology."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "86-S-01",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-02",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-03",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-04",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-05",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-06",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-07",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-08",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-09",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "86-S-10",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-86-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-1",
+        "title": "Step 1: Identify all switches and their interconnections in the topology...",
+        "instruction": "Identify all switches and their interconnections in the topology",
+        "commands": [],
+        "expectedOutput": "Completed: Identify all switches and their interconnections in the topology",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-2",
+        "title": "Step 2: Configure IP addresses on management interfaces if applicable...",
+        "instruction": "Configure IP addresses on management interfaces if applicable",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on management interfaces if applicable",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-3",
+        "title": "Step 3: Create and name VLANs according to lab requirements...",
+        "instruction": "Create and name VLANs according to lab requirements",
+        "commands": [],
+        "expectedOutput": "Completed: Create and name VLANs according to lab requirements",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-4",
+        "title": "Step 4: Assign switch ports to appropriate VLANs (access mode)...",
+        "instruction": "Assign switch ports to appropriate VLANs (access mode)",
+        "commands": [],
+        "expectedOutput": "Completed: Assign switch ports to appropriate VLANs (access mode)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-5",
+        "title": "Step 5: Configure trunk ports between switches to carry multiple VLANs...",
+        "instruction": "Configure trunk ports between switches to carry multiple VLANs",
+        "commands": [],
+        "expectedOutput": "Completed: Configure trunk ports between switches to carry multiple VLANs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-6",
+        "title": "Step 6: Set trunk encapsulation and allowed VLAN lists...",
+        "instruction": "Set trunk encapsulation and allowed VLAN lists",
+        "commands": [],
+        "expectedOutput": "Completed: Set trunk encapsulation and allowed VLAN lists",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-7",
+        "title": "Step 7: Verify VLAN database and port assignments...",
+        "instruction": "Verify VLAN database and port assignments",
+        "commands": [],
+        "expectedOutput": "Completed: Verify VLAN database and port assignments",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-8",
+        "title": "Step 8: Test inter-VLAN communication (requires router or Layer 3 switch)...",
+        "instruction": "Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-9",
+        "title": "Step 9: Configure and verify spanning tree protocol if enabled...",
+        "instruction": "Configure and verify spanning tree protocol if enabled",
+        "commands": [],
+        "expectedOutput": "Completed: Configure and verify spanning tree protocol if enabled",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-STEP-10",
+        "title": "Step 10: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership...",
+        "instruction": "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-86-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+      "Identify all switches and their interconnections in the topology",
+      "Configure IP addresses on management interfaces if applicable",
+      "Create and name VLANs according to lab requirements",
+      "Assign switch ports to appropriate VLANs (access mode)",
+      "Configure trunk ports between switches to carry multiple VLANs",
+      "Set trunk encapsulation and allowed VLAN lists",
+      "Verify VLAN database and port assignments",
+      "Test inter-VLAN communication (requires router or Layer 3 switch)",
+      "Configure and verify spanning tree protocol if enabled",
+      "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Switching concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "STP prevents Layer 2 loops",
+      "Root bridge by lowest Bridge ID",
+      "Root port and designated port",
+      "Blocking port provides redundancy"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does STP block?",
+        "solution": "One or more ports in redundant topology."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure Spanning Tree Protocol to prevent switching loops in redundant topologies",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches STP through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Switching?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "87",
+    "title": "VLAN Lab: Rapid PVST+ and PortFast",
+    "category": "STP",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Enable RSTP and PortFast.",
+    "scenario": "Configure Spanning Tree Protocol to prevent broadcast loops in a switched network",
+    "concepts": [
+      "RSTP converges in seconds",
+      "PortFast skips listening/learning",
+      "Edge port assumption",
+      "BPDU guard protects"
+    ],
+    "errors": [
+      {
+        "error": "PortFast causes loop with rogue switch",
+        "solution": "Enable BPDU guard on PortFast ports."
+      }
+    ],
+    "questions": [
+      {
+        "question": "PortFast safe for which ports?",
+        "solution": "End-device access ports only."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "87-S-01",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-02",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-03",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-04",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-05",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-06",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-07",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-08",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "87-S-09",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-87-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-1",
+        "title": "Step 1: Identify all switches and their interconnections in the topology...",
+        "instruction": "Identify all switches and their interconnections in the topology",
+        "commands": [],
+        "expectedOutput": "Completed: Identify all switches and their interconnections in the topology",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-2",
+        "title": "Step 2: Configure IP addresses on management interfaces if applicable...",
+        "instruction": "Configure IP addresses on management interfaces if applicable",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on management interfaces if applicable",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-3",
+        "title": "Step 3: Create and name VLANs according to lab requirements...",
+        "instruction": "Create and name VLANs according to lab requirements",
+        "commands": [],
+        "expectedOutput": "Completed: Create and name VLANs according to lab requirements",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-4",
+        "title": "Step 4: Assign switch ports to appropriate VLANs (access mode)...",
+        "instruction": "Assign switch ports to appropriate VLANs (access mode)",
+        "commands": [],
+        "expectedOutput": "Completed: Assign switch ports to appropriate VLANs (access mode)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-5",
+        "title": "Step 5: Configure trunk ports between switches to carry multiple VLANs...",
+        "instruction": "Configure trunk ports between switches to carry multiple VLANs",
+        "commands": [],
+        "expectedOutput": "Completed: Configure trunk ports between switches to carry multiple VLANs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-6",
+        "title": "Step 6: Set trunk encapsulation and allowed VLAN lists...",
+        "instruction": "Set trunk encapsulation and allowed VLAN lists",
+        "commands": [],
+        "expectedOutput": "Completed: Set trunk encapsulation and allowed VLAN lists",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-7",
+        "title": "Step 7: Verify VLAN database and port assignments...",
+        "instruction": "Verify VLAN database and port assignments",
+        "commands": [],
+        "expectedOutput": "Completed: Verify VLAN database and port assignments",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-8",
+        "title": "Step 8: Test inter-VLAN communication (requires router or Layer 3 switch)...",
+        "instruction": "Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-9",
+        "title": "Step 9: Configure and verify spanning tree protocol if enabled...",
+        "instruction": "Configure and verify spanning tree protocol if enabled",
+        "commands": [],
+        "expectedOutput": "Completed: Configure and verify spanning tree protocol if enabled",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-STEP-10",
+        "title": "Step 10: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership...",
+        "instruction": "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-87-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+      "Identify all switches and their interconnections in the topology",
+      "Configure IP addresses on management interfaces if applicable",
+      "Create and name VLANs according to lab requirements",
+      "Assign switch ports to appropriate VLANs (access mode)",
+      "Configure trunk ports between switches to carry multiple VLANs",
+      "Set trunk encapsulation and allowed VLAN lists",
+      "Verify VLAN database and port assignments",
+      "Test inter-VLAN communication (requires router or Layer 3 switch)",
+      "Configure and verify spanning tree protocol if enabled",
+      "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Switching concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "RSTP converges in seconds",
+      "PortFast skips listening/learning",
+      "Edge port assumption",
+      "BPDU guard protects"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "PortFast safe for which ports?",
+        "solution": "End-device access ports only."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure Spanning Tree Protocol to prevent switching loops in redundant topologies",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches STP through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Switching?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "191",
+    "title": "Basic STP - Spanning Tree Protocol",
+    "category": "STP",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Learn how STP prevents loops",
+    "scenario": "Configure Spanning Tree Protocol to prevent broadcast loops in a switched network",
+    "concepts": [
+      "STP prevents Layer 2 loops",
+      "Blocks redundant links",
+      "One root bridge",
+      "Ports in blocking, listening, learning, forwarding"
+    ],
+    "errors": [
+      {
+        "error": "Network loops causing broadcast storm",
+        "solution": "STP is running but may have convergence issues; check BPDU guard"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does STP stand for?",
+        "solution": "Spanning Tree Protocol"
+      },
+      {
+        "question": "What port state does STP block?",
+        "solution": "Blocking state"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "191-S-01",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-02",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-03",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-04",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-05",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-06",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-07",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-08",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "191-S-09",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced STP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "STP prevents Layer 2 loops",
+      "Blocks redundant links",
+      "One root bridge",
+      "Ports in blocking, listening, learning, forwarding"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does STP stand for?",
+        "solution": "Spanning Tree Protocol"
+      },
+      {
+        "question": "What port state does STP block?",
+        "solution": "Blocking state"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure Spanning Tree Protocol to prevent switching loops in redundant topologies",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches STP through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of STP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "245",
+    "title": "Configure Spanning Tree PortFast",
+    "category": "STP",
+    "level": "advanced",
+    "time": "15 min",
+    "difficulty": "advanced",
+    "objectives": "Enable PortFast on access ports for faster host connection",
+    "scenario": "Configure Spanning Tree Protocol to prevent broadcast loops in a switched network",
+    "concepts": [
+      "PortFast skips listening and learning states",
+      "Only use on access ports",
+      "Can cause loops if used wrong"
+    ],
+    "errors": [
+      {
+        "error": "Port takes long to come up",
+        "solution": "Enable PortFast on access ports"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is PortFast?",
+        "solution": "Skips STP listening/learning states for faster host connectivity"
+      }
+    ],
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "steps": [
+      {
+        "stepId": "245-S-01",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-02",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-03",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-04",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-05",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-06",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-07",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-08",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-09",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-10",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-11",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-12",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-13",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      },
+      {
+        "stepId": "245-S-14",
+        "title": "Configure Spanning Tree Protocol",
+        "instruction": "Configure Spanning Tree Protocol for STP",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "spanning-tree mode rapid-pvst",
+          "spanning-tree vlan 10 root primary",
+          "spanning-tree vlan 20 root secondary",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "RSTP enabled, root bridge designated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show spanning-tree"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "STP not converging",
+            "solution": "Verify mode matches on all switches"
+          }
+        ],
+        "hints": [
+          "RSTP converges faster than PVST+",
+          "Root bridge should be distribution switch"
+        ],
+        "challenge": "Configure portfast"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Enable PortFast on access ports for faster host connection",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced STP concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "PortFast skips listening and learning states",
+      "Only use on access ports",
+      "Can cause loops if used wrong"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is PortFast?",
+        "solution": "Skips STP listening/learning states for faster host connectivity"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What is PortFast?",
+        "options": [
+          "Skips STP listening/learning states for faster host connectivity",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Skips STP listening/learning states for faster host connectivity"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure Spanning Tree Protocol to prevent switching loops in redundant topologies",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches STP through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of STP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

@@ -1,0 +1,1639 @@
+[
+  {
+    "id": "139",
+    "title": "Automation Lab: Netconf and RESTCONF with Postman",
+    "category": "Automation",
+    "level": "basic",
+    "time": "40 minutes",
+    "objectives": "Use Netconf/RESTCONF to configure devices.",
+    "scenario": "Automate network configuration using Python scripts and Ansible playbooks",
+    "concepts": [
+      "Netconf XML over SSH",
+      "RESTCONF HTTP/JSON",
+      "YANG models define schema",
+      "Postman for testing"
+    ],
+    "errors": [
+      {
+        "error": "401 Unauthorized",
+        "solution": "Check credentials and enable netconf/yang on device."
+      }
+    ],
+    "questions": [
+      {
+        "question": "RESTCONF advantage over CLI?",
+        "solution": "Structured data, automation-friendly, less error-prone."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "139-S-01",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-02",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-03",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-04",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-05",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-06",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "139-S-07",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-139-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab explores network automation using scripting, APIs, and configuration management tools.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-1",
+        "title": "Step 1: Identify automation opportunities in the network configuration...",
+        "instruction": "Identify automation opportunities in the network configuration",
+        "commands": [],
+        "expectedOutput": "Completed: Identify automation opportunities in the network configuration",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-2",
+        "title": "Step 2: Select appropriate automation tools (Python, Ansible, Terraform, etc.)...",
+        "instruction": "Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+        "commands": [],
+        "expectedOutput": "Completed: Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-3",
+        "title": "Step 3: Set up automation environment and required dependencies...",
+        "instruction": "Set up automation environment and required dependencies",
+        "commands": [],
+        "expectedOutput": "Completed: Set up automation environment and required dependencies",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-4",
+        "title": "Step 4: Create scripts or playbooks to automate repetitive tasks...",
+        "instruction": "Create scripts or playbooks to automate repetitive tasks",
+        "commands": [],
+        "expectedOutput": "Completed: Create scripts or playbooks to automate repetitive tasks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-5",
+        "title": "Step 5: Test automation in a lab environment before production use...",
+        "instruction": "Test automation in a lab environment before production use",
+        "commands": [],
+        "expectedOutput": "Completed: Test automation in a lab environment before production use",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-6",
+        "title": "Step 6: Implement version control for network configurations...",
+        "instruction": "Implement version control for network configurations",
+        "commands": [],
+        "expectedOutput": "Completed: Implement version control for network configurations",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-7",
+        "title": "Step 7: Verify automated configurations match manual configurations...",
+        "instruction": "Verify automated configurations match manual configurations",
+        "commands": [],
+        "expectedOutput": "Completed: Verify automated configurations match manual configurations",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-8",
+        "title": "Step 8: Troubleshoot automation issues by checking syntax and connectivity...",
+        "instruction": "Troubleshoot automation issues by checking syntax and connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot automation issues by checking syntax and connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-9",
+        "title": "Step 9: Document automation procedures and benefits...",
+        "instruction": "Document automation procedures and benefits",
+        "commands": [],
+        "expectedOutput": "Completed: Document automation procedures and benefits",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-STEP-10",
+        "title": "Step 10: Save automation scripts and verify network deployment consistency...",
+        "instruction": "Save automation scripts and verify network deployment consistency",
+        "commands": [],
+        "expectedOutput": "Completed: Save automation scripts and verify network deployment consistency",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-139-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab explores network automation using scripting, APIs, and configuration management tools.",
+      "Identify automation opportunities in the network configuration",
+      "Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+      "Set up automation environment and required dependencies",
+      "Create scripts or playbooks to automate repetitive tasks",
+      "Test automation in a lab environment before production use",
+      "Implement version control for network configurations",
+      "Verify automated configurations match manual configurations",
+      "Troubleshoot automation issues by checking syntax and connectivity",
+      "Document automation procedures and benefits",
+      "Save automation scripts and verify network deployment consistency",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced automation concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Netconf XML over SSH",
+      "RESTCONF HTTP/JSON",
+      "YANG models define schema",
+      "Postman for testing"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "RESTCONF advantage over CLI?",
+        "solution": "Structured data, automation-friendly, less error-prone."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Automate network configuration using Python, Ansible, and REST APIs",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Automation through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of automation?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "141",
+    "title": "Automation Lab: Ansible for Network Automation",
+    "category": "Automation",
+    "level": "basic",
+    "time": "45 minutes",
+    "objectives": "Use Ansible to push configs to multiple devices.",
+    "scenario": "Automate network configuration using Python scripts and Ansible playbooks",
+    "concepts": [
+      "Inventory of devices",
+      "Playbooks define tasks",
+      "Modules: ios_config, eos_config",
+      "Idempotent execution"
+    ],
+    "errors": [
+      {
+        "error": "Ansible connection failed",
+        "solution": "Check SSH, credentials, and platform identification."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Ansible benefit over scripts?",
+        "solution": "Agentless, idempotent, and scalable across many devices."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "141-S-01",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "141-S-02",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "141-S-03",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "141-S-04",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "141-S-05",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "141-S-06",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-141-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab explores network automation using scripting, APIs, and configuration management tools.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-1",
+        "title": "Step 1: Identify automation opportunities in the network configuration...",
+        "instruction": "Identify automation opportunities in the network configuration",
+        "commands": [],
+        "expectedOutput": "Completed: Identify automation opportunities in the network configuration",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-2",
+        "title": "Step 2: Select appropriate automation tools (Python, Ansible, Terraform, etc.)...",
+        "instruction": "Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+        "commands": [],
+        "expectedOutput": "Completed: Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-3",
+        "title": "Step 3: Set up automation environment and required dependencies...",
+        "instruction": "Set up automation environment and required dependencies",
+        "commands": [],
+        "expectedOutput": "Completed: Set up automation environment and required dependencies",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-4",
+        "title": "Step 4: Create scripts or playbooks to automate repetitive tasks...",
+        "instruction": "Create scripts or playbooks to automate repetitive tasks",
+        "commands": [],
+        "expectedOutput": "Completed: Create scripts or playbooks to automate repetitive tasks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-5",
+        "title": "Step 5: Test automation in a lab environment before production use...",
+        "instruction": "Test automation in a lab environment before production use",
+        "commands": [],
+        "expectedOutput": "Completed: Test automation in a lab environment before production use",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-6",
+        "title": "Step 6: Implement version control for network configurations...",
+        "instruction": "Implement version control for network configurations",
+        "commands": [],
+        "expectedOutput": "Completed: Implement version control for network configurations",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-7",
+        "title": "Step 7: Verify automated configurations match manual configurations...",
+        "instruction": "Verify automated configurations match manual configurations",
+        "commands": [],
+        "expectedOutput": "Completed: Verify automated configurations match manual configurations",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-8",
+        "title": "Step 8: Troubleshoot automation issues by checking syntax and connectivity...",
+        "instruction": "Troubleshoot automation issues by checking syntax and connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot automation issues by checking syntax and connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-9",
+        "title": "Step 9: Document automation procedures and benefits...",
+        "instruction": "Document automation procedures and benefits",
+        "commands": [],
+        "expectedOutput": "Completed: Document automation procedures and benefits",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-STEP-10",
+        "title": "Step 10: Save automation scripts and verify network deployment consistency...",
+        "instruction": "Save automation scripts and verify network deployment consistency",
+        "commands": [],
+        "expectedOutput": "Completed: Save automation scripts and verify network deployment consistency",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-141-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab explores network automation using scripting, APIs, and configuration management tools.",
+      "Identify automation opportunities in the network configuration",
+      "Select appropriate automation tools (Python, Ansible, Terraform, etc.)",
+      "Set up automation environment and required dependencies",
+      "Create scripts or playbooks to automate repetitive tasks",
+      "Test automation in a lab environment before production use",
+      "Implement version control for network configurations",
+      "Verify automated configurations match manual configurations",
+      "Troubleshoot automation issues by checking syntax and connectivity",
+      "Document automation procedures and benefits",
+      "Save automation scripts and verify network deployment consistency",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced automation concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Inventory of devices",
+      "Playbooks define tasks",
+      "Modules: ios_config, eos_config",
+      "Idempotent execution"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Ansible benefit over scripts?",
+        "solution": "Agentless, idempotent, and scalable across many devices."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Automate network configuration using Python, Ansible, and REST APIs",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Automation through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of automation?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "216",
+    "title": "Introduction to Network Automation",
+    "category": "Automation",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Introduction to network automation concepts",
+    "scenario": "Automate network configuration using Python scripts and Ansible playbooks",
+    "concepts": [
+      "Automation reduces human error",
+      "Scripts automate repetitive tasks",
+      "Configuration management",
+      "Idempotency"
+    ],
+    "errors": [
+      {
+        "error": "Manual configuration errors",
+        "solution": "Use automation to ensure consistent, error-free configurations"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is network automation?",
+        "solution": "Using scripts/tools to automate network tasks"
+      },
+      {
+        "question": "What is idempotency?",
+        "solution": "Running same operation multiple times gives same result"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "216-S-01",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "216-S-02",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "216-S-03",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "216-S-04",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "216-S-05",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      },
+      {
+        "stepId": "216-S-06",
+        "title": "Automate Configuration with Python",
+        "instruction": "Automate Configuration with Python for Automation",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.1.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Python automation script executed",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Automation failed",
+            "solution": "Verify script and API connection"
+          }
+        ],
+        "hints": [
+          "Use Netmiko or NAPALM",
+          "Script configuration changes"
+        ],
+        "challenge": "Write Ansible playbook"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced automation concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Automation reduces human error",
+      "Scripts automate repetitive tasks",
+      "Configuration management",
+      "Idempotency"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is network automation?",
+        "solution": "Using scripts/tools to automate network tasks"
+      },
+      {
+        "question": "What is idempotency?",
+        "solution": "Running same operation multiple times gives same result"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Automate network configuration using Python, Ansible, and REST APIs",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Automation through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of automation?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

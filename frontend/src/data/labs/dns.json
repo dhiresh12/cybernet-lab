@@ -1,0 +1,712 @@
+[
+  {
+    "id": "165",
+    "title": "Understanding DNS",
+    "category": "DNS",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Learn how DNS translates names to IP addresses",
+    "scenario": "Set up DNS server to resolve hostnames to IP addresses for internal and external domains",
+    "concepts": [
+      "DNS translates domain names to IP addresses",
+      "Without DNS, you'd have to memorize all IP addresses",
+      "DNS servers are like phonebooks for the Internet",
+      "Common DNS: 8.8.8.8 (Google), 1.1.1.1 (Cloudflare)"
+    ],
+    "errors": [
+      {
+        "error": "Website loads by IP but not by name",
+        "solution": "DNS not working - check DNS server settings and flush cache"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does DNS stand for?",
+        "solution": "Domain Name System"
+      },
+      {
+        "question": "What is a common public DNS server?",
+        "solution": "8.8.8.8 (Google) or 1.1.1.1 (Cloudflare)"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "165-S-01",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "165-S-02",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "165-S-03",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "165-S-04",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "165-S-05",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "165-S-06",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced DNS concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "DNS translates domain names to IP addresses",
+      "Without DNS, you'd have to memorize all IP addresses",
+      "DNS servers are like phonebooks for the Internet",
+      "Common DNS: 8.8.8.8 (Google), 1.1.1.1 (Cloudflare)"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does DNS stand for?",
+        "solution": "Domain Name System"
+      },
+      {
+        "question": "What is a common public DNS server?",
+        "solution": "8.8.8.8 (Google) or 1.1.1.1 (Cloudflare)"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up DNS resolution services for name-to-IP mapping",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches DNS through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of DNS?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "193",
+    "title": "DNS Client Configuration",
+    "category": "DNS",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Configure DNS on client devices",
+    "scenario": "Set up DNS server to resolve hostnames to IP addresses for internal and external domains",
+    "concepts": [
+      "DNS translates names to IPs",
+      "Can be manual or from DHCP",
+      "Multiple DNS servers can be configured",
+      "DNS suffix for local resolution"
+    ],
+    "errors": [
+      {
+        "error": "Website loads by IP but not name",
+        "solution": "DNS not working - check DNS server settings and flush cache"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is DNS?",
+        "solution": "Domain Name System - translates names to IPs"
+      },
+      {
+        "question": "What port does DNS use?",
+        "solution": "UDP port 53 (TCP for zone transfers)"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "193-S-01",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "193-S-02",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "193-S-03",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "193-S-04",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "193-S-05",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      },
+      {
+        "stepId": "193-S-06",
+        "title": "Configure DNS Server",
+        "instruction": "Configure DNS Server for DNS",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip domain-name example.com",
+          "ip name-server 8.8.8.8",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "DNS server configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip domain"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "DNS not resolving",
+            "solution": "Verify name-server configuration"
+          }
+        ],
+        "hints": [
+          "Use ip name-server",
+          "Check domain-name"
+        ],
+        "challenge": "Configure local DNS entries"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced DNS concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "DNS translates names to IPs",
+      "Can be manual or from DHCP",
+      "Multiple DNS servers can be configured",
+      "DNS suffix for local resolution"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is DNS?",
+        "solution": "Domain Name System - translates names to IPs"
+      },
+      {
+        "question": "What port does DNS use?",
+        "solution": "UDP port 53 (TCP for zone transfers)"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Set up DNS resolution services for name-to-IP mapping",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches DNS through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of DNS?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

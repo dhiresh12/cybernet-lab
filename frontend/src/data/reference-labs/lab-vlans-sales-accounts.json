@@ -1,0 +1,680 @@
+{
+  "id": "REF-002",
+  "title": "Configure VLANs for Sales and Accounts",
+  "slug": "configure-vlans-for-sales-and-accounts",
+  "category": "VLAN",
+  "difficulty": "intermediate",
+  "estimatedTime": "35 minutes",
+  "version": 1,
+  "realWorldScenario": "A small company has two departments, Sales and Accounts, connected to the same physical switch. Management requires these departments to be logically separated so that Sales cannot access Accounts' network resources and vice versa, reducing unnecessary broadcast traffic and improving security.",
+  "engineerRole": "Junior Network Engineer",
+  "problemStatement": "Both departments currently share the same broadcast domain on SW1. Any device can communicate with any other device, and sensitive Accounts data is exposed to Sales PCs. The company needs logical separation using VLANs.",
+  "businessImpact": "Poor network segmentation exposes sensitive financial data to unauthorized departments and wastes bandwidth on unnecessary broadcast traffic. Compliance requirements may mandate network segmentation.",
+  "objectives": "Create VLAN 10 for Sales and VLAN 20 for Accounts, assign appropriate access ports to each VLAN, verify VLAN membership, and test inter-VLAN isolation.",
+  "learningObjectives": [
+    "Understand what VLANs are and why they are used",
+    "Create and name VLANs on a switch",
+    "Assign access ports to VLANs",
+    "Verify VLAN configuration using show commands",
+    "Understand that VLANs create separate broadcast domains",
+    "Recognize that inter-VLAN communication requires a router (Layer 3)"
+  ],
+  "prerequisites": [
+    "Basic understanding of switches and how they forward frames",
+    "Knowledge of what a broadcast domain is",
+    "Completed: 'Configure a Small Office LAN'"
+  ],
+  "concepts": [
+    "VLAN (Virtual Local Area Network) definition",
+    "Broadcast domains and how VLANs segment them",
+    "Access ports vs trunk ports",
+    "VLAN IDs and their range (1-4094)",
+    "VLAN database on a switch"
+  ],
+  "skills": [
+    "Create VLANs on a Cisco switch",
+    "Assign access ports to VLANs",
+    "Verify VLAN configuration",
+    "Test network isolation between VLANs"
+  ],
+  "commandsToLearn": [
+    "vlan",
+    "name",
+    "switchport mode access",
+    "switchport access vlan",
+    "show vlan brief",
+    "show running-config"
+  ],
+  "topology": {
+    "devices": [
+      {
+        "id": "SW1",
+        "type": "switch",
+        "name": "SW1",
+        "role": "access-switch",
+        "configuration": {
+          "hostname": "SW1"
+        }
+      },
+      {
+        "id": "PC-SALES",
+        "type": "pc",
+        "name": "PC-SALES",
+        "role": "end-device",
+        "configuration": {
+          "hostname": "PC-SALES"
+        }
+      },
+      {
+        "id": "PC-ACCOUNTS",
+        "type": "pc",
+        "name": "PC-ACCOUNTS",
+        "role": "end-device",
+        "configuration": {
+          "hostname": "PC-ACCOUNTS"
+        }
+      },
+      {
+        "id": "PC-MGMT",
+        "type": "pc",
+        "name": "PC-MGMT",
+        "role": "end-device",
+        "configuration": {
+          "hostname": "PC-MGMT"
+        }
+      }
+    ],
+    "interfaces": [
+      {
+        "deviceId": "PC-SALES",
+        "name": "Ethernet0",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 10,
+        "enabled": true
+      },
+      {
+        "deviceId": "PC-ACCOUNTS",
+        "name": "Ethernet0",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 20,
+        "enabled": true
+      },
+      {
+        "deviceId": "PC-MGMT",
+        "name": "Ethernet0",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 10,
+        "enabled": true
+      },
+      {
+        "deviceId": "SW1",
+        "name": "FastEthernet0/1",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 10,
+        "enabled": true
+      },
+      {
+        "deviceId": "SW1",
+        "name": "FastEthernet0/2",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 20,
+        "enabled": true
+      },
+      {
+        "deviceId": "SW1",
+        "name": "FastEthernet0/3",
+        "type": "ethernet",
+        "role": "access",
+        "vlan": 10,
+        "enabled": true
+      }
+    ],
+    "connections": [
+      {
+        "from": "PC-SALES:Ethernet0",
+        "to": "SW1:FastEthernet0/1",
+        "type": "ethernet",
+        "status": "connected"
+      },
+      {
+        "from": "PC-ACCOUNTS:Ethernet0",
+        "to": "SW1:FastEthernet0/2",
+        "type": "ethernet",
+        "status": "connected"
+      },
+      {
+        "from": "PC-MGMT:Ethernet0",
+        "to": "SW1:FastEthernet0/3",
+        "type": "ethernet",
+        "status": "connected"
+      }
+    ]
+  },
+  "ipAddressing": [
+    {
+      "deviceId": "PC-SALES",
+      "interface": "Ethernet0",
+      "ipAddress": "192.168.10.10",
+      "subnetMask": "255.255.255.0",
+      "gateway": "",
+      "vlan": 10,
+      "description": "Sales PC - VLAN 10"
+    },
+    {
+      "deviceId": "PC-ACCOUNTS",
+      "interface": "Ethernet0",
+      "ipAddress": "192.168.20.10",
+      "subnetMask": "255.255.255.0",
+      "gateway": "",
+      "vlan": 20,
+      "description": "Accounts PC - VLAN 20"
+    },
+    {
+      "deviceId": "PC-MGMT",
+      "interface": "Ethernet0",
+      "ipAddress": "192.168.10.20",
+      "subnetMask": "255.255.255.0",
+      "gateway": "",
+      "vlan": 10,
+      "description": "Management PC - VLAN 10"
+    }
+  ],
+  "initialState": {
+    "devices": [
+      {
+        "deviceId": "SW1",
+        "hostname": "SW1",
+        "configuration": {
+          "vlans": [],
+          "vlanDatabase": {}
+        }
+      },
+      {
+        "deviceId": "PC-SALES",
+        "hostname": "PC-SALES",
+        "interfaces": [
+          {
+            "interfaceName": "Ethernet0",
+            "ip": "unassigned",
+            "status": "up",
+            "protocol": "up",
+            "vlan": null
+          }
+        ]
+      },
+      {
+        "deviceId": "PC-ACCOUNTS",
+        "hostname": "PC-ACCOUNTS",
+        "interfaces": [
+          {
+            "interfaceName": "Ethernet0",
+            "ip": "unassigned",
+            "status": "up",
+            "protocol": "up",
+            "vlan": null
+          }
+        ]
+      },
+      {
+        "deviceId": "PC-MGMT",
+        "hostname": "PC-MGMT",
+        "interfaces": [
+          {
+            "interfaceName": "Ethernet0",
+            "ip": "unassigned",
+            "status": "up",
+            "protocol": "up",
+            "vlan": null
+          }
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "stepId": "REF-002-S-01",
+      "order": 1,
+      "title": "Inspect Current Switch State",
+      "instruction": "On SW1, check the current VLAN database. Run: show vlan brief. Observe that no custom VLANs exist yet - only the default VLAN 1 is present.",
+      "why": "Before creating VLANs, you need to understand the current state. This is a fundamental network engineering practice: always inspect before making changes.",
+      "targetDevice": "SW1",
+      "actionType": "verification",
+      "commands": ["show vlan brief"],
+      "expectedOutput": "VLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------\n1    default                          active    Fa0/1, Fa0/2, Fa0/3",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "SW1",
+          "vlans": [],
+          "vlanCount": 1
+        }
+      },
+      "hints": [
+        "The default VLAN (VLAN 1) contains all switch ports initially",
+        "Notice there are no custom VLANs yet"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Not checking existing state before making changes",
+          "solution": "Always inspect current configuration before modifying it"
+        }
+      ],
+      "completionCondition": "Student runs show vlan brief and observes no custom VLANs"
+    },
+    {
+      "stepId": "REF-002-S-02",
+      "order": 2,
+      "title": "Create VLAN 10 for Sales Department",
+      "instruction": "Create VLAN 10 and name it SALES. On SW1: enable, configure terminal, vlan 10, name SALES, end, write memory.",
+      "why": "VLAN 10 will be the logical broadcast domain for the Sales department. Giving it a descriptive name helps network administrators identify its purpose.",
+      "targetDevice": "SW1",
+      "actionType": "configuration",
+      "commands": [
+        "enable",
+        "configure terminal",
+        "vlan 10",
+        "name SALES",
+        "end",
+        "write memory"
+      ],
+      "expectedOutput": "VLAN 10 created and named 'SALES'. Configuration saved.",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "SW1",
+          "vlanId": 10,
+          "vlanName": "SALES"
+        }
+      },
+      "hints": [
+        "VLANs are created in global configuration mode",
+        "Use 'write memory' to save the configuration so it persists after reload"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Forgetting to name the VLAN",
+          "solution": "Always assign a descriptive name when creating a VLAN"
+        },
+        {
+          "mistake": "Not saving configuration with write memory",
+          "solution": "Always save configuration before exiting to prevent loss on reload"
+        }
+      ],
+      "completionCondition": "VLAN 10 named SALES exists on SW1"
+    },
+    {
+      "stepId": "REF-002-S-03",
+      "order": 3,
+      "title": "Create VLAN 20 for Accounts Department",
+      "instruction": "Create VLAN 20 and name it ACCOUNTS. Follow the same process as VLAN 10. On SW1: configure terminal, vlan 20, name ACCOUNTS, end, write memory.",
+      "why": "VLAN 20 will isolate the Accounts department's traffic from Sales. Each department gets its own broadcast domain.",
+      "targetDevice": "SW1",
+      "actionType": "configuration",
+      "commands": [
+        "configure terminal",
+        "vlan 20",
+        "name ACCOUNTS",
+        "end",
+        "write memory"
+      ],
+      "expectedOutput": "VLAN 20 created and named 'ACCOUNTS'. Configuration saved.",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "SW1",
+          "vlanId": 20,
+          "vlanName": "ACCOUNTS"
+        }
+      },
+      "hints": [
+        "Use the same vlan command pattern for all VLANs",
+        "Each VLAN needs a unique ID and descriptive name"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Creating VLAN 20 with the wrong name",
+          "solution": "Double-check the VLAN name matches the department"
+        }
+      ],
+      "completionCondition": "VLAN 20 named ACCOUNTS exists on SW1"
+    },
+    {
+      "stepId": "REF-002-S-04",
+      "order": 4,
+      "title": "Assign Ports to VLANs",
+      "instruction": "Assign switch ports to VLANs. On SW1: configure terminal, interface FastEthernet0/1, switchport mode access, switchport access vlan 10, interface FastEthernet0/2, switchport mode access, switchport access vlan 20, interface FastEthernet0/3, switchport mode access, switchport access vlan 10, end, write memory.",
+      "why": "Creating VLANs is not enough - you must assign ports to them. Access ports belong to a single VLAN. Fa0/1 and Fa0/3 go to Sales (VLAN 10), Fa0/2 goes to Accounts (VLAN 20).",
+      "targetDevice": "SW1",
+      "actionType": "configuration",
+      "commands": [
+        "configure terminal",
+        "interface FastEthernet0/1",
+        "switchport mode access",
+        "switchport access vlan 10",
+        "interface FastEthernet0/2",
+        "switchport mode access",
+        "switchport access vlan 20",
+        "interface FastEthernet0/3",
+        "switchport mode access",
+        "switchport access vlan 10",
+        "end",
+        "write memory"
+      ],
+      "expectedOutput": "All three switch ports assigned to correct VLANs. Configuration saved.",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "interfaces": [
+            { "port": "Fa0/1", "vlan": 10 },
+            { "port": "Fa0/2", "vlan": 20 },
+            { "port": "Fa0/3", "vlan": 10 }
+          ]
+        }
+      },
+      "hints": [
+        "Each port must be in access mode before assigning a VLAN",
+        "Remember the order: switchport mode access, then switchport access vlan",
+        "PC-SALES and PC-MGMT are both on VLAN 10 (Fa0/1 and Fa0/3)"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Forgetting to set switchport mode access first",
+          "solution": "Always set the port mode before assigning the VLAN"
+        },
+        {
+          "mistake": "Assigning wrong VLAN to port",
+          "solution": "Double-check which department each port belongs to"
+        }
+      ],
+      "completionCondition": "All ports correctly assigned to VLANs"
+    },
+    {
+      "stepId": "REF-002-S-05",
+      "order": 5,
+      "title": "Configure IP Addresses on PCs",
+      "instruction": "Configure IP addresses on all three PCs. PC-SALES: 192.168.10.10/24, PC-ACCOUNTS: 192.168.20.10/24, PC-MGMT: 192.168.10.20/24.",
+      "why": "Each device needs an IP address in its VLAN's subnet. VLAN 10 devices use 192.168.10.x, VLAN 20 devices use 192.168.20.x.",
+      "targetDevice": "PC-SALES, PC-ACCOUNTS, PC-MGMT",
+      "actionType": "configuration",
+      "commands": [
+        "PC-SALES: ipconfig 192.168.10.10 255.255.255.0",
+        "PC-ACCOUNTS: ipconfig 192.168.20.10 255.255.255.0",
+        "PC-MGMT: ipconfig 192.168.10.20 255.255.255.0"
+      ],
+      "expectedOutput": "All PCs configured with correct IP addresses",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "PC-SALES": { "ip": "192.168.10.10", "vlan": 10 },
+          "PC-ACCOUNTS": { "ip": "192.168.20.10", "vlan": 20 },
+          "PC-MGMT": { "ip": "192.168.10.20", "vlan": 10 }
+        }
+      },
+      "hints": [
+        "VLAN 10 devices use 192.168.10.x subnet",
+        "VLAN 20 device uses 192.168.20.x subnet",
+        "PC-SALES and PC-MGMT are both in VLAN 10"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Assigning PC-ACCOUNTS an IP from VLAN 10 subnet",
+          "solution": "Accounts must use 192.168.20.x because it's in VLAN 20"
+        }
+      ],
+      "completionCondition": "All PCs have correct IP addresses matching their VLAN"
+    },
+    {
+      "stepId": "REF-002-S-06",
+      "order": 6,
+      "title": "Verify VLAN Configuration",
+      "instruction": "On SW1, run 'show vlan brief' to verify all VLANs and port assignments are correct.",
+      "why": "Verification is critical. The show vlan brief command shows all VLANs, their names, status, and which ports belong to each VLAN.",
+      "targetDevice": "SW1",
+      "actionType": "verification",
+      "commands": ["show vlan brief"],
+      "expectedOutput": "VLAN Name                             Status    Ports\n---- -------------------------------- --------- -------------------\n1    default                          active    \n10   SALES                            active    Fa0/1, Fa0/3\n20   ACCOUNTS                         active    Fa0/2",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "vlans": [
+            { "id": 10, "name": "SALES", "ports": ["Fa0/1", "Fa0/3"] },
+            { "id": 20, "name": "ACCOUNTS", "ports": ["Fa0/2"] }
+          ]
+        }
+      },
+      "hints": [
+        "VLAN 1 should show no ports if they were all reassigned",
+        "Verify both VLANs are present and ports are correctly listed"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Ports not showing under correct VLAN",
+          "solution": "Re-check the switchport access vlan commands for each port"
+        }
+      ],
+      "completionCondition": "VLAN 10 shows Fa0/1 and Fa0/3, VLAN 20 shows Fa0/2"
+    },
+    {
+      "stepId": "REF-002-S-07",
+      "order": 7,
+      "title": "Test Intra-VLAN Connectivity",
+      "instruction": "Test that PCs within the same VLAN can communicate. From PC-SALES, ping PC-MGMT (both on VLAN 10). From PC-MGMT, ping PC-SALES.",
+      "why": "Devices in the same VLAN are in the same broadcast domain and should be able to communicate directly. This confirms the VLAN configuration is correct.",
+      "targetDevice": "PC-SALES",
+      "actionType": "verification",
+      "commands": ["ping 192.168.10.20"],
+      "expectedOutput": "Reply from 192.168.10.20: bytes=32 time<1ms TTL=128",
+      "verification": {
+        "type": "ping",
+        "expected": "reachable"
+      },
+      "hints": [
+        "PC-SALES (192.168.10.10) and PC-MGMT (192.168.10.20) are both in VLAN 10",
+        "They should be able to ping each other because they share the same broadcast domain"
+      ],
+      "commonMistakes": [],
+      "completionCondition": "Ping replies received between PC-SALES and PC-MGMT"
+    },
+    {
+      "stepId": "REF-002-S-08",
+      "order": 8,
+      "title": "Test Inter-VLAN Isolation",
+      "instruction": "Test that PCs in different VLANs CANNOT communicate. From PC-SALES (VLAN 10), ping PC-ACCOUNTS (VLAN 20). Then from PC-ACCOUNTS, ping PC-SALES.",
+      "why": "This is the whole point of VLANs - logical separation. Without a router (Layer 3 device), PCs in different VLANs cannot communicate because they are on different broadcast domains.",
+      "targetDevice": "PC-SALES",
+      "actionType": "verification",
+      "commands": ["ping 192.168.20.10"],
+      "expectedOutput": "Request timed out (because PC-ACCOUNTS is on a different VLAN)",
+      "verification": {
+        "type": "ping",
+        "expected": "unreachable"
+      },
+      "hints": [
+        "PC-SALES is on VLAN 10, PC-ACCOUNTS is on VLAN 20",
+        "Different VLANs = different broadcast domains = no direct communication",
+        "To enable inter-VLAN communication, you would need a router (Layer 3 switching or router-on-a-stick)"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Ping succeeds when it should fail",
+          "solution": "Verify VLAN assignments on switch ports and IP configurations on PCs"
+        }
+      ],
+      "completionCondition": "Ping from PC-SALES to PC-ACCOUNTS times out (isolation confirmed)"
+    },
+    {
+      "stepId": "REF-002-S-09",
+      "order": 9,
+      "title": "Understand the Result",
+      "instruction": "Summarize the results: Sales and Accounts are now separated. Within VLAN 10, PC-SALES and PC-MGMT can communicate. Between VLAN 10 and VLAN 20, communication is blocked. No router is needed for this isolation to work.",
+      "why": "Understanding WHY things work is as important as HOW they work. VLANs create separate broadcast domains at Layer 2, which prevents unicast and broadcast traffic from crossing VLAN boundaries.",
+      "targetDevice": "SW1",
+      "actionType": "verification",
+      "commands": ["show vlan brief", "show running-config"],
+      "expectedOutput": "Confirmed: VLANs 10 and 20 exist, ports correctly assigned, inter-VLAN traffic blocked",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "vlanCount": 2,
+          "interVlanIsolation": true
+        }
+      },
+      "hints": [],
+      "commonMistakes": [],
+      "completionCondition": "Student correctly explains VLAN isolation results"
+    }
+  ],
+  "troubleshooting": {
+    "commonErrors": [
+      {
+        "error": "PCs in different VLANs can ping each other",
+        "symptoms": "VLAN isolation not working",
+        "diagnosticCommands": ["show vlan brief", "show running-config interface FastEthernet0/1"],
+        "troubleshootingSteps": [
+          "1. Verify switch ports are in the correct VLAN (show vlan brief)",
+          "2. Check that switchport mode access is configured on each port",
+          "3. Verify switchport access vlan assignment matches the department",
+          "4. Confirm PC IP addresses are in the correct VLAN subnets"
+        ],
+        "possibleCauses": [
+          "Ports not assigned to correct VLAN",
+          "Switchport mode not set to access",
+          "PCs configured with wrong IP/subnet"
+        ],
+        "fix": "Re-assign ports to correct VLANs using switchport access vlan command",
+        "verificationAfterFix": "Run show vlan brief and ping test again"
+      },
+      {
+        "error": "PCs in same VLAN cannot ping each other",
+        "symptoms": "Intra-VLAN connectivity failing",
+        "diagnosticCommands": ["show vlan brief", "ipconfig"],
+        "troubleshootingSteps": [
+          "1. Verify both PCs are on the same VLAN (show vlan brief)",
+          "2. Check IP addresses are in same subnet",
+          "3. Verify physical connections",
+          "4. Check interface status (show interfaces)"
+        ],
+        "possibleCauses": [
+          "Port not assigned to correct VLAN",
+          "IP addresses on different subnets",
+          "Cable not connected",
+          "Interface shutdown"
+        ],
+        "fix": "Correct VLAN assignment or IP address",
+        "verificationAfterFix": "Ping test should succeed"
+      }
+    ]
+  },
+  "faultInjection": {
+    "faults": [
+      {
+        "type": "wrong_vlan",
+        "severity": "high",
+        "description": "Port Fa0/2 is accidentally assigned to VLAN 10 instead of VLAN 20"
+      },
+      {
+        "type": "wrong_ip",
+        "severity": "medium",
+        "description": "PC-ACCOUNTS configured with 192.168.10.x instead of 192.168.20.x"
+      }
+    ]
+  },
+  "finalVerification": {
+    "checks": [
+      {
+        "type": "vlan_exists",
+        "target": "SW1:VLAN10",
+        "expected": true
+      },
+      {
+        "type": "vlan_exists",
+        "target": "SW1:VLAN20",
+        "expected": true
+      },
+      {
+        "type": "port_vlan",
+        "target": "SW1:Fa0/1",
+        "expected": 10
+      },
+      {
+        "type": "port_vlan",
+        "target": "SW1:Fa0/2",
+        "expected": 20
+      },
+      {
+        "type": "port_vlan",
+        "target": "SW1:Fa0/3",
+        "expected": 10
+      },
+      {
+        "type": "ip_correct",
+        "target": "PC-SALES:Ethernet0",
+        "expected": "192.168.10.10"
+      },
+      {
+        "type": "ip_correct",
+        "target": "PC-ACCOUNTS:Ethernet0",
+        "expected": "192.168.20.10"
+      },
+      {
+        "type": "ip_correct",
+        "target": "PC-MGMT:Ethernet0",
+        "expected": "192.168.10.20"
+      },
+      {
+        "type": "ping_success",
+        "target": "PC-SALES:PC-MGMT",
+        "expected": true
+      },
+      {
+        "type": "ping_unreachable",
+        "target": "PC-SALES:PC-ACCOUNTS",
+        "expected": true
+      }
+    ],
+    "successCriteria": "VLAN 10 (SALES) and VLAN 20 (ACCOUNTS) are created, ports correctly assigned, and inter-VLAN isolation is confirmed.",
+    "completionCriteria": "Student has created both VLANs, assigned ports, configured PC IPs, verified intra-VLAN connectivity, and confirmed inter-VLAN isolation."
+  },
+  "knowledgeCheck": [
+    {
+      "question": "What is the primary purpose of a VLAN?",
+      "type": "multiple_choice",
+      "options": [
+        "To increase network speed",
+        "To create separate broadcast domains on a single switch",
+        "To encrypt network traffic",
+        "To assign IP addresses automatically"
+      ],
+      "correctAnswer": "To create separate broadcast domains on a single switch",
+      "explanation": "VLANs allow a single physical switch to function as multiple logical switches, each with its own broadcast domain."
+    },
+    {
+      "question": "Can PCs in different VLANs communicate without a router?",
+      "type": "multiple_choice",
+      "options": ["Yes, always", "No, they are on different broadcast domains", "Only if they have the same IP", "Yes, if the switch is fast enough"],
+      "correctAnswer": "No, they are on different broadcast domains",
+      "explanation": "VLANs create separate Layer 2 broadcast domains. Without a Layer 3 device (router), PCs in different VLANs cannot communicate because switches do not forward traffic between different broadcast domains."
+    },
+    {
+      "question": "What command would you use to verify VLAN assignments on a switch?",
+      "type": "multiple_choice",
+      "options": ["show ip route", "show vlan brief", "show interfaces", "show running-config"],
+      "correctAnswer": "show vlan brief",
+      "explanation": "The 'show vlan brief' command displays all VLANs, their names, status, and assigned ports."
+    },
+    {
+      "question": "What switch port mode is required for a PC connection?",
+      "type": "multiple_choice",
+      "options": ["trunk", "access", "dynamic", "routed"],
+      "correctAnswer": "access",
+      "explanation": "Access ports belong to a single VLAN and are used for end-device connections like PCs, printers, and servers."
+    }
+  ],
+  "legacy": false,
+  "tags": ["vlan", "switching", "isolation", "access-port", "intermediate"]
+}

@@ -1,0 +1,23 @@
+.header-title {
+  color: var(--cyan);
+  font-size: 1.1em;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px rgba(0,240,255,0.6);
+}
+
+.header-status {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.led.green { background: var(--led-green); color: var(--led-green); }
+.led.amber { background: var(--led-amber); color: var(--led-amber); }
+.led.red { background: var(--led-red); color: var(--led-red); }

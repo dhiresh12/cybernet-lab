@@ -1,0 +1,1574 @@
+[
+  {
+    "id": "118",
+    "title": "Enterprise Lab: NTP Synchronization",
+    "category": "Network Services",
+    "level": "advanced",
+    "time": "25 minutes",
+    "objectives": "Synchronize clocks across devices.",
+    "scenario": "Configure and verify DHCP, DNS, and NTP services for network infrastructure",
+    "concepts": [
+      "NTP UDP 123",
+      "Stratum hierarchy",
+      "ntp server command",
+      "Auth optional"
+    ],
+    "errors": [
+      {
+        "error": "Clock not syncing",
+        "solution": "Check NTP server reachability and stratum."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why NTP matters?",
+        "solution": "Correlates logs across devices for troubleshooting."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "118-S-01",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-02",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-03",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-04",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-05",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-06",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-07",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-08",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-09",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-10",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-11",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-12",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "118-S-13",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-118-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-118-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Enterprise concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "NTP UDP 123",
+      "Stratum hierarchy",
+      "ntp server command",
+      "Auth optional"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why NTP matters?",
+        "solution": "Correlates logs across devices for troubleshooting."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure and verify network services like DHCP, DNS, and NTP",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Services through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Enterprise?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "204",
+    "title": "Basic Network Time Protocol (NTP)",
+    "category": "Network Services",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Configure NTP for time synchronization",
+    "scenario": "Configure and verify DHCP, DNS, and NTP services for network infrastructure",
+    "concepts": [
+      "NTP synchronizes clocks",
+      "Accurate time for logs and certificates",
+      "Stratum levels indicate time source accuracy",
+      "Use pool.ntp.org for public NTP"
+    ],
+    "errors": [
+      {
+        "error": "NTP not synchronizing",
+        "solution": "Check NTP server reachability and firewall rules"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does NTP stand for?",
+        "solution": "Network Time Protocol"
+      },
+      {
+        "question": "Why is time synchronization important?",
+        "solution": "For logs, certificates, and troubleshooting"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "204-S-01",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-02",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-03",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-04",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-05",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-06",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-07",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "204-S-08",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Services concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "NTP synchronizes clocks",
+      "Accurate time for logs and certificates",
+      "Stratum levels indicate time source accuracy",
+      "Use pool.ntp.org for public NTP"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does NTP stand for?",
+        "solution": "Network Time Protocol"
+      },
+      {
+        "question": "Why is time synchronization important?",
+        "solution": "For logs, certificates, and troubleshooting"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure and verify network services like DHCP, DNS, and NTP",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Services through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Services?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "246",
+    "title": "Configure NTP on Router",
+    "category": "Network Services",
+    "level": "basic",
+    "time": "15 min",
+    "difficulty": "basic",
+    "objectives": "Set up NTP for accurate time synchronization",
+    "scenario": "Configure and verify DHCP, DNS, and NTP services for network infrastructure",
+    "concepts": [
+      "NTP uses UDP port 123",
+      "Stratum indicates time source accuracy"
+    ],
+    "errors": [
+      {
+        "error": "Time not syncing",
+        "solution": "Check NTP server reachability"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What port does NTP use?",
+        "solution": "UDP 123"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "246-S-01",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "246-S-02",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "246-S-03",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "246-S-04",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "246-S-05",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      },
+      {
+        "stepId": "246-S-06",
+        "title": "Configure NTP for Time Synchronization",
+        "instruction": "Configure NTP for Time Synchronization for Network Services",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ntp server 192.168.1.1",
+          "ntp update-calendar",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NTP configured, time synchronized",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ntp status"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NTP not working",
+            "solution": "Verify NTP server IP"
+          }
+        ],
+        "hints": [
+          "Use ntp server",
+          "Check NTP associations"
+        ],
+        "challenge": "Configure NTP authentication"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Set up NTP for accurate time synchronization",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Services concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "NTP uses UDP port 123",
+      "Stratum indicates time source accuracy"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What port does NTP use?",
+        "solution": "UDP 123"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What port does NTP use?",
+        "options": [
+          "UDP 123",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "UDP 123"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure and verify network services like DHCP, DNS, and NTP",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Services through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Services?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

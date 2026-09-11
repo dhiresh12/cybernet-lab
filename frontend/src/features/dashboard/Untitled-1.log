@@ -1,0 +1,7 @@
+Out-File : Could not find a part of the path 'C:\temp\uuid_results.txt'.
+At line:4 char:140
++ ... "*.js", "*.jsx" | Out-File -FilePath C:\temp\uuid_results.txt; notepa ...
++                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+ 

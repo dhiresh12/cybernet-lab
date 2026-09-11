@@ -1,0 +1,3204 @@
+[
+  {
+    "id": "99",
+    "title": "Security Lab: AAA with RADIUS and TACACS+",
+    "category": "Network Security",
+    "level": "intermediate",
+    "time": "40 minutes",
+    "objectives": "Centralize authentication with TACACS+.",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "aaa new-model enables AAA",
+      "TACACS+ separates auth/authz/acct",
+      "RADIUS combines auth and acct",
+      "Local fallback required"
+    ],
+    "errors": [
+      {
+        "error": "Locked out after enabling AAA",
+        "solution": "Ensure fallback to local or console access."
+      }
+    ],
+    "questions": [
+      {
+        "question": "TACACS vs RADIUS difference?",
+        "solution": "TACACS+ separates functions and encrypts entire packet; RADIUS encrypts only password."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "99-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-07",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-08",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-09",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "99-S-10",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-99-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-99-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "aaa new-model enables AAA",
+      "TACACS+ separates auth/authz/acct",
+      "RADIUS combines auth and acct",
+      "Local fallback required"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "TACACS vs RADIUS difference?",
+        "solution": "TACACS+ separates functions and encrypts entire packet; RADIUS encrypts only password."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "116",
+    "title": "Enterprise Lab: DMZ Design with Firewall",
+    "category": "Network Security",
+    "level": "advanced",
+    "time": "45 minutes",
+    "objectives": "Design DMZ with public servers.",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "Three-interface firewall: inside/outside/DMZ",
+      "NAT for servers",
+      "ACLs controlling traffic",
+      "Monitoring and logging"
+    ],
+    "errors": [
+      {
+        "error": "Server unreachable from outside",
+        "solution": "Check NAT, ACL, and service listening."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Default DMZ policy?",
+        "solution": "Deny all; explicitly allow required services."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "116-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-07",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-08",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-09",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-10",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "116-S-11",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-116-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-116-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Design concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Three-interface firewall: inside/outside/DMZ",
+      "NAT for servers",
+      "ACLs controlling traffic",
+      "Monitoring and logging"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Default DMZ policy?",
+        "solution": "Deny all; explicitly allow required services."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Design?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "197",
+    "title": "Network Security Basics",
+    "category": "Network Security",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Learn basic network security concepts",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "Defense in depth",
+      "Least privilege principle",
+      "Physical security",
+      "Password security"
+    ],
+    "errors": [
+      {
+        "error": "Weak passwords",
+        "solution": "Use strong, unique passwords and enable password encryption"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the CIA triad?",
+        "solution": "Confidentiality, Integrity, Availability"
+      },
+      {
+        "question": "What is defense in depth?",
+        "solution": "Multiple layers of security controls"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "197-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-07",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "197-S-08",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Defense in depth",
+      "Least privilege principle",
+      "Physical security",
+      "Password security"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the CIA triad?",
+        "solution": "Confidentiality, Integrity, Availability"
+      },
+      {
+        "question": "What is defense in depth?",
+        "solution": "Multiple layers of security controls"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "207",
+    "title": "Basic Network Security Best Practices",
+    "category": "Network Security",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Learn basic network security practices",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "Change default passwords",
+      "Disable unused services",
+      "Use SSH not Telnet",
+      "Keep firmware updated"
+    ],
+    "errors": [
+      {
+        "error": "Using Telnet in production",
+        "solution": "Always use SSH instead of Telnet"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why is SSH better than Telnet?",
+        "solution": "SSH is encrypted, Telnet sends passwords in plaintext"
+      },
+      {
+        "question": "What is the 'enable secret' command?",
+        "solution": "Sets an encrypted privileged EXEC password"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "207-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "207-S-07",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Change default passwords",
+      "Disable unused services",
+      "Use SSH not Telnet",
+      "Keep firmware updated"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why is SSH better than Telnet?",
+        "solution": "SSH is encrypted, Telnet sends passwords in plaintext"
+      },
+      {
+        "question": "What is the 'enable secret' command?",
+        "solution": "Sets an encrypted privileged EXEC password"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "210",
+    "title": "Basic Firewall Concepts",
+    "category": "Network Security",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Understand firewall fundamentals",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "Firewall filters traffic",
+      "Stateful vs stateless",
+      "Rules define allowed/blocked traffic",
+      "Default deny policy"
+    ],
+    "errors": [
+      {
+        "error": "Firewall allowing too much",
+        "solution": "Use default deny and only allow necessary traffic"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is a firewall?",
+        "solution": "Network security device that filters traffic"
+      },
+      {
+        "question": "What is stateful inspection?",
+        "solution": "Tracking connection state for security decisions"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "210-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "210-S-07",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Firewall filters traffic",
+      "Stateful vs stateless",
+      "Rules define allowed/blocked traffic",
+      "Default deny policy"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is a firewall?",
+        "solution": "Network security device that filters traffic"
+      },
+      {
+        "question": "What is stateful inspection?",
+        "solution": "Tracking connection state for security decisions"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "214",
+    "title": "Basic Network Security Threats",
+    "category": "Network Security",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Understand common network security threats",
+    "scenario": "Implement device hardening, AAA authentication, and access control policies",
+    "concepts": [
+      "Malware: viruses, worms, trojans",
+      "Phishing and social engineering",
+      "Man-in-the-middle attacks",
+      "Denial of Service (DoS)"
+    ],
+    "errors": [
+      {
+        "error": "Clicking suspicious links",
+        "solution": "Verify sender, hover over links, use email filtering"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is a trojan horse?",
+        "solution": "Malware disguised as legitimate software"
+      },
+      {
+        "question": "What is phishing?",
+        "solution": "Social engineering to steal credentials via fake communications"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "214-S-01",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "214-S-02",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "214-S-03",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "214-S-04",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "214-S-05",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      },
+      {
+        "stepId": "214-S-06",
+        "title": "Configure AAA Authentication",
+        "instruction": "Configure AAA Authentication for Network Security",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "aaa new-model",
+          "aaa authentication login default local",
+          "username admin privilege 15 secret Admin123",
+          "line console 0",
+          "login authentication default",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AAA authentication configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show aaa methods"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AAA not working",
+            "solution": "Verify aaa new-model and authentication"
+          }
+        ],
+        "hints": [
+          "Use aaa new-model",
+          "Configure local database"
+        ],
+        "challenge": "Configure RADIUS"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Malware: viruses, worms, trojans",
+      "Phishing and social engineering",
+      "Man-in-the-middle attacks",
+      "Denial of Service (DoS)"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is a trojan horse?",
+        "solution": "Malware disguised as legitimate software"
+      },
+      {
+        "question": "What is phishing?",
+        "solution": "Social engineering to steal credentials via fake communications"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement security measures including AAA, CoPP, and device hardening",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Security through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

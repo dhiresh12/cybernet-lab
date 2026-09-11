@@ -1,0 +1,1648 @@
+[
+  {
+    "id": "83",
+    "title": "VLAN Lab: Inter-VLAN Routing with Router",
+    "category": "Inter-VLAN Routing",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Router-on-a-stick for inter-VLAN.",
+    "scenario": "Enable router-on-a-stick configuration for inter-VLAN communication",
+    "concepts": [
+      "Subinterfaces with encapsulation dot1Q",
+      "No switchport on router",
+      "Trunk on switch",
+      "Subinterface IP = VLAN gateway"
+    ],
+    "errors": [
+      {
+        "error": "Inter-VLAN ping fails",
+        "solution": "Check encapsulation, subinterface status, trunk allowed VLANs."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why subinterfaces?",
+        "solution": "Single physical interface can carry multiple VLANs logically."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "83-S-01",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-02",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-03",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-04",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-05",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-06",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-07",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-08",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "83-S-09",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-83-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-1",
+        "title": "Step 1: Identify all switches and their interconnections in the topology...",
+        "instruction": "Identify all switches and their interconnections in the topology",
+        "commands": [],
+        "expectedOutput": "Completed: Identify all switches and their interconnections in the topology",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-2",
+        "title": "Step 2: Configure IP addresses on management interfaces if applicable...",
+        "instruction": "Configure IP addresses on management interfaces if applicable",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on management interfaces if applicable",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-3",
+        "title": "Step 3: Create and name VLANs according to lab requirements...",
+        "instruction": "Create and name VLANs according to lab requirements",
+        "commands": [],
+        "expectedOutput": "Completed: Create and name VLANs according to lab requirements",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-4",
+        "title": "Step 4: Assign switch ports to appropriate VLANs (access mode)...",
+        "instruction": "Assign switch ports to appropriate VLANs (access mode)",
+        "commands": [],
+        "expectedOutput": "Completed: Assign switch ports to appropriate VLANs (access mode)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-5",
+        "title": "Step 5: Configure trunk ports between switches to carry multiple VLANs...",
+        "instruction": "Configure trunk ports between switches to carry multiple VLANs",
+        "commands": [],
+        "expectedOutput": "Completed: Configure trunk ports between switches to carry multiple VLANs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-6",
+        "title": "Step 6: Set trunk encapsulation and allowed VLAN lists...",
+        "instruction": "Set trunk encapsulation and allowed VLAN lists",
+        "commands": [],
+        "expectedOutput": "Completed: Set trunk encapsulation and allowed VLAN lists",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-7",
+        "title": "Step 7: Verify VLAN database and port assignments...",
+        "instruction": "Verify VLAN database and port assignments",
+        "commands": [],
+        "expectedOutput": "Completed: Verify VLAN database and port assignments",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-8",
+        "title": "Step 8: Test inter-VLAN communication (requires router or Layer 3 switch)...",
+        "instruction": "Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Test inter-VLAN communication (requires router or Layer 3 switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-9",
+        "title": "Step 9: Configure and verify spanning tree protocol if enabled...",
+        "instruction": "Configure and verify spanning tree protocol if enabled",
+        "commands": [],
+        "expectedOutput": "Completed: Configure and verify spanning tree protocol if enabled",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-STEP-10",
+        "title": "Step 10: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership...",
+        "instruction": "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-83-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers Layer 2 switching concepts including VLANs, trunking, and spanning tree protocol.",
+      "Identify all switches and their interconnections in the topology",
+      "Configure IP addresses on management interfaces if applicable",
+      "Create and name VLANs according to lab requirements",
+      "Assign switch ports to appropriate VLANs (access mode)",
+      "Configure trunk ports between switches to carry multiple VLANs",
+      "Set trunk encapsulation and allowed VLAN lists",
+      "Verify VLAN database and port assignments",
+      "Test inter-VLAN communication (requires router or Layer 3 switch)",
+      "Configure and verify spanning tree protocol if enabled",
+      "Troubleshoot switching issues by checking port states, trunk negotiation, and VLAN membership",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Inter-VLAN Routing concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Subinterfaces with encapsulation dot1Q",
+      "No switchport on router",
+      "Trunk on switch",
+      "Subinterface IP = VLAN gateway"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why subinterfaces?",
+        "solution": "Single physical interface can carry multiple VLANs logically."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Enable communication between VLANs using router-on-a-stick or L3 switching",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Inter-VLAN Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Inter-VLAN Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "194",
+    "title": "Basic Router-on-a-Stick",
+    "category": "Inter-VLAN Routing",
+    "level": "basic",
+    "time": "35 minutes",
+    "objectives": "Configure inter-VLAN routing on a router",
+    "scenario": "Enable router-on-a-stick configuration for inter-VLAN communication",
+    "concepts": [
+      "Router-on-a-stick uses subinterfaces",
+      "Each VLAN gets a subinterface",
+      "802.1Q trunk connects router to switch",
+      "Router routes between VLANs"
+    ],
+    "errors": [
+      {
+        "error": "Inter-VLAN routing not working",
+        "solution": "Check trunk is configured and subinterface encapsulation matches VLAN"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is router-on-a-stick?",
+        "solution": "Single physical router interface using subinterfaces for multiple VLANs"
+      },
+      {
+        "question": "What encapsulation is used for subinterfaces?",
+        "solution": "802.1Q (dot1Q)"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "194-S-01",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-02",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-03",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-04",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-05",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-06",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "194-S-07",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VLAN concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Router-on-a-stick uses subinterfaces",
+      "Each VLAN gets a subinterface",
+      "802.1Q trunk connects router to switch",
+      "Router routes between VLANs"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is router-on-a-stick?",
+        "solution": "Single physical router interface using subinterfaces for multiple VLANs"
+      },
+      {
+        "question": "What encapsulation is used for subinterfaces?",
+        "solution": "802.1Q (dot1Q)"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Enable communication between VLANs using router-on-a-stick or L3 switching",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Inter-VLAN Routing through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VLAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "229",
+    "title": "Configure Router-on-a-Stick Inter-VLAN Routing",
+    "category": "Inter-VLAN Routing",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "difficulty": "intermediate",
+    "objectives": "Enable communication between VLANs using a single router interface",
+    "scenario": "Enable router-on-a-stick configuration for inter-VLAN communication",
+    "concepts": [
+      "Router-on-a-stick",
+      "Subinterfaces",
+      "802.1Q"
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 Gi0/0 -> Switch0 Gi0/1",
+      "Switch0 Fa0/1 -> PC0",
+      "Switch0 Fa0/2 -> PC1"
+    ],
+    "ipScheme": "192.168.10.0/24 and 192.168.20.0/24",
+    "ipTable": [
+      {
+        "device": "Router0 Gi0/0.10",
+        "interface": "VLAN 10 gateway",
+        "ip": "192.168.10.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Router0 Gi0/0.20",
+        "interface": "VLAN 20 gateway",
+        "ip": "192.168.20.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.10.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.20.10",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure router-on-a-stick for inter-VLAN routing",
+    "steps": [
+      {
+        "stepId": "229-S-01",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-02",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-03",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-04",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-05",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-06",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-07",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      },
+      {
+        "stepId": "229-S-08",
+        "title": "Configure Router-on-a-Stick Subinterfaces",
+        "instruction": "Configure Router-on-a-Stick Subinterfaces for Inter-VLAN Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0.10",
+          "encapsulation dot1Q 10",
+          "ip address 192.168.10.1 255.255.255.0",
+          "exit",
+          "interface GigabitEthernet0/0.20",
+          "encapsulation dot1Q 20",
+          "ip address 192.168.20.1 255.255.255.0",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Subinterfaces created for VLAN 10 and 20",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Subinterface not routing",
+            "solution": "Verify encapsulation dot1Q matches VLAN ID"
+          }
+        ],
+        "hints": [
+          "Subinterface name includes dot notation",
+          "Verify trunk on switch port"
+        ],
+        "challenge": "Add third VLAN subinterface"
+      }
+    ],
+    "errors": [
+      {
+        "error": "Inter-VLAN routing not working",
+        "solution": "Check encapsulation and IP on each subinterface"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why use subinterfaces?",
+        "solution": "To route between VLANs with one physical interface"
+      }
+    ],
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify trunk between router and switch"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VLAN concepts to optimize network performance",
+    "solution": "Create Gi0/0.30 for VLAN 30",
+    "keyConcepts": [
+      "Subinterfaces",
+      "802.1Q",
+      "Inter-VLAN routing"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Can one physical interface have multiple subinterfaces?",
+        "solution": "Yes, up to 4094"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What command creates a subinterface?",
+        "options": [
+          "interface gig 0/0.10",
+          "vlan 10",
+          "subinterface 10"
+        ],
+        "correct": "interface gig 0/0.10"
+      }
+    ],
+    "topology": "Router0 Gi0/0 -> Switch0 Gi0/1 -> Switch0 Fa0/1 -> PC0 -> Switch0 Fa0/2 -> PC1",
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 Gi0/0 -> Switch0 Gi0/1",
+        "Switch0 Fa0/1 -> PC0",
+        "Switch0 Fa0/2 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Enable communication between VLANs using router-on-a-stick or L3 switching",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0 Gi0/0.10",
+        "interface": "VLAN 10 gateway",
+        "ip": "192.168.10.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Router0 Gi0/0.20",
+        "interface": "VLAN 20 gateway",
+        "ip": "192.168.20.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.10.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.20.10",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Inter-VLAN Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VLAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

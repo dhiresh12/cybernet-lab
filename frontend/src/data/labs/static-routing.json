@@ -1,0 +1,2451 @@
+[
+  {
+    "id": "3",
+    "title": "Static Routing Between Two Networks",
+    "category": "Static Routing",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Configure static routes between remote networks.",
+    "scenario": "Configure static routes to reach remote networks not directly connected",
+    "concepts": [
+      "ip route dest mask next-hop",
+      "AD for static = 1",
+      "Routes required on BOTH routers"
+    ],
+    "errors": [
+      {
+        "error": "Route missing",
+        "solution": "Check syntax, reachable next-hop, and typos."
+      },
+      {
+        "error": "One-way ping only",
+        "solution": "Add return-path static route."
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does ip route 192.168.2.0 255.255.255.0 10.0.0.2 mean?",
+        "solution": "To reach 192.168.2.0, send packets to next-hop 10.0.0.2."
+      },
+      {
+        "question": "Why routes on both routers?",
+        "solution": "Routing is bidirectional; return path required."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "3-S-01",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-02",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-03",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-04",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-05",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-06",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-07",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-08",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-09",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "3-S-10",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-3-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-1",
+        "title": "Step 1: Analyze the network topology and identify all networks and router interfaces...",
+        "instruction": "Analyze the network topology and identify all networks and router interfaces",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the network topology and identify all networks and router interfaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-2",
+        "title": "Step 2: Configure IP addresses on all router interfaces and connected devices...",
+        "instruction": "Configure IP addresses on all router interfaces and connected devices",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on all router interfaces and connected devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-3",
+        "title": "Step 3: Verify interface status and IP configuration on each router...",
+        "instruction": "Verify interface status and IP configuration on each router",
+        "commands": [],
+        "expectedOutput": "Completed: Verify interface status and IP configuration on each router",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-4",
+        "title": "Step 4: Configure static routes on each router for networks not directly connected...",
+        "instruction": "Configure static routes on each router for networks not directly connected",
+        "commands": [],
+        "expectedOutput": "Completed: Configure static routes on each router for networks not directly connected",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-5",
+        "title": "Step 5: Verify static routes are present in the routing table...",
+        "instruction": "Verify static routes are present in the routing table",
+        "commands": [],
+        "expectedOutput": "Completed: Verify static routes are present in the routing table",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-6",
+        "title": "Step 6: Test end-to-end connectivity between devices in different networks...",
+        "instruction": "Test end-to-end connectivity between devices in different networks",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end connectivity between devices in different networks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-7",
+        "title": "Step 7: Troubleshoot routing issues by checking route accuracy and next-hop addresses...",
+        "instruction": "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-STEP-8",
+        "title": "Step 8: Save configurations and verify lab completion...",
+        "instruction": "Save configurations and verify lab completion",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify lab completion",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-3-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+      "Analyze the network topology and identify all networks and router interfaces",
+      "Configure IP addresses on all router interfaces and connected devices",
+      "Verify interface status and IP configuration on each router",
+      "Configure static routes on each router for networks not directly connected",
+      "Verify static routes are present in the routing table",
+      "Test end-to-end connectivity between devices in different networks",
+      "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+      "Save configurations and verify lab completion",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Static Routing concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "ip route dest mask next-hop",
+      "AD for static = 1",
+      "Routes required on BOTH routers"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does ip route 192.168.2.0 255.255.255.0 10.0.0.2 mean?",
+        "solution": "To reach 192.168.2.0, send packets to next-hop 10.0.0.2."
+      },
+      {
+        "question": "Why routes on both routers?",
+        "solution": "Routing is bidirectional; return path required."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure static routes between directly connected networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Static Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Static Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "Default Route and Floating Static Route",
+    "category": "Static Routing",
+    "level": "intermediate",
+    "time": "20 minutes",
+    "objectives": "Use default and floating static routes.",
+    "scenario": "Configure static routes to reach remote networks not directly connected",
+    "concepts": [
+      "Default route = 0.0.0.0/0",
+      "Gateway of last resort",
+      "Floating static uses higher AD (200)",
+      "Lower AD wins"
+    ],
+    "errors": [
+      {
+        "error": "Default route not S*",
+        "solution": "Ensure lowest AD default exists."
+      },
+      {
+        "error": "Floating route active immediately",
+        "solution": "Primary AD=1, floating AD must be higher, e.g., 200."
+      }
+    ],
+    "questions": [
+      {
+        "question": "When use default route?",
+        "solution": "On edge/stub networks with one exit path."
+      },
+      {
+        "question": "Purpose of floating static route?",
+        "solution": "Backup redundancy; used only when primary fails."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "4-S-01",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-02",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-03",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-04",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-05",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-06",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-07",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-08",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-09",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "4-S-10",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-4-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-1",
+        "title": "Step 1: Analyze the network topology and identify all networks and router interfaces...",
+        "instruction": "Analyze the network topology and identify all networks and router interfaces",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the network topology and identify all networks and router interfaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-2",
+        "title": "Step 2: Configure IP addresses on all router interfaces and connected devices...",
+        "instruction": "Configure IP addresses on all router interfaces and connected devices",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on all router interfaces and connected devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-3",
+        "title": "Step 3: Verify interface status and IP configuration on each router...",
+        "instruction": "Verify interface status and IP configuration on each router",
+        "commands": [],
+        "expectedOutput": "Completed: Verify interface status and IP configuration on each router",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-4",
+        "title": "Step 4: Configure static routes on each router for networks not directly connected...",
+        "instruction": "Configure static routes on each router for networks not directly connected",
+        "commands": [],
+        "expectedOutput": "Completed: Configure static routes on each router for networks not directly connected",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-5",
+        "title": "Step 5: Verify static routes are present in the routing table...",
+        "instruction": "Verify static routes are present in the routing table",
+        "commands": [],
+        "expectedOutput": "Completed: Verify static routes are present in the routing table",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-6",
+        "title": "Step 6: Test end-to-end connectivity between devices in different networks...",
+        "instruction": "Test end-to-end connectivity between devices in different networks",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end connectivity between devices in different networks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-7",
+        "title": "Step 7: Troubleshoot routing issues by checking route accuracy and next-hop addresses...",
+        "instruction": "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-STEP-8",
+        "title": "Step 8: Save configurations and verify lab completion...",
+        "instruction": "Save configurations and verify lab completion",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify lab completion",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-4-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+      "Analyze the network topology and identify all networks and router interfaces",
+      "Configure IP addresses on all router interfaces and connected devices",
+      "Verify interface status and IP configuration on each router",
+      "Configure static routes on each router for networks not directly connected",
+      "Verify static routes are present in the routing table",
+      "Test end-to-end connectivity between devices in different networks",
+      "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+      "Save configurations and verify lab completion",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Static Routing concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Default route = 0.0.0.0/0",
+      "Gateway of last resort",
+      "Floating static uses higher AD (200)",
+      "Lower AD wins"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "When use default route?",
+        "solution": "On edge/stub networks with one exit path."
+      },
+      {
+        "question": "Purpose of floating static route?",
+        "solution": "Backup redundancy; used only when primary fails."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure static routes between directly connected networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Static Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Static Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Host Route and Summary Static Route",
+    "category": "Static Routing",
+    "level": "intermediate",
+    "time": "20 minutes",
+    "objectives": "Configure host routes and summary routes.",
+    "scenario": "Configure static routes to reach remote networks not directly connected",
+    "concepts": [
+      "Host route uses /32 mask",
+      "Summary route aggregates networks",
+      "Longest prefix match wins"
+    ],
+    "errors": [
+      {
+        "error": "Specific route ignored",
+        "solution": "Verify mask is more specific than default."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why does /32 override 0.0.0.0/0?",
+        "solution": "Longest prefix match selects most specific route."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "5-S-01",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-02",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-03",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-04",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-05",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-06",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-07",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-08",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-09",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "5-S-10",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-5-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-1",
+        "title": "Step 1: Analyze the network topology and identify all networks and router interfaces...",
+        "instruction": "Analyze the network topology and identify all networks and router interfaces",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the network topology and identify all networks and router interfaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-2",
+        "title": "Step 2: Configure IP addresses on all router interfaces and connected devices...",
+        "instruction": "Configure IP addresses on all router interfaces and connected devices",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on all router interfaces and connected devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-3",
+        "title": "Step 3: Verify interface status and IP configuration on each router...",
+        "instruction": "Verify interface status and IP configuration on each router",
+        "commands": [],
+        "expectedOutput": "Completed: Verify interface status and IP configuration on each router",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-4",
+        "title": "Step 4: Configure static routes on each router for networks not directly connected...",
+        "instruction": "Configure static routes on each router for networks not directly connected",
+        "commands": [],
+        "expectedOutput": "Completed: Configure static routes on each router for networks not directly connected",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-5",
+        "title": "Step 5: Verify static routes are present in the routing table...",
+        "instruction": "Verify static routes are present in the routing table",
+        "commands": [],
+        "expectedOutput": "Completed: Verify static routes are present in the routing table",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-6",
+        "title": "Step 6: Test end-to-end connectivity between devices in different networks...",
+        "instruction": "Test end-to-end connectivity between devices in different networks",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end connectivity between devices in different networks",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-7",
+        "title": "Step 7: Troubleshoot routing issues by checking route accuracy and next-hop addresses...",
+        "instruction": "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-STEP-8",
+        "title": "Step 8: Save configurations and verify lab completion...",
+        "instruction": "Save configurations and verify lab completion",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify lab completion",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-5-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on configuring static routes on routers to enable communication between different networks.",
+      "Analyze the network topology and identify all networks and router interfaces",
+      "Configure IP addresses on all router interfaces and connected devices",
+      "Verify interface status and IP configuration on each router",
+      "Configure static routes on each router for networks not directly connected",
+      "Verify static routes are present in the routing table",
+      "Test end-to-end connectivity between devices in different networks",
+      "Troubleshoot routing issues by checking route accuracy and next-hop addresses",
+      "Save configurations and verify lab completion",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Static Routing concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Host route uses /32 mask",
+      "Summary route aggregates networks",
+      "Longest prefix match wins"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why does /32 override 0.0.0.0/0?",
+        "solution": "Longest prefix match selects most specific route."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure static routes between directly connected networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Static Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Static Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "171",
+    "title": "Configuring Static Routes",
+    "category": "Static Routing",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Learn to configure static routes on a router",
+    "scenario": "Configure static routes to reach remote networks not directly connected",
+    "concepts": [
+      "Static routes are manually configured",
+      "Used for simple or small networks",
+      "Used when dynamic routing isn't needed",
+      "Format: ip route [destination] [mask] [next-hop]"
+    ],
+    "errors": [
+      {
+        "error": "Static route not working",
+        "solution": "Verify next-hop is reachable and return route exists"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does 'S' mean in show ip route?",
+        "solution": "Static route"
+      },
+      {
+        "question": "What parameters does ip route need?",
+        "solution": "Destination network, subnet mask, and next-hop address"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "171-S-01",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-02",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-03",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-04",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-05",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-06",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-07",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      },
+      {
+        "stepId": "171-S-08",
+        "title": "Configure Static Route to Remote Network",
+        "instruction": "Configure Static Route to Remote Network for Static Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 10.0.0.0 255.255.255.0 192.168.1.2",
+          "do show ip route static",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Static route 10.0.0.0/24 via 192.168.1.2",
+        "verification": {
+          "type": "route",
+          "expected": "10.0.0.0/24"
+        },
+        "commonErrors": [
+          {
+            "error": "Route not appearing",
+            "solution": "Check next-hop IP reachability"
+          }
+        ],
+        "hints": [
+          "Default AD is 1",
+          "Use show ip route static"
+        ],
+        "challenge": "Configure floating static route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Networking Fundamentals concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Static routes are manually configured",
+      "Used for simple or small networks",
+      "Used when dynamic routing isn't needed",
+      "Format: ip route [destination] [mask] [next-hop]"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does 'S' mean in show ip route?",
+        "solution": "Static route"
+      },
+      {
+        "question": "What parameters does ip route need?",
+        "solution": "Destination network, subnet mask, and next-hop address"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure static routes between directly connected networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Static Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Networking Fundamentals?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

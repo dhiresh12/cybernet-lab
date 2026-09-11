@@ -1,0 +1,2084 @@
+[
+  {
+    "id": "176",
+    "title": "Using CDP and LLDP",
+    "category": "Cisco",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Learn to discover neighboring devices",
+    "scenario": "Configure Cisco IOS devices including CDP, loopback, and password security",
+    "concepts": [
+      "CDP = Cisco Discovery Protocol",
+      "LLDP = Link Layer Discovery Protocol",
+      "Both discover directly connected devices",
+      "Shows device ID, IP, port, and capabilities"
+    ],
+    "errors": [
+      {
+        "error": "CDP not showing neighbors",
+        "solution": "CDP is enabled by default; check if neighbors are Cisco devices"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What layer does CDP operate at?",
+        "solution": "Layer 2 (Data Link)"
+      },
+      {
+        "question": "CDP is Cisco proprietary, what's the industry standard equivalent?",
+        "solution": "LLDP (Link Layer Discovery Protocol)"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "176-S-01",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-02",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-03",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-04",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-05",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-06",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "176-S-07",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Networking Fundamentals concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "CDP = Cisco Discovery Protocol",
+      "LLDP = Link Layer Discovery Protocol",
+      "Both discover directly connected devices",
+      "Shows device ID, IP, port, and capabilities"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What layer does CDP operate at?",
+        "solution": "Layer 2 (Data Link)"
+      },
+      {
+        "question": "CDP is Cisco proprietary, what's the industry standard equivalent?",
+        "solution": "LLDP (Link Layer Discovery Protocol)"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure Cisco IOS devices including memory, CDP, and loopback interfaces",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Cisco through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Networking Fundamentals?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "187",
+    "title": "Cisco Device Memory Types",
+    "category": "Cisco",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Understand Cisco device memory",
+    "scenario": "Configure Cisco IOS devices including CDP, loopback, and password security",
+    "concepts": [
+      "RAM: Running config, variables, buffers",
+      "NVRAM: Startup config",
+      "Flash: IOS image",
+      "ROM: Bootstrap, POST"
+    ],
+    "errors": [
+      {
+        "error": "Configuration lost after reboot",
+        "solution": "Save with 'copy running-config startup-config'"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What memory stores startup config?",
+        "solution": "NVRAM"
+      },
+      {
+        "question": "What memory stores the running config?",
+        "solution": "RAM"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "187-S-01",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-02",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-03",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-04",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-05",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-06",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "187-S-07",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Cisco concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "RAM: Running config, variables, buffers",
+      "NVRAM: Startup config",
+      "Flash: IOS image",
+      "ROM: Bootstrap, POST"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What memory stores startup config?",
+        "solution": "NVRAM"
+      },
+      {
+        "question": "What memory stores the running config?",
+        "solution": "RAM"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure Cisco IOS devices including memory, CDP, and loopback interfaces",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Cisco through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Cisco?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "242",
+    "title": "Configure CDP for Neighbor Discovery",
+    "category": "Cisco",
+    "level": "basic",
+    "time": "15 min",
+    "difficulty": "basic",
+    "objectives": "Use CDP to discover directly connected Cisco devices",
+    "scenario": "Configure Cisco IOS devices including CDP, loopback, and password security",
+    "concepts": [
+      "CDP is Cisco-proprietary",
+      "Operates at Layer 2",
+      "Shows neighbor device info"
+    ],
+    "errors": [
+      {
+        "error": "No neighbors shown",
+        "solution": "Check CDP is enabled (it is by default)"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What layer does CDP work at?",
+        "solution": "Layer 2"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "242-S-01",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-02",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-03",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-04",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-05",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-06",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "242-S-07",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Use CDP to discover directly connected Cisco devices",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Cisco concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "CDP is Cisco-proprietary",
+      "Operates at Layer 2",
+      "Shows neighbor device info"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What layer does CDP work at?",
+        "solution": "Layer 2"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What layer does CDP work at?",
+        "options": [
+          "Layer 2",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Layer 2"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure Cisco IOS devices including memory, CDP, and loopback interfaces",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Cisco through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Cisco?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "243",
+    "title": "Configure Loopback Interface",
+    "category": "Cisco",
+    "level": "basic",
+    "time": "10 min",
+    "difficulty": "basic",
+    "objectives": "Create a loopback interface for testing and management",
+    "scenario": "Configure Cisco IOS devices including CDP, loopback, and password security",
+    "concepts": [
+      "Loopback interfaces are virtual",
+      "They never go down unless router is off",
+      "Used for BGP router ID, testing"
+    ],
+    "errors": [
+      {
+        "error": "Loopback not working",
+        "solution": "Verify interface is up"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why use loopback?",
+        "solution": "Always up, used for testing and routing protocols"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "243-S-01",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-02",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-03",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-04",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-05",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-06",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-07",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "243-S-08",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Create a loopback interface for testing and management",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Cisco concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Loopback interfaces are virtual",
+      "They never go down unless router is off",
+      "Used for BGP router ID, testing"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why use loopback?",
+        "solution": "Always up, used for testing and routing protocols"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Why use loopback?",
+        "options": [
+          "Always up, used for testing and routing protocols",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Always up, used for testing and routing protocols"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure Cisco IOS devices including memory, CDP, and loopback interfaces",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Cisco through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Cisco?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "247",
+    "title": "Configure Password Encryption",
+    "category": "Cisco",
+    "level": "intermediate",
+    "time": "10 min",
+    "difficulty": "intermediate",
+    "objectives": "Encrypt all plaintext passwords in the configuration",
+    "scenario": "Configure Cisco IOS devices including CDP, loopback, and password security",
+    "concepts": [
+      "service password-encryption encrypts passwords",
+      "Uses weak reversible encryption",
+      "Better: use enable secret"
+    ],
+    "errors": [
+      {
+        "error": "Passwords still visible",
+        "solution": "Save config after enabling service"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does service password-encryption do?",
+        "solution": "Encrypts all plaintext passwords"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "247-S-01",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-02",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-03",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-04",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-05",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-06",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-07",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-08",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      },
+      {
+        "stepId": "247-S-09",
+        "title": "Configure Cisco IOS Device Settings",
+        "instruction": "Configure Cisco IOS Device Settings for Cisco",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "service password-encryption",
+          "line console 0",
+          "password Admin123",
+          "login",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Cisco device configured with security settings",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | include hostname"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Settings not applied",
+            "solution": "Verify each configuration command"
+          }
+        ],
+        "hints": [
+          "Use hostname, domain-name",
+          "Enable password encryption"
+        ],
+        "challenge": "Configure console timeout"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Encrypt all plaintext passwords in the configuration",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "service password-encryption encrypts passwords",
+      "Uses weak reversible encryption",
+      "Better: use enable secret"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does service password-encryption do?",
+        "solution": "Encrypts all plaintext passwords"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What does service password-encryption do?",
+        "options": [
+          "Encrypts all plaintext passwords",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Encrypts all plaintext passwords"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure Cisco IOS devices including memory, CDP, and loopback interfaces",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Cisco through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

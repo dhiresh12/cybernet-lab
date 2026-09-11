@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-09-07",
+  "description": "Lab Quality Gate registry for CyberNet Lab. Quarantined labs are excluded from normal learner-facing lab listing and cannot be started as regular learner sessions. Source definitions are preserved for future rebuilding.",
+  "statuses": {
+    "VALID": "Learner-safe lab. Reference labs and fully validated labs.",
+    "BROKEN": "Quarantined lab. Not served as a normal learner lab. Preserved for future rebuild.",
+    "LEGACY": "Legacy-format lab. Not automatically quarantined. Available according to existing project behavior pending review.",
+    "UNKNOWN": "Not yet validated."
+  },
+  "quarantined": [
+    {
+      "labId": "23",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach device naming and banner configuration but steps configure SSH",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.4",
+      "remediationDate": "2026-09-06",
+      "remediationSummary": "Lab content corrected. Title changed from 'Network Device Naming and Banner' to 'SSH Hardening and Secure Access'. Category changed from SSH to Security. All 8 legacy steps replaced with 7 canonical steps covering hostname configuration, RSA key generation, local user creation, VTY line restriction to SSH, and SSH connectivity testing. Topology, initialState, troubleshooting, and knowledge check added.",
+      "notes": "Original content configured SSH but was titled as device naming and banner. Remediated to match actual SSH hardening concept with complete canonical lab structure."
+    },
+    {
+      "labId": "81",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach trunk port configuration but steps configure access ports/VLANs",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.4",
+      "remediationDate": "2026-09-06",
+      "remediationSummary": "Lab content corrected. Retained original title and category. All 9 identical legacy trunk steps replaced with 7 canonical progressive steps covering VLAN creation, trunk configuration on both switches, native VLAN and allowed VLAN setup, trunk verification, and VLAN isolation testing. Topology, initialState, troubleshooting, and knowledge check added.",
+      "notes": "Phase 6.3 re-audit found original quarantine reason inaccurate: actual steps DID configure trunk ports. Remediation adds complete topology, progressive steps, verification, and troubleshooting. Lab now accessible via API."
+    },
+    {
+      "labId": "83",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach inter-VLAN routing with router but steps do not configure router subinterfaces or routing",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.7",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title retained as 'VLAN Lab: Inter-VLAN Routing with Router'. Structured topology and initialState added. Existing subinterface configuration steps preserved. Note: lab uses multiple physical router interfaces rather than subinterfaces due to simulator constraints.",
+      "notes": "Original quarantine reason was inaccurate: steps DID configure subinterfaces. Remediated by adding missing topology and initialState to support runtime execution."
+    },
+    {
+      "labId": "103",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach SSH hardening and ACLs but steps configure ACL only",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.6",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from 'Security Lab: SSH Hardening and ACLs' to 'ACL Configuration and Traffic Filtering'. Objectives and scenario updated to match ACL content. Structured topology and initialState added. Existing ACL steps preserved.",
+      "notes": "Original title mismatched actual ACL content. Remediated to match content with complete canonical lab structure."
+    },
+    {
+      "labId": "112",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach Policy-Based Routing (PBR) but steps configure static routes only",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "notes": "Original title mismatched actual static route content. Remediated to match content with complete canonical lab structure.",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.8",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from \"Enterprise Lab: Policy-Based Routing (PBR)\" to \"Static and Default Route Configuration\". Objectives and scenario updated to match static route content. Structured topology and initialState added. Existing static route steps preserved."
+    },
+    {
+      "labId": "113",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach IP SLA and tracking but steps configure interface IP only",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No IP SLA, tracking, or policy-based routing configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "120",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach HSRP and gateway redundancy but steps show generic topology only",
+      "severity": "P0",
+      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, GLBP, or gateway redundancy configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "121",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach stacking and chassis redundancy but steps show generic topology only",
+      "severity": "P0",
+      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No stacking, chassis, or redundancy configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "122",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach wireless WLAN and security but steps configure interface IP only",
+      "severity": "P0",
+      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No WLAN, SSID, security, or wireless configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "124",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach network monitoring and NetFlow but steps configure SNMP only",
+      "severity": "P0",
+      "notes": "Original title/content claimed NetFlow/SNMP but simulator does not support these commands. Remediated to teach basic router configuration using supported commands.",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.9",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from \"Enterprise Lab: Network Monitoring and NetFlow\" to \"Basic Router Configuration and Verification\". Category changed to \"Fundamentals\". Objectives and scenario updated to match basic router configuration content. SNMP/NetFlow steps replaced with supported router configuration and verification steps. Structured topology and initialState added."
+    },
+    {
+      "labId": "125",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach high availability design but steps show generic topology only",
+      "severity": "P0",
+      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, GLBP, or high-availability configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "126",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach BGP route filtering with AS_PATH ACL but steps configure basic BGP peering only",
+      "severity": "P0",
+      "notes": "Original title claimed BGP route filtering but simulator does not support filtering commands. Remediated to teach basic BGP eBGP peering using supported commands.",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.9",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from \"ISP Lab: BGP Route Filtering with AS_PATH ACL\" to \"BGP eBGP Peering and Network Advertisement\". Objectives and scenario updated to match basic BGP peering content. Repetitive steps consolidated into 5 progressive steps. Structured topology and initialState added."
+    },
+    {
+      "labId": "148",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach high availability with HSRP but steps show generic topology only",
+      "severity": "P0",
+      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, or gateway redundancy configuration present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "176",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach CDP and LLDP but steps configure device settings/passwords only",
+      "severity": "P0",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.8",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from \"Using CDP and LLDP\" to \"Configure Cisco IOS Device Settings\". Category changed to \"Device Management\". Objectives and scenario updated to match device settings content. Structured topology and initialState added. Existing device configuration steps preserved."
+    },
+    {
+      "labId": "208",
+      "status": "BROKEN",
+      "reason": "Title/content mismatch: lab claims to teach basic wireless networking concepts but steps configure interface IP only",
+      "severity": "P0",
+      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No wireless, WLAN, SSID, or RF concepts present. Lab title and content are completely mismatched."
+    },
+    {
+      "labId": "229",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach router-on-a-stick inter-VLAN routing but steps configure subinterfaces without verification or routing",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.4",
+      "remediationDate": "2026-09-06",
+      "remediationSummary": "Lab content corrected. Title changed to 'Inter-VLAN Routing with Router'. All 8 identical legacy subinterface steps replaced with 8 canonical progressive steps covering VLAN creation, access port assignment, router interface configuration, PC IP assignment, intra-VLAN ping, inter-VLAN ping, and routing table verification. Topology, initialState, troubleshooting, and knowledge check added. Note: subinterface encapsulation not simulated; lab uses multiple physical router interfaces.",
+      "notes": "Original content had only identical subinterface configuration steps with no switch-side configuration, PC configuration, or verification. Remediated to complete inter-VLAN routing lab with supported simulator commands. Lab now accessible via API."
+    },
+    {
+      "labId": "241",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach banner message configuration but steps configure SSH",
+      "severity": "P0",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.6",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from 'Configure Banner Message' to 'SSH Configuration for Secure Access'. Category changed from SSH to Security. Objectives and scenario updated to match SSH content. Structured topology and initialState added. Existing SSH steps preserved."
+    },
+    {
+      "labId": "242",
+      "status": "REMEDIATED",
+      "reason": "Title/content mismatch: lab claims to teach CDP for neighbor discovery but steps configure device settings/passwords only",
+      "severity": "P0",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "6.7",
+      "remediationDate": "2026-09-07",
+      "remediationSummary": "Lab content corrected. Title changed from 'Configure CDP for Neighbor Discovery' to 'Configure Cisco IOS Device Settings'. Category changed to \"Device Management\". Objectives and scenario updated to match device settings content. Structured topology and initialState added. Existing device configuration steps preserved."
+    }
+  ]
+}

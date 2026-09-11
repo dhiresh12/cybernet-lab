@@ -1,0 +1,2960 @@
+[
+  {
+    "id": "17",
+    "title": "IP Addressing Plan Documentation",
+    "category": "Network Planning",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Create IP addressing table.",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Consistent naming",
+      "Document roles",
+      "Include gateway/DNS",
+      "Version control"
+    ],
+    "errors": [
+      {
+        "error": "Overlapping subnets",
+        "solution": "Plan with VLSM and verify no overlaps."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why document IP plans?",
+        "solution": "Prevents conflicts and speeds troubleshooting."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "17-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "17-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "17-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "17-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "17-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "17-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-17-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-1",
+        "title": "Step 1: Review the lab objectives and identify the devices involved...",
+        "instruction": "Review the lab objectives and identify the devices involved",
+        "commands": [],
+        "expectedOutput": "Completed: Review the lab objectives and identify the devices involved",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-2",
+        "title": "Step 2: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)...",
+        "instruction": "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-3",
+        "title": "Step 3: Power on all devices and wait for them to fully boot...",
+        "instruction": "Power on all devices and wait for them to fully boot",
+        "commands": [],
+        "expectedOutput": "Completed: Power on all devices and wait for them to fully boot",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-4",
+        "title": "Step 4: Configure IP addresses on each device according to the lab specifications...",
+        "instruction": "Configure IP addresses on each device according to the lab specifications",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on each device according to the lab specifications",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-5",
+        "title": "Step 5: Verify IP configuration using appropriate show/commands...",
+        "instruction": "Verify IP configuration using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify IP configuration using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-6",
+        "title": "Step 6: Test connectivity using ping between devices...",
+        "instruction": "Test connectivity using ping between devices",
+        "commands": [],
+        "expectedOutput": "Completed: Test connectivity using ping between devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-7",
+        "title": "Step 7: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections...",
+        "instruction": "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-STEP-8",
+        "title": "Step 8: Document findings and verify all lab objectives are met...",
+        "instruction": "Document findings and verify all lab objectives are met",
+        "commands": [],
+        "expectedOutput": "Completed: Document findings and verify all lab objectives are met",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-17-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+      "Review the lab objectives and identify the devices involved",
+      "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+      "Power on all devices and wait for them to fully boot",
+      "Configure IP addresses on each device according to the lab specifications",
+      "Verify IP configuration using appropriate show/commands",
+      "Test connectivity using ping between devices",
+      "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+      "Document findings and verify all lab objectives are met",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced TCP/IP concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Consistent naming",
+      "Document roles",
+      "Include gateway/DNS",
+      "Version control"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why document IP plans?",
+        "solution": "Prevents conflicts and speeds troubleshooting."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of TCP/IP?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "title": "Basic Connectivity Test Plan",
+    "category": "Network Planning",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Create step-by-step test plan.",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Test local segment first",
+      "Then gateway",
+      "Then remote",
+      "Then Internet",
+      "Document results"
+    ],
+    "errors": [
+      {
+        "error": "Intermittent failures",
+        "solution": "Check duplex, cable, and port errors."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Order of connectivity testing?",
+        "solution": "Local IP \u2192 gateway \u2192 remote \u2192 Internet."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "20-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "20-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "20-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "20-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "20-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "20-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-20-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-1",
+        "title": "Step 1: Review the lab objectives and identify the devices involved...",
+        "instruction": "Review the lab objectives and identify the devices involved",
+        "commands": [],
+        "expectedOutput": "Completed: Review the lab objectives and identify the devices involved",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-2",
+        "title": "Step 2: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)...",
+        "instruction": "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "commands": [],
+        "expectedOutput": "Completed: Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-3",
+        "title": "Step 3: Power on all devices and wait for them to fully boot...",
+        "instruction": "Power on all devices and wait for them to fully boot",
+        "commands": [],
+        "expectedOutput": "Completed: Power on all devices and wait for them to fully boot",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-4",
+        "title": "Step 4: Configure IP addresses on each device according to the lab specifications...",
+        "instruction": "Configure IP addresses on each device according to the lab specifications",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on each device according to the lab specifications",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-5",
+        "title": "Step 5: Verify IP configuration using appropriate show/commands...",
+        "instruction": "Verify IP configuration using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify IP configuration using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-6",
+        "title": "Step 6: Test connectivity using ping between devices...",
+        "instruction": "Test connectivity using ping between devices",
+        "commands": [],
+        "expectedOutput": "Completed: Test connectivity using ping between devices",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-7",
+        "title": "Step 7: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections...",
+        "instruction": "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-STEP-8",
+        "title": "Step 8: Document findings and verify all lab objectives are met...",
+        "instruction": "Document findings and verify all lab objectives are met",
+        "commands": [],
+        "expectedOutput": "Completed: Document findings and verify all lab objectives are met",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-20-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab covers fundamental networking concepts including IP addressing, subnetting, and basic device configuration.",
+      "Review the lab objectives and identify the devices involved",
+      "Physically connect devices using appropriate cabling (straight-through for switch-to-PC, crossover for PC-to-PC if no switch)",
+      "Power on all devices and wait for them to fully boot",
+      "Configure IP addresses on each device according to the lab specifications",
+      "Verify IP configuration using appropriate show/commands",
+      "Test connectivity using ping between devices",
+      "Troubleshoot any connectivity issues by checking IP settings, subnet masks, and physical connections",
+      "Document findings and verify all lab objectives are met",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Planning concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Test local segment first",
+      "Then gateway",
+      "Then remote",
+      "Then Internet",
+      "Document results"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Order of connectivity testing?",
+        "solution": "Local IP \u2192 gateway \u2192 remote \u2192 Internet."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Planning?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "102",
+    "title": "Security Lab: Control Plane Policing (CoPP)",
+    "category": "Network Planning",
+    "level": "intermediate",
+    "time": "35 minutes",
+    "objectives": "Protect router CPU from attack traffic.",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Control plane policing",
+      "Class-map matches protocol",
+      "Policy-map sets rate limits",
+      "Applied to control-plane host"
+    ],
+    "errors": [
+      {
+        "error": "SSH not working after CoPP",
+        "solution": "Adjust policy to permit SSH traffic."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why protect control plane?",
+        "solution": "To prevent CPU exhaustion from attack traffic."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "102-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-07",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-08",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-09",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "102-S-10",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-102-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-102-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Control plane policing",
+      "Class-map matches protocol",
+      "Policy-map sets rate limits",
+      "Applied to control-plane host"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Why protect control plane?",
+        "solution": "To prevent CPU exhaustion from attack traffic."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "196",
+    "title": "Basic Network Documentation",
+    "category": "Network Planning",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Learn importance of network documentation",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Document IP schemes",
+      "Document device configurations",
+      "Document physical connections",
+      "Keep updated"
+    ],
+    "errors": [
+      {
+        "error": "Outdated documentation",
+        "solution": "Update documentation whenever changes are made"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What should network documentation include?",
+        "solution": "IP scheme, device list, port assignments, VLANs, topology"
+      },
+      {
+        "question": "Why is documentation critical?",
+        "solution": "For faster troubleshooting and disaster recovery"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "196-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "196-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "196-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "196-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "196-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "196-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Documentation concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Document IP schemes",
+      "Document device configurations",
+      "Document physical connections",
+      "Keep updated"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What should network documentation include?",
+        "solution": "IP scheme, device list, port assignments, VLANs, topology"
+      },
+      {
+        "question": "Why is documentation critical?",
+        "solution": "For faster troubleshooting and disaster recovery"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Documentation?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "213",
+    "title": "Basic Network Documentation",
+    "category": "Network Planning",
+    "level": "basic",
+    "time": "15 minutes",
+    "objectives": "Why network documentation matters",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Documents network topology",
+      "IP address scheme",
+      "Device inventory",
+      "Change management"
+    ],
+    "errors": [
+      {
+        "error": "Outdated documentation",
+        "solution": "Update documentation with every network change"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What should network documentation include?",
+        "solution": "Topology, IP scheme, device configs, port assignments"
+      },
+      {
+        "question": "Why update documentation regularly?",
+        "solution": "Outdated docs cause confusion during troubleshooting"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "213-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-07",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "213-S-08",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Documentation concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Documents network topology",
+      "IP address scheme",
+      "Device inventory",
+      "Change management"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What should network documentation include?",
+        "solution": "Topology, IP scheme, device configs, port assignments"
+      },
+      {
+        "question": "Why update documentation regularly?",
+        "solution": "Outdated docs cause confusion during troubleshooting"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Documentation?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "224",
+    "title": "Basic Network Capacity Planning",
+    "category": "Network Planning",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Introduction to capacity planning",
+    "scenario": "Plan IP addressing scheme and network design for an enterprise campus",
+    "concepts": [
+      "Monitor current usage",
+      "Plan for growth",
+      "Identify bottlenecks",
+      "Budget for upgrades"
+    ],
+    "errors": [
+      {
+        "error": "Running out of bandwidth",
+        "solution": "Plan capacity upgrades before hitting limits"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is capacity planning?",
+        "solution": "Planning for future network growth and needs"
+      },
+      {
+        "question": "Why baseline current network usage?",
+        "solution": "To understand normal behavior and plan for growth"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "224-S-01",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-02",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-03",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-04",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-05",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-06",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      },
+      {
+        "stepId": "224-S-07",
+        "title": "Design IP Addressing Plan",
+        "instruction": "Design IP Addressing Plan for Network Planning",
+        "commands": [
+          "enable",
+          "show ip interface brief",
+          "show ip route",
+          "end"
+        ],
+        "expectedOutput": "IP addressing plan documented",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Plan incomplete",
+            "solution": "Review all subnets"
+          }
+        ],
+        "hints": [
+          "Use subnetting tools",
+          "Document all addresses"
+        ],
+        "challenge": "Create VLSM plan"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Planning concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Monitor current usage",
+      "Plan for growth",
+      "Identify bottlenecks",
+      "Budget for upgrades"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is capacity planning?",
+        "solution": "Planning for future network growth and needs"
+      },
+      {
+        "question": "Why baseline current network usage?",
+        "solution": "To understand normal behavior and plan for growth"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Plan network design, IP addressing, and capacity for enterprise networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Planning through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Planning?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

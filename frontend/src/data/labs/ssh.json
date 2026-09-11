@@ -1,0 +1,2515 @@
+[
+  {
+    "id": "23",
+    "title": "SSH Hardening Basics",
+    "slug": "ssh-hardening-basics",
+    "category": "SSH",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Harden network device SSH configuration by disabling Telnet, enabling SSH v2, and restricting access.",
+    "scenario": "A network device is currently accessible via Telnet, which sends passwords in plaintext. You need to harden the device by enabling SSH v2 and disabling Telnet.",
+    "concepts": [
+      "SSH v2 uses RSA for key exchange",
+      "Domain-name required for crypto key generation",
+      "VTY lines control remote access",
+      "transport input ssh restricts access to SSH only",
+      "login local requires local user database"
+    ],
+    "errors": [
+      {
+        "error": "SSH connection refused",
+        "solution": "Verify domain-name is configured and crypto keys are generated"
+      },
+      {
+        "error": "Crypto keys not generated",
+        "solution": "Configure domain-name first, then generate keys with crypto key generate rsa"
+      }
+    ],
+    "questions": [
+      {
+        "question": "Why is SSH preferred over Telnet?",
+        "solution": "SSH encrypts all traffic including passwords; Telnet sends everything in plaintext"
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "23-S-01",
+        "title": "Configure Device Identity",
+        "instruction": "Set the device hostname and domain-name. These are prerequisites for generating RSA keys used by SSH.",
+        "why": "SSH requires a domain-name to generate crypto keys. Without it, you cannot enable SSH.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name company.local",
+          "end"
+        ],
+        "expectedOutput": "Hostname and domain-name configured",
+        "verification": {
+          "type": "state_check",
+          "expected": {
+            "deviceId": "R1",
+            "interface": "hostname",
+            "ip": "R1",
+            "mask": "company.local"
+          }
+        },
+        "hints": [
+          "Use 'hostname [name]' to set the device name",
+          "Use 'domain-name [name]' to set the domain"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "Trying to generate keys before setting domain-name",
+            "solution": "Set domain-name first"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-02",
+        "title": "Generate RSA Crypto Keys",
+        "instruction": "Generate RSA key pair for SSH. This creates the encryption keys that secure SSH connections.",
+        "why": "SSH v2 uses RSA keys for key exchange and encryption. Without keys, SSH cannot operate.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "crypto key generate rsa modulus 1024",
+          "end"
+        ],
+        "expectedOutput": "RSA key generated",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "hints": [
+          "Use 'crypto key generate rsa modulus 1024' or higher",
+          "1024-bit is minimum for SSH v2"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "Key generation fails without domain-name",
+            "solution": "Configure domain-name first"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-03",
+        "title": "Enable SSH Version 2",
+        "instruction": "Configure the device to accept only SSH v2 connections. SSH v2 has improved security over v1.",
+        "why": "SSH v1 has known vulnerabilities. Always use SSH v2 when available.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip ssh version 2",
+          "end"
+        ],
+        "expectedOutput": "SSH version 2 enabled",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "hints": [
+          "Use 'ip ssh version 2' to enforce SSH v2",
+          "Check with 'show ip ssh'"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "SSH v1 is still attempted",
+            "solution": "Explicitly set 'ip ssh version 2'"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-04",
+        "title": "Configure VTY Lines for SSH Only",
+        "instruction": "Configure virtual terminal (VTY) lines to accept only SSH connections, rejecting Telnet.",
+        "why": "VTY lines control remote access. 'transport input ssh' disables Telnet and enables SSH only.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "line vty 0 4",
+          "transport input ssh",
+          "end"
+        ],
+        "expectedOutput": "VTY lines configured for SSH only",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show line"
+          ]
+        },
+        "hints": [
+          "Use 'line vty 0 4' to configure all VTY lines",
+          "'transport input ssh' allows only SSH, blocking Telnet"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "Telnet still works after configuration",
+            "solution": "Ensure 'transport input ssh' is set, not 'transport input all'"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-05",
+        "title": "Create Local User Account",
+        "instruction": "Create a local user with privilege level 15 (full access) and a secure password for SSH authentication.",
+        "why": "SSH with 'login local' requires user accounts configured on the device. Privilege 15 grants full administrative access.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "username admin privilege 15 secret SecurePass123",
+          "end"
+        ],
+        "expectedOutput": "User account created",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show users"
+          ]
+        },
+        "hints": [
+          "Use 'username [name] privilege 15 secret [password]'",
+          "Privilege 15 is full administrative access"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "Using 'password' instead of 'secret'",
+            "solution": "'secret' encrypts the password; 'password' stores it in plaintext"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-06",
+        "title": "Enable Local Authentication",
+        "instruction": "Configure VTY lines to use the local user database for authentication instead of a remote AAA server.",
+        "why": "'login local' tells the device to check the locally configured username/password database.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "line vty 0 4",
+          "login local",
+          "end"
+        ],
+        "expectedOutput": "Local authentication enabled",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show running-config"
+          ]
+        },
+        "hints": [
+          "Use 'login local' under VTY lines",
+          "Ensure username is configured before testing"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "No users configured when testing",
+            "solution": "Create user account first"
+          }
+        ]
+      },
+      {
+        "stepId": "23-S-07",
+        "title": "Verify SSH Hardening Complete",
+        "instruction": "Verify the SSH configuration is complete and Telnet has been disabled. Test that SSH access works.",
+        "why": "Final verification ensures the hardening is effective and SSH access is functional.",
+        "commands": [
+          "show ip ssh",
+          "show ssh",
+          "show line"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys present, VTY configured for SSH only",
+        "verification": {
+          "type": "cli",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "hints": [
+          "Use 'show ip ssh' to verify SSH settings",
+          "Use 'show ssh' to see active SSH connections",
+          "Use 'show line' to verify VTY configuration"
+        ],
+        "commonMistakes": [
+          {
+            "mistake": "Assuming config is saved",
+            "solution": "Use 'copy running-config startup-config' to save"
+          }
+        ]
+      }
+    ],
+    "topology": {
+      "devices": [
+        {
+          "id": "R1",
+          "type": "router",
+          "name": "R1",
+          "role": "gateway"
+        }
+      ],
+      "interfaces": [
+        {
+          "deviceId": "R1",
+          "name": "GigabitEthernet0/0",
+          "type": "ethernet",
+          "role": "management",
+          "enabled": true
+        }
+      ],
+      "connections": []
+    },
+    "ipAddressing": [
+      {
+        "deviceId": "R1",
+        "interface": "GigabitEthernet0/0",
+        "ipAddress": "192.168.1.1",
+        "subnetMask": "255.255.255.0",
+        "gateway": "",
+        "description": "Management interface"
+      }
+    ],
+    "initialState": {
+      "devices": [
+        {
+          "deviceId": "R1",
+          "hostname": "Router",
+          "interfaces": [
+            {
+              "interfaceName": "GigabitEthernet0/0",
+              "ip": "192.168.1.1",
+              "mask": "255.255.255.0",
+              "status": "up",
+              "protocol": "up"
+            }
+          ]
+        }
+      ]
+    },
+    "difficulty": "basic",
+    "learningObjectives": [
+      "Understand why SSH is more secure than Telnet",
+      "Configure hostname and domain-name for SSH",
+      "Generate RSA crypto keys for SSH",
+      "Enable SSH version 2",
+      "Configure VTY lines to accept only SSH",
+      "Create local user accounts for authentication"
+    ],
+    "prerequisites": [
+      "Basic CLI navigation (enable, configure terminal)",
+      "Understanding of network device access methods"
+    ],
+    "explanation": "This lab teaches SSH hardening by configuring a network device to use SSH v2 instead of insecure Telnet. You will configure crypto keys, restrict VTY access, and create local user accounts.",
+    "finalVerification": "SSH v2 is enabled, Telnet is disabled, and SSH connections are accepted with local authentication"
+  },
+  {
+    "id": "97",
+    "title": "Security Lab: SSH Configuration and Hardening",
+    "category": "SSH",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Enable SSH and disable Telnet.",
+    "scenario": "Configure SSH v2 on network devices for secure remote management",
+    "concepts": [
+      "ip domain-name required",
+      "crypto key generate rsa",
+      "line vty transport input ssh",
+      "login local"
+    ],
+    "errors": [
+      {
+        "error": "SSH connection refused",
+        "solution": "Check VTY config, keys, and ACL."
+      }
+    ],
+    "questions": [
+      {
+        "question": "SSH key generation command?",
+        "solution": "crypto key generate rsa general-keys modulus 2048."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "97-S-01",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-02",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-03",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-04",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-05",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-06",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-07",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "97-S-08",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-97-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-97-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced SSH concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "ip domain-name required",
+      "crypto key generate rsa",
+      "line vty transport input ssh",
+      "login local"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "SSH key generation command?",
+        "solution": "crypto key generate rsa general-keys modulus 2048."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Secure remote management using SSH v2 instead of insecure Telnet",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches SSH through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of SSH?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "175",
+    "title": "Configuring SSH for Remote Access",
+    "category": "SSH",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Learn to configure SSH instead of Telnet",
+    "scenario": "Configure SSH v2 on network devices for secure remote management",
+    "concepts": [
+      "SSH is encrypted, Telnet is plaintext",
+      "SSH uses port 22, Telnet uses 23",
+      "SSH requires RSA keys",
+      "Always use SSH for remote access"
+    ],
+    "errors": [
+      {
+        "error": "SSH connection refused",
+        "solution": "Check transport input ssh is configured, crypto key exists, and username is created"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What port does SSH use?",
+        "solution": "22"
+      },
+      {
+        "question": "What command shows SSH status?",
+        "solution": "show ip ssh"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "175-S-01",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-02",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-03",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-04",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-05",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-06",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-07",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-08",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "175-S-09",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced SSH concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "SSH is encrypted, Telnet is plaintext",
+      "SSH uses port 22, Telnet uses 23",
+      "SSH requires RSA keys",
+      "Always use SSH for remote access"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What port does SSH use?",
+        "solution": "22"
+      },
+      {
+        "question": "What command shows SSH status?",
+        "solution": "show ip ssh"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Secure remote management using SSH v2 instead of insecure Telnet",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches SSH through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of SSH?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "230",
+    "title": "Configure SSH on a Switch",
+    "category": "SSH",
+    "level": "intermediate",
+    "time": "20 min",
+    "difficulty": "intermediate",
+    "objectives": "Enable secure remote access to a Cisco switch using SSH instead of Telnet",
+    "scenario": "Configure SSH v2 on network devices for secure remote management",
+    "concepts": [
+      "SSH encrypts traffic",
+      "Telnet sends data in plaintext",
+      "RSA keys are required for SSH"
+    ],
+    "errors": [
+      {
+        "error": "SSH connection refused",
+        "solution": "Verify keys are generated, VTY is configured for SSH"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What port does SSH use?",
+        "solution": "22"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "230-S-01",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-02",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-03",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-04",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-05",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-06",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-07",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-08",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "230-S-09",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Enable secure remote access to a Cisco switch using SSH instead of Telnet",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced VLAN concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "SSH encrypts traffic",
+      "Telnet sends data in plaintext",
+      "RSA keys are required for SSH"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What port does SSH use?",
+        "solution": "22"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What port does SSH use?",
+        "options": [
+          "22",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "22"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Secure remote management using SSH v2 instead of insecure Telnet",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches SSH through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of VLAN?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "241",
+    "title": "Configure Banner Message",
+    "category": "SSH",
+    "level": "intermediate",
+    "time": "10 min",
+    "difficulty": "intermediate",
+    "objectives": "Set a login banner on a router for legal warnings",
+    "scenario": "Configure SSH v2 on network devices for secure remote management",
+    "concepts": [
+      "Banners warn unauthorized users",
+      "MOTD = Message of the Day",
+      "Login banner shows before login"
+    ],
+    "errors": [
+      {
+        "error": "Banner not showing",
+        "solution": "Check delimiter is used correctly"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is MOTD?",
+        "solution": "Message Of The Day"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "241-S-01",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-02",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-03",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-04",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-05",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-06",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-07",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-08",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-09",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      },
+      {
+        "stepId": "241-S-10",
+        "title": "Configure SSH for Secure Access",
+        "instruction": "Configure SSH for Secure Access for SSH",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "hostname R1",
+          "domain-name example.com",
+          "crypto key generate rsa modulus 1024",
+          "ip ssh version 2",
+          "line vty 0 4",
+          "transport input ssh",
+          "login local",
+          "exit",
+          "username admin privilege 15 secret Admin123",
+          "end"
+        ],
+        "expectedOutput": "SSH v2 enabled, RSA keys generated",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip ssh"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SSH connection refused",
+            "solution": "Verify domain-name and keys generated"
+          }
+        ],
+        "hints": [
+          "RSA key modulus at least 1024",
+          "Use show ip ssh"
+        ],
+        "challenge": "Configure SSH ACL"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Set a login banner on a router for legal warnings",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Banners warn unauthorized users",
+      "MOTD = Message of the Day",
+      "Login banner shows before login"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is MOTD?",
+        "solution": "Message Of The Day"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What is MOTD?",
+        "options": [
+          "Message Of The Day",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Message Of The Day"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Secure remote management using SSH v2 instead of insecure Telnet",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches SSH through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

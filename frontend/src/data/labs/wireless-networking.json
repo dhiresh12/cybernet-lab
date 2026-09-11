@@ -1,0 +1,1145 @@
+[
+  {
+    "id": "122",
+    "title": "Enterprise Lab: Wireless WLAN and Security",
+    "category": "Wireless Networking",
+    "level": "advanced",
+    "time": "40 minutes",
+    "objectives": "Configure secure WLAN with WPA2-Enterprise.",
+    "scenario": "Configure wireless access point with WPA2 security and proper channel settings",
+    "concepts": [
+      "SSID broadcast settings",
+      "WPA2-Enterprise vs Personal",
+      "VLAN per SSID",
+      "AP groups and RF profiles"
+    ],
+    "errors": [
+      {
+        "error": "Clients associate but no IP",
+        "solution": "Check DHCP pool, VLAN, inter-VLAN routing."
+      }
+    ],
+    "questions": [
+      {
+        "question": "WPA2 vs WPA3?",
+        "solution": "WPA3 adds SAE and forward secrecy."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "122-S-01",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-02",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-03",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-04",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-05",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-06",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-07",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-08",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-09",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-10",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "122-S-11",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-122-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-122-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Wireless Networking concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "SSID broadcast settings",
+      "WPA2-Enterprise vs Personal",
+      "VLAN per SSID",
+      "AP groups and RF profiles"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "WPA2 vs WPA3?",
+        "solution": "WPA3 adds SAE and forward secrecy."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure wireless access points and secure Wi-Fi networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Wireless Networking through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Wireless Networking?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "208",
+    "title": "Basic Wireless Networking Concepts",
+    "category": "Wireless Networking",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Introduction to wireless networking",
+    "scenario": "Configure wireless access point with WPA2 security and proper channel settings",
+    "concepts": [
+      "WiFi uses radio waves",
+      "802.11 standards (a/b/g/n/ac/ax)",
+      "SSID identifies network",
+      "Security: WPA2/WPA3"
+    ],
+    "errors": [
+      {
+        "error": "Using WEP security",
+        "solution": "WEP is broken; use WPA2 or WPA3"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is an SSID?",
+        "solution": "Service Set Identifier - the network name"
+      },
+      {
+        "question": "What security protocol should you use?",
+        "solution": "WPA2 or WPA3"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "208-S-01",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "208-S-02",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "208-S-03",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "208-S-04",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "208-S-05",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      },
+      {
+        "stepId": "208-S-06",
+        "title": "Configure Wireless Access Point",
+        "instruction": "Configure Wireless Access Point for Wireless Networking",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip address 192.168.10.1 255.255.255.0",
+          "no shutdown",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "AP configured and connected",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip interface brief"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "AP not accessible",
+            "solution": "Verify IP and connectivity"
+          }
+        ],
+        "hints": [
+          "Configure management IP",
+          "Check SSID and security"
+        ],
+        "challenge": "Configure WPA2 security"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Wireless Networking concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "WiFi uses radio waves",
+      "802.11 standards (a/b/g/n/ac/ax)",
+      "SSID identifies network",
+      "Security: WPA2/WPA3"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is an SSID?",
+        "solution": "Service Set Identifier - the network name"
+      },
+      {
+        "question": "What security protocol should you use?",
+        "solution": "WPA2 or WPA3"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure wireless access points and secure Wi-Fi networks",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Wireless Networking through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Wireless Networking?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

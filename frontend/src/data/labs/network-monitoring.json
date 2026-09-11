@@ -1,0 +1,3164 @@
+[
+  {
+    "id": "105",
+    "title": "Security Lab: Logging and SNMP Security",
+    "category": "Network Monitoring",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "objectives": "Secure syslog and SNMP traffic.",
+    "scenario": "Implement SNMP monitoring and logging for network device health and alerts",
+    "concepts": [
+      "SNMPv3 adds authentication and encryption",
+      "Syslog over TCP reliable",
+      "Timestamp accuracy",
+      "Log source addressing"
+    ],
+    "errors": [
+      {
+        "error": "SNMP community exposed",
+        "solution": "Use SNMPv3 or restrict access via ACL."
+      }
+    ],
+    "questions": [
+      {
+        "question": "SNMPv3 benefit over v2c?",
+        "solution": "Authentication and encryption."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "105-S-01",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-02",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-03",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-04",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-05",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-06",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-07",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-08",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-09",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "105-S-10",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-105-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-1",
+        "title": "Step 1: Review security requirements and identify assets to protect...",
+        "instruction": "Review security requirements and identify assets to protect",
+        "commands": [],
+        "expectedOutput": "Completed: Review security requirements and identify assets to protect",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-2",
+        "title": "Step 2: Configure basic device security (passwords, login banners, SSH)...",
+        "instruction": "Configure basic device security (passwords, login banners, SSH)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure basic device security (passwords, login banners, SSH)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-3",
+        "title": "Step 3: Implement access control lists (ACLs) to filter traffic...",
+        "instruction": "Implement access control lists (ACLs) to filter traffic",
+        "commands": [],
+        "expectedOutput": "Completed: Implement access control lists (ACLs) to filter traffic",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-4",
+        "title": "Step 4: Apply ACLs to interfaces in correct direction (inbound/outbound)...",
+        "instruction": "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "commands": [],
+        "expectedOutput": "Completed: Apply ACLs to interfaces in correct direction (inbound/outbound)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-5",
+        "title": "Step 5: Configure VPN tunnels for secure remote connectivity if required...",
+        "instruction": "Configure VPN tunnels for secure remote connectivity if required",
+        "commands": [],
+        "expectedOutput": "Completed: Configure VPN tunnels for secure remote connectivity if required",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-6",
+        "title": "Step 6: Set up AAA (Authentication, Authorization, Accounting) if needed...",
+        "instruction": "Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "commands": [],
+        "expectedOutput": "Completed: Set up AAA (Authentication, Authorization, Accounting) if needed",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-7",
+        "title": "Step 7: Verify security policies are working as intended...",
+        "instruction": "Verify security policies are working as intended",
+        "commands": [],
+        "expectedOutput": "Completed: Verify security policies are working as intended",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-8",
+        "title": "Step 8: Test security by attempting both allowed and prohibited actions...",
+        "instruction": "Test security by attempting both allowed and prohibited actions",
+        "commands": [],
+        "expectedOutput": "Completed: Test security by attempting both allowed and prohibited actions",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-9",
+        "title": "Step 9: Monitor logs and verify no unauthorized access occurs...",
+        "instruction": "Monitor logs and verify no unauthorized access occurs",
+        "commands": [],
+        "expectedOutput": "Completed: Monitor logs and verify no unauthorized access occurs",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-STEP-10",
+        "title": "Step 10: Save configurations and verify security baseline is established...",
+        "instruction": "Save configurations and verify security baseline is established",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify security baseline is established",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-105-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab focuses on implementing network security measures including ACLs, VPNs, and device hardening.",
+      "Review security requirements and identify assets to protect",
+      "Configure basic device security (passwords, login banners, SSH)",
+      "Implement access control lists (ACLs) to filter traffic",
+      "Apply ACLs to interfaces in correct direction (inbound/outbound)",
+      "Configure VPN tunnels for secure remote connectivity if required",
+      "Set up AAA (Authentication, Authorization, Accounting) if needed",
+      "Verify security policies are working as intended",
+      "Test security by attempting both allowed and prohibited actions",
+      "Monitor logs and verify no unauthorized access occurs",
+      "Save configurations and verify security baseline is established",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Security concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "SNMPv3 adds authentication and encryption",
+      "Syslog over TCP reliable",
+      "Timestamp accuracy",
+      "Log source addressing"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "SNMPv3 benefit over v2c?",
+        "solution": "Authentication and encryption."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement monitoring tools, SNMP, and logging for network health",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Monitoring through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Security?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "117",
+    "title": "Enterprise Lab: Syslog and SNMP Monitoring",
+    "category": "Network Monitoring",
+    "level": "advanced",
+    "time": "35 minutes",
+    "objectives": "Centralized logging and monitoring.",
+    "scenario": "Implement SNMP monitoring and logging for network device health and alerts",
+    "concepts": [
+      "logging host",
+      "SNMP community string",
+      "Traps for async events",
+      "Severity levels"
+    ],
+    "errors": [
+      {
+        "error": "Logs not reaching server",
+        "solution": "Check server IP, UDP 514, logging level."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Syslog default port?",
+        "solution": "UDP 514."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "117-S-01",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-02",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-03",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-04",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-05",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-06",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-07",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-08",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-09",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-10",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "117-S-11",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Advanced routing and switching configuration experience",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-117-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-117-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Monitoring concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "logging host",
+      "SNMP community string",
+      "Traps for async events",
+      "Severity levels"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Syslog default port?",
+        "solution": "UDP 514."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement monitoring tools, SNMP, and logging for network health",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Monitoring through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Monitoring?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "124",
+    "title": "Enterprise Lab: Network Monitoring and NetFlow",
+    "category": "Network Monitoring",
+    "level": "advanced",
+    "time": "35 minutes",
+    "objectives": "Deploy NetFlow for traffic analysis.",
+    "scenario": "Implement SNMP monitoring and logging for network device health and alerts",
+    "concepts": [
+      "Flow export via UDP 2055",
+      "Collector analyzes flows",
+      "Top talkers and protocols",
+      "Capacity planning"
+    ],
+    "errors": [
+      {
+        "error": "No flows reaching collector",
+        "solution": "Check export interface, destination IP, and port."
+      },
+      {
+        "error": "Flow cache full",
+        "solution": "Increase cache size or reduce active timeout."
+      },
+      {
+        "error": "Sampler not reducing CPU",
+        "solution": "Verify sampler attached to monitor and ratio appropriate."
+      }
+    ],
+    "questions": [
+      {
+        "question": "NetFlow default export port?",
+        "solution": "UDP 2055."
+      },
+      {
+        "question": "Difference between active and inactive timeout?",
+        "solution": "Active: long-lived flows timeout. Inactive: idle flows timeout."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "124-S-01",
+        "title": "Enable NetFlow on Router0",
+        "instruction": "Enable NetFlow version 9 on Router0 and configure the flow exporter to send flows to the collector.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "flow exporter NETFLOW_COLLECTOR",
+          "destination 192.168.1.100",
+          "transport udp 2055",
+          "export-protocol netflow-v9",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NetFlow exporter configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow exporter NETFLOW_COLLECTOR"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No flows exported",
+            "solution": "Check exporter destination IP and UDP port 2055"
+          }
+        ],
+        "hints": [
+          "UDP 2055 is default NetFlow port",
+          "Verify collector IP reachable"
+        ],
+        "challenge": "Add source interface to exporter"
+      },
+      {
+        "stepId": "124-S-02",
+        "title": "Create NetFlow Monitor and Record",
+        "instruction": "Create a flow monitor with IPv4 traffic record to capture source/destination IP, ports, and protocol.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "flow record NETFLOW_IPV4",
+          "match ipv4 source address",
+          "match ipv4 destination address",
+          "match transport source-port",
+          "match transport destination-port",
+          "match ip protocol",
+          "collect counter bytes",
+          "collect counter packets",
+          "collect timestamp sys-uptime first",
+          "collect timestamp sys-uptime last",
+          "exit",
+          "flow monitor NETFLOW_MONITOR",
+          "record NETFLOW_IPV4",
+          "exporter NETFLOW_COLLECTOR",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Flow record and monitor created",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow record NETFLOW_IPV4",
+            "show flow monitor NETFLOW_MONITOR"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Monitor not exporting",
+            "solution": "Verify exporter attached to monitor with exporter command"
+          }
+        ],
+        "hints": [
+          "Record defines what to match/collect",
+          "Monitor ties record to exporter"
+        ],
+        "challenge": "Add VLAN ID to record"
+      },
+      {
+        "stepId": "124-S-03",
+        "title": "Apply NetFlow Monitor to Router0 Interfaces",
+        "instruction": "Apply the NetFlow monitor to Router0 LAN interface (Gi0/0) in both input and output directions.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "interface GigabitEthernet0/0",
+          "ip flow monitor NETFLOW_MONITOR input",
+          "ip flow monitor NETFLOW_MONITOR output",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "NetFlow monitor applied to Gi0/0",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow interface GigabitEthernet0/0"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Monitor not active on interface",
+            "solution": "Apply both input and output for bidirectional capture"
+          }
+        ],
+        "hints": [
+          "Input captures ingress",
+          "Output captures egress"
+        ],
+        "challenge": "Apply to WAN interface as well"
+      },
+      {
+        "stepId": "124-S-04",
+        "title": "Configure NetFlow Timeout Values",
+        "instruction": "Set active and inactive timeout values for flow cache management.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "flow monitor NETFLOW_MONITOR",
+          "cache timeout active 60",
+          "cache timeout inactive 15",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Flow cache timeouts configured",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow monitor NETFLOW_MONITOR cache"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Cache filling up",
+            "solution": "Reduce active timeout or increase cache size"
+          }
+        ],
+        "hints": [
+          "Active timeout: long flows",
+          "Inactive timeout: idle flows"
+        ],
+        "challenge": "Set cache entries limit to 16384"
+      },
+      {
+        "stepId": "124-S-05",
+        "title": "Verify NetFlow Export to Collector",
+        "instruction": "Generate traffic from PC0 to PC1 and verify flows are exported to the collector at 192.168.1.100.",
+        "commands": [
+          "enable",
+          "ping 192.168.1.11 repeat 10",
+          "show flow monitor NETFLOW_MONITOR cache",
+          "show flow exporter NETFLOW_COLLECTOR statistics"
+        ],
+        "expectedOutput": "Flows visible in cache and export statistics incrementing",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow monitor NETFLOW_MONITOR cache",
+            "show flow exporter NETFLOW_COLLECTOR statistics"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Zero flows exported",
+            "solution": "Check collector IP, UDP 2055, and interface application"
+          }
+        ],
+        "hints": [
+          "Generate traffic first",
+          "Check export statistics packets sent"
+        ],
+        "challenge": "Analyze top talkers from flow cache"
+      },
+      {
+        "stepId": "124-S-06",
+        "title": "Configure NetFlow Top Talkers",
+        "instruction": "Enable NetFlow top talkers feature to identify bandwidth consumers.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip flow-top-talkers",
+          "top 10",
+          "sort-by bytes",
+          "end",
+          "show ip flow top-talkers"
+        ],
+        "expectedOutput": "Top 10 talkers displayed sorted by bytes",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip flow top-talkers"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No top talkers shown",
+            "solution": "Generate traffic and wait for cache population"
+          }
+        ],
+        "hints": [
+          "Requires flow cache populated",
+          "sort-by bytes shows bandwidth hogs"
+        ],
+        "challenge": "Sort by packets instead of bytes"
+      },
+      {
+        "stepId": "124-S-07",
+        "title": "Configure NetFlow Aggregation for Protocol Analysis",
+        "instruction": "Configure protocol-port aggregation to analyze traffic by protocol and port.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip flow-aggregation cache protocol-port",
+          "cache entries 512",
+          "cache timeout active 300",
+          "cache timeout inactive 60",
+          "enabled",
+          "end",
+          "show ip flow aggregation protocol-port"
+        ],
+        "expectedOutput": "Protocol-port aggregation cache enabled",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip flow aggregation protocol-port"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Aggregation not showing data",
+            "solution": "Wait for cache population after enabling"
+          }
+        ],
+        "hints": [
+          "Aggregation summarizes flows",
+          "protocol-port groups by protocol/port"
+        ],
+        "challenge": "Add source-prefix aggregation"
+      },
+      {
+        "stepId": "124-S-08",
+        "title": "Verify NetFlow Statistics and Export",
+        "instruction": "Run comprehensive verification of NetFlow configuration and export statistics.",
+        "commands": [
+          "enable",
+          "show flow exporter NETFLOW_COLLECTOR statistics",
+          "show flow monitor NETFLOW_MONITOR cache format table",
+          "show ip flow export"
+        ],
+        "expectedOutput": "Export packets sent, flows in cache, export statistics incrementing",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show flow exporter NETFLOW_COLLECTOR statistics",
+            "show flow monitor NETFLOW_MONITOR cache"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Export packets not incrementing",
+            "solution": "Verify exporter destination reachable, UDP 2055 not blocked"
+          }
+        ],
+        "hints": [
+          "Packets sent should increment",
+          "Flows exported should match cache entries"
+        ],
+        "challenge": "Calculate export rate per minute"
+      },
+      {
+        "stepId": "124-S-09",
+        "title": "Configure NetFlow Sampling for High-Volume Traffic",
+        "instruction": "Enable deterministic sampling (1:100) to reduce CPU load on high-speed interfaces.",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "flow monitor NETFLOW_MONITOR",
+          "sampler NETFLOW_SAMPLER",
+          "exit",
+          "sampler NETFLOW_SAMPLER",
+          "mode deterministic 1 out-of 100",
+          "end",
+          "show sampler NETFLOW_SAMPLER"
+        ],
+        "expectedOutput": "Sampler configured at 1:100 ratio",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show sampler NETFLOW_SAMPLER"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Sampler not applied",
+            "solution": "Attach sampler to monitor with sampler command"
+          }
+        ],
+        "hints": [
+          "1:100 = 1% sampling",
+          "Reduces CPU on high-speed links"
+        ],
+        "challenge": "Configure random sampling instead"
+      },
+      {
+        "stepId": "124-S-10",
+        "title": "Final NetFlow Verification and Documentation",
+        "instruction": "Run final comprehensive verification, document configuration, and save.",
+        "commands": [
+          "enable",
+          "show running-config | section flow",
+          "show flow exporter NETFLOW_COLLECTOR",
+          "show flow monitor NETFLOW_MONITOR",
+          "show flow monitor NETFLOW_MONITOR cache format table",
+          "show flow exporter NETFLOW_COLLECTOR statistics",
+          "copy running-config startup-config"
+        ],
+        "expectedOutput": "Complete NetFlow configuration documented and saved",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show running-config | section flow",
+            "show flow exporter NETFLOW_COLLECTOR statistics"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "Config not saved",
+            "solution": "Always copy running-config startup-config"
+          }
+        ],
+        "hints": [
+          "Save before exit",
+          "Document exporter destination and interface"
+        ],
+        "challenge": "Export config to TFTP server"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> PC0\\nRouter0 -> Switch0 -> PC1\\nRouter0 -> Collector (192.168.1.100)",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-124-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab integrates multiple technologies in an enterprise network scenario.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-1",
+        "title": "Step 1: Analyze the comprehensive network design and identify all components...",
+        "instruction": "Analyze the comprehensive network design and identify all components",
+        "commands": [],
+        "expectedOutput": "Completed: Analyze the comprehensive network design and identify all components",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-2",
+        "title": "Step 2: Configure core infrastructure (routing, switching, services)...",
+        "instruction": "Configure core infrastructure (routing, switching, services)",
+        "commands": [],
+        "expectedOutput": "Completed: Configure core infrastructure (routing, switching, services)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-3",
+        "title": "Step 3: Implement redundancy and high availability features...",
+        "instruction": "Implement redundancy and high availability features",
+        "commands": [],
+        "expectedOutput": "Completed: Implement redundancy and high availability features",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-4",
+        "title": "Step 4: Configure quality of service (QoS) for traffic prioritization...",
+        "instruction": "Configure quality of service (QoS) for traffic prioritization",
+        "commands": [],
+        "expectedOutput": "Completed: Configure quality of service (QoS) for traffic prioritization",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-5",
+        "title": "Step 5: Set up network monitoring and management protocols...",
+        "instruction": "Set up network monitoring and management protocols",
+        "commands": [],
+        "expectedOutput": "Completed: Set up network monitoring and management protocols",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-6",
+        "title": "Step 6: Verify all individual components function correctly...",
+        "instruction": "Verify all individual components function correctly",
+        "commands": [],
+        "expectedOutput": "Completed: Verify all individual components function correctly",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-7",
+        "title": "Step 7: Test end-to-end business application connectivity...",
+        "instruction": "Test end-to-end business application connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Test end-to-end business application connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-8",
+        "title": "Step 8: Troubleshoot enterprise-wide issues systematically...",
+        "instruction": "Troubleshoot enterprise-wide issues systematically",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot enterprise-wide issues systematically",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-9",
+        "title": "Step 9: Document the integrated network operation...",
+        "instruction": "Document the integrated network operation",
+        "commands": [],
+        "expectedOutput": "Completed: Document the integrated network operation",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-STEP-10",
+        "title": "Step 10: Save configurations and verify enterprise network readiness...",
+        "instruction": "Save configurations and verify enterprise network readiness",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and verify enterprise network readiness",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-124-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab integrates multiple technologies in an enterprise network scenario.",
+      "Analyze the comprehensive network design and identify all components",
+      "Configure core infrastructure (routing, switching, services)",
+      "Implement redundancy and high availability features",
+      "Configure quality of service (QoS) for traffic prioritization",
+      "Set up network monitoring and management protocols",
+      "Verify all individual components function correctly",
+      "Test end-to-end business application connectivity",
+      "Troubleshoot enterprise-wide issues systematically",
+      "Document the integrated network operation",
+      "Save configurations and verify enterprise network readiness",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "advanced",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Monitoring concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Flow export via UDP 2055",
+      "Collector analyzes flows",
+      "Top talkers and protocols",
+      "Capacity planning"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "NetFlow default port?",
+        "solution": "UDP 2055."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement monitoring tools, SNMP, and logging for network health",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Monitoring through practical configuration of real network equipment at the advanced level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Monitoring?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "206",
+    "title": "Basic Network Monitoring Concepts",
+    "category": "Network Monitoring",
+    "level": "basic",
+    "time": "25 minutes",
+    "objectives": "Introduction to network monitoring",
+    "scenario": "Implement SNMP monitoring and logging for network device health and alerts",
+    "concepts": [
+      "Monitoring detects issues before users complain",
+      "Tools: ping, traceroute, SNMP, syslog",
+      "Baselines for normal behavior",
+      "Alerts for anomalies"
+    ],
+    "errors": [
+      {
+        "error": "Not monitoring network",
+        "solution": "Implement monitoring tools to detect issues proactively"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is SNMP used for?",
+        "solution": "Simple Network Management Protocol for monitoring devices"
+      },
+      {
+        "question": "What is a network baseline?",
+        "solution": "Documented normal behavior for comparison"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "206-S-01",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-02",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-03",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-04",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-05",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-06",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "206-S-07",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Monitoring concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Monitoring detects issues before users complain",
+      "Tools: ping, traceroute, SNMP, syslog",
+      "Baselines for normal behavior",
+      "Alerts for anomalies"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is SNMP used for?",
+        "solution": "Simple Network Management Protocol for monitoring devices"
+      },
+      {
+        "question": "What is a network baseline?",
+        "solution": "Documented normal behavior for comparison"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement monitoring tools, SNMP, and logging for network health",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Monitoring through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Monitoring?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "223",
+    "title": "Basic Network Monitoring with SNMP",
+    "category": "Network Monitoring",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Introduction to SNMP monitoring",
+    "scenario": "Implement SNMP monitoring and logging for network device health and alerts",
+    "concepts": [
+      "SNMP = Simple Network Management Protocol",
+      "Collects device statistics",
+      "Alerts for problems",
+      "Versions: v1, v2c, v3"
+    ],
+    "errors": [
+      {
+        "error": "SNMP not working",
+        "solution": "Check community string, SNMP enabled, and firewall rules"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does SNMP stand for?",
+        "solution": "Simple Network Management Protocol"
+      },
+      {
+        "question": "What is an SNMP community string?",
+        "solution": "Like a password for SNMP access"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "223-S-01",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-02",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-03",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-04",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-05",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-06",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-07",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      },
+      {
+        "stepId": "223-S-08",
+        "title": "Configure SNMP Monitoring",
+        "instruction": "Configure SNMP Monitoring for Network Monitoring",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "snmp-server community public RO",
+          "snmp-server community private RW",
+          "snmp-server location Data Center",
+          "snmp-server contact admin@example.com",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "SNMP configured with communities",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show snmp"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "SNMP not working",
+            "solution": "Verify community strings"
+          }
+        ],
+        "hints": [
+          "RO vs RW communities",
+          "Configure location and contact"
+        ],
+        "challenge": "Configure SNMP trap"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Network Monitoring concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "SNMP = Simple Network Management Protocol",
+      "Collects device statistics",
+      "Alerts for problems",
+      "Versions: v1, v2c, v3"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What does SNMP stand for?",
+        "solution": "Simple Network Management Protocol"
+      },
+      {
+        "question": "What is an SNMP community string?",
+        "solution": "Like a password for SNMP access"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement monitoring tools, SNMP, and logging for network health",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Network Monitoring through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Network Monitoring?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

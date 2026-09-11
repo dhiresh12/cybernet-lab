@@ -1,0 +1,423 @@
+{
+  "id": "REF-001",
+  "title": "Configure a Small Office LAN",
+  "slug": "configure-small-office-lan",
+  "category": "Fundamentals",
+  "difficulty": "basic",
+  "estimatedTime": "20 minutes",
+  "version": 1,
+  "realWorldScenario": "A small office with two employees needs a basic network. Both PCs must be able to communicate with each other and share a printer. The network administrator has assigned the 192.168.1.0/24 subnet for this office.",
+  "engineerRole": "Junior Network Engineer",
+  "problemStatement": "The two office PCs are physically connected to SW1 but cannot communicate because they have no IP addresses configured.",
+  "businessImpact": "Employees cannot share files, access shared resources, or print to the network printer. This impacts office productivity.",
+  "objectives": "Configure IPv4 addressing on two PCs, verify layer 2 connectivity through the switch, and test end-to-end connectivity using ping.",
+  "learningObjectives": [
+    "Understand the relationship between IP addresses and network connectivity",
+    "Configure IPv4 addresses on end devices",
+    "Verify connectivity using ping command",
+    "Understand how switches forward frames based on MAC addresses"
+  ],
+  "prerequisites": [
+    "Basic understanding of IP addressing (network vs host portions)",
+    "Familiarity with the TCP/IP model"
+  ],
+  "concepts": [
+    "IPv4 address structure and dotted-decimal notation",
+    "Subnet mask and its role in determining the network",
+    "Default gateway concept",
+    "MAC address and ARP",
+    "Switch forwarding behavior"
+  ],
+  "skills": [
+    "Configure IP address on a PC",
+    "Use the ping command for connectivity testing",
+    "Interpret ping results"
+  ],
+  "commandsToLearn": [
+    "ping",
+    "ipconfig",
+    "arp -a"
+  ],
+  "topology": {
+    "devices": [
+      {
+        "id": "PC1",
+        "type": "pc",
+        "name": "PC1",
+        "role": "end-device",
+        "configuration": {
+          "hostname": "PC1"
+        }
+      },
+      {
+        "id": "PC2",
+        "type": "pc",
+        "name": "PC2",
+        "role": "end-device",
+        "configuration": {
+          "hostname": "PC2"
+        }
+      },
+      {
+        "id": "SW1",
+        "type": "switch",
+        "name": "SW1",
+        "role": "access-switch",
+        "configuration": {
+          "hostname": "SW1"
+        }
+      }
+    ],
+    "interfaces": [
+      {
+        "deviceId": "PC1",
+        "name": "Ethernet0",
+        "type": "ethernet",
+        "role": "access",
+        "enabled": true
+      },
+      {
+        "deviceId": "PC2",
+        "name": "Ethernet0",
+        "type": "ethernet",
+        "role": "access",
+        "enabled": true
+      },
+      {
+        "deviceId": "SW1",
+        "name": "FastEthernet0/1",
+        "type": "ethernet",
+        "role": "access",
+        "enabled": true
+      },
+      {
+        "deviceId": "SW1",
+        "name": "FastEthernet0/2",
+        "type": "ethernet",
+        "role": "access",
+        "enabled": true
+      }
+    ],
+    "connections": [
+      {
+        "from": "PC1:Ethernet0",
+        "to": "SW1:FastEthernet0/1",
+        "type": "ethernet",
+        "status": "connected"
+      },
+      {
+        "from": "PC2:Ethernet0",
+        "to": "SW1:FastEthernet0/2",
+        "type": "ethernet",
+        "status": "connected"
+      }
+    ]
+  },
+  "ipAddressing": [
+    {
+      "deviceId": "PC1",
+      "interface": "Ethernet0",
+      "ipAddress": "192.168.1.10",
+      "subnetMask": "255.255.255.0",
+      "gateway": "",
+      "vlan": 1,
+      "description": "Sales PC"
+    },
+    {
+      "deviceId": "PC2",
+      "interface": "Ethernet0",
+      "ipAddress": "192.168.1.20",
+      "subnetMask": "255.255.255.0",
+      "gateway": "",
+      "vlan": 1,
+      "description": "Accounts PC"
+    }
+  ],
+  "initialState": {
+    "devices": [
+      {
+        "deviceId": "PC1",
+        "hostname": "PC1",
+        "interfaces": [
+          {
+            "interfaceName": "Ethernet0",
+            "ip": "unassigned",
+            "status": "up",
+            "protocol": "up"
+          }
+        ]
+      },
+      {
+        "deviceId": "PC2",
+        "hostname": "PC2",
+        "interfaces": [
+          {
+            "interfaceName": "Ethernet0",
+            "ip": "unassigned",
+            "status": "up",
+            "protocol": "up"
+          }
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "stepId": "REF-001-S-01",
+      "order": 1,
+      "title": "Verify Initial Connectivity",
+      "instruction": "Before configuring any IP addresses, try to ping PC2 from PC1 to see the current state. Open PC1's command prompt and run: ping 192.168.1.20",
+      "why": "Establishes a baseline. You should see 'Request timed out' because PC1 has no IP address yet.",
+      "targetDevice": "PC1",
+      "actionType": "verification",
+      "commands": ["ping 192.168.1.20"],
+      "expectedOutput": "Request timed out (because PC1 has no IP address)",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "PC1",
+          "interface": "Ethernet0",
+          "ip": "unassigned",
+          "mask": "255.255.255.0"
+        }
+      },
+      "hints": [
+        "PC1 needs an IP address before it can communicate",
+        "Use 'ipconfig' to check current IP configuration"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Pinging before assigning IP address",
+          "solution": "Assign an IP address first, then test connectivity"
+        }
+      ],
+      "completionCondition": "Student runs ping and sees request timed out",
+      "optionalConcept": "ICMP (Internet Control Message Protocol) is used for error reporting and diagnostics"
+    },
+    {
+      "stepId": "REF-001-S-02",
+      "order": 2,
+      "title": "Configure IP Address on PC1",
+      "instruction": "Configure PC1 with IP address 192.168.1.10 and subnet mask 255.255.255.0. On the simulation interface, set the IP address to: 192.168.1.10/24",
+      "why": "PC1 needs an IP address to participate in the network. The subnet mask 255.255.255.0 (/24) tells PC1 that addresses 192.168.1.1 through 192.168.1.254 are on the same local network.",
+      "targetDevice": "PC1",
+      "actionType": "configuration",
+      "commands": ["ipconfig 192.168.1.10 255.255.255.0"],
+      "expectedOutput": "PC1 IP address configured to 192.168.1.10",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "PC1",
+          "interface": "Ethernet0",
+          "ip": "192.168.1.10",
+          "mask": "255.255.255.0"
+        }
+      },
+      "hints": [
+        "In a real PC, you would go to Network Settings > IPv4 Properties",
+        "The /24 notation means the first 24 bits are network, leaving 8 bits for hosts (254 usable addresses)"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Using an IP address already assigned to another device",
+          "solution": "Each device must have a unique IP address on the same network"
+        },
+        {
+          "mistake": "Using a subnet mask that doesn't match PC2's mask",
+          "solution": "All devices on the same subnet must use the same subnet mask"
+        }
+      ],
+      "completionCondition": "PC1 shows IP address 192.168.1.10"
+    },
+    {
+      "stepId": "REF-001-S-03",
+      "order": 3,
+      "title": "Configure IP Address on PC2",
+      "instruction": "Configure PC2 with IP address 192.168.1.20 and subnet mask 255.255.255.0. Use the same subnet mask as PC1.",
+      "why": "PC2 also needs an IP address to participate. Using .20 gives it a unique address in the same 192.168.1.0/24 network as PC1.",
+      "targetDevice": "PC2",
+      "actionType": "configuration",
+      "commands": ["ipconfig 192.168.1.20 255.255.255.0"],
+      "expectedOutput": "PC2 IP address configured to 192.168.1.20",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "PC2",
+          "interface": "Ethernet0",
+          "ip": "192.168.1.20",
+          "mask": "255.255.255.0"
+        }
+      },
+      "hints": [
+        "Both PCs should use the same subnet mask (255.255.255.0) to be on the same network"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Configuring PC2 with a different subnet mask",
+          "solution": "All devices in the same network segment must use the same subnet mask"
+        }
+      ],
+      "completionCondition": "PC2 shows IP address 192.168.1.20"
+    },
+    {
+      "stepId": "REF-001-S-04",
+      "order": 4,
+      "title": "Verify IP Configuration",
+      "instruction": "On PC1, run 'ipconfig' to verify the IP address and subnet mask are correctly configured.",
+      "why": "Always verify your configuration before testing connectivity. This confirms PC1 has the correct addressing.",
+      "targetDevice": "PC1",
+      "actionType": "verification",
+      "commands": ["ipconfig"],
+      "expectedOutput": "IP Address: 192.168.1.10\nSubnet Mask: 255.255.255.0",
+      "verification": {
+        "type": "state_check",
+        "expected": {
+          "deviceId": "PC1",
+          "interface": "Ethernet0",
+          "ip": "192.168.1.10",
+          "mask": "255.255.255.0"
+        }
+      },
+      "hints": [
+        "The ipconfig command shows the current TCP/IP configuration on Windows",
+        "On Linux/Mac, use 'ifconfig' or 'ip addr'"
+      ],
+      "commonMistakes": [],
+      "completionCondition": "PC1 shows correct IP configuration"
+    },
+    {
+      "stepId": "REF-001-S-05",
+      "order": 5,
+      "title": "Test Connectivity with Ping",
+      "instruction": "From PC1, ping PC2 at 192.168.1.20 to verify they can communicate.",
+      "why": "Ping is the most basic connectivity test. It uses ICMP Echo Request and Echo Reply messages to verify that packets can reach the destination and get back.",
+      "targetDevice": "PC1",
+      "actionType": "verification",
+      "commands": ["ping 192.168.1.20"],
+      "expectedOutput": "Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n\nPackets: Sent = 4, Received = 4, Lost = 0 (0% loss)",
+      "verification": {
+        "type": "ping",
+        "expected": "reachable"
+      },
+      "hints": [
+        "A successful ping shows 'Reply from' - this means the packet reached PC2 and PC2 sent a reply",
+        "Failed ping shows 'Request timed out' - meaning the packet didn't reach or no reply came back"
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Ping fails with 'Request timed out'",
+          "solution": "Check: 1) Are both PCs on the same subnet? 2) Is the cable connected? 3) Are the interfaces up?"
+        }
+      ],
+      "completionCondition": "All 4 ping packets receive replies"
+    },
+    {
+      "stepId": "REF-001-S-06",
+      "order": 6,
+      "title": "Verify Reverse Connectivity",
+      "instruction": "From PC2, ping PC1 at 192.168.1.10 to verify bidirectional connectivity.",
+      "why": "Network connectivity should be symmetrical. Testing in both directions confirms both devices can send and receive.",
+      "targetDevice": "PC2",
+      "actionType": "verification",
+      "commands": ["ping 192.168.1.10"],
+      "expectedOutput": "Reply from 192.168.1.10: bytes=32 time<1ms TTL=128",
+      "verification": {
+        "type": "ping",
+        "expected": "reachable"
+      },
+      "hints": [
+        "If PC1 can ping PC2 but PC2 cannot ping PC1, check PC1's firewall settings"
+      ],
+      "commonMistakes": [],
+      "completionCondition": "All 4 ping packets receive replies"
+    }
+  ],
+  "troubleshooting": {
+    "commonErrors": [
+      {
+        "error": "Ping returns 'Request timed out'",
+        "symptoms": "PC1 cannot ping PC2",
+        "diagnosticCommands": ["ipconfig", "ping 127.0.0.1"],
+        "troubleshootingSteps": [
+          "1. Verify PC1 has an IP address (ipconfig)",
+          "2. Verify PC2 has an IP address (ipconfig)",
+          "3. Check both IPs are in the same subnet (192.168.1.x)",
+          "4. Verify physical connections (cables plugged in)",
+          "5. Check switch ports are not disabled"
+        ],
+        "possibleCauses": [
+          "IP address not configured",
+          "Devices on different subnets",
+          "Physical connectivity issue",
+          "Interface is shutdown"
+        ],
+        "fix": "Configure IP addresses on both PCs, verify cable connections",
+        "verificationAfterFix": "Run ping again - should see replies"
+      }
+    ]
+  },
+  "faultInjection": {
+    "faults": []
+  },
+  "finalVerification": {
+    "checks": [
+      {
+        "type": "interface_up",
+        "target": "PC1:Ethernet0",
+        "expected": true
+      },
+      {
+        "type": "interface_up",
+        "target": "PC2:Ethernet0",
+        "expected": true
+      },
+      {
+        "type": "ip_correct",
+        "target": "PC1:Ethernet0",
+        "expected": "192.168.1.10"
+      },
+      {
+        "type": "ip_correct",
+        "target": "PC2:Ethernet0",
+        "expected": "192.168.1.20"
+      },
+      {
+        "type": "ping_success",
+        "target": "PC1:PC2",
+        "expected": true
+      }
+    ],
+    "successCriteria": "Both PCs have correct IP addresses, are on the same subnet, and can ping each other successfully.",
+    "completionCriteria": "Student has configured both PCs with correct IPs and verified bidirectional connectivity."
+  },
+  "knowledgeCheck": [
+    {
+      "question": "What is the purpose of a subnet mask?",
+      "type": "multiple_choice",
+      "options": [
+        "To encrypt network traffic",
+        "To determine which part of an IP address is the network and which is the host",
+        "To speed up network connections",
+        "To assign IP addresses automatically"
+      ],
+      "correctAnswer": "To determine which part of an IP address is the network and which is the host",
+      "explanation": "The subnet mask tells devices which IP addresses are on the local network (same broadcast domain) and which require a router to reach."
+    },
+    {
+      "question": "How many usable host addresses are available in a /24 network?",
+      "type": "multiple_choice",
+      "options": ["256", "254", "255", "253"],
+      "correctAnswer": "254",
+      "explanation": "A /24 network has 256 total addresses (192.168.1.0 - 192.168.1.255), but .0 is the network address and .255 is the broadcast address, leaving 254 usable host addresses."
+    },
+    {
+      "question": "What does the ping command use?",
+      "type": "multiple_choice",
+      "options": ["TCP", "UDP", "ICMP", "HTTP"],
+      "correctAnswer": "ICMP",
+      "explanation": "Ping uses ICMP (Internet Control Message Protocol) Echo Request and Echo Reply messages to test connectivity."
+    }
+  ],
+  "legacy": false,
+  "tags": ["fundamentals", "ipv4", "ping", "connectivity", "beginner"]
+}

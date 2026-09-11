@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cybernet-backend
+  namespace: cybernet-lab
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/websocket-services: "cybernet-backend"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: cybernet-lab.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: cybernet-backend
+            port:
+              number: 80

@@ -1,0 +1,1569 @@
+[
+  {
+    "id": "161",
+    "title": "Understanding the Default Gateway",
+    "category": "Default Routing",
+    "level": "basic",
+    "time": "20 minutes",
+    "objectives": "Learn what a default gateway is and why it's needed",
+    "scenario": "Configure a default route for networks without a specific destination entry",
+    "concepts": [
+      "Default gateway is the exit point from your network",
+      "Usually the router's LAN IP address",
+      "Without it, you can only talk to local devices",
+      "Traffic to other networks goes through the gateway"
+    ],
+    "errors": [
+      {
+        "error": "Wrong default gateway",
+        "solution": "Set gateway to router's LAN interface IP"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What happens if default gateway is missing?",
+        "solution": "Can only communicate with devices on the local network"
+      },
+      {
+        "question": "What is a typical home router's default gateway IP?",
+        "solution": "192.168.1.1"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "161-S-01",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-02",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-03",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-04",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-05",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-06",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "161-S-07",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "basic",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Networking Fundamentals concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Default gateway is the exit point from your network",
+      "Usually the router's LAN IP address",
+      "Without it, you can only talk to local devices",
+      "Traffic to other networks goes through the gateway"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What happens if default gateway is missing?",
+        "solution": "Can only communicate with devices on the local network"
+      },
+      {
+        "question": "What is a typical home router's default gateway IP?",
+        "solution": "192.168.1.1"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure default route for networks without specific route entries",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Default Routing through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Networking Fundamentals?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "172",
+    "title": "Understanding Default Route",
+    "category": "Default Routing",
+    "level": "intermediate",
+    "time": "20 minutes",
+    "objectives": "Learn what a default route is and when to use it",
+    "scenario": "Configure a default route for networks without a specific destination entry",
+    "concepts": [
+      "Default route catches all unknown traffic",
+      "Written as 0.0.0.0/0",
+      "Last resort route",
+      "Used for Internet connectivity"
+    ],
+    "errors": [
+      {
+        "error": "Using default route in complex network",
+        "solution": "Default route is for edge/stub networks, not intermediate routers"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is the CIDR notation for default route?",
+        "solution": "0.0.0.0/0"
+      },
+      {
+        "question": "What does asterisk (*) mean next to S in routing table?",
+        "solution": "Candidate default route"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "172-S-01",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-02",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-03",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-04",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-05",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-06",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-07",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-08",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-09",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "172-S-10",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Static Routing concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Default route catches all unknown traffic",
+      "Written as 0.0.0.0/0",
+      "Last resort route",
+      "Used for Internet connectivity"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is the CIDR notation for default route?",
+        "solution": "0.0.0.0/0"
+      },
+      {
+        "question": "What does asterisk (*) mean next to S in routing table?",
+        "solution": "Candidate default route"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Configure default route for networks without specific route entries",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Default Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Static Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "231",
+    "title": "Troubleshoot Missing Default Gateway",
+    "category": "Default Routing",
+    "level": "basic",
+    "time": "20 min",
+    "difficulty": "basic",
+    "objectives": "Diagnose why a PC cannot reach the Internet",
+    "scenario": "Configure a default route for networks without a specific destination entry",
+    "concepts": [
+      "Default gateway is the exit point from local network",
+      "Without it, traffic to remote networks cannot be sent"
+    ],
+    "errors": [
+      {
+        "error": "Cannot reach Internet",
+        "solution": "Configure default gateway"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is a default gateway?",
+        "solution": "Router IP used to reach other networks"
+      }
+    ],
+    "prerequisites": "Basic computer literacy, understanding of IP addressing",
+    "steps": [
+      {
+        "stepId": "231-S-01",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-02",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-03",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-04",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-05",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-06",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "231-S-07",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Diagnose why a PC cannot reach the Internet",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Troubleshooting concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Default gateway is the exit point from local network",
+      "Without it, traffic to remote networks cannot be sent"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is a default gateway?",
+        "solution": "Router IP used to reach other networks"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What is a default gateway?",
+        "options": [
+          "Router IP used to reach other networks",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Router IP used to reach other networks"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure default route for networks without specific route entries",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Default Routing through practical configuration of real network equipment at the basic level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Troubleshooting?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "235",
+    "title": "Configure Default Gateway on a Router",
+    "category": "Default Routing",
+    "level": "intermediate",
+    "time": "15 min",
+    "difficulty": "intermediate",
+    "objectives": "Set a default route to send all unknown traffic to ISP",
+    "scenario": "Configure a default route for networks without a specific destination entry",
+    "concepts": [
+      "Default route is used when no specific route exists",
+      "0.0.0.0 0.0.0.0 = all networks"
+    ],
+    "errors": [
+      {
+        "error": "Cannot reach Internet",
+        "solution": "Verify default route points to correct next-hop"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What is 0.0.0.0 0.0.0.0?",
+        "solution": "Default route - matches any network"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "235-S-01",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-02",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-03",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-04",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-05",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-06",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-07",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-08",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      },
+      {
+        "stepId": "235-S-09",
+        "title": "Configure Default Route",
+        "instruction": "Configure Default Route for Default Routing",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "ip route 0.0.0.0 0.0.0.0 192.168.1.1",
+          "do show ip route",
+          "exit",
+          "end"
+        ],
+        "expectedOutput": "Default route 0.0.0.0/0 via 192.168.1.1",
+        "verification": {
+          "type": "route",
+          "expected": "0.0.0.0/0"
+        },
+        "commonErrors": [
+          {
+            "error": "Default route not showing",
+            "solution": "Verify next-hop IP is reachable"
+          }
+        ],
+        "hints": [
+          "Default route is 0.0.0.0/0",
+          "Use show ip route to verify"
+        ],
+        "challenge": "Configure floating default route"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Set a default route to send all unknown traffic to ISP",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Static Routing concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Default route is used when no specific route exists",
+      "0.0.0.0 0.0.0.0 = all networks"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What is 0.0.0.0 0.0.0.0?",
+        "solution": "Default route - matches any network"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What is 0.0.0.0 0.0.0.0?",
+        "options": [
+          "Default route - matches any network",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "Default route - matches any network"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Configure default route for networks without specific route entries",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches Default Routing through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Static Routing?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]

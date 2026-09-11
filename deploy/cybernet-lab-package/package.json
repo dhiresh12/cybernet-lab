@@ -1,0 +1,41 @@
+{
+  "name": "cybernet-lab",
+  "version": "4.0.0",
+  "description": "High-fidelity autonomous networking virtual laboratory",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "nodemon backend/server.js",
+    "frontend": "vite frontend",
+    "build": "vite build frontend",
+    "start": "node backend/server.js",
+    "sim": "node simulation/engine.js",
+    "test": "jest",
+    "package": "node deploy/package.js"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.88.0",
+    "@react-three/fiber": "^8.15.0",
+    "express": "^4.18.2",
+    "node-cache": "^5.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.150.0",
+    "uuid": "^9.0.1",
+    "ws": "^8.16.0",
+    "yaml": "^2.3.4",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.1",
+    "@babel/preset-env": "^8.0.2",
+    "@babel/preset-react": "^8.0.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "babel-jest": "^30.5.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "vite": "^5.1.0"
+  }
+}

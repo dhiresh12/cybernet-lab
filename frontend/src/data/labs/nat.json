@@ -1,0 +1,2814 @@
+[
+  {
+    "id": "91",
+    "title": "NAT Lab: Static NAT Configuration",
+    "category": "NAT",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Map server to public IP.",
+    "scenario": "Configure NAT overload (PAT) to translate internal private addresses to a single public IP",
+    "concepts": [
+      "1:1 mapping",
+      "ip nat inside/outside",
+      "Static NAT bidirectional",
+      "Useful for servers"
+    ],
+    "errors": [
+      {
+        "error": "NAT not translating",
+        "solution": "Verify inside/outside assignments and NAT rule."
+      }
+    ],
+    "questions": [
+      {
+        "question": "Static NAT use case?",
+        "solution": "Public servers needing fixed external address."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "91-S-01",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "91-S-02",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "91-S-03",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "91-S-04",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "91-S-05",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "91-S-06",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "91-S-07",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "91-S-08",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "91-S-09",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "91-S-10",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-91-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab demonstrates configuring essential network services such as DHCP, DNS, and NAT.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-1",
+        "title": "Step 1: Identify which devices will provide network services (typically routers or servers)...",
+        "instruction": "Identify which devices will provide network services (typically routers or servers)",
+        "commands": [],
+        "expectedOutput": "Completed: Identify which devices will provide network services (typically routers or servers)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-2",
+        "title": "Step 2: Configure IP addresses on all devices and interfaces...",
+        "instruction": "Configure IP addresses on all devices and interfaces",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on all devices and interfaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-3",
+        "title": "Step 3: Set up DHCP pools for automatic IP address assignment...",
+        "instruction": "Set up DHCP pools for automatic IP address assignment",
+        "commands": [],
+        "expectedOutput": "Completed: Set up DHCP pools for automatic IP address assignment",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-4",
+        "title": "Step 4: Configure DNS servers for name resolution services...",
+        "instruction": "Configure DNS servers for name resolution services",
+        "commands": [],
+        "expectedOutput": "Completed: Configure DNS servers for name resolution services",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-5",
+        "title": "Step 5: Implement NAT (Network Address Translation) for Internet connectivity...",
+        "instruction": "Implement NAT (Network Address Translation) for Internet connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Implement NAT (Network Address Translation) for Internet connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-6",
+        "title": "Step 6: Verify service operation using appropriate show/commands...",
+        "instruction": "Verify service operation using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify service operation using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-7",
+        "title": "Step 7: Test client devices for proper IP address assignment and name resolution...",
+        "instruction": "Test client devices for proper IP address assignment and name resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Test client devices for proper IP address assignment and name resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-8",
+        "title": "Step 8: Verify NAT translations and Internet accessibility...",
+        "instruction": "Verify NAT translations and Internet accessibility",
+        "commands": [],
+        "expectedOutput": "Completed: Verify NAT translations and Internet accessibility",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-9",
+        "title": "Step 9: Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing...",
+        "instruction": "Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-STEP-10",
+        "title": "Step 10: Save configurations and document all configured services...",
+        "instruction": "Save configurations and document all configured services",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and document all configured services",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-91-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab demonstrates configuring essential network services such as DHCP, DNS, and NAT.",
+      "Identify which devices will provide network services (typically routers or servers)",
+      "Configure IP addresses on all devices and interfaces",
+      "Set up DHCP pools for automatic IP address assignment",
+      "Configure DNS servers for name resolution services",
+      "Implement NAT (Network Address Translation) for Internet connectivity",
+      "Verify service operation using appropriate show/commands",
+      "Test client devices for proper IP address assignment and name resolution",
+      "Verify NAT translations and Internet accessibility",
+      "Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+      "Save configurations and document all configured services",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced NAT concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "1:1 mapping",
+      "ip nat inside/outside",
+      "Static NAT bidirectional",
+      "Useful for servers"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "Static NAT use case?",
+        "solution": "Public servers needing fixed external address."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement network address translation for internal-to-internet connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches NAT through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of NAT?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "92",
+    "title": "NAT Lab: PAT Overload for Internet Access",
+    "category": "NAT",
+    "level": "intermediate",
+    "time": "25 minutes",
+    "objectives": "Configure PAT for many-to-one.",
+    "scenario": "Configure NAT overload (PAT) to translate internal private addresses to a single public IP",
+    "concepts": [
+      "PAT maps many private to one public",
+      "Uses port numbers",
+      "Overload on interface or pool",
+      "Most common NAT type"
+    ],
+    "errors": [
+      {
+        "error": "Internet not reachable from inside",
+        "solution": "Check ACL permitting inside addresses and NAT inside/outside."
+      }
+    ],
+    "questions": [
+      {
+        "question": "PAT vs dynamic NAT?",
+        "solution": "PAT uses ports many-to-one; dynamic NAT many-to-many from pool."
+      }
+    ],
+    "steps": [
+      {
+        "stepId": "92-S-01",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "92-S-02",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "92-S-03",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "92-S-04",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "92-S-05",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "92-S-06",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "92-S-07",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "92-S-08",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "detailedWalkthrough": [
+      {
+        "stepId": "LAB-92-OVERVIEW",
+        "title": "Lab Overview and Preparation",
+        "instruction": "This lab demonstrates configuring essential network services such as DHCP, DNS, and NAT.",
+        "commands": [],
+        "expectedOutput": "Clear understanding of lab objectives and requirements",
+        "keypoints": [
+          "Read all objectives carefully",
+          "Identify required devices and connections",
+          "Plan configuration approach before starting"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Are you ready to begin the lab configuration?",
+          "options": [
+            "Yes, I understand the objectives",
+            "No, I need to review again"
+          ],
+          "correct": "Yes, I understand the objectives"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-1",
+        "title": "Step 1: Identify which devices will provide network services (typically routers or servers)...",
+        "instruction": "Identify which devices will provide network services (typically routers or servers)",
+        "commands": [],
+        "expectedOutput": "Completed: Identify which devices will provide network services (typically routers or servers)",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 1 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-2",
+        "title": "Step 2: Configure IP addresses on all devices and interfaces...",
+        "instruction": "Configure IP addresses on all devices and interfaces",
+        "commands": [],
+        "expectedOutput": "Completed: Configure IP addresses on all devices and interfaces",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 2 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-3",
+        "title": "Step 3: Set up DHCP pools for automatic IP address assignment...",
+        "instruction": "Set up DHCP pools for automatic IP address assignment",
+        "commands": [],
+        "expectedOutput": "Completed: Set up DHCP pools for automatic IP address assignment",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 3 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-4",
+        "title": "Step 4: Configure DNS servers for name resolution services...",
+        "instruction": "Configure DNS servers for name resolution services",
+        "commands": [],
+        "expectedOutput": "Completed: Configure DNS servers for name resolution services",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 4 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-5",
+        "title": "Step 5: Implement NAT (Network Address Translation) for Internet connectivity...",
+        "instruction": "Implement NAT (Network Address Translation) for Internet connectivity",
+        "commands": [],
+        "expectedOutput": "Completed: Implement NAT (Network Address Translation) for Internet connectivity",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 5 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-6",
+        "title": "Step 6: Verify service operation using appropriate show/commands...",
+        "instruction": "Verify service operation using appropriate show/commands",
+        "commands": [],
+        "expectedOutput": "Completed: Verify service operation using appropriate show/commands",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 6 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-7",
+        "title": "Step 7: Test client devices for proper IP address assignment and name resolution...",
+        "instruction": "Test client devices for proper IP address assignment and name resolution",
+        "commands": [],
+        "expectedOutput": "Completed: Test client devices for proper IP address assignment and name resolution",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 7 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-8",
+        "title": "Step 8: Verify NAT translations and Internet accessibility...",
+        "instruction": "Verify NAT translations and Internet accessibility",
+        "commands": [],
+        "expectedOutput": "Completed: Verify NAT translations and Internet accessibility",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 8 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-9",
+        "title": "Step 9: Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing...",
+        "instruction": "Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+        "commands": [],
+        "expectedOutput": "Completed: Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 9 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-STEP-10",
+        "title": "Step 10: Save configurations and document all configured services...",
+        "instruction": "Save configurations and document all configured services",
+        "commands": [],
+        "expectedOutput": "Completed: Save configurations and document all configured services",
+        "keypoints": [
+          "Follow instructions precisely",
+          "Verify each step before proceeding",
+          "Document any deviations or issues"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed step 10 successfully?",
+          "options": [
+            "Yes, step completed",
+            "No, need assistance"
+          ],
+          "correct": "Yes, step completed"
+        }
+      },
+      {
+        "stepId": "LAB-92-FINAL",
+        "title": "Lab Completion and Verification",
+        "instruction": "Verify all lab objectives have been met and document your work",
+        "commands": [],
+        "expectedOutput": "All lab objectives completed successfully",
+        "keypoints": [
+          "Review original objectives",
+          "Verify all required configurations are in place",
+          "Test end-to-end functionality",
+          "Clean up any temporary configurations"
+        ],
+        "verification": {
+          "type": "option",
+          "question": "Have you completed all lab objectives?",
+          "options": [
+            "Yes, lab is complete",
+            "No, more work needed"
+          ],
+          "correct": "Yes, lab is complete"
+        }
+      }
+    ],
+    "walkthrough": [
+      "This lab demonstrates configuring essential network services such as DHCP, DNS, and NAT.",
+      "Identify which devices will provide network services (typically routers or servers)",
+      "Configure IP addresses on all devices and interfaces",
+      "Set up DHCP pools for automatic IP address assignment",
+      "Configure DNS servers for name resolution services",
+      "Implement NAT (Network Address Translation) for Internet connectivity",
+      "Verify service operation using appropriate show/commands",
+      "Test client devices for proper IP address assignment and name resolution",
+      "Verify NAT translations and Internet accessibility",
+      "Troubleshoot service issues by checking pool exhaustion, ACL restrictions, and routing",
+      "Save configurations and document all configured services",
+      "Verify all lab objectives have been met and document your work"
+    ],
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced NAT concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "PAT maps many private to one public",
+      "Uses port numbers",
+      "Overload on interface or pool",
+      "Most common NAT type"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "PAT vs dynamic NAT?",
+        "solution": "PAT uses ports many-to-one; dynamic NAT many-to-many from pool."
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement network address translation for internal-to-internet connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches NAT through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of NAT?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "178",
+    "title": "Using Traceroute to Trace Network Path",
+    "category": "NAT",
+    "level": "intermediate",
+    "time": "20 minutes",
+    "objectives": "Learn to use traceroute to find network path",
+    "scenario": "Configure NAT overload (PAT) to translate internal private addresses to a single public IP",
+    "concepts": [
+      "Traceroute shows each hop along the path",
+      "Each hop is a router the packet passes through",
+      "Asterisks mean that hop isn't responding",
+      "Use tracert (Windows) or traceroute (Linux/Mac)"
+    ],
+    "errors": [
+      {
+        "error": "All hops show *",
+        "solution": "Check local firewall or that destination is reachable with ping"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What's the Windows command for traceroute?",
+        "solution": "tracert"
+      },
+      {
+        "question": "What's the Linux/Mac command for traceroute?",
+        "solution": "traceroute"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "178-S-01",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "178-S-02",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "178-S-03",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "178-S-04",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "178-S-05",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "178-S-06",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "178-S-07",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "178-S-08",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "178-S-09",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0 -> Switch0 -> PC1",
+    "ipScheme": "192.168.1.0/24",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0",
+      "Switch0 -> PC1"
+    ],
+    "difficulty": "intermediate",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Configure devices according to the lab objectives.",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced Networking Fundamentals concepts to optimize network performance",
+    "solution": "Apply the configuration shown in the walkthrough.",
+    "keyConcepts": [
+      "Traceroute shows each hop along the path",
+      "Each hop is a router the packet passes through",
+      "Asterisks mean that hop isn't responding",
+      "Use tracert (Windows) or traceroute (Linux/Mac)"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "What's the Windows command for traceroute?",
+        "solution": "tracert"
+      },
+      {
+        "question": "What's the Linux/Mac command for traceroute?",
+        "solution": "traceroute"
+      }
+    ],
+    "quiz": [],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> Switch0",
+        "Switch0 -> PC0",
+        "Switch0 -> PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement network address translation for internal-to-internet connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC0",
+        "interface": "Fa0",
+        "ip": "192.168.1.10",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "PC1",
+        "interface": "Fa0",
+        "ip": "192.168.1.11",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches NAT through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of Networking Fundamentals?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "228",
+    "title": "Configure Dynamic NAT Overload (PAT)",
+    "category": "NAT",
+    "level": "intermediate",
+    "time": "30 minutes",
+    "difficulty": "intermediate",
+    "objectives": "Configure PAT to allow many internal hosts to share one public IP",
+    "scenario": "Configure NAT overload (PAT) to translate internal private addresses to a single public IP",
+    "concepts": [
+      "NAT",
+      "PAT",
+      "Overload"
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "devices": [
+      "Router0 (edge)",
+      "Switch0",
+      "PC0",
+      "PC1"
+    ],
+    "connections": [
+      "Router0 -> ISP",
+      "Router0 -> Switch0",
+      "Switch0 -> PC0/PC1"
+    ],
+    "ipScheme": "192.168.1.0/24 (inside) and 203.0.113.0/24 (outside)",
+    "ipTable": [
+      {
+        "device": "Router0 Gi0/0",
+        "interface": "Inside",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Router0 Gi0/1",
+        "interface": "Outside",
+        "ip": "203.0.113.1",
+        "mask": "255.255.255.252"
+      }
+    ],
+    "task": "Configure PAT to share one public IP",
+    "steps": [
+      {
+        "stepId": "228-S-01",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "228-S-02",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "228-S-03",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "228-S-04",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "228-S-05",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "228-S-06",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "228-S-07",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "228-S-08",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "228-S-09",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "228-S-10",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      }
+    ],
+    "errors": [
+      {
+        "error": "NAT not translating",
+        "solution": "Check ip nat inside/outside on correct interfaces"
+      }
+    ],
+    "questions": [
+      {
+        "question": "What does PAT stand for?",
+        "solution": "Port Address Translation"
+      }
+    ],
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Use show ip nat translations to verify"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced NAT concepts to optimize network performance",
+    "solution": "Mark interfaces, create ACL, apply ip nat with overload",
+    "keyConcepts": [
+      "PAT",
+      "NAT overload",
+      "Port translation"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "How many sessions can PAT support?",
+        "solution": "Thousands using different port numbers"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "What keyword enables PAT?",
+        "options": [
+          "overload",
+          "static",
+          "dynamic"
+        ],
+        "correct": "overload"
+      }
+    ],
+    "topology": "Router0 -> ISP -> Router0 -> Switch0 -> Switch0 -> PC0/PC1",
+    "packetTracer": {
+      "devices": [
+        "Router0 (edge)",
+        "Switch0",
+        "PC0",
+        "PC1"
+      ],
+      "connections": [
+        "Router0 -> ISP",
+        "Router0 -> Switch0",
+        "Switch0 -> PC0/PC1"
+      ],
+      "notes": "Build this network in Cisco Packet Tracer using the devices and connections specified."
+    },
+    "learningObjective": "Implement network address translation for internal-to-internet connectivity",
+    "deviceList": [
+      {
+        "name": "Router0 (edge)",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      },
+      {
+        "name": "PC1",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0 Gi0/0",
+        "interface": "Inside",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      },
+      {
+        "device": "Router0 Gi0/1",
+        "interface": "Outside",
+        "ip": "203.0.113.1",
+        "mask": "255.255.255.252"
+      }
+    ],
+    "explanation": "This lab teaches NAT through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of NAT?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  },
+  {
+    "id": "234",
+    "title": "Configure Static NAT for Web Server",
+    "category": "NAT",
+    "level": "intermediate",
+    "time": "20 min",
+    "difficulty": "intermediate",
+    "objectives": "Make an internal web server accessible from the Internet using static NAT",
+    "scenario": "Configure NAT overload (PAT) to translate internal private addresses to a single public IP",
+    "concepts": [
+      "Static NAT maps one private IP to one public IP",
+      "Used for servers that need consistent external access"
+    ],
+    "errors": [
+      {
+        "error": "Server not reachable",
+        "solution": "Verify inside/outside interface configuration"
+      }
+    ],
+    "questions": [
+      {
+        "question": "When use static NAT?",
+        "solution": "For servers needing consistent external IP"
+      }
+    ],
+    "prerequisites": "Basic routing/switching knowledge, IP addressing fundamentals",
+    "steps": [
+      {
+        "stepId": "234-S-01",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "234-S-02",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "234-S-03",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "234-S-04",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "234-S-05",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "234-S-06",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      },
+      {
+        "stepId": "234-S-07",
+        "title": "Configure NAT Overload (PAT)",
+        "instruction": "Configure NAT Overload (PAT) for NAT",
+        "commands": [
+          "enable",
+          "configure terminal",
+          "access-list 1 permit 192.168.1.0 0.0.0.255",
+          "interface GigabitEthernet0/1",
+          "ip nat outside",
+          "exit",
+          "interface GigabitEthernet0/0",
+          "ip nat inside",
+          "exit",
+          "ip nat inside source list 1 interface GigabitEthernet0/1 overload",
+          "end"
+        ],
+        "expectedOutput": "NAT overload configured, PAT active",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "NAT not working",
+            "solution": "Mark inside/outside interfaces correctly"
+          }
+        ],
+        "hints": [
+          "Overload enables PAT with port mapping",
+          "Verify ACL matches internal network"
+        ],
+        "challenge": "Configure static NAT"
+      },
+      {
+        "stepId": "234-S-08",
+        "title": "Verify NAT and Internet Connectivity",
+        "instruction": "Verify NAT and Internet Connectivity for NAT",
+        "commands": [
+          "enable",
+          "show ip nat translations",
+          "show ip nat statistics",
+          "ping 8.8.8.8",
+          "end"
+        ],
+        "expectedOutput": "NAT translations active, internet accessible",
+        "verification": {
+          "type": "command",
+          "expected": [
+            "show ip nat translations"
+          ]
+        },
+        "commonErrors": [
+          {
+            "error": "No NAT entries",
+            "solution": "Verify inside/outside marking"
+          }
+        ],
+        "hints": [
+          "Use show ip nat translations",
+          "Check ACL"
+        ],
+        "challenge": "Configure NAT for multiple servers"
+      }
+    ],
+    "topology": "Router0 -> Switch0 -> Switch0 -> PC0",
+    "devices": [
+      "Router0",
+      "Switch0",
+      "PC0"
+    ],
+    "connections": [
+      "Router0 -> Switch0",
+      "Switch0 -> PC0"
+    ],
+    "ipScheme": "192.168.1.0/24",
+    "ipTable": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "task": "Make an internal web server accessible from the Internet using static NAT",
+    "commonErrors": [
+      {
+        "error": "Configuration not saved",
+        "solution": "Always save with \"copy running-config startup-config\""
+      },
+      {
+        "error": "Interface administratively down",
+        "solution": "Enable with \"no shutdown\""
+      },
+      {
+        "error": "Cannot reach device",
+        "solution": "Check physical connection and interface status"
+      }
+    ],
+    "troubleshooting": [
+      "Verify configuration",
+      "Check connectivity"
+    ],
+    "hints": [
+      "Use \"show running-config\" to verify configuration",
+      "Exit configuration mode with \"end\" or Ctrl+Z",
+      "Save configuration to prevent loss on reload"
+    ],
+    "challenge": "Apply advanced NAT concepts to optimize network performance",
+    "solution": "Apply the configuration as described",
+    "keyConcepts": [
+      "Static NAT maps one private IP to one public IP",
+      "Used for servers that need consistent external access"
+    ],
+    "practiceQuestions": [
+      {
+        "question": "When use static NAT?",
+        "solution": "For servers needing consistent external IP"
+      }
+    ],
+    "quiz": [
+      {
+        "question": "When use static NAT?",
+        "options": [
+          "For servers needing consistent external IP",
+          "Option 2",
+          "Option 3"
+        ],
+        "correct": "For servers needing consistent external IP"
+      }
+    ],
+    "packetTracer": {
+      "devices": [
+        "Router0",
+        "Switch0"
+      ],
+      "connections": [
+        "Router0 -> Switch0"
+      ],
+      "notes": "Build this in Packet Tracer"
+    },
+    "learningObjective": "Implement network address translation for internal-to-internet connectivity",
+    "deviceList": [
+      {
+        "name": "Router0",
+        "type": "router"
+      },
+      {
+        "name": "Switch0",
+        "type": "switch"
+      },
+      {
+        "name": "PC0",
+        "type": "pc"
+      }
+    ],
+    "ipAddressing": [
+      {
+        "device": "Router0",
+        "interface": "Gi0/0",
+        "ip": "192.168.1.1",
+        "mask": "255.255.255.0"
+      }
+    ],
+    "explanation": "This lab teaches NAT through practical configuration of real network equipment at the intermediate level.",
+    "finalVerification": "All network services operational, verify with show commands",
+    "quizQuestions": [
+      {
+        "question": "What is the key concept of NAT?",
+        "answer": "Review the final configuration and verify functionality"
+      }
+    ]
+  }
+]
