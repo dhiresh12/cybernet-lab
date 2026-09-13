@@ -75,7 +75,7 @@ describe('Backend Verification: state_check and ping', () => {
         }
       }
     });
-    const result = verifiers.ping('reachable', { sourceDeviceId: 'PC1', targetIp: '10.0.0.1' }, labState);
+    const result = verifiers.ping({ sourceDeviceId: 'PC1', targetIp: '10.0.0.1' }, 'reachable', labState);
     expect(result.passed).toBe(false);
     expect(result.feedback).toContain('unreachable');
   });

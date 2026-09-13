@@ -18,7 +18,7 @@ export default function WorkspaceStepPanel({
   const allowVerify = !locked && stepState !== STEP_STATE.COMPLETED;
   const isVerified = stepState === STEP_STATE.VERIFIED || stepState === STEP_STATE.COMPLETED;
 
-  return (
+return (
     <div className="verification-panel">
       {step && (
         <div className="current-step">
@@ -40,8 +40,8 @@ export default function WorkspaceStepPanel({
         </div>
       )}
       
-{result && (
-        <div className={`verify-result ${result.error ? 'error' : (result.passed ? 'passed' : 'failed')}`}>
+      {result && (
+        <div className={`verify-result ${result.error ? 'error' : (result.passed ? 'passed' : 'failed')}`} role="status" aria-live="polite">
           <span>
             {result.error ? 'SYSTEM ERROR' : (result.passed ? 'PASSED' : 'STEP FAILED')}
           </span>

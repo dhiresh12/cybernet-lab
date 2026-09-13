@@ -23,11 +23,11 @@ export default function WorkspaceHeader({
   const mission = lab?.mission || 'Network Training Exercise';
   const objective = lab?.objective || 'Complete the lab objectives to advance your skills';
 
-  return (
+return (
     <header className="lab-header">
-<div className="lab-header-left">
-        <span className="lab-title">â—„ CYBERNET â–º</span>
-        <div className="lab-divider" />
+      <div className="lab-header-left">
+        <span className="lab-title" aria-hidden="true">◄ CYBERNET ►</span>
+        <div className="lab-divider" aria-hidden="true" />
         <div className="lab-info">
           <div className="lab-name">{lab?.title?.substring(0, 40) || 'No Lab'}{lab?.title?.length > 40 ? '...' : ''}</div>
           <div className="lab-mission">
@@ -50,13 +50,13 @@ export default function WorkspaceHeader({
         <div className="progress-container">
           <div className="progress-fill" style={{ width: `${progress}%` }} />
         </div>
-        <div className="lab-time">â± {formatTime(timer.time)}</div>
+        <div className="lab-time">⏱ {formatTime(timer.time)}</div>
       </div>
 
-<div className="lab-header-right">
-        <button className="lab-btn primary" onClick={onRestart}>â†º RESTART LAB</button>
-        <button className="lab-btn" onClick={onHint}>ðŸ’¡ HINT</button>
-        <button className="lab-btn danger" onClick={onExit}>âœ– EXIT</button>
+      <div className="lab-header-right">
+        <button className="lab-btn primary" onClick={onRestart} aria-label="Restart lab">↺ RESTART LAB</button>
+        <button className="lab-btn" onClick={onHint} aria-label="Show hint">💡 HINT</button>
+        <button className="lab-btn danger" onClick={onExit} aria-label="Exit lab">✖ EXIT</button>
       </div>
     </header>
   );

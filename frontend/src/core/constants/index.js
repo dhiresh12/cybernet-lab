@@ -9,7 +9,7 @@ export { STORAGE_KEYS } from './storageKeys.js';
 export { THEMES } from './themes.js';
 export { BACKGROUNDS } from './backgrounds.js';
 export { DEFAULT_BG, DEFAULT_MUSIC, DEFAULT_INTERFACE } from './defaults.js';
-export { MUSIC_TRACKS } from './musicTracks.js';
+export { MUSIC_TRACKS, STUDY_DECK_CATEGORIES, FOCUS_PRESETS } from './musicTracks.js';
 export { SIM_DEFAULTS } from './simulationDefaults.js';
 export { BADGE_THRESHOLDS } from './badgeThresholds.js';
 export { VERIFICATION_TYPES } from './verificationTypes.js';

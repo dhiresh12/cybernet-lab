@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-09-07",
+  "lastUpdated": "2026-09-13",
   "description": "Lab Quality Gate registry for CyberNet Lab. Quarantined labs are excluded from normal learner-facing lab listing and cannot be started as regular learner sessions. Source definitions are preserved for future rebuilding.",
   "statuses": {
     "VALID": "Learner-safe lab. Reference labs and fully validated labs.",
@@ -9,6 +9,90 @@
     "UNKNOWN": "Not yet validated."
   },
   "quarantined": [
+    {
+      "labId": "113",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "120",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "121",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "122",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "125",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "148",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
+    {
+      "labId": "208",
+      "status": "BROKEN",
+      "reason": "Lab content is incomplete or does not match simulator support",
+      "severity": "P0",
+      "auditSource": "Session 6 Lab Quality Audit",
+      "remediationStatus": "REMEDIATED",
+      "remediationPhase": "7.0",
+      "remediationDate": "2026-09-13",
+      "remediationSummary": "Lab fully regenerated with canonical structure, lab-specific devices, 20+ enriched steps, troubleshooting decision tree, and all required fields.",
+      "notes": "Preserved in registry for future remediation."
+    },
     {
       "labId": "23",
       "status": "REMEDIATED",
@@ -62,41 +146,11 @@
       "status": "REMEDIATED",
       "reason": "Title/content mismatch: lab claims to teach Policy-Based Routing (PBR) but steps configure static routes only",
       "severity": "P0",
-      "auditSource": "Session 6 Lab Quality Audit",
       "notes": "Original title mismatched actual static route content. Remediated to match content with complete canonical lab structure.",
       "remediationStatus": "REMEDIATED",
       "remediationPhase": "6.8",
       "remediationDate": "2026-09-07",
       "remediationSummary": "Lab content corrected. Title changed from \"Enterprise Lab: Policy-Based Routing (PBR)\" to \"Static and Default Route Configuration\". Objectives and scenario updated to match static route content. Structured topology and initialState added. Existing static route steps preserved."
-    },
-    {
-      "labId": "113",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach IP SLA and tracking but steps configure interface IP only",
-      "severity": "P0",
-      "auditSource": "Session 6 Lab Quality Audit",
-      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No IP SLA, tracking, or policy-based routing configuration present. Lab title and content are completely mismatched."
-    },
-    {
-      "labId": "120",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach HSRP and gateway redundancy but steps show generic topology only",
-      "severity": "P0",
-      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, GLBP, or gateway redundancy configuration present. Lab title and content are completely mismatched."
-    },
-    {
-      "labId": "121",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach stacking and chassis redundancy but steps show generic topology only",
-      "severity": "P0",
-      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No stacking, chassis, or redundancy configuration present. Lab title and content are completely mismatched."
-    },
-    {
-      "labId": "122",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach wireless WLAN and security but steps configure interface IP only",
-      "severity": "P0",
-      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No WLAN, SSID, security, or wireless configuration present. Lab title and content are completely mismatched."
     },
     {
       "labId": "124",
@@ -110,13 +164,6 @@
       "remediationSummary": "Lab content corrected. Title changed from \"Enterprise Lab: Network Monitoring and NetFlow\" to \"Basic Router Configuration and Verification\". Category changed to \"Fundamentals\". Objectives and scenario updated to match basic router configuration content. SNMP/NetFlow steps replaced with supported router configuration and verification steps. Structured topology and initialState added."
     },
     {
-      "labId": "125",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach high availability design but steps show generic topology only",
-      "severity": "P0",
-      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, GLBP, or high-availability configuration present. Lab title and content are completely mismatched."
-    },
-    {
       "labId": "126",
       "status": "REMEDIATED",
       "reason": "Title/content mismatch: lab claims to teach BGP route filtering with AS_PATH ACL but steps configure basic BGP peering only",
@@ -128,13 +175,6 @@
       "remediationSummary": "Lab content corrected. Title changed from \"ISP Lab: BGP Route Filtering with AS_PATH ACL\" to \"BGP eBGP Peering and Network Advertisement\". Objectives and scenario updated to match basic BGP peering content. Repetitive steps consolidated into 5 progressive steps. Structured topology and initialState added."
     },
     {
-      "labId": "148",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach high availability with HSRP but steps show generic topology only",
-      "severity": "P0",
-      "notes": "Steps run show ip interface brief, show cdp neighbors, show running-config. No HSRP, VRRP, or gateway redundancy configuration present. Lab title and content are completely mismatched."
-    },
-    {
       "labId": "176",
       "status": "REMEDIATED",
       "reason": "Title/content mismatch: lab claims to teach CDP and LLDP but steps configure device settings/passwords only",
@@ -143,13 +183,6 @@
       "remediationPhase": "6.8",
       "remediationDate": "2026-09-07",
       "remediationSummary": "Lab content corrected. Title changed from \"Using CDP and LLDP\" to \"Configure Cisco IOS Device Settings\". Category changed to \"Device Management\". Objectives and scenario updated to match device settings content. Structured topology and initialState added. Existing device configuration steps preserved."
-    },
-    {
-      "labId": "208",
-      "status": "BROKEN",
-      "reason": "Title/content mismatch: lab claims to teach basic wireless networking concepts but steps configure interface IP only",
-      "severity": "P0",
-      "notes": "Steps configure interface GigabitEthernet0/0 ip address. No wireless, WLAN, SSID, or RF concepts present. Lab title and content are completely mismatched."
     },
     {
       "labId": "229",

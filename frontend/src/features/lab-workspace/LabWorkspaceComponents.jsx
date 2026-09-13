@@ -51,14 +51,14 @@ export const DeviceButton = ({ device, selected, onClick }) => {
   const icons = {
     router: '◆',
     switch: '⬡',
-    pc: '💻',
-    laptop: '💻',
-    server: '🖧',
-    firewall: '🛡️',
-    accessPoint: '📡',
-    cloud: '☁️',
-    dns: '🔮',
-    dhcp: '📋',
+    pc: 'Laptop',
+    laptop: 'Laptop',
+    server: 'Server',
+    firewall: 'Shield',
+    accessPoint: 'Signal',
+    cloud: 'Cloud',
+    dns: 'Crystal',
+    dhcp: 'List',
   };
   const color = colors[device.type] || '#00f0ff';
   const icon = icons[device.type] || '◆';

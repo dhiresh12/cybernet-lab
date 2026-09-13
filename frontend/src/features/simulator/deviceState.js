@@ -1,5 +1,5 @@
 // Device State Management - Canonical device state utilities
-import { CLI_MODES, DEFAULT_INTERFACE as DEFAULT_IFACE } from '../../core/constants';
+import { CLI_MODES, DEFAULT_INTERFACE } from '../../core/constants';
 import { DEVICE_STATES, ADMIN_STATES, LINK_STATES, DEVICE_TYPE_CONFIGS } from '../../core/constants/deviceStates.js';
 import { createDeviceState as createCanonicalDeviceState } from '../../engine/LabStateEngine.js';
 

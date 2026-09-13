@@ -180,7 +180,7 @@ export function Quiz({ questions, onComplete, mode = 'quiz' }) {
               fontWeight: 700,
               marginBottom: 8
             }}>
-              {result.correct ? '✅ Correct!' : '❌ Incorrect'}
+              {result.correct ? '[OK] Correct!' : '[FAIL] Incorrect'}
             </div>
             {result.correct || <div style={{ color: 'var(--muted)' }}>Correct answer: {currentQuestion.options?.[currentQuestion.correctIndex]}</div>}
             <div style={{ color: 'var(--cyan)', marginTop: 8 }}>
@@ -228,13 +228,13 @@ export function Quiz({ questions, onComplete, mode = 'quiz' }) {
               color: engine.hintsUsed >= 3 ? 'var(--muted)' : 'var(--yellow)',
               fontWeight: 600, cursor: engine.hintsUsed >= 3 ? 'not-allowed' : 'pointer'
             }}>
-              💡 Hint ({engine.hintsUsed}/3)
+              Tip Hint ({engine.hintsUsed}/3)
             </button>
             <button onClick={handleShowSolution} style={{
               padding: '10px 16px', borderRadius: 6, border: '1px solid var(--green)',
               background: 'transparent', color: 'var(--green)', fontWeight: 600, cursor: 'pointer'
             }}>
-              👁️ Show Solution
+              Eye Show Solution
             </button>
           </>
         )}

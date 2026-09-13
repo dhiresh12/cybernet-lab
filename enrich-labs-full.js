@@ -143,19 +143,19 @@ function generateDetailedWalkthrough(lab) {
     // BASICS LABS - Very detailed for beginners
     walkthrough.push({
       kind: 'read',
-      text: '🎯 LAB OBJECTIVE: ' + lab.objectives
+      text: 'LAB OBJECTIVE: ' + lab.objectives
     });
     walkthrough.push({
       kind: 'read',
-      text: '📋 SCENARIO: ' + lab.scenario
+      text: 'SCENARIO: ' + lab.scenario
     });
     walkthrough.push({
       kind: 'note',
-      text: '⏱️ Estimated time: ' + (lab.time || '15-20 minutes')
+      text: 'Estimated time: ' + (lab.time || '15-20 minutes')
     });
     walkthrough.push({
       kind: 'note',
-      text: '📊 Difficulty: ' + lab.level.toUpperCase()
+      text: 'Difficulty: ' + lab.level.toUpperCase()
     });
     walkthrough.push({
       kind: 'note',
@@ -165,29 +165,29 @@ function generateDetailedWalkthrough(lab) {
     // Step 1: Open Packet Tracer
     walkthrough.push({
       kind: 'read',
-      text: '📦 STEP 1: OPEN CISCO PACKET TRACER\n\n1. Double-click the Cisco Packet Tracer icon on your desktop\n2. If prompted, log in with your Cisco NetAcad credentials\n3. You should see a blank workspace with device palette at bottom'
+      text: 'STEP 1: OPEN CISCO PACKET TRACER\n\n1. Double-click the Cisco Packet Tracer icon on your desktop\n2. If prompted, log in with your Cisco NetAcad credentials\n3. You should see a blank workspace with device palette at bottom'
     });
     walkthrough.push({
       kind: 'note',
-      text: '💡 TIP: If you don\'t have Packet Tracer, download it free from Cisco Networking Academy (netacad.com)'
+      text: 'TIP: If you don\'t have Packet Tracer, download it free from Cisco Networking Academy (netacad.com)'
     });
 
     // Step 2: Add devices
     walkthrough.push({
       kind: 'read',
-      text: '🖥️ STEP 2: ADD END DEVICES (PCs)\n\n1. Look at the bottom-left device palette\n2. Click "End Devices" (icon: computer monitor)\n3. Drag TWO "PC" devices onto the workspace\n4. Position them with space between for the switch\n\n   PC0 (left)                    PC1 (right)\n   🖥️                              🖥️'
+      text: 'STEP 2: ADD END DEVICES (PCs)\n\n1. Look at the bottom-left device palette\n2. Click "End Devices" (icon: computer monitor)\n3. Drag TWO "PC" devices onto the workspace\n4. Position them with space between for the switch\n\n   PC0 (left)                    PC1 (right)'
     });
 
     // Step 3: Add switch
     walkthrough.push({
       kind: 'read',
-      text: '🔌 STEP 3: ADD A SWITCH\n\n1. In the device palette, click "Network Devices" → "Switches"\n2. Select "2960" switch (most common for labs)\n3. Drag it BETWEEN the two PCs\n\n   PC0 ── [will connect here] ── PC1\n              🔌 SWITCH'
+      text: 'STEP 3: ADD A SWITCH\n\n1. In the device palette, click "Network Devices" → "Switches"\n2. Select "2960" switch (most common for labs)\n3. Drag it BETWEEN the two PCs\n\n   PC0 ── [will connect here] ── PC1\n              SWITCH'
     });
 
     // Step 4: Cable connections
     walkthrough.push({
       kind: 'read',
-      text: '🔗 STEP 4: CONNECT DEVICES WITH CABLES\n\n1. Click "Connections" (lightning bolt icon) in bottom palette\n2. Select "Copper Straight-Through" cable (solid line icon)\n3. Click PC0 → Select "FastEthernet0"\n4. Click Switch → Select "FastEthernet0/1"\n5. Repeat: PC1 → FastEthernet0, Switch → FastEthernet0/2\n\n   ✅ Green link lights should appear on both ends\n   📝 NOTE: Use Copper Straight-Through for PC↔Switch\n   ❌ DON\'T use Crossover or Serial cables here'
+      text: 'STEP 4: CONNECT DEVICES WITH CABLES\n\n1. Click "Connections" (lightning bolt icon) in bottom palette\n2. Select "Copper Straight-Through" cable (solid line icon)\n3. Click PC0 → Select "FastEthernet0"\n4. Click Switch → Select "FastEthernet0/1"\n5. Repeat: PC1 → FastEthernet0, Switch → FastEthernet0/2\n\n   Green link lights should appear on both ends\n   NOTE: Use Copper Straight-Through for PC↔Switch\n   DO NOT use Crossover or Serial cables here'
     });
     walkthrough.push({
       kind: 'cmd',
@@ -197,7 +197,7 @@ function generateDetailedWalkthrough(lab) {
     // Step 5: Configure PC0 IP
     walkthrough.push({
       kind: 'read',
-      text: '🖥️ STEP 5: CONFIGURE PC0 IP ADDRESS\n\n1. Click PC0 → Go to "Desktop" tab\n2. Click "IP Configuration"\n3. Fill in:\n   • IP Address: 192.168.1.10\n   • Subnet Mask: 255.255.255.0\n   • Default Gateway: 192.168.1.1 (leave blank for now)\n4. Close the window'
+      text: 'STEP 5: CONFIGURE PC0 IP ADDRESS\n\n1. Click PC0 → Go to "Desktop" tab\n2. Click "IP Configuration"\n3. Fill in:\n   • IP Address: 192.168.1.10\n   • Subnet Mask: 255.255.255.0\n   • Default Gateway: 192.168.1.1 (leave blank for now)\n4. Close the window'
     });
     walkthrough.push({
       kind: 'cmd',
@@ -211,7 +211,7 @@ function generateDetailedWalkthrough(lab) {
     // Step 6: Configure PC1 IP
     walkthrough.push({
       kind: 'read',
-      text: '🖥️ STEP 6: CONFIGURE PC1 IP ADDRESS\n\n1. Click PC1 → Go to "Desktop" tab\n2. Click "IP Configuration"\n3. Fill in:\n   • IP Address: 192.168.1.20\n   • Subnet Mask: 255.255.255.0\n   • Default Gateway: 192.168.1.1\n4. Close the window'
+      text: 'STEP 6: CONFIGURE PC1 IP ADDRESS\n\n1. Click PC1 → Go to "Desktop" tab\n2. Click "IP Configuration"\n3. Fill in:\n   • IP Address: 192.168.1.20\n   • Subnet Mask: 255.255.255.0\n   • Default Gateway: 192.168.1.1\n4. Close the window'
     });
     walkthrough.push({
       kind: 'cmd',
@@ -225,7 +225,7 @@ function generateDetailedWalkthrough(lab) {
     // Step 7: Test connectivity
     walkthrough.push({
       kind: 'read',
-      text: '🏓 STEP 7: TEST WITH PING\n\n1. Click PC0 → Desktop → Command Prompt\n2. Type the following command and press ENTER:\n\n   ping 192.168.1.20\n\n3. You should see:\n\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n\n   Ping statistics for 192.168.1.20:\n       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)'
+      text: 'STEP 7: TEST WITH PING\n\n1. Click PC0 → Desktop → Command Prompt\n2. Type the following command and press ENTER:\n\n   ping 192.168.1.20\n\n3. You should see:\n\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n   Reply from 192.168.1.20: bytes=32 time<1ms TTL=128\n\n   Ping statistics for 192.168.1.20:\n       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)'
     });
     walkthrough.push({
       kind: 'expect',
@@ -233,41 +233,41 @@ function generateDetailedWalkthrough(lab) {
     });
     walkthrough.push({
       kind: 'note',
-      text: '🎉 SUCCESS! If you see "Reply from...", the PCs can communicate!\n\n💡 WHY IT WORKS: Both PCs are in the SAME subnet (192.168.1.0/24). The switch learns MAC addresses and forwards frames directly.\n\n❌ TROUBLESHOOTING:\n• "Request timed out" → Check cables (green lights?), IP config (same subnet?)\n• "Destination host unreachable" → Subnet mask mismatch\n• No link lights → Wrong cable type or port not connected'
+      text: 'SUCCESS! If you see "Reply from...", the PCs can communicate!\n\nWHY IT WORKS: Both PCs are in the SAME subnet (192.168.1.0/24). The switch learns MAC addresses and forwards frames directly.\n\nTROUBLESHOOTING:\n• "Request timed out" → Check cables (green lights?), IP config (same subnet?)\n• "Destination host unreachable" → Subnet mask mismatch\n• No link lights → Wrong cable type or port not connected'
     });
   } else if (t.includes('static routing') || t.includes('default route')) {
     // STATIC ROUTING LABS
     walkthrough.push({
       kind: 'read',
-      text: '🎯 LAB OBJECTIVE: ' + lab.objectives
+      text: 'LAB OBJECTIVE: ' + lab.objectives
     });
     walkthrough.push({
       kind: 'note',
-      text: '📋 This lab teaches STATIC ROUTING - manually telling routers where to send packets for remote networks.'
+      text: '[Note] This lab teaches STATIC ROUTING - manually telling routers where to send packets for remote networks.'
     });
     walkthrough.push({
       kind: 'read',
-      text: '📦 STEP 1: BUILD THE TOPOLOGY\n\nUse the ASCII diagram in the Topology tab. You need:\n• 2 PCs (different subnets: 192.168.1.0/24 and 192.168.2.0/24)\n• 2 Switches (one per LAN)\n• 2 Routers (connected via Serial DCE/DTE cable)\n• Cables: Copper ST for LAN, Serial for WAN link'
+      text: 'STEP 1: BUILD THE TOPOLOGY\n\nUse the ASCII diagram in the Topology tab. You need:\n• 2 PCs (different subnets: 192.168.1.0/24 and 192.168.2.0/24)\n• 2 Switches (one per LAN)\n• 2 Routers (connected via Serial DCE/DTE cable)\n• Cables: Copper ST for LAN, Serial for WAN link'
     });
     walkthrough.push({
       kind: 'note',
-      text: '🔗 CABLE GUIDE: PC↔Switch = Copper Straight-Through | Router↔Router = Serial DCE/DTE'
+      text: 'CABLE GUIDE: PC↔Switch = Copper Straight-Through | Router↔Router = Serial DCE/DTE'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🖥️ STEP 2: CONFIGURE PC IP ADDRESSES\n\nPC0 (Left LAN): 192.168.1.10 / 255.255.255.0 / GW 192.168.1.1\nPC1 (Right LAN): 192.168.2.10 / 255.255.255.0 / GW 192.168.2.1'
+      text: 'STEP 2: CONFIGURE PC IP ADDRESSES\n\nPC0 (Left LAN): 192.168.1.10 / 255.255.255.0 / GW 192.168.1.1\nPC1 (Right LAN): 192.168.2.10 / 255.255.255.0 / GW 192.168.2.1'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🔧 STEP 3: CONFIGURE ROUTER A (Left)\n\nConnect via Console or click Router → CLI tab:\n\nRouter> enable\nRouter# configure terminal\nRouter(config)# interface FastEthernet0/0\nRouter(config-if)# ip address 192.168.1.1 255.255.255.0\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# interface Serial0/0/0\nRouter(config-if)# ip address 10.0.0.1 255.255.255.252\nRouter(config-if)# clock rate 64000\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2\nRouter(config)# end\nRouter# write memory'
+      text: 'STEP 3: CONFIGURE ROUTER A (Left)\n\nConnect via Console or click Router → CLI tab:\n\nRouter> enable\nRouter# configure terminal\nRouter(config)# interface FastEthernet0/0\nRouter(config-if)# ip address 192.168.1.1 255.255.255.0\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# interface Serial0/0/0\nRouter(config-if)# ip address 10.0.0.1 255.255.255.252\nRouter(config-if)# clock rate 64000\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2\nRouter(config)# end\nRouter# write memory'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🔧 STEP 4: CONFIGURE ROUTER B (Right)\n\nRouter> enable\nRouter# configure terminal\nRouter(config)# interface FastEthernet0/0\nRouter(config-if)# ip address 192.168.2.1 255.255.255.0\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# interface Serial0/0/0\nRouter(config-if)# ip address 10.0.0.2 255.255.255.252\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# ip route 192.168.1.0 255.255.255.0 10.0.0.1\nRouter(config)# end\nRouter# write memory'
+      text: 'STEP 4: CONFIGURE ROUTER B (Right)\n\nRouter> enable\nRouter# configure terminal\nRouter(config)# interface FastEthernet0/0\nRouter(config-if)# ip address 192.168.2.1 255.255.255.0\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# interface Serial0/0/0\nRouter(config-if)# ip address 10.0.0.2 255.255.255.252\nRouter(config-if)# no shutdown\nRouter(config-if)# exit\nRouter(config)# ip route 192.168.1.0 255.255.255.0 10.0.0.1\nRouter(config)# end\nRouter# write memory'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🏓 STEP 5: TEST END-TO-END CONNECTIVITY\n\nFrom PC0 Command Prompt:\n  ping 192.168.2.10\n\nExpected: 4 successful replies!\n\nAlso verify routing tables:\nRouterA# show ip route\nRouterB# show ip route'
+      text: 'STEP 5: TEST END-TO-END CONNECTIVITY\n\nFrom PC0 Command Prompt:\n  ping 192.168.2.10\n\nExpected: 4 successful replies!\n\nAlso verify routing tables:\nRouterA# show ip route\nRouterB# show ip route'
     });
     walkthrough.push({
       kind: 'expect',
@@ -277,23 +277,23 @@ function generateDetailedWalkthrough(lab) {
     // DYNAMIC ROUTING LABS
     walkthrough.push({
       kind: 'read',
-      text: '🎯 LAB OBJECTIVE: ' + lab.objectives
+      text: 'LAB OBJECTIVE: ' + lab.objectives
     });
     walkthrough.push({
       kind: 'note',
-      text: '📋 This lab configures DYNAMIC ROUTING (' + (c.includes('ospf') ? 'OSPF' : c.includes('eigrp') ? 'EIGRP' : 'RIP') + ') - routers automatically share routes.'
+      text: '[Note] This lab configures DYNAMIC ROUTING (' + (c.includes('ospf') ? 'OSPF' : c.includes('eigrp') ? 'EIGRP' : 'RIP') + ') - routers automatically share routes.'
     });
     walkthrough.push({
       kind: 'read',
-      text: '📦 STEP 1: BUILD MULTI-ROUTER TOPOLOGY\n\nRefer to Topology tab. Typical setup:\n• 3-4 Routers in a triangle/square\n• Each router has a LAN (PC + Switch)\n• Serial links between routers\n• All interfaces UP with IPs assigned'
+      text: 'STEP 1: BUILD MULTI-ROUTER TOPOLOGY\n\nRefer to Topology tab. Typical setup:\n• 3-4 Routers in a triangle/square\n• Each router has a LAN (PC + Switch)\n• Serial links between routers\n• All interfaces UP with IPs assigned'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🔧 STEP 2: CONFIGURE BASIC INTERFACES\n\nOn EACH router:\nRouter> enable\nRouter# conf t\nRouter(config)# interface <LAN-interface>\nRouter(config-if)# ip address <LAN-IP> <mask>\nRouter(config-if)# no shut\nRouter(config-if)# exit\nRouter(config)# interface <WAN-interface>\nRouter(config-if)# ip address <WAN-IP> <mask>\nRouter(config-if)# clock rate 64000 (on DCE side only)\nRouter(config-if)# no shut'
+      text: 'STEP 2: CONFIGURE BASIC INTERFACES\n\nOn EACH router:\nRouter> enable\nRouter# conf t\nRouter(config)# interface <LAN-interface>\nRouter(config-if)# ip address <LAN-IP> <mask>\nRouter(config-if)# no shut\nRouter(config-if)# exit\nRouter(config)# interface <WAN-interface>\nRouter(config-if)# ip address <WAN-IP> <mask>\nRouter(config-if)# clock rate 64000 (on DCE side only)\nRouter(config-if)# no shut'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🌐 STEP 3: CONFIGURE ' + (c.includes('ospf') ? 'OSPF' : c.includes('eigrp') ? 'EIGRP' : 'RIP') + '\n\n' + (c.includes('ospf') ? `Router(config)# router ospf 1
+      text: 'STEP 3: CONFIGURE ' + (c.includes('ospf') ? 'OSPF' : c.includes('eigrp') ? 'EIGRP' : 'RIP') + '\n\n' + (c.includes('ospf') ? `Router(config)# router ospf 1
 Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
 Router(config-router)# network 10.0.0.0 0.0.0.3 area 0
 ... (add ALL connected networks)` : c.includes('eigrp') ? `Router(config)# router eigrp 100
@@ -308,7 +308,7 @@ Router(config-router)# network 10.0.0.0
     });
     walkthrough.push({
       kind: 'read',
-      text: '✅ STEP 4: VERIFY NEIGHBOR ADJACENCIES\n\n' + (
+      text: 'STEP 4: VERIFY NEIGHBOR ADJACENCIES\n\n' + (
         c.includes('ospf') ? 'Router# show ip ospf neighbor\nRouter# show ip route ospf'
         : c.includes('eigrp') ? 'Router# show ip eigrp neighbors\nRouter# show ip route eigrp'
         : 'Router# show ip rip database\nRouter# show ip route rip'
@@ -316,59 +316,59 @@ Router(config-router)# network 10.0.0.0
     });
     walkthrough.push({
       kind: 'read',
-      text: '🏓 STEP 5: TEST FULL CONNECTIVITY\n\nFrom any PC, ping PCs in other LANs:\nPC> ping <remote-PC-IP>\n\nAll should succeed! Check routing tables show ' + (c.includes('ospf') ? 'O' : c.includes('eigrp') ? 'D' : 'R') + ' routes.'
+      text: 'STEP 5: TEST FULL CONNECTIVITY\n\nFrom any PC, ping PCs in other LANs:\nPC> ping <remote-PC-IP>\n\nAll should succeed! Check routing tables show ' + (c.includes('ospf') ? 'O' : c.includes('eigrp') ? 'D' : 'R') + ' routes.'
     });
   } else if (c.includes('switching') || t.includes('vlan') || t.includes('trunk')) {
     // SWITCHING/VLAN LABS
     walkthrough.push({
       kind: 'read',
-      text: '🎯 LAB OBJECTIVE: ' + lab.objectives
+      text: 'LAB OBJECTIVE: ' + lab.objectives
     });
     walkthrough.push({
       kind: 'note',
-      text: '📋 VLANs separate broadcast domains. Trunks carry multiple VLANs.'
+      text: '[Note] VLANs separate broadcast domains. Trunks carry multiple VLANs.'
     });
     walkthrough.push({
       kind: 'read',
-      text: '📦 STEP 1: CREATE VLANS ON SWITCH\n\nSwitch> enable\nSwitch# conf t\nSwitch(config)# vlan 10\nSwitch(config-vlan)# name SALES\nSwitch(config-vlan)# exit\nSwitch(config)# vlan 20\nSwitch(config-vlan)# name ENGINEERING\nSwitch(config-vlan)# exit\nSwitch(config)# vlan 99\nSwitch(config-vlan)# name MANAGEMENT'
+      text: 'STEP 1: CREATE VLANS ON SWITCH\n\nSwitch> enable\nSwitch# conf t\nSwitch(config)# vlan 10\nSwitch(config-vlan)# name SALES\nSwitch(config-vlan)# exit\nSwitch(config)# vlan 20\nSwitch(config-vlan)# name ENGINEERING\nSwitch(config-vlan)# exit\nSwitch(config)# vlan 99\nSwitch(config-vlan)# name MANAGEMENT'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🔧 STEP 2: ASSIGN ACCESS PORTS\n\nSwitch(config)# interface range fa0/1-2\nSwitch(config-if-range)# switchport mode access\nSwitch(config-if-range)# switchport access vlan 10\nSwitch(config-if-range)# exit\n\nSwitch(config)# interface range fa0/3-4\nSwitch(config-if-range)# switchport mode access\nSwitch(config-if-range)# switchport access vlan 20'
+      text: 'STEP 2: ASSIGN ACCESS PORTS\n\nSwitch(config)# interface range fa0/1-2\nSwitch(config-if-range)# switchport mode access\nSwitch(config-if-range)# switchport access vlan 10\nSwitch(config-if-range)# exit\n\nSwitch(config)# interface range fa0/3-4\nSwitch(config-if-range)# switchport mode access\nSwitch(config-if-range)# switchport access vlan 20'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🔗 STEP 3: CONFIGURE TRUNK PORT\n\nSwitch(config)# interface fa0/24\nSwitch(config-if)# switchport trunk encapsulation dot1q\nSwitch(config-if)# switchport mode trunk\nSwitch(config-if)# switchport trunk allowed vlan 10,20,99\nSwitch(config-if)# no shut'
+      text: 'STEP 3: CONFIGURE TRUNK PORT\n\nSwitch(config)# interface fa0/24\nSwitch(config-if)# switchport trunk encapsulation dot1q\nSwitch(config-if)# switchport mode trunk\nSwitch(config-if)# switchport trunk allowed vlan 10,20,99\nSwitch(config-if)# no shut'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🌐 STEP 4: INTER-VLAN ROUTING (Router-on-a-Stick)\n\nRouter> enable\nRouter# conf t\nRouter(config)# interface fa0/0.10\nRouter(config-subif)# encapsulation dot1q 10\nRouter(config-subif)# ip address 192.168.10.1 255.255.255.0\nRouter(config-subif)# exit\nRouter(config)# interface fa0/0.20\nRouter(config-subif)# encapsulation dot1q 20\nRouter(config-subif)# ip address 192.168.20.1 255.255.255.0'
+      text: 'STEP 4: INTER-VLAN ROUTING (Router-on-a-Stick)\n\nRouter> enable\nRouter# conf t\nRouter(config)# interface fa0/0.10\nRouter(config-subif)# encapsulation dot1q 10\nRouter(config-subif)# ip address 192.168.10.1 255.255.255.0\nRouter(config-subif)# exit\nRouter(config)# interface fa0/0.20\nRouter(config-subif)# encapsulation dot1q 20\nRouter(config-subif)# ip address 192.168.20.1 255.255.255.0'
     });
     walkthrough.push({
       kind: 'read',
-      text: '🏓 STEP 5: TEST VLAN ISOLATION & ROUTING\n\n• PC in VLAN 10 CANNOT ping PC in VLAN 20 directly (broadcast domain separated)\n• PC in VLAN 10 CAN ping PC in VLAN 20 THROUGH router (inter-VLAN routing)\n• Verify: show vlan brief, show interfaces trunk'
+      text: 'STEP 5: TEST VLAN ISOLATION & ROUTING\n\n• PC in VLAN 10 CANNOT ping PC in VLAN 20 directly (broadcast domain separated)\n• PC in VLAN 10 CAN ping PC in VLAN 20 THROUGH router (inter-VLAN routing)\n• Verify: show vlan brief, show interfaces trunk'
     });
   } else {
     // GENERIC TEMPLATE for other labs
     walkthrough.push({
       kind: 'read',
-      text: '🎯 LAB OBJECTIVE: ' + lab.objectives
+      text: 'LAB OBJECTIVE: ' + lab.objectives
     });
     walkthrough.push({
       kind: 'read',
-      text: '📋 SCENARIO: ' + lab.scenario
+      text: 'SCENARIO: ' + lab.scenario
     });
     walkthrough.push({
       kind: 'note',
-      text: '📦 Build the topology shown in the Topology tab before proceeding.'
+      text: 'Build the topology shown in the Topology tab before proceeding.'
     });
     walkthrough.push({
       kind: 'note',
-      text: '🔧 Configure devices step by step. Use the Commands tab for exact commands.'
+      text: 'Configure devices step by step. Use the Commands tab for exact commands.'
     });
     walkthrough.push({
       kind: 'note',
-      text: '✅ Verify each step before moving to the next. Use the Verify tab for expected outputs.'
+      text: 'Verify each step before moving to the next. Use the Verify tab for expected outputs.'
     });
   }
 
@@ -399,7 +399,7 @@ function enrichStep(step, idx, totalSteps) {
   }
   if (step.errors && step.errors.length) {
     step.errors.forEach(e => {
-      wt.push({ kind: 'note', text: `⚠ Common error: ${e.error} → ${e.fix || e.solution || 'See troubleshooting tab.'}` });
+      wt.push({ kind: 'note',       text: `Common error: ${e.error} → ${e.fix || e.solution || 'See troubleshooting tab.'}` });
     });
   }
   return { ...step, walkthrough: wt };
@@ -421,4 +421,4 @@ const enriched = data.map(lab => {
 });
 
 fs.writeFileSync(FILE, JSON.stringify(enriched, null, 2));
-console.log(`✅ Enriched ${count} labs with topology, prerequisites, per-step walkthrough, AND detailed lab walkthroughs.`);
+console.log(`Enriched ${count} labs with topology, prerequisites, per-step walkthrough, AND detailed lab walkthroughs.`);

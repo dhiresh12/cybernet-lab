@@ -1,0 +1,116 @@
+﻿node.exe : FAIL frontend/src/data/labNormalizer.test.js (10.963 s)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (FAIL frontend/s...t.js (10.963 s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  legacy lab normalization
+    √ builds a usable topology and initial device state from legacy fields (50 ms)
+    × fills teaching data for every procedural lab (15 ms)
+    × adds truthful catalog capability and backend metadata (1 ms)
+    × preserves studyStrategy field from manifest through normalization (1 ms)
+    √ getLabStudyStrategy computes same result as manifest injection (21 ms)
+    √ all manifest labs have valid studyStrategy with 6 syllabus items (274 ms)
+
+  ● legacy lab normalization › fills teaching data for every procedural lab
+
+    TypeError: command.trim is not a function
+
+    [0m [90m 373 |[39m   [36mconst[39m commands [33m=[39m normalizedStep[33m.[39mcommands [33m||[39m 
+[][33m;[39m
+     [90m 374 |[39m   [36mconst[39m verification [33m=[39m normalizedStep[33m.[39mverification [33m||[39m 
+{}[33m;[39m
+    [31m[1m>[22m[39m[90m 375 |[39m   [36mconst[39m firstCommand [33m=[39m commands[33m.[39mfind(command 
+[33m=>[39m command [33m&&[39m 
+[33m![39m[35m/^(enable|end|exit)$/i[39m[33m.[39mtest(command[33m.[39mtrim()))[33m;[39m
+     [90m     |[39m                                                                                                 
+[31m[1m^[22m[39m
+     [90m 376 |[39m   [36mconst[39m target [33m=[39m normalizedStep[33m.[39mtargetDevice [33m||[39m 
+sourceStep[33m.[39mdevice [33m||[39m [32m'the target device'[39m[33m;[39m
+     [90m 377 |[39m   [36mconst[39m action [33m=[39m normalizedStep[33m.[39mactionType [33m||[39m 
+[32m'configuration'[39m[33m;[39m
+     [90m 378 |[39m[0m
+
+      at trim (frontend/src/data/labNormalizer.js:375:97)
+          at Array.find (<anonymous>)
+      at find (frontend/src/data/labNormalizer.js:375:33)
+      at addStepGuidance (frontend/src/data/labNormalizer.js:354:10)
+      at normalizeStep (frontend/src/data/labNormalizer.js:327:14)
+          at Array.map (<anonymous>)
+      at map (frontend/src/data/labNormalizer.js:312:16)
+      at normalizeSteps (frontend/src/data/labNormalizer.js:152:24)
+      at normalizeCanonicalLab (frontend/src/data/labNormalizer.js:33:10)
+      at frontend/src/data/labNormalizer.test.js:77:31
+          at Array.forEach (<anonymous>)
+      at Object.forEach (frontend/src/data/labNormalizer.test.js:76:20)
+
+  ● legacy lab normalization › adds truthful catalog capability and backend metadata
+
+    TypeError: command.trim is not a function
+
+    [0m [90m 373 |[39m   [36mconst[39m commands [33m=[39m normalizedStep[33m.[39mcommands [33m||[39m 
+[][33m;[39m
+     [90m 374 |[39m   [36mconst[39m verification [33m=[39m normalizedStep[33m.[39mverification [33m||[39m 
+{}[33m;[39m
+    [31m[1m>[22m[39m[90m 375 |[39m   [36mconst[39m firstCommand [33m=[39m commands[33m.[39mfind(command 
+[33m=>[39m command [33m&&[39m 
+[33m![39m[35m/^(enable|end|exit)$/i[39m[33m.[39mtest(command[33m.[39mtrim()))[33m;[39m
+     [90m     |[39m                                                                                                 
+[31m[1m^[22m[39m
+     [90m 376 |[39m   [36mconst[39m target [33m=[39m normalizedStep[33m.[39mtargetDevice [33m||[39m 
+sourceStep[33m.[39mdevice [33m||[39m [32m'the target device'[39m[33m;[39m
+     [90m 377 |[39m   [36mconst[39m action [33m=[39m normalizedStep[33m.[39mactionType [33m||[39m 
+[32m'configuration'[39m[33m;[39m
+     [90m 378 |[39m[0m
+
+      at trim (frontend/src/data/labNormalizer.js:375:97)
+          at Array.find (<anonymous>)
+      at find (frontend/src/data/labNormalizer.js:375:33)
+      at addStepGuidance (frontend/src/data/labNormalizer.js:354:10)
+      at normalizeStep (frontend/src/data/labNormalizer.js:327:14)
+          at Array.map (<anonymous>)
+      at map (frontend/src/data/labNormalizer.js:312:16)
+      at normalizeSteps (frontend/src/data/labNormalizer.js:152:24)
+      at normalizeCanonicalLab (frontend/src/data/labNormalizer.js:33:10)
+      at Object.<anonymous> (frontend/src/data/labNormalizer.test.js:92:29)
+
+  ● legacy lab normalization › preserves studyStrategy field from manifest through normalization
+
+    TypeError: command.trim is not a function
+
+    [0m [90m 373 |[39m   [36mconst[39m commands [33m=[39m normalizedStep[33m.[39mcommands [33m||[39m 
+[][33m;[39m
+     [90m 374 |[39m   [36mconst[39m verification [33m=[39m normalizedStep[33m.[39mverification [33m||[39m 
+{}[33m;[39m
+    [31m[1m>[22m[39m[90m 375 |[39m   [36mconst[39m firstCommand [33m=[39m commands[33m.[39mfind(command 
+[33m=>[39m command [33m&&[39m 
+[33m![39m[35m/^(enable|end|exit)$/i[39m[33m.[39mtest(command[33m.[39mtrim()))[33m;[39m
+     [90m     |[39m                                                                                                 
+[31m[1m^[22m[39m
+     [90m 376 |[39m   [36mconst[39m target [33m=[39m normalizedStep[33m.[39mtargetDevice [33m||[39m 
+sourceStep[33m.[39mdevice [33m||[39m [32m'the target device'[39m[33m;[39m
+     [90m 377 |[39m   [36mconst[39m action [33m=[39m normalizedStep[33m.[39mactionType [33m||[39m 
+[32m'configuration'[39m[33m;[39m
+     [90m 378 |[39m[0m
+
+      at trim (frontend/src/data/labNormalizer.js:375:97)
+          at Array.find (<anonymous>)
+      at find (frontend/src/data/labNormalizer.js:375:33)
+      at addStepGuidance (frontend/src/data/labNormalizer.js:354:10)
+      at normalizeStep (frontend/src/data/labNormalizer.js:327:14)
+          at Array.map (<anonymous>)
+      at map (frontend/src/data/labNormalizer.js:312:16)
+      at normalizeSteps (frontend/src/data/labNormalizer.js:152:24)
+      at normalizeCanonicalLab (frontend/src/data/labNormalizer.js:33:10)
+      at frontend/src/data/labNormalizer.test.js:107:38
+          at Array.forEach (<anonymous>)
+      at Object.forEach (frontend/src/data/labNormalizer.test.js:106:20)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 3 passed, 6 total
+Snapshots:   0 total
+Time:        11.224 s
+Ran all test suites matching /frontend\\src\\data\\labNormalizer.test.js/i.
+Force exiting Jest: Have you considered using `--detectOpenHandles` to detect async operations that kept running after 
+all tests finished?

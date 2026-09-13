@@ -6,26 +6,38 @@ services:
     container_name: cybernet-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: cybernet_lab
+      POSTGRES_USER: ${DB_USER:-cybernet}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-cybernet_pass}
+      POSTGRES_DB: ${DB_NAME:-cybernet_lab}
     ports:
-      - "5432:5432"
+      - "${DB_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./backend/scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
     networks:
       - cybernet
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-cybernet}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: redis:7-alpine
     container_name: cybernet-redis
     restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis_data:/data
     networks:
       - cybernet
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
@@ -34,28 +46,55 @@ services:
     container_name: cybernet-backend
     restart: unless-stopped
     ports:
-      - "3000:3000"
-      - "50051:50051"
+      - "${PORT:-3000}:3000"
+      - "${GRPC_PORT:-50051}:50051"
     environment:
       NODE_ENV: production
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_NAME: cybernet_lab
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
       PORT: 3000
       GRPC_PORT: 50051
+      DATABASE_URL: postgresql://${DB_USER:-cybernet}:${DB_PASSWORD:-cybernet_pass}@postgres:5432/${DB_NAME:-cybernet_lab}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME:-cybernet_lab}
+      DB_USER: ${DB_USER:-cybernet}
+      DB_PASSWORD: ${DB_PASSWORD:-cybernet_pass}
+      REDIS_URL: redis://redis:6379
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:5173}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-60000}
+      RATE_LIMIT_MAX_REQUESTS: ${RATE_LIMIT_MAX_REQUESTS:-60}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      LOG_FILE_PATH: /app/logs/cybernet-lab.log
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:3000}
+      VITE_WS_URL: ${VITE_WS_URL:-ws://localhost:3000}
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - backend_logs:/app/logs
     networks:
       - cybernet
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health/live || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
 
 volumes:
   postgres_data:
   redis_data:
+  backend_logs:
 
 networks:
   cybernet:

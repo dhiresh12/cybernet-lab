@@ -22,17 +22,27 @@ function styleFor(device) {
   return DEVICE_STYLES[type] || DEVICE_STYLES.unknown;
 }
 
-export default function TopologyDiagram({ topology }) {
+export default React.memo(function TopologyDiagram({ topology }) {
   const devices = Array.isArray(topology?.devices) ? topology.devices : [];
   const connections = Array.isArray(topology?.connections) ? topology.connections : [];
-  const connectionDevices = connections.flatMap(connection => [connection.from, connection.to]).filter(Boolean);
   const nodes = useMemo(() => {
     const known = new Map(devices.map(device => [String(device.id || device.name), device]));
-    connectionDevices.forEach(id => {
+    connections.flatMap(connection => [connection.from, connection.to]).filter(Boolean).forEach(id => {
       if (!known.has(String(id))) known.set(String(id), { id, name: id, type: 'unknown' });
     });
     return Array.from(known.values());
-  }, [devices, connectionDevices]);
+  }, [devices, connections]);
+
+  const layout = useMemo(() => {
+    const positions = nodes.map((node, index) => ({
+      node,
+      x: 110 + (index % 4) * 190,
+      y: 90 + Math.floor(index / 4) * 120
+    }));
+    const positionById = new Map(positions.map(item => [String(item.node.id || item.node.name), item]));
+    const height = Math.max(220, 160 + Math.ceil(nodes.length / 4) * 120);
+    return { positions, positionById, height };
+  }, [nodes]);
 
   if (!nodes.length) {
     return (
@@ -43,13 +53,7 @@ export default function TopologyDiagram({ topology }) {
     );
   }
 
-  const positions = nodes.map((node, index) => ({
-    node,
-    x: 110 + (index % 4) * 190,
-    y: 90 + Math.floor(index / 4) * 120
-  }));
-  const positionById = new Map(positions.map(item => [String(item.node.id || item.node.name), item]));
-  const height = Math.max(220, 160 + Math.ceil(nodes.length / 4) * 120);
+  const { positions, positionById, height } = layout;
 
   return (
     <div className="topology-visual">
@@ -84,7 +88,7 @@ export default function TopologyDiagram({ topology }) {
         {[...new Set(nodes.map(styleFor))].map(style => (
           <span key={style.label}><i style={{ background: style.color }} />{style.icon} = {style.label}</span>
         ))}
-      </div>
+            </div>
     </div>
   );
-}
+});

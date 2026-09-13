@@ -125,7 +125,7 @@ export default function MusicPlayer({ audioRef, soundEnabled, onToggleSound }) {
       maxWidth: 320
     }}>
       <div style={{ color: 'var(--cyan)', fontSize: '0.85em', marginBottom: 8, fontWeight: 700 }}>
-        🎵 Music Player
+        Music Music Player
       </div>
 
       <div style={{ color: 'var(--text)', fontSize: '0.8em', marginBottom: 8, minHeight: 18 }}>
@@ -133,18 +133,18 @@ export default function MusicPlayer({ audioRef, soundEnabled, onToggleSound }) {
       </div>
 
       <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 8, flexWrap: 'wrap' }}>
-        <button onClick={playPrevious} style={btnStyle}>⏮️</button>
+        <button onClick={playPrevious} style={btnStyle}>⏮</button>
         <button onClick={togglePlayPause} style={{ ...btnStyle, background: 'var(--cyan)', color: '#000' }}>
-          {isPlaying ? '⏸️' : '▶️'}
+          {isPlaying ? 'Pause' : 'Play'}
         </button>
-        <button onClick={playNext} style={btnStyle}>⏭️</button>
+        <button onClick={playNext} style={btnStyle}>⏭</button>
         <button onClick={onToggleSound} style={btnStyle}>
-          {soundEnabled ? '🔊' : '🔇'}
+          {soundEnabled ? 'Sound' : 'Mute'}
         </button>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-        <span style={{ color: 'var(--muted)', fontSize: '0.75em' }}>🔈</span>
+        <span style={{ color: 'var(--muted)', fontSize: '0.75em' }}>Vol</span>
         <input
           type="range"
           min="0"
@@ -154,7 +154,7 @@ export default function MusicPlayer({ audioRef, soundEnabled, onToggleSound }) {
           onChange={handleVolumeChange}
           style={{ flex: 1, cursor: 'pointer' }}
         />
-        <span style={{ color: 'var(--muted)', fontSize: '0.75em' }}>🔊</span>
+        <span style={{ color: 'var(--muted)', fontSize: '0.75em' }}>Sound</span>
       </div>
 
       <button

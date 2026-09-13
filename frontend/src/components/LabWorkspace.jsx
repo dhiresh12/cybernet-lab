@@ -3,16 +3,16 @@ import { NetworkSimulationEngine } from '../engine/NetworkSimulationEngine';
 import { TroubleshootingEngine, TROUBLESHOOT_FAULTS, PACKET_STATES } from '../engine/TroubleshootingEngine';
 
 const DEVICE_TYPES = {
-  router: { icon: '◆', color: '#00f0ff', label: 'Router' },
-  switch: { icon: '⬡', color: '#00ff88', label: 'Switch' },
-  pc: { icon: '💻', color: '#ffaa00', label: 'PC' },
-  laptop: { icon: '💻', color: '#ffaa00', label: 'Laptop' },
-  server: { icon: '🖧', color: '#aa00ff', label: 'Server' },
-  accessPoint: { icon: '📡', color: '#ff00aa', label: 'AP' },
-  firewall: { icon: '🛡️', color: '#ff3355', label: 'FW' },
-  cloud: { icon: '☁️', color: '#8888ff', label: 'Cloud' },
-  dns: { icon: '🔮', color: '#00ffcc', label: 'DNS' },
-  dhcp: { icon: '📋', color: '#00ffcc', label: 'DHCP' },
+  router: { icon: 'R', color: '#00f0ff', label: 'Router' },
+  switch: { icon: 'S', color: '#00ff88', label: 'Switch' },
+  pc: { icon: 'PC', color: '#ffaa00', label: 'PC' },
+  laptop: { icon: 'LP', color: '#ffaa00', label: 'Laptop' },
+  server: { icon: 'SRV', color: '#aa00ff', label: 'Server' },
+  accessPoint: { icon: 'AP', color: '#ff00aa', label: 'AP' },
+  firewall: { icon: 'FW', color: '#ff3355', label: 'FW' },
+  cloud: { icon: 'CL', color: '#8888ff', label: 'Cloud' },
+  dns: { icon: 'DNS', color: '#00ffcc', label: 'DNS' },
+  dhcp: { icon: 'DHCP', color: '#00ffcc', label: 'DHCP' },
 };
 
 const TOOL_TYPES = ['Select', 'Move', 'Connect', 'Delete', 'Inspect', 'Ping', 'Trace'];
@@ -203,11 +203,11 @@ export default function LabWorkspace({ lab, onExit, onComplete }) {
       const allDevices = engine.getAllDevices();
       Object.keys(allDevices).forEach(id => {
         const dev = allDevices[id];
-        const baseState = defaultDeviceState({ name: dev.name, type: dev.type });
+        const baseState = defaultDeviceState(dev.name);
         newStates[id] = {
           ...baseState,
-          hostname: dev.hostname,
-          mode: dev.mode,
+          hostname: dev.hostname || dev.name,
+          mode: dev.mode || 'user',
           interfaces: Object.entries(dev.interfaces).reduce((acc, [name, iface]) => {
             acc[name] = {
               ip: iface.ip,
@@ -688,9 +688,9 @@ const handleSendCommand = useCallback((cmd) => {
           </div>
         </div>
         <div style={{ display: 'flex', gap: 6, marginLeft: 'auto' }}>
-          <button onClick={() => setPaused(p => !p)} style={topBarBtnStyle}>{paused ? '▶ Resume' : '⏸ Pause'}</button>
-          <button onClick={() => { setCurrentStepIdx(0); setCompletedSteps([]); setLabTime(0); setPaused(false); setTerminalOutput([]); setTroubleshootLevel(0); setShowSolution(false); setPacketDropped(null); setPacketProgress(null); setXpEarned(0); setLastVerifyResult(null); setShowHint(false); setSelectedDevice(null); setActivePanel('overview'); const ds = {}; devices.forEach(d => { ds[d.id] = defaultDeviceState(d.name); }); setDeviceStates(ds); setActiveTerminalDevice(devices[0]?.id || null); }} style={topBarBtnStyle}>↻ Restart</button>
-          <button onClick={onExit} style={topBarBtnStyle}>✕ Exit Lab</button>
+          <button onClick={() => setPaused(p => !p)} style={topBarBtnStyle}>{paused ? 'Resume' : 'Pause'}</button>
+          <button onClick={() => { setCurrentStepIdx(0); setCompletedSteps([]); setLabTime(0); setPaused(false); setTerminalOutput([]); setTroubleshootLevel(0); setShowSolution(false); setPacketDropped(null); setPacketProgress(null); setXpEarned(0); setLastVerifyResult(null); setShowHint(false); setSelectedDevice(null); setActivePanel('overview'); const ds = {}; devices.forEach(d => { ds[d.id] = defaultDeviceState(d.name); }); setDeviceStates(ds); setActiveTerminalDevice(devices[0]?.id || null); }} style={topBarBtnStyle}>Restart</button>
+          <button onClick={onExit} style={topBarBtnStyle}>Exit Lab</button>
         </div>
       </div>
 
@@ -717,7 +717,7 @@ const handleSendCommand = useCallback((cmd) => {
         <div style={{ color: 'var(--cyan)', fontSize: '0.7em', letterSpacing: 1, margin: '12px 0 8px', fontWeight: 700 }}>CONNECTIONS</div>
         {connections.slice(0, 6).map((c, i) => (
           <div key={i} style={{ padding: '4px 10px', marginBottom: 2, borderRadius: 4, border: '1px solid rgba(0,240,255,0.1)', background: 'rgba(0,0,0,0.2)', fontSize: '0.7em', color: 'var(--muted)' }}>
-            🔗 {c}
+            Link {c}
           </div>
         ))}
 
@@ -739,7 +739,7 @@ const handleSendCommand = useCallback((cmd) => {
         <div style={{ color: 'var(--cyan)', fontSize: '0.7em', letterSpacing: 1, margin: '12px 0 8px', fontWeight: 700 }}>CONNECTION</div>
         {CONNECTION_TYPES.map(c => (
           <div key={c} style={{ padding: '4px 10px', marginBottom: 2, borderRadius: 4, border: '1px solid rgba(0,240,255,0.15)', background: 'rgba(0,0,0,0.2)', fontSize: '0.7em', color: 'var(--muted)', cursor: 'pointer' }}>
-            🔗 {c}
+            Link {c}
           </div>
         ))}
 
@@ -747,12 +747,12 @@ const handleSendCommand = useCallback((cmd) => {
           <button onClick={() => setTroubleshootMode(!troubleshootMode)} style={{
             ...toolBtnStyle, background: troubleshootMode ? 'rgba(255,51,85,0.3)' : 'rgba(0,0,0,0.4)',
             borderColor: troubleshootMode ? 'var(--red)' : 'rgba(0,240,255,0.3)', color: troubleshootMode ? 'var(--red)' : 'var(--cyan)'
-          }}>🔍 {troubleshootMode ? 'Exit Troubleshoot' : 'Troubleshoot Mode'}</button>
+          }}> {troubleshootMode ? 'Exit Troubleshoot' : 'Troubleshoot Mode'}</button>
         </div>
 
         {troubleshootMode && (
           <div style={{ marginTop: 12, padding: 8, background: 'rgba(255,51,85,0.05)', border: '1px solid rgba(255,51,85,0.3)', borderRadius: 4 }}>
-            <div style={{ color: 'var(--red)', fontSize: '0.7em', marginBottom: 6, fontWeight: 700 }}>🚨 SCENARIO</div>
+            <div style={{ color: 'var(--red)', fontSize: '0.7em', marginBottom: 6, fontWeight: 700 }}>SCENARIO: SCENARIO</div>
             <select
               value={tshootScenario?.id || ''}
               onChange={e => handleLoadTshootScenario(e.target.value)}
@@ -768,18 +768,18 @@ const handleSendCommand = useCallback((cmd) => {
                 <div style={{ color: 'var(--text)', fontSize: '0.7em', marginBottom: 4 }}>{tshootScenario.description}</div>
                 <div style={{ color: 'var(--muted)', fontSize: '0.65em' }}>Fault: {tshootScenario.faultType.replace(/-/g, ' ').toUpperCase()}</div>
                 <div style={{ color: 'var(--muted)', fontSize: '0.65em' }}>Source: {tshootScenario.source} → Destination: {tshootScenario.destination}</div>
-                <button onClick={handleRunPacketTrace} style={{ ...actionBtnStyle, marginTop: 6, fontSize: '0.7em', background: 'rgba(255,51,85,0.2)', color: 'var(--red)', borderColor: 'var(--red)' }}>🔍 Trace Packet</button>
-                <button onClick={handleTshootHint} style={{ ...actionBtnStyle, marginTop: 4, fontSize: '0.7em' }}>💡 Hint</button>
+                <button onClick={handleRunPacketTrace} style={{ ...actionBtnStyle, marginTop: 6, fontSize: '0.7em', background: 'rgba(255,51,85,0.2)', color: 'var(--red)', borderColor: 'var(--red)' }}> Trace Packet</button>
+                <button onClick={handleTshootHint} style={{ ...actionBtnStyle, marginTop: 4, fontSize: '0.7em' }}>Hint: Hint</button>
                 {tshootFailure && (
                   <div style={{ marginTop: 6, padding: 6, background: 'rgba(255,51,85,0.1)', borderRadius: 4, border: '1px solid var(--red)' }}>
-                    <div style={{ color: 'var(--red)', fontSize: '0.7em', fontWeight: 700 }}>⚠ FAILURE POINT</div>
+                    <div style={{ color: 'var(--red)', fontSize: '0.7em', fontWeight: 700 }}>WARNING: FAILURE POINT</div>
                     <div style={{ color: 'var(--text)', fontSize: '0.65em' }}>{tshootFailure.failurePoint}</div>
                     <div style={{ color: 'var(--yellow)', fontSize: '0.6em' }}>{tshootFailure.rootCause}</div>
                   </div>
                 )}
                 {tshootSolved && (
                   <div style={{ marginTop: 6, padding: 6, background: 'rgba(0,255,136,0.1)', borderRadius: 4, border: '1px solid var(--green)' }}>
-                    <div style={{ color: 'var(--green)', fontSize: '0.7em', fontWeight: 700 }}>✅ PACKET DELIVERED</div>
+                    <div style={{ color: 'var(--green)', fontSize: '0.7em', fontWeight: 700 }}>[OK] PACKET DELIVERED</div>
                   </div>
                 )}
               </div>
@@ -805,7 +805,7 @@ const handleSendCommand = useCallback((cmd) => {
         </div>
 
         <div style={{ background: 'rgba(10,18,32,0.85)', overflow: 'auto', padding: 12 }}>
-          <div style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.85em', marginBottom: 8 }}>📋 INSTRUCTIONS</div>
+          <div style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.85em', marginBottom: 8 }}>INSTRUCTIONS INSTRUCTIONS</div>
           {currentStep ? (
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
@@ -822,7 +822,7 @@ const handleSendCommand = useCallback((cmd) => {
 
               {currentStep.commands && currentStep.commands.length > 0 && (
                 <div style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(0,255,136,0.3)', borderRadius: 4, padding: 8, marginBottom: 8 }}>
-                  <div style={{ color: 'var(--green)', fontSize: '0.75em', marginBottom: 4 }}>📟 Commands:</div>
+                  <div style={{ color: 'var(--green)', fontSize: '0.75em', marginBottom: 4 }}>CLI Commands:</div>
                   {currentStep.commands.map((cmd, i) => (
                     <div key={i} style={{ color: 'var(--green)', fontFamily: 'monospace', fontSize: '0.75em', marginBottom: 2 }}>{cmd}</div>
                   ))}
@@ -838,7 +838,7 @@ const handleSendCommand = useCallback((cmd) => {
 
               {currentStep.keypoints && currentStep.keypoints.length > 0 && (
                 <div style={{ background: 'rgba(255,191,0,0.05)', border: '1px solid rgba(255,191,0,0.3)', borderRadius: 4, padding: 6, marginBottom: 8, fontSize: '0.75em' }}>
-                  <div style={{ color: 'var(--yellow)', marginBottom: 4 }}>💡 Key Points:</div>
+                  <div style={{ color: 'var(--yellow)', marginBottom: 4 }}>Hint: Key Points:</div>
                   {currentStep.keypoints.map((kp, i) => (
                     <div key={i} style={{ color: 'var(--text)', marginBottom: 2 }}>• {kp}</div>
                   ))}
@@ -850,25 +850,25 @@ const handleSendCommand = useCallback((cmd) => {
               )}
               {lastVerifyResult && !lastVerifyResult.passed && (
                 <div style={{ color: 'var(--red)', fontSize: '0.8em', marginBottom: 6 }}>
-                  ❌ {lastVerifyResult.feedback}
-                  {lastVerifyResult.hint && <div style={{ color: 'var(--yellow)', marginTop: 4 }}>💡 {lastVerifyResult.hint}</div>}
+                  [FAIL] {lastVerifyResult.feedback}
+                  {lastVerifyResult.hint && <div style={{ color: 'var(--yellow)', marginTop: 4 }}>Hint: {lastVerifyResult.hint}</div>}
                 </div>
               )}
               {lastVerifyResult && lastVerifyResult.passed && (
-                <div style={{ color: 'var(--green)', fontSize: '0.8em', marginBottom: 6 }}>✅ Step verified!</div>
+                <div style={{ color: 'var(--green)', fontSize: '0.8em', marginBottom: 6 }}>[OK] Step verified!</div>
               )}
 
               <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginTop: 8 }}>
-                <button onClick={() => setShowHint(true)} style={actionBtnStyle}>💡 Hint {hintsUsed > 0 ? `(${hintsUsed})` : ''}</button>
-                <button onClick={() => setShowSolution(true)} style={actionBtnStyle}>🔓 Show Solution</button>
+                <button onClick={() => setShowHint(true)} style={actionBtnStyle}>Hint: Hint {hintsUsed > 0 ? `(${hintsUsed})` : ''}</button>
+                <button onClick={() => setShowSolution(true)} style={actionBtnStyle}>Solution: Show Solution</button>
                 <button onClick={handleNextStep} style={{ ...actionBtnStyle, background: 'var(--cyan)', color: '#000' }}>
-                  {currentStepIdx < steps.length - 1 ? '✓ Mark Complete & Next' : '✓ Complete Lab'}
+                  {currentStepIdx < steps.length - 1 ? '[OK] Mark Complete & Next' : '[OK] Complete Lab'}
                 </button>
               </div>
 
               {showHint && currentStep.hintTiers && currentStep.hintTiers.length > 0 && (
                 <div style={{ background: 'rgba(0,240,255,0.05)', border: '1px solid var(--cyan)', borderRadius: 4, padding: 8, marginTop: 8 }}>
-                  <div style={{ color: 'var(--cyan)', fontSize: '0.75em', marginBottom: 4 }}>💡 Hint {hintsUsed + 1}:</div>
+                  <div style={{ color: 'var(--cyan)', fontSize: '0.75em', marginBottom: 4 }}>Hint: Hint {hintsUsed + 1}:</div>
                   <div style={{ color: 'var(--text)', fontSize: '0.8em' }}>{currentStep.hintTiers[Math.min(hintsUsed, currentStep.hintTiers.length - 1)]}</div>
                   {hintsUsed < currentStep.hintTiers.length - 1 && (
                     <button onClick={() => setHintsUsed(hintsUsed + 1)} style={{ ...actionBtnStyle, marginTop: 6, fontSize: '0.7em' }}>Next Hint</button>
@@ -878,7 +878,7 @@ const handleSendCommand = useCallback((cmd) => {
 
               {showSolution && (
                 <div style={{ background: 'rgba(0,255,136,0.05)', border: '1px solid var(--green)', borderRadius: 4, padding: 8, marginTop: 8 }}>
-                  <div style={{ color: 'var(--green)', fontSize: '0.75em', marginBottom: 4 }}>🔓 Solution:</div>
+                  <div style={{ color: 'var(--green)', fontSize: '0.75em', marginBottom: 4 }}>Solution: Solution:</div>
                   <div style={{ color: 'var(--text)', fontSize: '0.8em' }}>
                     {lab?.solution || 'Apply the commands shown in this step to complete the configuration.'}
                   </div>
@@ -894,7 +894,7 @@ const handleSendCommand = useCallback((cmd) => {
       <div style={{ gridArea: 'inspector', background: 'rgba(10,18,32,0.85)', borderLeft: '1px solid rgba(0,240,255,0.3)', overflow: 'hidden', display: 'grid', gridTemplateRows: 'auto 1fr' }}>
         <div style={{ display: 'flex', borderBottom: '1px solid rgba(0,240,255,0.2)', flexWrap: 'wrap' }}>
           {['OVERVIEW', 'CONFIG', 'INTERFACES', 'ROUTING', 'SECURITY', 'LOGS', 'TROUBLE'].map(tab => (
-            <div key={tab} onClick={() => setActivePanel(tab.toLowerCase())} style={{
+            <div key={tab} onClick={() => setActivePanel(tab.toLowerCase())} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setActivePanel(tab.toLowerCase()); } }} role="button" tabIndex={0} aria-label={`${tab} panel`} aria-selected={activePanel === tab.toLowerCase()} style={{
               padding: '6px 6px', fontSize: '0.65em', fontWeight: 700, cursor: 'pointer',
               background: activePanel === tab.toLowerCase() ? 'rgba(0,240,255,0.1)' : 'transparent',
               color: activePanel === tab.toLowerCase() ? 'var(--cyan)' : 'var(--muted)',
@@ -908,9 +908,9 @@ const handleSendCommand = useCallback((cmd) => {
             <div>
               <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 6 }}>LAB STATUS</div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 10 }}>
-                <MetricBox label="Topology" value="✓" color="var(--green)" />
+                <MetricBox label="Topology" value="[OK]" color="var(--green)" />
                 <MetricBox label="Config" value={`${progress}%`} color="var(--cyan)" />
-                <MetricBox label="Connectivity" value={progress === 100 ? '✓' : '✗'} color={progress === 100 ? 'var(--green)' : 'var(--red)'} />
+                <MetricBox label="Connectivity" value={progress === 100 ? '[OK]' : '[FAIL]'} color={progress === 100 ? 'var(--green)' : 'var(--red)'} />
                 <MetricBox label="Security" value="Pending" color="var(--yellow)" />
               </div>
               <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 6 }}>NETWORK HEALTH</div>
@@ -973,18 +973,18 @@ const handleSendCommand = useCallback((cmd) => {
             <div>
               <div style={{ color: 'var(--cyan)', marginBottom: 6 }}>TROUBLESHOOTING TOOLS</div>
               <div style={{ color: 'var(--text)', fontSize: '0.85em', lineHeight: 1.6 }}>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>ping</span> to test connectivity</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>traceroute</span> to trace paths</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show ip interface brief</span> for status</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show running-config</span> to verify</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show ip route</span> for routing</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show vlan brief</span> for VLANs</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show interfaces</span> for stats</div>
-                <div>🔍 Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show arp</span> for ARP table</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>ping</span> to test connectivity</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>traceroute</span> to trace paths</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show ip interface brief</span> for status</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show running-config</span> to verify</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show ip route</span> for routing</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show vlan brief</span> for VLANs</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show interfaces</span> for stats</div>
+                <div> Use <span style={{ color: 'var(--green)', fontFamily: 'monospace' }}>show arp</span> for ARP table</div>
               </div>
               {troubleshootMode && (
                 <div style={{ marginTop: 10 }}>
-                  <div style={{ color: 'var(--yellow)', fontSize: '0.8em', marginBottom: 6 }}>💡 HINTS</div>
+                  <div style={{ color: 'var(--yellow)', fontSize: '0.8em', marginBottom: 6 }}>Hint: HINTS</div>
                   {troubleshootHintsList.slice(0, troubleshootLevel + 1).map((h, i) => (
                     <div key={i} style={{ color: 'var(--text)', fontSize: '0.8em', marginBottom: 4, padding: 4, background: 'rgba(0,240,255,0.05)', borderRadius: 4 }}>
                       {h}
@@ -995,7 +995,7 @@ const handleSendCommand = useCallback((cmd) => {
                   )}
                   {showSolution && (
                     <div style={{ marginTop: 8, padding: 8, background: 'rgba(0,255,136,0.05)', border: '1px solid var(--green)', borderRadius: 4 }}>
-                      <div style={{ color: 'var(--green)', fontSize: '0.8em' }}>🔓 Solution: {lab?.solution || 'Apply the fix and verify.'}</div>
+                      <div style={{ color: 'var(--green)', fontSize: '0.8em' }}>Solution: Solution: {lab?.solution || 'Apply the fix and verify.'}</div>
                     </div>
                   )}
                   {!showSolution && (
@@ -1010,7 +1010,7 @@ const handleSendCommand = useCallback((cmd) => {
 
       <div style={{ gridArea: 'terminal', background: '#0a0a12', borderTop: '1px solid rgba(0,240,255,0.3)', display: 'grid', gridTemplateRows: 'auto 1fr' }}>
         <div style={{ background: 'rgba(10,18,32,0.7)', padding: '4px 12px', display: 'flex', alignItems: 'center', gap: 8, borderBottom: '1px solid rgba(0,240,255,0.2)' }}>
-          <span style={{ color: 'var(--cyan)', fontSize: '0.7em', fontWeight: 700 }}>📟 CISCO CLI</span>
+          <span style={{ color: 'var(--cyan)', fontSize: '0.7em', fontWeight: 700 }}>CLI CISCO CLI</span>
           <span style={{ color: 'var(--green)', fontSize: '0.7em' }}>● Connected</span>
           <span style={{ color: 'var(--muted)', fontSize: '0.7em', marginLeft: 'auto' }}>
             {activeTerminalDevice ? (deviceStates[activeTerminalDevice]?.hostname || 'Router') + '>' : 'No device'}
@@ -1270,7 +1270,7 @@ function CiscoTerminal({ onOutput, onSend, deviceStates, activeDevice }) {
   };
 
   return (
-    <div style={{ padding: 8, overflowY: 'auto', fontFamily: 'Courier New, monospace', fontSize: '12px', lineHeight: 1.4 }} onClick={(e) => e.currentTarget.querySelector('input')?.focus()}>
+    <div style={{ padding: 8, overflowY: 'auto', fontFamily: 'Courier New, monospace', fontSize: '12px', lineHeight: 1.4 }} onClick={(e) => e.currentTarget.querySelector('input')?.focus()} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); const input = event.currentTarget.querySelector('input'); input?.focus(); } }} role="button" tabIndex={0} aria-label="Terminal output, press Enter to focus input">
       {(onOutput || []).map((line, i) => (
         <div key={i} style={{ color: typeof line === 'string' ? (line.startsWith('%') ? '#ff3355' : line.startsWith('Success') ? '#00ff88' : '#e6f7ff') : (line.type === 'command' ? 'var(--cyan)' : 'var(--text)'), marginBottom: 2 }}>{typeof line === 'string' ? line : line.text}</div>
       ))}

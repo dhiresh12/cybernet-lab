@@ -226,6 +226,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
       <div style={{ padding: 24 }}>
         <button
           onClick={() => setSelectedScenario(null)}
+          aria-label="Back to engineer scenarios"
           style={{
             padding: '8px 14px',
             borderRadius: 6,
@@ -237,7 +238,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
           }}
         >← Back to Scenarios</button>
 
-        <h2 style={{ color: 'var(--cyan)', marginBottom: 8 }}>👷 {sc.title}</h2>
+        <h2 style={{ color: 'var(--cyan)', marginBottom: 8 }}>Worker {sc.title}</h2>
         <div style={{ color: 'var(--magenta)', marginBottom: 12 }}>{sc.company}</div>
         <div style={{ color: 'var(--muted)', lineHeight: 1.6, marginBottom: 12 }}>
           <strong>Severity:</strong> {sc.severity}<br />
@@ -271,7 +272,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
           padding: 16,
           marginBottom: 16
         }}>
-          <div style={{ color: 'var(--yellow)', marginBottom: 10, fontWeight: 700 }}>🧭 Engineer ticket workflow</div>
+          <div style={{ color: 'var(--yellow)', marginBottom: 10, fontWeight: 700 }}>Compass Engineer ticket workflow</div>
           <div style={{ color: 'var(--muted)', fontSize: '0.84em', lineHeight: 1.5, marginBottom: 12 }}>
             Complete the checklist only after collecting evidence. Then write a short operational debrief; speed is not scored.
           </div>
@@ -336,7 +337,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
           marginBottom: 16
         }}>
           <div style={{ color: 'var(--cyan)', marginBottom: 10, fontWeight: 700 }}>
-            📋 Workflow tasks ({completed.length} / {sc.tasks.length} complete)
+            List Workflow tasks ({completed.length} / {sc.tasks.length} complete)
           </div>
           <div style={{ color: 'var(--muted)', fontSize: '0.85em', marginBottom: 12 }}>
             Work in this order: read ticket → inspect → plan → configure → verify → troubleshoot → document.
@@ -364,6 +365,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
                 role="checkbox"
                 tabIndex={authorization[sc.id] ? 0 : -1}
                 aria-checked={isCompleted}
+                aria-disabled={!authorization[sc.id]}
                 aria-label={`Mark task ${idx + 1}: ${task}`}
                 style={{
                   padding: '10px 12px',
@@ -388,7 +390,8 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#000',
-                  fontWeight: 700
+                  fontWeight: 700,
+                  flexShrink: 0
                 }}>{isCompleted ? '✓' : ''}</div>
                 <div style={{
                   color: isCompleted ? 'var(--muted)' : 'var(--text)',
@@ -407,7 +410,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
           padding: 16,
           marginBottom: 16
         }}>
-          <div style={{ color: 'var(--green)', marginBottom: 10, fontWeight: 700 }}>✅ Success Criteria</div>
+          <div style={{ color: 'var(--green)', marginBottom: 10, fontWeight: 700 }}>[OK] Success Criteria</div>
           {sc.success_criteria.map((c, i) => (
             <div key={i} style={{ color: 'var(--text)', marginBottom: 4, fontSize: '0.9em' }}>• {c}</div>
           ))}
@@ -425,7 +428,7 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
               fontWeight: 700,
               cursor: 'pointer'
             }}
-          >📚 Find Related Labs</button>
+          >Library Find Related Labs</button>
         )}
         {!authorization[sc.id] && (
           <div style={{ color: 'var(--yellow)', fontSize: '0.82em', marginTop: 10 }}>
@@ -438,49 +441,54 @@ export default function EngineerMode({ onSelectCategory, attempts = [], onSaveAt
 
   return (
     <div style={{ padding: 24 }}>
-      <h2 style={{ color: 'var(--cyan)', marginBottom: 8 }}>👷 Engineer Mode</h2>
+      <h2 style={{ color: 'var(--cyan)', marginBottom: 8 }}>Worker Engineer Mode</h2>
       <p style={{ color: 'var(--muted)', marginBottom: 16 }}>
         Real-world network engineering scenarios. Complete tasks like a junior network engineer.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 14 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 14 }} role="list" aria-label="Engineer scenarios">
         {SCENARIOS.map(sc => (
           <div
             key={sc.id}
-            onClick={() => setSelectedScenario(sc.id)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                setSelectedScenario(sc.id);
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            aria-label={`Open engineer scenario: ${sc.title}`}
-            style={{
-              background: 'var(--panel)',
-              border: '1px solid rgba(0,240,255,0.35)',
-              borderRadius: 12,
-              padding: 16,
-              cursor: 'pointer',
-              transition: 'all 0.2s'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--cyan)';
-              e.currentTarget.style.boxShadow = '0 0 16px rgba(0,240,255,0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(0,240,255,0.35)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+            role="listitem"
+            style={{ display: 'contents' }}
           >
-            <div style={{ color: 'var(--magenta)', fontSize: '0.85em', marginBottom: 6 }}>{sc.company}</div>
-            <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 8 }}>{sc.title}</div>
-            <div style={{ color: 'var(--text)', fontSize: '0.85em', marginBottom: 8, lineHeight: 1.4 }}>
-              {sc.description.substring(0, 100)}...
-            </div>
-            <div style={{ color: 'var(--muted)', fontSize: '0.75em' }}>
-              {sc.tasks.length} tasks
+            <div
+              onClick={() => setSelectedScenario(sc.id)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setSelectedScenario(sc.id);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open engineer scenario: ${sc.title}`}
+              style={{
+                background: 'var(--panel)',
+                border: '1px solid rgba(0,240,255,0.35)',
+                borderRadius: 12,
+                padding: 16,
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--cyan)';
+                e.currentTarget.style.boxShadow = '0 0 16px rgba(0,240,255,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(0,240,255,0.35)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div style={{ color: 'var(--magenta)', fontSize: '0.85em', marginBottom: 6 }}>{sc.company}</div>
+              <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 8 }}>{sc.title}</div>
+              <div style={{ color: 'var(--text)', fontSize: '0.85em', marginBottom: 8, lineHeight: 1.4 }}>
+                {sc.description.substring(0, 100)}...
+              </div>
+              <div style={{ color: 'var(--muted)', fontSize: '0.75em' }}>
+                {sc.tasks.length} tasks
+              </div>
             </div>
           </div>
         ))}

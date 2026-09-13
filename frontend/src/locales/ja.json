@@ -1,0 +1,139 @@
+{
+  "app": {
+    "title": "CyberNet Lab - ネットワーク運用センター"
+  },
+  "header": {
+    "noc": "ネットワーク運用センター",
+    "systemsOnline": "システムオンライン",
+    "backend": "バックエンド",
+    "simulation": "シミュレーション",
+    "sound": "サウンド",
+    "mute": "ミュート",
+    "roadmap": "学習パス",
+    "dashboard": "ダッシュボード",
+    "lab": "ラボ",
+    "engineer": "エンジニアモード",
+    "progress": "進捗",
+    "settings": "設定"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "lab": "仮想ラボ",
+    "roadmap": "学習パス",
+    "engineer": "エンジニアモード",
+    "security": "セキュリティ",
+    "analytics": "分析",
+    "progress": "進捗",
+    "settings": "設定",
+    "quickLoad": "クイックロード",
+    "loadLab": "ラボを読み込む"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "nocSoc": "NOC/SOC 指揮センター",
+    "labsTotal": "ラボ総数",
+    "beginner": "初級",
+    "intermediate": "中級",
+    "advanced": "上級",
+    "completed": "完了",
+    "inProgress": "進行中",
+    "backendStatus": "バックエンド状態",
+    "catalogStatus": "カタログ状態",
+    "healthy": "正常",
+    "degraded": "低下",
+    "retryCatalog": "カタログを再試行",
+    "continueLearning": "学習を続ける",
+    "learningPath": "学習パス"
+  },
+  "roadmap": {
+    "title": "実践学習パス / マスタリーゲート",
+    "subtitle": "実践し、証明し、説明することで学ぶ",
+    "description": "各ステージは 観察 → 予測 → 実行 → 検証 → 説明 → 転送 に従います。完了は実際のラボ手順と証拠に基づいており、経過時間や装飾的な進捗ではありません。",
+    "masteredStages": "記録されたラボの証拠から {count} 個のステージを習得しました。合計 {total} 個",
+    "stageLocked": "前提条件",
+    "labsCompleted": "{completed}/{total} 個の一致するラボを完了",
+    "transferChallenge": "転送チャレンジ",
+    "ifYouFail": "失敗した場合",
+    "startAlternatePractice": "代替練習を開始: {title}",
+    "openMatchingLabs": "一致する実践ラボを開く ({count})",
+    "transferNote": "利用可能な場合、同じスキル領域で異なるコンテキストを持つ公開ラボを開きます。ラボが明示的に定義している場合を除き、隠れた障害を主張しません。",
+    "learningCycle": "学習サイクル",
+    "stages": {
+      "observe": "観察",
+      "predict": "予測",
+      "perform": "実行",
+      "verify": "検証",
+      "explain": "説明",
+      "transfer": "転送"
+    },
+    "stageStatus": {
+      "mastered": "習得済み",
+      "transferred": "転送済み",
+      "verified": "検証済み",
+      "practiced": "練習済み",
+      "introduced": "紹介済み",
+      "not_started": "未開始",
+      "available": "利用可能",
+      "unavailable": "コンテンツが必要"
+    }
+  },
+  "labDetail": {
+    "tabs": {
+      "guide": "20ステップガイド",
+      "overview": "ミッション",
+      "devices": "必要なデバイス",
+      "topology": "トポロジーとIPプラン",
+      "configuration": "構成",
+      "verification": "検証",
+      "troubleshooting": "トラブルシューティング",
+      "tutorial": "初心者チュートリアル",
+      "failure": "障害練習",
+      "concepts": "概念",
+      "errors": "エラー",
+      "questions": "質問",
+      "evidence": "証拠と振り返り"
+    },
+    "evidence": {
+      "title": "予測 → 実行 → 検証 → 説明",
+      "instructions": "ラボを変更する前に予測を書いてください。コマンド、観察、影響を受けたデバイスを記録します。秘密情報や完全なターミナルログを貼り付けないでください。",
+      "prediction": "予測",
+      "predictionPlaceholder": "何が起こると予想し、なぜですか？",
+      "evidence": "証拠",
+      "evidencePlaceholder": "どの検証コマンド/結果が変更を証明しますか？",
+      "explanation": "説明と転送",
+      "explanationPlaceholder": "原因を説明し、どのように別のトポロジーに適用するかを説明してください。",
+      "saveRecord": "学習記録を保存",
+      "savedRecords": "保存済み記録: {count}",
+      "exportJson": "JSONをエクスポート",
+      "exportMarkdown": "Markdownをエクスポート",
+      "exportText": "テキストをエクスポート",
+      "noEvidence": "このラボの証拠はまだ記録されていません。検証ステップを完了するか、振り返りを保存して開始してください。"
+    },
+    "mission": {
+      "objective": "目標",
+      "realWorldScenario": "実世界のシナリオ",
+      "beforeYouStart": "開始前に",
+      "whyItMatters": "なぜ重要か",
+      "labTopology": "ラボトポロジーと必要なデバイス"
+    }
+  },
+  "music": {
+    "studyDeck": "学習デッキ",
+    "focusAudio": "ラボ練習のための集中オーディオ",
+    "sound": "サウンド",
+    "mute": "ミュート",
+    "play": "再生",
+    "pause": "一時停止",
+    "volume": "音量",
+    "tracks": {
+      "studyFocusTunes": "学習集中チューン"
+    }
+  },
+  "locale": {
+    "label": "言語",
+    "en": "English",
+    "hi": "हिन्दी",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}

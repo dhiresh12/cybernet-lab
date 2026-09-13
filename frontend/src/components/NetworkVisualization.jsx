@@ -242,11 +242,11 @@ export default function NetworkVisualization({ lab, onComplete, onVerify, comple
         ctx.font = `${node.radius * 1.2}px sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        let icon = '🖥️';
-        if (node.type === 'router') icon = '🔌';
-        else if (node.type === 'switch') icon = '🔀';
-        else if (node.type === 'pc') icon = '💻';
-        else if (node.type === 'server') icon = '🖧';
+        let icon = 'PC';
+        if (node.type === 'router') icon = 'Plug';
+        else if (node.type === 'switch') icon = 'Switch';
+        else if (node.type === 'pc') icon = 'Laptop';
+        else if (node.type === 'server') icon = 'Server';
         ctx.fillText(icon, centerX + node.x, centerY + node.y - 2);
       });
 
@@ -306,7 +306,7 @@ export default function NetworkVisualization({ lab, onComplete, onVerify, comple
         marginBottom: 8
       }}>
         <div style={{ color: themeColors.node, fontSize: '0.95em', fontWeight: 700 }}>
-          🖥️ Network Topology Visualization
+          PC Network Topology Visualization
         </div>
         <div style={{ display: 'flex', gap: 6 }}>
           <select
@@ -331,7 +331,7 @@ export default function NetworkVisualization({ lab, onComplete, onVerify, comple
             }}
             title={viewMode === 'packets' ? 'Show topology view' : 'Show packet flow view'}
           >
-            {viewMode === 'packets' ? '📡 Packets' : '🔗 Topology'}
+            {viewMode === 'packets' ? 'Signal Packets' : 'Link Topology'}
           </button>
         </div>
       </div>

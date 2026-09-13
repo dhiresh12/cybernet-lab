@@ -110,13 +110,38 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
   const ipTable = useMemo(() => parseIpTable(lab), [lab]);
   const layout = useMemo(() => buildLayout(devices, connections), [devices, connections]);
 
+  const nodes = useMemo(() => {
+    return devices.map(d => ({
+      ...d,
+      x: layout[d.id]?.x ?? 0.5,
+      y: layout[d.id]?.y ?? 0.5,
+    }));
+  }, [devices, layout]);
+
+  const edges = useMemo(() => {
+    return connections.map((c, idx) => {
+      if (typeof c === 'string' && c.includes('->')) {
+        const [from, to] = c.split('->');
+        return { id: `edge-${idx}`, from, to, status: 'active' };
+      }
+      return { id: `edge-${idx}`, from: c, to: c, status: 'active' };
+    });
+  }, [connections]);
+
+  const nodeMap = useMemo(() => {
+    const map = {};
+    nodes.forEach(n => { map[n.id] = n; });
+    return map;
+  }, [nodes]);
+
   const currentStep = getCurrentStep(session, steps);
   const progress = session.progress ?? (steps.length > 0 ? Math.round((session.completedStepIds.length / steps.length) * 100) : 0);
 
   const [activePanel, setActivePanel] = useState('overview');
   const [selectedDevice, setSelectedDevice] = useState(null);
-  const [xpEarned, setXpEarned] = useState(0);
-  const [showSolution, setShowSolution] = useState(false);
+const [xpEarned, setXpEarned] = useState(0);
+const [hintsUsed, setHintsUsed] = useState(0);
+const [showSolution, setShowSolution] = useState(false);
   const [activeTool, setActiveTool] = useState('Select');
   const [activeTerminalDevice, setActiveTerminalDevice] = useState(() => devices[0]?.id || null);
 
@@ -134,6 +159,43 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
       labEngineRef.current.attachSimulationEngine(engine);
     }
   }, []);
+
+  // Listen for backend verification events to update workflow state
+  useEffect(() => {
+    const engine = labEngineRef.current;
+    if (!engine) return;
+
+    const onStepPassed = (msg) => {
+      const stepId = msg.stepId;
+      setSession(prev => {
+        const next = advanceWorkflow(prev, stepId, { passed: true, xp: msg.xp, message: 'Verification passed' });
+        return next;
+      });
+      setXpEarned(x => x + (msg.xp || 10));
+    };
+
+    const onStepFailed = (msg) => {
+      const stepId = msg.stepId;
+      setSession(prev => ({
+        ...prev,
+        stepStates: { ...prev.stepStates, [stepId]: STEP_STATE.FAILED }
+      }));
+      setVerifyResult({
+        passed: false,
+        feedback: msg.feedback,
+        hint: msg.hint,
+        error: false
+      });
+    };
+
+    engine.on('step:passed', onStepPassed);
+    engine.on('step:failed', onStepFailed);
+
+    return () => {
+      engine.off('step:passed', onStepPassed);
+      engine.off('step:failed', onStepFailed);
+    };
+  }, [labEngineRef]);
 
   const [canonicalDeviceStates, setCanonicalDeviceStates] = useState(() => buildInitialDeviceStates(devices, lab));
 
@@ -160,7 +222,33 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
     if (!canVerify(session, current.stepId)) return;
 
     setSession(prev => ({ ...prev, stepStates: { ...prev.stepStates, [current.stepId]: STEP_STATE.VERIFICATION_PENDING } }));
-    const result = await verification.verifyCurrentStep();
+    
+    // Use backend verification via LabEngine instead of local simulation
+    let result = null;
+    if (labEngineRef.current && !labEngineRef.current.isLocalMode()) {
+      try {
+        result = await labEngineRef.current.verifyStep(current.stepId, {});
+      } catch (error) {
+        console.error('LabEngine verification failed:', error);
+        result = {
+          passed: false,
+          feedback: 'Verification failed due to connection error',
+          hint: 'Please check your connection and try again',
+          error: true
+        };
+      }
+    } else {
+      // Fallback to local verification when in local mode or no labEngine
+      const verificationResult = await verification.verifyCurrentStep();
+      result = {
+        passed: verificationResult.passed,
+        feedback: verificationResult.message,
+        hint: verificationResult.hint,
+        score: verificationResult.score,
+        error: verificationResult.error
+      };
+    }
+    
     setVerifyResult(result);
     onEvidenceRecord?.({
       labId: lab.id,
@@ -190,6 +278,7 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
       const nextSession = advanceWorkflow(session, current.stepId, result);
       setSession(nextSession);
       setXpEarned(x => x + 10);
+      setHintsUsed(0);
       setShowSolution(false);
       troubleshooting.reset();
       setVerifyResult(null);
@@ -201,12 +290,20 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
     } else {
       setSession(prev => ({ ...prev, stepStates: { ...prev.stepStates, [current.stepId]: STEP_STATE.FAILED } }));
     }
-  }, [session, steps, verification, troubleshooting, onComplete]);
+  }, [session, steps, verification, troubleshooting, onComplete, labEngineRef]);
 
   const handleHint = useCallback(() => {
-    setSession(prev => useHint(prev));
-    troubleshooting.requestHint();
-  }, [troubleshooting]);
+    if (labEngineRef.current && !labEngineRef.current.isLocalMode()) {
+      try {
+        labEngineRef.current.sendHint(currentStep?.stepId, 0);
+      } catch (error) {
+        console.error('LabEngine hint failed:', error);
+      }
+    } else {
+      setSession(prev => useHint(prev));
+      troubleshooting.requestHint();
+    }
+  }, [troubleshooting, currentStep]);
 
   const handleShowSolution = useCallback(() => {
     setShowSolution(true);
@@ -229,20 +326,39 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
       setCanonicalDeviceStates(initialStates);
       simulation.reset(initialStates);
 
+      // Also reset the LabEngine backend state
+      labEngineRef.current?.disconnect();
+      labEngineRef.current?.connect();
     } catch (error) {
       console.error('Lab restart failed:', error);
       // Keep existing state on restart failure
     }
-  }, [session, timer, terminal, simulation, devices, lab]);
+  }, [session, timer, terminal, simulation, devices, lab, labEngineRef]);
 
   const verifyBusy = verification.verifying;
   const currentStepState = currentStep ? (session.stepStates?.[currentStep.stepId] || STEP_STATE.LOCKED) : null;
+
+  // Listen for backend hint events to update UI hintsUsed state
+  useEffect(() => {
+    const engine = labEngineRef.current;
+    if (!engine) return;
+
+    const onHint = (msg) => {
+      setHintsUsed(prev => Math.min(prev + 1, currentStep?.hintTiers?.length - 1 || 0));
+    };
+
+    engine.on('hint', onHint);
+
+    return () => {
+      engine.off('hint', onHint);
+    };
+  }, [labEngineRef, currentStep, setHintsUsed]);
 
   if (!lab) {
     return (
       <div className="lab-empty-state">
         <div className="empty-content">
-          <span className="empty-icon">⚠</span>
+          <span className="empty-icon">WARNING:</span>
           <h3>No Lab Loaded</h3>
           <p>Select a lab to begin.</p>
         </div>
@@ -269,7 +385,7 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
 
   return (
     <LabWorkspaceErrorBoundary onExit={onExit}>
-      <div className="lab-workspace">
+      <div className="lab-workspace" role="main" aria-label="Lab Workspace">
         <WorkspaceHeader
           lab={lab}
           progress={progress}
@@ -281,7 +397,7 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
           currentStepIndex={steps.findIndex(s => s.stepId === session.currentStepId)}
         />
 
-      <main className="lab-main">
+      <main className="lab-main" aria-label="Lab main content">
         <WorkspaceToolbar
           activeTool={activeTool}
           onToolSelect={setActiveTool}
@@ -293,29 +409,60 @@ export default function LabWorkspace({ lab, onExit, onComplete, onEvidenceRecord
           currentStepId={currentStep?.stepId}
         />
 
-        <section className="lab-center">
+        <section className="lab-center" aria-label="Lab topology and terminal">
           <div className="topology-container">
-            <TopologyCanvas 
-              nodes={topology.nodes} 
-              edges={topology.edges} 
-              selectedDevice={selectedDevice}
-              onNodeClick={setSelectedDevice}
-              activeTool={activeTool}
-            />
-</div>
-           
+            <div className="topology-canvas" role="img" aria-label={`Network topology for ${lab?.title || 'lab'}`}>
+              <svg className="topology-svg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} aria-hidden="true">
+                {edges.map(edge => {
+                  const fromNode = nodeMap[edge.from];
+                  const toNode = nodeMap[edge.to];
+                  if (!fromNode || !toNode) return null;
+                  return (
+                    <line
+                      key={edge.id}
+                      x1={`${fromNode.x * 100}%`}
+                      y1={`${fromNode.y * 100}%`}
+                      x2={`${toNode.x * 100}%`}
+                      y2={`${toNode.y * 100}%`}
+                      className={`topology-edge ${edge.status}`}
+                    />
+                  );
+                })}
+              </svg>
+              {nodes.map(node => (
+                <div key={node.id} 
+                     className={`topology-node ${node.type} ${selectedDevice === node.id ? 'selected' : ''}`}
+                     style={{ left: `${node.x * 100}%`, top: `${node.y * 100}%` }}
+                     onClick={() => onNodeClick(node.id)}
+                     role="button"
+                     tabIndex={0}
+                     aria-label={`${node.label} - ${node.type}`}
+                     onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onNodeClick(node.id); } }}>
+                  <span className="node-icon" aria-hidden="true">{node.type === 'router' ? '◆' : node.type === 'switch' ? '⬡' : 'Laptop'}</span>
+                  <span className="node-label">{node.label}</span>
+                  {node.ip && node.ip !== 'unassigned' && (
+                    <span className="node-ip">{node.ip}</span>
+                  )}
+                </div>
+              ))}
+                </div>
+          </div>
+          
           <div className="terminal-container">
                 <div className="terminal-header">
-                  <span>TERMINAL</span>
+                  <span id="workspace-terminal-title">TERMINAL</span>
                   <div className="terminal-status">
-                    <span className={`terminal-status-indicator ${simulation.engine && activeTerminalDevice ? 'active' : ''}`}></span>
-                    <span className="terminal-status-text">
+                    <span className={`terminal-status-indicator ${simulation.engine && activeTerminalDevice ? 'active' : ''}`} aria-hidden="true"></span>
+                    <span className="terminal-status-text" aria-live="polite">
                       {simulation.engine && activeTerminalDevice ? 'CONNECTED' : 'DISCONNECTED'}
                     </span>
                   </div>
+                <label htmlFor="device-selector" className="sr-only">Select device</label>
                 <select value={activeTerminalDevice || ''} 
                         onChange={e => setActiveTerminalDevice(e.target.value)}
-                        className="device-selector">
+                        id="device-selector"
+                        className="device-selector"
+                        aria-label="Active terminal device">
                     {devices.map(d => (
                       <option key={d.id} value={d.id}>
                         {labEngineRef.current?.state?.runtime?.devices?.[d.id]?.hostname || d.name}
@@ -382,8 +529,12 @@ function TopologyCanvas({ nodes, edges, selectedDevice, onNodeClick, activeTool 
         <div key={node.id} 
              className={`topology-node ${node.type} ${selectedDevice === node.id ? 'selected' : ''}`}
              style={{ left: `${node.x * 100}%`, top: `${node.y * 100}%` }}
-             onClick={() => onNodeClick(node.id)}>
-          <span className="node-icon">{node.type === 'router' ? '◆' : node.type === 'switch' ? '⬡' : '💻'}</span>
+             onClick={() => onNodeClick(node.id)}
+             onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onNodeClick(node.id); } }}
+             role="button"
+             tabIndex={0}
+             aria-label={`Network device ${node.label}, type ${node.type}`}>
+          <span className="node-icon">{node.type === 'router' ? '◆' : node.type === 'switch' ? '⬡' : 'Laptop'}</span>
           <span className="node-label">{node.label}</span>
           {node.ip && node.ip !== 'unassigned' && (
             <span className="node-ip">{node.ip}</span>

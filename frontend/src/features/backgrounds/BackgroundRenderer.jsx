@@ -1,23 +1,62 @@
-// Background Renderer - Base class and utilities
-import React, { useRef, useEffect } from 'react';
+// Background Renderer - Utility functions and shared renderer factory
+// Provides drawUtils used by canvas-based background renderers.
 
+export const drawUtils = {
+  /** Clear canvas with a solid color */
+  clear(ctx, width, height, fillStyle) {
+    ctx.fillStyle = fillStyle;
+    ctx.fillRect(0, 0, width, height);
+  },
+
+  /** Draw a perspective grid with optional offset for animation */
+  drawGrid(ctx, width, height, gridSize, color, lineWidth = 1, offset = 0) {
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.beginPath();
+
+    // Vertical lines
+    for (let x = -gridSize; x <= width + gridSize; x += gridSize) {
+      ctx.moveTo(x + offset, 0);
+      ctx.lineTo(x + offset, height);
+    }
+
+    // Horizontal lines
+    for (let y = -gridSize; y <= height + gridSize; y += gridSize) {
+      ctx.moveTo(0, y + offset);
+      ctx.lineTo(width, y + offset);
+    }
+
+    ctx.stroke();
+  },
+
+  /** Draw a radial glow effect */
+  drawGlow(ctx, x, y, radius, color, alpha = 0.3) {
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
+    gradient.addColorStop(0, color.replace(')', `, ${alpha})`).replace('rgb', 'rgba'));
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+  },
+};
+
+/**
+ * createBackgroundRenderer - Factory for creating background renderer components.
+ * @param {Function} drawFn - Drawing function (msg, ctx, canvas) => void
+ * @param {Object} options - Optional configuration
+ * @returns {React.ComponentType} - Renderer component
+ */
 export function createBackgroundRenderer(drawFn, options = {}) {
-  const {
-    color = 'rgba(0,240,255,0.08)',
-    opacity = 0.7,
-    zIndex = -2,
-    pointerEvents = 'none',
-  } = options;
+  const { opacity = 0.8, zIndex = -2 } = options;
 
-  return function BackgroundRenderer({ style, ...props }) {
+  return function BackgroundRenderer({ sharedLoop: loopOverride }) {
     const canvasRef = useRef(null);
+    const loopRef = useRef(loopOverride || AnimationLoop.shared());
 
     useEffect(() => {
       const canvas = canvasRef.current;
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      let raf;
-      
+
       const resize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -25,81 +64,24 @@ export function createBackgroundRenderer(drawFn, options = {}) {
       resize();
       window.addEventListener('resize', resize);
 
-      const draw = () => {
-        drawFn(ctx, canvas.width, canvas.height);
-        raf = requestAnimationFrame(draw);
+      const loop = loopRef.current;
+      const draw = (msg) => {
+        if (msg.type === 'resize') return;
+        drawFn(msg, ctx, canvas);
       };
-      draw();
 
-      return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-    }, []);
+      const unsubscribe = loop.subscribe(draw);
 
-    return (
-      <canvas 
-        ref={canvasRef} 
-        style={{ 
-          position: 'fixed', 
-          inset: 0, 
-          pointerEvents, 
-          zIndex, 
-          opacity,
-          ...style 
-        }} 
-        {...props}
-      />
-    );
+      return () => {
+        unsubscribe();
+        window.removeEventListener('resize', resize);
+      };
+    }, [loopRef.current]);
+
+    return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
   };
 }
 
-// Shared drawing utilities
-export const drawUtils = {
-  clear(ctx, width, height, color = 'rgba(3,5,10,0.15)') {
-    ctx.fillStyle = color;
-    ctx.fillRect(0, 0, width, height);
-  },
-
-  drawGrid(ctx, width, height, gridSize, color, lineWidth = 1, offset = 0) {
-    ctx.strokeStyle = color;
-    ctx.lineWidth = lineWidth;
-    for (let x = 0; x < width; x += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(x + offset % gridSize, 0);
-      ctx.lineTo(x + offset % gridSize, height);
-      ctx.stroke();
-    }
-    for (let y = 0; y < height; y += gridSize) {
-      ctx.beginPath();
-      ctx.moveTo(0, y + offset % gridSize);
-      ctx.lineTo(width, y + offset % gridSize);
-      ctx.stroke();
-    }
-  },
-
-  drawCircle(ctx, x, y, radius, color, fill = true) {
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    if (fill) {
-      ctx.fillStyle = color;
-      ctx.fill();
-    } else {
-      ctx.strokeStyle = color;
-      ctx.stroke();
-    }
-  },
-
-  drawRect(ctx, x, y, width, height, color, fill = true) {
-    if (fill) {
-      ctx.fillStyle = color;
-      ctx.fillRect(x, y, width, height);
-    } else {
-      ctx.strokeStyle = color;
-      ctx.strokeRect(x, y, width, height);
-    }
-  },
-
-  randomColor() {
-    return `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.random()})`;
-  },
-};
-
-export default { createBackgroundRenderer, drawUtils };
+// Lazy import to avoid circular dependency
+import { useRef, useEffect } from 'react';
+import { AnimationLoop } from './animationLoop';

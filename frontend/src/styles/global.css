@@ -1,3 +1,7 @@
+@import './typography.css';
+@import './panels.css';
+@import './layout.css';
+
 :root {
   --bg: #020711;
   --bg-alt: #040B16;
@@ -183,6 +187,131 @@ body {
 
 .invert-colors {
   filter: invert(0.92) hue-rotate(180deg);
+}
+
+/* High contrast mode — WCAG AA+ */
+.high-contrast,
+.high-contrast * {
+  --panel-border: rgba(255,255,255,0.7) !important;
+  --panel-border-subtle: rgba(255,255,255,0.5) !important;
+  --panel-border-focus: rgba(255,255,255,0.9) !important;
+  --text: #ffffff !important;
+  --text-dim: #d4d4d4 !important;
+  --text-muted: #a3a3a3 !important;
+  --primary: #00ffff !important;
+  --success: #00ff41 !important;
+  --warning: #ffcc00 !important;
+  --error: #ff3333 !important;
+  --accent: #bf7af0 !important;
+  --glow-primary: none !important;
+  --glow-primary-soft: none !important;
+  --glow-error: none !important;
+  --glow-success: none !important;
+  --glow-warning: none !important;
+  --glow-accent: none !important;
+}
+.high-contrast .panel,
+.high-contrast .tech-card,
+.high-contrast .lab-card,
+.high-contrast .stat-card,
+.high-contrast .metric-tile,
+.high-contrast .device-card,
+.high-contrast .terminal-block,
+.high-contrast .tool-item {
+  border-width: 2px !important;
+  border-color: rgba(255,255,255,0.7) !important;
+}
+.high-contrast .cmd-btn,
+.high-contrast .btn-action,
+.high-contrast .btn-primary,
+.high-contrast .btn-danger,
+.high-contrast .nav-rail-item,
+.high-contrast .inspector-tab {
+  border-width: 2px !important;
+  outline: 2px solid transparent !important;
+}
+.high-contrast .cmd-btn:focus-visible,
+.high-contrast .btn-action:focus-visible,
+.high-contrast .btn-primary:focus-visible,
+.high-contrast .btn-danger:focus-visible,
+.high-contrast .nav-rail-item:focus-visible,
+.high-contrast .inspector-tab:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 2px !important;
+}
+.high-contrast .health-bar-fill { filter: contrast(1.4) saturate(1.2); }
+.high-contrast .noc-strip-dot,
+.high-contrast .status-strip-dot,
+.high-contrast .led { box-shadow: none !important; }
+
+/* Reduced transparency — force opaque surfaces */
+.reduced-transparency,
+.reduced-transparency .panel,
+.reduced-transparency .tech-card,
+.reduced-transparency .lab-card,
+.reduced-transparency .stat-card,
+.reduced-transparency .metric-tile,
+.reduced-transparency .device-card,
+.reduced-transparency .terminal-block,
+.reduced-transparency .tool-item,
+.reduced-transparency .nav-rail-item,
+.reduced-transparency .noc-header,
+.reduced-transparency .noc-inspector,
+.reduced-transparency .tool-cabinet,
+.reduced-transparency .noc-viewport,
+.reduced-transparency .noc-main,
+.reduced-transparency .study-deck,
+.reduced-transparency .floating-music-player .study-deck,
+.reduced-transparency .panel-glow {
+  background: var(--panel-solid) !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+.reduced-transparency .static-background,
+.reduced-transparency .noc-bg {
+  opacity: 1 !important;
+}
+
+/* Reduced glow — strip all box-shadow glow tokens */
+.reduced-glow,
+.reduced-glow *,
+.reduced-glow *::before,
+.reduced-glow *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+.reduced-glow .pulse { animation: none !important; }
+
+/* Larger text — scale all typography up one tier */
+.larger-text {
+  --text-xs: 0.8em;
+  --text-sm: 0.95em;
+  --text-base: 1.05em;
+  --text-md: 1.15em;
+  --text-lg: 1.3em;
+  --text-xl: 1.5em;
+  font-size: 112.5%;
+}
+.larger-text .noc-logo { font-size: 1em !important; }
+.larger-text .noc-station { font-size: 0.85em !important; }
+.larger-text .terminal-input { font-size: 1em !important; }
+.larger-text .tool-item { font-size: 1em !important; }
+.larger-text .nav-rail-item { font-size: 1em !important; }
+.larger-text .cmd-btn { font-size: 0.9em !important; padding: 8px 14px !important; }
+
+/* Keyboard navigation — visible focus ring for all interactive elements */
+.keyboard-nav *:focus {
+  outline: 3px solid var(--primary) !important;
+  outline-offset: 3px !important;
+  border-radius: 2px !important;
+}
+.keyboard-nav button:focus:not(:focus-visible),
+.keyboard-nav select:focus:not(:focus-visible),
+.keyboard-nav input:focus:not(:focus-visible),
+.keyboard-nav textarea:focus:not(:focus-visible),
+.keyboard-nav a:focus:not(:focus-visible) {
+  outline: none !important;
 }
 
 .animations-off *,
@@ -1101,12 +1230,28 @@ body {
 /* ============================================================
    RESPONSIVE — Application shell
    ============================================================ */
+@media (max-width: 1400px) {
+  .noc-main {
+    grid-template-columns: 220px 1fr 260px;
+  }
+  .tool-cabinet,
+  .noc-inspector {
+    padding: 10px;
+  }
+  .main-workspace {
+    padding: var(--space-4);
+  }
+}
+
 @media (max-width: 1024px) {
   .noc-main {
     grid-template-columns: 200px 1fr;
     grid-template-areas:
       "viewport viewport"
       "tools inspector";
+  }
+  .main-workspace {
+    padding: var(--space-3);
   }
 }
 
@@ -1375,9 +1520,31 @@ body {
 }
 button:focus-visible,
 select:focus-visible,
-input:focus-visible {
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* Screen-reader-only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.Terminal.jsx,
+.Tab.jsx,
+.ToolCabinet.jsx,
+.Workbench.jsx {
+  display: none;
 }
 
 /* Reduced motion */
@@ -1390,9 +1557,3 @@ input:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
-::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.3); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.5); }

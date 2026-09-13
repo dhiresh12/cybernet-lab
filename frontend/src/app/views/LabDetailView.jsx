@@ -6,6 +6,7 @@ import Badge from '../../components/primitives/Badge';
 import Button from '../../components/primitives/Button';
 import TopologyDiagram from '../../components/TopologyDiagram';
 import { buildEvidenceReport, evidenceReportToMarkdown, evidenceReportToText } from '../../core/evidenceReport';
+import { getLabStudyStrategy } from '../../data/labStudyStrategy';
 import './LabDetailView.css';
 
 const LEVEL_COLORS = {
@@ -26,7 +27,8 @@ export default function LabDetailView({
   setLabTab,
   audioRef,
   evidenceRecords = [],
-  onSaveEvidence
+  onSaveEvidence,
+  learnerProgress = {}
 }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [revealedAnswers, setRevealedAnswers] = useState({});
@@ -73,63 +75,11 @@ export default function LabDetailView({
     { id: 'concepts', label: 'Concepts' },
     { id: 'errors', label: 'Errors' },
     { id: 'questions', label: 'Questions' },
+    { id: 'study', label: 'Study Strategy' },
     { id: 'evidence', label: 'Evidence & Reflection' },
   ];
 
   const tabContent = {
-    evidence: (
-      <div className="tab-content">
-        <SectionHeader title="PREDICT → PERFORM → VERIFY → EXPLAIN" />
-        <p className="mission-text">
-          Write your prediction before changing the lab. Record commands, observations, and affected devices; never paste secrets or full terminal logs.
-        </p>
-        <label className="mission-block"><strong>Prediction</strong>
-          <textarea value={prediction} onChange={event => setPrediction(event.target.value)} rows={4} placeholder="What do you expect to happen, and why?" />
-        </label>
-        <label className="mission-block"><strong>Evidence</strong>
-          <textarea value={evidenceText} onChange={event => setEvidenceText(event.target.value)} rows={4} placeholder="Which verification command/result proves the change?" />
-        </label>
-        <label className="mission-block"><strong>Explanation and transfer</strong>
-          <textarea value={explanation} onChange={event => setExplanation(event.target.value)} rows={4} placeholder="Explain the cause and how you would apply this to a different topology." />
-        </label>
-        <Button
-          variant="primary"
-          disabled={!prediction.trim() || !evidenceText.trim() || !explanation.trim() || !onSaveEvidence}
-          onClick={() => onSaveEvidence({
-            labId: currentLab.id,
-            stepId: currentLab.steps?.[0]?.stepId || 'lab-reflection',
-            prediction: prediction.trim(),
-            evidence: evidenceText.trim(),
-            explanation: explanation.trim()
-          })}
-        >
-          Save learning record
-        </Button>
-        <div className="mission-block">
-          <strong>Saved records: {evidenceRecords.length}</strong>
-          <div className="mission-actions" aria-label="Evidence report downloads">
-            <Button variant="ghost" onClick={() => downloadReport('json')}>Export JSON</Button>
-            <Button variant="ghost" onClick={() => downloadReport('markdown')}>Export Markdown</Button>
-            <Button variant="ghost" onClick={() => downloadReport('text')}>Export Text</Button>
-          </div>
-          {evidenceRecords.length === 0 && (
-            <p className="mission-text">No evidence has been recorded for this lab yet. Complete a verification step or save a reflection to begin.</p>
-          )}
-          {evidenceRecords.map(record => (
-            <div className="mission-text" key={`${record.labId}-${record.stepId}`}>
-              <strong>{record.stepId}</strong> — {new Date(record.savedAt).toLocaleString()}
-              <br />
-              Verification: {record.passed ? 'passed' : 'failed'}
-              {record.verificationType ? ` (${record.verificationType})` : ''}
-              {record.resultMessage ? ` — ${record.resultMessage}` : ''}
-              {record.affectedDeviceIds?.length > 0 && (
-                <><br />Affected devices: {record.affectedDeviceIds.join(', ')}</>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
     guide: (
       <div className="tab-content">
         <div className="mission-block">
@@ -185,6 +135,35 @@ export default function LabDetailView({
     ),
     overview: (
       <div className="tab-content">
+        <div className="mission-block">
+          <SectionHeader title="PREREQUISITES" />
+          {currentLab.prerequisites && currentLab.prerequisites.length > 0 ? (
+            <ul className="concept-list">
+              {currentLab.prerequisites.map((pre, i) => {
+                const completed = (learnerProgress.completedLabs || []).includes(String(pre));
+                return (
+                  <li key={i} style={{ color: completed ? 'var(--green)' : 'var(--text-muted)' }}>
+                    {completed ? '[COMPLETE] ' : '[PENDING] '}{pre}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p className="empty-text">No prerequisites required.</p>
+          )}
+        </div>
+        <div className="mission-block">
+          <SectionHeader title="COMPLETION CONTRACT" />
+          <p className="mission-text">A lab is only complete when ALL of the following are satisfied:</p>
+          <ul className="concept-list">
+            <li>Theory reviewed</li>
+            <li>Prediction submitted</li>
+            <li>Required actions performed</li>
+            <li>Verification passed</li>
+            <li>Troubleshooting completed (if required)</li>
+            <li>Debrief / explanation submitted</li>
+          </ul>
+        </div>
         <div className="mission-block">
           <SectionHeader title="LAB TOPOLOGY AND REQUIRED DEVICES" />
           <TopologyDiagram topology={currentLab.topology || currentLab.labGuide?.topology} />
@@ -287,7 +266,7 @@ export default function LabDetailView({
         <div className="mission-block">
           <SectionHeader title="SUCCESS CONDITION" />
           {(currentLab.labGuide?.successCondition?.conditions || []).map((condition, index) => (
-            <p className="mission-text" key={index}>✓ {condition}</p>
+            <p className="mission-text" key={index}>[OK] {condition}</p>
           ))}
         </div>
       </div>
@@ -393,6 +372,95 @@ export default function LabDetailView({
           <p className="empty-text">No knowledge check questions for this lab.</p>
         )}
       </div>
+    ),
+    study: (
+      <div className="tab-content">
+        {(() => {
+          const studyStrategy = currentLab.studyStrategy || getLabStudyStrategy(currentLab);
+          return (
+            <>
+              <SectionHeader title="STUDY STRATEGY & SYLLABUS" />
+              <div className="mission-block">
+                <SectionHeader title="中国学习法" />
+                <p className="mission-text">{studyStrategy.zhStrategy}</p>
+              </div>
+              <div className="mission-block">
+                <SectionHeader title="日本学び方" />
+                <p className="mission-text">{studyStrategy.jaStrategy}</p>
+              </div>
+              <div className="mission-block">
+                <SectionHeader title={studyStrategy.zhSyllabusTitle} />
+                <ol className="concept-list">
+                  {studyStrategy.zhSyllabus.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ol>
+              </div>
+              <div className="mission-block">
+                <SectionHeader title={studyStrategy.jaSyllabusTitle} />
+                <ol className="concept-list">
+                  {studyStrategy.jaSyllabus.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ol>
+              </div>
+            </>
+          );
+        })()}
+      </div>
+    ),
+    evidence: (
+      <div className="tab-content">
+        <SectionHeader title="PREDICT → PERFORM → VERIFY → EXPLAIN" />
+        <p className="mission-text">
+          Write your prediction before changing the lab. Record commands, observations, and affected devices; never paste secrets or full terminal logs.
+        </p>
+        <label className="mission-block"><strong>Prediction</strong>
+          <textarea value={prediction} onChange={event => setPrediction(event.target.value)} rows={4} placeholder="What do you expect to happen, and why?" />
+        </label>
+        <label className="mission-block"><strong>Evidence</strong>
+          <textarea value={evidenceText} onChange={event => setEvidenceText(event.target.value)} rows={4} placeholder="Which verification command/result proves the change?" />
+        </label>
+        <label className="mission-block"><strong>Explanation and transfer</strong>
+          <textarea value={explanation} onChange={event => setExplanation(event.target.value)} rows={4} placeholder="Explain the cause and how you would apply this to a different topology." />
+        </label>
+        <Button
+          variant="primary"
+          disabled={!prediction.trim() || !evidenceText.trim() || !explanation.trim() || !onSaveEvidence}
+          onClick={() => onSaveEvidence({
+            labId: currentLab.id,
+            stepId: currentLab.steps?.[0]?.stepId || 'lab-reflection',
+            prediction: prediction.trim(),
+            evidence: evidenceText.trim(),
+            explanation: explanation.trim()
+          })}
+        >
+          Save learning record
+        </Button>
+        <div className="mission-block">
+          <strong>Saved records: {evidenceRecords.length}</strong>
+          <div className="mission-actions" aria-label="Evidence report downloads">
+            <Button variant="ghost" onClick={() => downloadReport('json')}>Export JSON</Button>
+            <Button variant="ghost" onClick={() => downloadReport('markdown')}>Export Markdown</Button>
+            <Button variant="ghost" onClick={() => downloadReport('text')}>Export Text</Button>
+          </div>
+          {evidenceRecords.length === 0 && (
+            <p className="mission-text">No evidence has been recorded for this lab yet. Complete a verification step or save a reflection to begin.</p>
+          )}
+          {evidenceRecords.map(record => (
+            <div className="mission-text" key={`${record.labId}-${record.stepId}`}>
+              <strong>{record.stepId}</strong> — {new Date(record.savedAt).toLocaleString()}
+              <br />
+              Verification: {record.passed ? 'passed' : 'failed'}
+              {record.verificationType ? ` (${record.verificationType})` : ''}
+              {record.resultMessage ? ` — ${record.resultMessage}` : ''}
+              {record.affectedDeviceIds?.length > 0 && (
+                <><br />Affected devices: {record.affectedDeviceIds.join(', ')}</>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     )
   };
 
@@ -400,7 +468,7 @@ export default function LabDetailView({
     <div className="lab-detail">
       <div className="detail-header">
         <div className="detail-header-left">
-          <button onClick={onBack} className="cmd-btn">← Back to Labs</button>
+          <button onClick={onBack} className="cmd-btn" aria-label="Back to labs list">← Back to Labs</button>
           <div className="detail-title-block">
             <div className="detail-id">#{String(currentLab.id).padStart(3, '0')}</div>
             <h1 className="detail-title">{currentLab.title}</h1>
@@ -414,9 +482,9 @@ export default function LabDetailView({
           </div>
         </div>
         <div className="detail-header-right">
-          <Button variant="success" onClick={onLaunchWorkspace}>🚀 Launch Lab Workspace</Button>
-          <Button variant="danger" onClick={handleReset}>↻ Reset Lab</Button>
-          <Button variant="ghost" onClick={onPacketTracerHint}>📦 Packet Tracer Hints</Button>
+          <Button variant="success" onClick={onLaunchWorkspace} aria-label="Launch lab workspace">Rocket Launch Lab Workspace</Button>
+          <Button variant="danger" onClick={handleReset} aria-label="Reset lab">↻ Reset Lab</Button>
+          <Button variant="ghost" onClick={onPacketTracerHint} aria-label="Show packet tracer hints">Package Packet Tracer Hints</Button>
         </div>
       </div>
 
@@ -426,12 +494,12 @@ export default function LabDetailView({
           <span className="progress-value">{progress.completedSteps.length} / {currentLab.steps && currentLab.steps.length || 0} steps</span>
         </div>
         <div className="progress-container">
-          <div className="progress-fill" style={{ width: `${progressPercent}%` }} />
+          <div className="progress-fill" style={{ width: `${progressPercent}%` }} aria-label={`Progress: ${progressPercent}%`} />
         </div>
         <span className="progress-percent">{progressPercent}%</span>
       </div>
 
-      <div className="detail-tabs">
+      <div className="detail-tabs" role="tablist" aria-label="Lab detail tabs">
         {tabs.map(tab => (
           <button
             key={tab.id}

@@ -5,10 +5,11 @@
  * Ensures all labs, regardless of format, produce consistent output.
  * 
  * Architecture:
- *   Legacy Lab JSON → Lab Normalizer → Canonical Lab Model → Lab Engine → UI
+ *   Legacy Lab JSON → Lab Normalizer → Content Enricher → Canonical Lab Model → Lab Engine → UI
  */
 
 import { DEFAULT_LAB } from './LabModel.js';
+import { enrichLabContent, buildBackendProfile, buildCapabilitySummary } from './labContentEnricher.js';
 
 /**
  * Normalize a single lab to canonical format
@@ -100,12 +101,24 @@ function normalizeLegacyLab(lab) {
   // Knowledge Check
   normalized.knowledgeCheck = normalizeKnowledgeCheck(lab.questions);
   normalized.knowledgeCheck = ensureLabQuestions(normalized);
-  enrichLabContent(normalized);
+  
+  // Enrich with content enricher
+  const enriched = enrichLabContent(normalized);
+  if (enriched) {
+    Object.assign(normalized, enriched);
+  }
+  
   normalized.labGuide = buildLabGuide(normalized);
+  normalized.backendProfile = buildBackendProfile(normalized);
   normalized.capabilitySummary = buildCapabilitySummary(normalized);
 
   // Tags
   normalized.tags = [lab.category, lab.level].filter(Boolean);
+
+  // Study Strategy (from manifest enrichment)
+  if (lab.studyStrategy) {
+    normalized.studyStrategy = lab.studyStrategy;
+  }
 
   return normalized;
 }
@@ -149,126 +162,18 @@ function normalizeCanonicalLab(lab) {
     normalized.knowledgeCheck = normalizeKnowledgeCheck(lab.questions);
   }
   normalized.knowledgeCheck = ensureLabQuestions(normalized);
-  enrichLabContent(normalized);
+  
+  // Enrich with content enricher
+  const enriched = enrichLabContent(normalized);
+  if (enriched) {
+    Object.assign(normalized, enriched);
+  }
+  
   normalized.labGuide = buildLabGuide(normalized);
   normalized.backendProfile = buildBackendProfile(normalized);
   normalized.capabilitySummary = buildCapabilitySummary(normalized);
 
   return normalized;
-}
-
-function buildBackendProfile(lab) {
-  const commands = [...new Set([
-    ...(lab.commandsToLearn || []),
-    ...(lab.steps || []).flatMap(step => step.commands || [])
-  ].filter(Boolean))];
-  const unsupportedCommands = commands.filter(command => /^(bgp|vxlan|hsrp|vrrp|sd-wan)\b/i.test(command));
-  return {
-    type: lab.backendProfile?.type || 'browser-simulation',
-    fidelity: lab.backendProfile?.fidelity || 'concept',
-    requiredCapabilities: lab.backendProfile?.requiredCapabilities || [],
-    supportedCommands: lab.backendProfile?.supportedCommands || commands.filter(command => !unsupportedCommands.includes(command)),
-    unsupportedCommands: lab.backendProfile?.unsupportedCommands || unsupportedCommands,
-    resourceRequirements: lab.backendProfile?.resourceRequirements || { cpuMb: 0, memoryMb: 0, requiresImage: false },
-    limitations: lab.backendProfile?.limitations || [
-      'This lab uses the CyberNet browser simulation and is not a physical Cisco IOS device.'
-    ]
-  };
-}
-
-function buildCapabilitySummary(lab) {
-  return {
-    topology: Boolean(lab.topology?.devices?.length || lab.topology?.connections?.length),
-    requiredDevices: Boolean(lab.labGuide?.requiredDevices?.length),
-    verification: Boolean(lab.steps?.some(step => step.verification?.type)),
-    troubleshooting: Boolean(lab.troubleshooting?.commonErrors?.length || lab.labGuide?.troubleshootingMethod?.length),
-    questions: Boolean(lab.knowledgeCheck?.length >= 15)
-  };
-}
-
-function enrichLabContent(lab) {
-  const subject = lab.category || lab.title || 'network configuration';
-  const stepText = (lab.steps || []).map(step => `${step.title} ${step.instruction}`).join(' ');
-  const concepts = new Set(lab.concepts || []);
-  const conceptRules = [
-    [/icmp|ping/i, 'ICMP connectivity testing'],
-    [/ip|address|subnet|mask/i, 'IP addressing and subnet masks'],
-    [/vlan|switch|trunk|access port/i, 'Layer 2 switching'],
-    [/route|ospf|eigrp|bgp|rip/i, 'Routing and path selection'],
-    [/dhcp/i, 'Dynamic host configuration'],
-    [/dns/i, 'Name resolution'],
-    [/nat/i, 'Network address translation'],
-    [/acl|security|ssh|port security/i, 'Basic network security']
-  ];
-  conceptRules.forEach(([pattern, concept]) => {
-    if (pattern.test(`${lab.title} ${subject} ${stepText}`)) concepts.add(concept);
-  });
-
-  lab.concepts = [...concepts];
-  lab.realWorldScenario = lab.realWorldScenario ||
-    `A ${lab.engineerRole || 'network engineer'} is handling a ${subject} task in a small network.`;
-  lab.problemStatement = lab.problemStatement ||
-    `The network needs ${lab.objectives || `a correct ${subject} configuration and verification`}.`;
-  lab.businessImpact = lab.businessImpact ||
-    `Incorrect ${subject} configuration can cause loss of connectivity or an unexpected network state.`;
-  lab.objectives = lab.objectives ||
-    `Complete the ${subject} task and verify the resulting network behavior.`;
-  lab.learningObjectives = lab.learningObjectives?.length
-    ? lab.learningObjectives
-    : [lab.objectives, ...lab.concepts.slice(0, 3)];
-  lab.prerequisites = Array.isArray(lab.prerequisites) && lab.prerequisites.length
-    ? lab.prerequisites
-    : typeof lab.prerequisites === 'string' && lab.prerequisites.trim()
-      ? [lab.prerequisites]
-      : lab.difficulty === 'basic'
-        ? ['Basic computer use and reading a network diagram']
-        : ['Basic IP addressing', 'Ability to read device prompts and verification output'];
-  lab.skills = lab.skills?.length
-    ? lab.skills
-    : ['Following a network change plan', 'Verifying configuration', 'Troubleshooting the first failed check'];
-  lab.whyItMatters = lab.whyItMatters ||
-    `Network engineers use this ${subject} workflow to make a controlled change and prove that it works.`;
-  lab.commandsToLearn = lab.commandsToLearn?.length
-    ? lab.commandsToLearn
-    : [...new Set((lab.steps || []).flatMap(step => step.commands || []).filter(Boolean))];
-}
-
-function ensureLabQuestions(lab) {
-  const existing = Array.isArray(lab.knowledgeCheck) ? lab.knowledgeCheck : [];
-  const firstAddress = lab.ipAddressing?.[0];
-  const firstStep = lab.steps?.[0];
-  const firstError = lab.troubleshooting?.commonErrors?.[0];
-  const firstDevice = lab.topology?.devices?.[0];
-  const command = firstStep?.commands?.find(Boolean) || 'the listed verification command';
-  const answer = (correctAnswer, options, explanation) => ({
-    type: 'multiple_choice',
-    correctAnswer,
-    correctIndex: options.indexOf(correctAnswer),
-    options,
-    explanation
-  });
-  const generated = [
-    { question: 'What is the main objective of this lab?', ...answer(lab.objectives, [lab.objectives, 'Change unrelated settings', 'Skip verification', 'Remove the topology'], 'The objective describes the task you must complete and verify.') },
-    { question: 'Which difficulty level is assigned to this lab?', ...answer(lab.level, [lab.level, 'basic', 'intermediate', 'advanced'], 'Use the lab level to decide how much prerequisite knowledge to review.') },
-    { question: 'Which category best describes this lab?', ...answer(lab.category, [lab.category, 'Unrelated application setup', 'File management', 'Operating system repair'], 'The category identifies the networking topic being practiced.') },
-    { question: 'What should you do before changing a value?', ...answer('Read the addressing plan and current step', ['Read the addressing plan and current step', 'Change every device', 'Skip the topology', 'Delete the lab'], 'A controlled change starts with the plan and the current step.') },
-    { question: `Which command or value is used in the first step?`, ...answer(command, [command, 'reload', 'erase startup-config', 'format flash'], 'This answer is taken from the actual first step in this lab.') },
-    { question: 'What is the purpose of verification?', ...answer('Confirm that the expected state is present', ['Confirm that the expected state is present', 'Add unrelated devices', 'Hide an error', 'Skip configuration'], 'Verification proves whether the change worked.') },
-    { question: 'What should you check first when connectivity fails?', ...answer('The first failed check in the troubleshooting order', ['The first failed check in the troubleshooting order', 'Change all IP addresses', 'Restart every device', 'Ignore the result'], 'Network engineers isolate the first failure instead of changing many things at once.') },
-    { question: 'Why should commands be run on the named target device?', ...answer('The target device owns the relevant configuration', ['The target device owns the relevant configuration', 'All devices share one configuration', 'It makes output longer', 'It disables verification'], 'Configuration is stored on the device or interface named by the step.') },
-    { question: 'When is the lab complete?', ...answer(lab.finalVerification?.completionCriteria || 'When all required steps and verification checks pass', [lab.finalVerification?.completionCriteria || 'When all required steps and verification checks pass', 'When the first command is typed', 'When errors are ignored', 'When only the topology is drawn'], 'Completion requires the defined checks, not just entering commands.') },
-    { question: firstAddress ? `Which address belongs to ${firstAddress.deviceId} ${firstAddress.interface || 'the listed interface'}?` : 'What should you use when an addressing plan is present?', ...answer(firstAddress ? firstAddress.ipAddress : 'The values listed in the addressing plan', firstAddress ? [firstAddress.ipAddress, '0.0.0.0', '255.255.255.255', '127.0.0.1'] : ['The values listed in the addressing plan', 'Random values', 'Only a hostname', 'No values'], 'Use the lab-specific addressing plan rather than inventing values.') },
-    { question: firstDevice ? `What is the first device listed in this lab topology?` : 'What defines the lab topology?', ...answer(firstDevice ? (firstDevice.name || firstDevice.id) : 'The devices and connections used by the lab', firstDevice ? [firstDevice.name || firstDevice.id, 'Unknown device', 'The learner laptop only', 'No device'] : ['The devices and connections used by the lab', 'A random cable', 'Only a password', 'A music track'], 'The topology identifies the actual devices and links for this lab.') },
-    { question: 'What is a safe way to practice a failure?', ...answer('Use a reversible lab-scoped fault and verify the fix', ['Use a reversible lab-scoped fault and verify the fix', 'Break a production network', 'Delete the configuration permanently', 'Change unrelated services'], 'Failure practice must remain reversible and isolated to the lab.') },
-    { question: firstError ? `What symptom is documented for a possible error?` : 'What should an error entry contain?', ...answer(firstError?.symptoms || 'A symptom, cause, check, fix, and verification', firstError ? [firstError.symptoms, 'No symptom', 'Only a random warning', 'A music title'] : ['A symptom, cause, check, fix, and verification', 'Only a title', 'Only a color', 'Nothing'], 'Error guidance should connect the observed symptom to a check and a fix.') },
-    { question: 'Why should you verify again after fixing an error?', ...answer('To confirm the fix restored the expected state', ['To confirm the fix restored the expected state', 'To create another error', 'To skip the final checklist', 'To change the objective'], 'A fix is not complete until the expected behavior is confirmed.') },
-    { question: 'What is the best beginner workflow for this lab?', ...answer('Build, configure, verify, troubleshoot, fix, and verify again', ['Build, configure, verify, troubleshoot, fix, and verify again', 'Guess, change everything, and exit', 'Skip configuration and read answers', 'Only memorize commands'], 'This workflow mirrors practical network-engineering work.') }
-  ];
-  const merged = [...existing];
-  generated.forEach(question => {
-    if (merged.length < 15) merged.push(question);
-  });
-  return merged.slice(0, 15);
 }
 
 /**
@@ -467,7 +372,11 @@ function normalizeStep(step) {
 function addStepGuidance(normalizedStep, sourceStep) {
   const commands = normalizedStep.commands || [];
   const verification = normalizedStep.verification || {};
-  const firstCommand = commands.find(command => command && !/^(enable|end|exit)$/i.test(command.trim()));
+  const firstCommand = commands.find(command => {
+    const cmdStr = typeof command === 'string' ? command : (command?.raw || '');
+    return cmdStr && !/^(enable|end|exit)$/i.test(cmdStr.trim());
+  });
+  const firstCommandText = typeof firstCommand === 'string' ? firstCommand : (firstCommand?.raw || '');
   const target = normalizedStep.targetDevice || sourceStep.device || 'the target device';
   const action = normalizedStep.actionType || 'configuration';
 
@@ -477,7 +386,7 @@ function addStepGuidance(normalizedStep, sourceStep) {
     hints: normalizedStep.hints?.length
       ? normalizedStep.hints
       : [
-          firstCommand ? `Start with the command: ${firstCommand}` : 'Read the instruction and work on the named target device.',
+          firstCommandText ? `Start with the command: ${firstCommandText}` : 'Read the instruction and work on the named target device.',
           'Run the listed verification after making the change.'
         ],
     commonMistakes: normalizedStep.commonMistakes?.length
@@ -732,6 +641,51 @@ function buildLabGuide(lab) {
     miniPracticeTask: 'Create a small variation using the same devices and verification method, then verify it without looking at the solution.',
     commandsValuesUsed: commands.length ? commands : addressing.map(entry => `${entry.deviceId} ${entry.interface}: ${entry.ipAddress}/${entry.subnetMask}`)
   };
+}
+
+/**
+ * Ensure lab has at least 15 knowledge check questions
+ */
+function ensureLabQuestions(lab) {
+  const existing = Array.isArray(lab.knowledgeCheck) ? lab.knowledgeCheck : [];
+  if (existing.length >= 15) {
+    return existing;
+  }
+
+  const firstAddress = lab.ipAddressing?.[0];
+  const firstStep = lab.steps?.[0];
+  const firstError = lab.troubleshooting?.commonErrors?.[0];
+  const firstDevice = lab.topology?.devices?.[0];
+  const command = firstStep?.commands?.find(Boolean) || 'the listed verification command';
+  const answer = (correctAnswer, options, explanation) => ({
+    type: 'multiple_choice',
+    correctAnswer,
+    correctIndex: options.indexOf(correctAnswer),
+    options,
+    explanation
+  });
+  const generated = [
+    { question: 'What is the main objective of this lab?', ...answer(lab.objectives, [lab.objectives, 'Change unrelated settings', 'Skip verification', 'Remove the topology'], 'The objective describes the task you must complete and verify.') },
+    { question: 'Which difficulty level is assigned to this lab?', ...answer(lab.level, [lab.level, 'basic', 'intermediate', 'advanced'], 'Use the lab level to decide how much prerequisite knowledge to review.') },
+    { question: 'Which category best describes this lab?', ...answer(lab.category, [lab.category, 'Unrelated application setup', 'File management', 'Operating system repair'], 'The category identifies the networking topic being practiced.') },
+    { question: 'What should you do before changing a value?', ...answer('Read the addressing plan and current step', ['Read the addressing plan and current step', 'Change every device', 'Skip the topology', 'Delete the lab'], 'A controlled change starts with the plan and the current step.') },
+    { question: `Which command or value is used in the first step?`, ...answer(command, [command, 'reload', 'erase startup-config', 'format flash'], 'This answer is taken from the actual first step in this lab.') },
+    { question: 'What is the purpose of verification?', ...answer('Confirm that the expected state is present', ['Confirm that the expected state is present', 'Add unrelated devices', 'Hide an error', 'Skip configuration'], 'Verification proves whether the change worked.') },
+    { question: 'What should you check first when connectivity fails?', ...answer('The first failed check in the troubleshooting order', ['The first failed check in the troubleshooting order', 'Change all IP addresses', 'Restart every device', 'Ignore the result'], 'Network engineers isolate the first failure instead of changing many things at once.') },
+    { question: 'Why should commands be run on the named target device?', ...answer('The target device owns the relevant configuration', ['The target device owns the relevant configuration', 'All devices share one configuration', 'It makes output longer', 'It disables verification'], 'Configuration is stored on the device or interface named by the step.') },
+    { question: 'When is the lab complete?', ...answer(lab.finalVerification?.completionCriteria || 'When all required steps and verification checks pass', [lab.finalVerification?.completionCriteria || 'When all required steps and verification checks pass', 'When the first command is typed', 'When errors are ignored', 'When only the topology is drawn'], 'Completion requires the defined checks, not just entering commands.') },
+    { question: firstAddress ? `Which address belongs to ${firstAddress.deviceId} ${firstAddress.interface || 'the listed interface'}?` : 'What should you use when an addressing plan is present?', ...answer(firstAddress ? firstAddress.ipAddress : 'The values listed in the addressing plan', firstAddress ? [firstAddress.ipAddress, '0.0.0.0', '255.255.255.255', '127.0.0.1'] : ['The values listed in the addressing plan', 'Random values', 'Only a hostname', 'No values'], 'Use the lab-specific addressing plan rather than inventing values.') },
+    { question: firstDevice ? `What is the first device listed in this lab topology?` : 'What defines the lab topology?', ...answer(firstDevice ? (firstDevice.name || firstDevice.id) : 'The devices and connections used by the lab', firstDevice ? [firstDevice.name || firstDevice.id, 'Unknown device', 'The learner laptop only', 'No device'] : ['The devices and connections used by the lab', 'A random cable', 'Only a password', 'A music track'], 'The topology identifies the actual devices and links for this lab.') },
+    { question: 'What is a safe way to practice a failure?', ...answer('Use a reversible lab-scoped fault and verify the fix', ['Use a reversible lab-scoped fault and verify the fix', 'Break a production network', 'Delete the configuration permanently', 'Change unrelated services'], 'Failure practice must remain reversible and isolated to the lab.') },
+    { question: firstError ? `What symptom is documented for a possible error?` : 'What should an error entry contain?', ...answer(firstError?.symptoms || 'A symptom, cause, check, fix, and verification', firstError ? [firstError.symptoms, 'No symptom', 'Only a random warning', 'A music title'] : ['A symptom, cause, check, fix, and verification', 'Only a title', 'Only a color', 'Nothing'], 'Error guidance should connect the observed symptom to a check and a fix.') },
+    { question: 'Why should you verify again after fixing an error?', ...answer('To confirm the fix restored the expected state', ['To confirm the fix restored the expected state', 'To create another error', 'To skip the final checklist', 'To change the objective'], 'A fix is not complete until the expected behavior is confirmed.') },
+    { question: 'What is the best beginner workflow for this lab?', ...answer('Build, configure, verify, troubleshoot, fix, and verify again', ['Build, configure, verify, troubleshoot, fix, and verify again', 'Guess, change everything, and exit', 'Skip configuration and read answers', 'Only memorize commands'], 'This workflow mirrors practical network-engineering work.') }
+  ];
+  const merged = [...existing];
+  generated.forEach(question => {
+    if (merged.length < 15) merged.push(question);
+  });
+  return merged.slice(0, 15);
 }
 
 /**

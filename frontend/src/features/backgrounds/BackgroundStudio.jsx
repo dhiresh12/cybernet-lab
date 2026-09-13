@@ -1,61 +1,58 @@
 ﻿// Background Studio - Main Component
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { 
   BACKGROUNDS, 
-  DEFAULT_BG 
+  DEFAULT_BG,
+  STUDY_DECK_CATEGORIES,
+  FOCUS_PRESETS
 } from '../../core/constants';
 import { backgroundStorage } from '../../core/storage';
+import { AnimationLoop } from './animationLoop';
 
-import { 
-  CyberGridRenderer, 
-  MatrixRainRenderer, 
-  ParticlesRenderer, 
-  WireframeRenderer, 
-  DeepSpaceRenderer,
-  NOCIceBlueRenderer,
-  GlobalNetworkRenderer,
-  GlobeRenderer,
-  DigitalGridRenderer,
-  NetworkGalaxyRenderer,
-  HolographicNetworkRenderer,
-  CyberTunnelRenderer,
-  SOCRenderer,
-  ServerRoomRenderer,
-  DigitalSphereRenderer,
-  RadarNetworkRenderer,
-  NeuralNetworkRenderer,
-  QuantumNetworkRenderer,
-  CyberCityRenderer,
-  DataCenterRenderer,
-} from './renderers';
-
-const RENDERERS = {
-  'noc-iceblue': NOCIceBlueRenderer,
-  'global-network': GlobalNetworkRenderer,
-  '3d-globe': GlobeRenderer,
-  'digital-grid': DigitalGridRenderer,
-  'network-galaxy': NetworkGalaxyRenderer,
-  'cyber-grid': CyberGridRenderer,
-  'holographic': HolographicNetworkRenderer,
-  'data-tunnel': CyberTunnelRenderer,
-  'wireframe': WireframeRenderer,
-  'particles': ParticlesRenderer,
-  'soc': SOCRenderer,
-  'server-room': ServerRoomRenderer,
-  'digital-sphere': DigitalSphereRenderer,
-  'matrix': MatrixRainRenderer,
-  'radar': RadarNetworkRenderer,
-  'neural': NeuralNetworkRenderer,
-  'quantum': QuantumNetworkRenderer,
-  'cyber-city': CyberCityRenderer,
-  'data-center': DataCenterRenderer,
-  'deep-space': DeepSpaceRenderer,
+const STUDY_BG_MAP = {
+  'japan-focus': 'digital-grid',
+  'china-focus': 'holographic',
+  'global-focus': 'cyber-grid',
 };
 
-export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnabled }) {
+// Code-split renderers: lazy-load each renderer only when selected.
+// This keeps the initial bundle small and avoids loading all 20 renderers upfront.
+const RENDERER_MODULES = {
+  'noc-iceblue': () => import('./renderers/NOCIceBlueRenderer'),
+  'global-network': () => import('./renderers/GlobalNetworkRenderer'),
+  '3d-globe': () => import('./renderers/GlobeRenderer'),
+  'digital-grid': () => import('./renderers/DigitalGridRenderer'),
+  'network-galaxy': () => import('./renderers/NetworkGalaxyRenderer'),
+  'cyber-grid': () => import('./renderers/CyberGridRenderer'),
+  'holographic': () => import('./renderers/HolographicNetworkRenderer'),
+  'data-tunnel': () => import('./renderers/CyberTunnelRenderer'),
+  'wireframe': () => import('./renderers/WireframeRenderer'),
+  'particles': () => import('./renderers/ParticlesRenderer'),
+  'soc': () => import('./renderers/SOCRenderer'),
+  'server-room': () => import('./renderers/ServerRoomRenderer'),
+  'digital-sphere': () => import('./renderers/DigitalSphereRenderer'),
+  'matrix': () => import('./renderers/MatrixRainRenderer'),
+  'radar': () => import('./renderers/RadarNetworkRenderer'),
+  'neural': () => import('./renderers/NeuralNetworkRenderer'),
+  'quantum': () => import('./renderers/QuantumNetworkRenderer'),
+  'cyber-city': () => import('./renderers/CyberCityRenderer'),
+  'data-center': () => import('./renderers/DataCenterRenderer'),
+  'deep-space': () => import('./renderers/DeepSpaceRenderer'),
+};
+
+const RENDERERS = {};
+for (const [key, loader] of Object.entries(RENDERER_MODULES)) {
+  RENDERERS[key] = lazy(loader);
+}
+
+// Shared animation loop singleton - single rAF across all renderers
+const sharedLoop = AnimationLoop.shared();
+
+export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnabled, studyCategory, onStudyCategoryChange, focusTimerLabel, subordinate = false }) {
   const [selectedBg, setSelectedBg] = useState(bgSetting || DEFAULT_BG);
   const [previewBg, setPreviewBg] = useState(null);
   const [showStudio, setShowStudio] = useState(false);
+  const [showStudyDeck, setShowStudyDeck] = useState(false);
 
   useEffect(() => {
     if (bgSetting && bgSetting !== selectedBg) {
@@ -77,11 +74,22 @@ export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnab
     }
   }, [onBgChange]);
 
+  useEffect(() => {
+    if (studyCategory && STUDY_BG_MAP[studyCategory]) {
+      const recommended = STUDY_BG_MAP[studyCategory];
+      if (selectedBg !== recommended) {
+        setSelectedBg(recommended);
+        if (onBgChange) onBgChange(recommended);
+        try { backgroundStorage.set(recommended); } catch (e) { /* ignore */ }
+      }
+    }
+  }, [studyCategory, selectedBg, onBgChange]);
+
   const handleApply = (bgId) => {
     setSelectedBg(bgId);
     try {
       backgroundStorage.set(bgId);
-    } catch (e) {}
+    } catch (e) { /* ignore */ }
     setPreviewBg(null);
     if (onBgChange) onBgChange(bgId);
   };
@@ -90,11 +98,23 @@ export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnab
     setPreviewBg(bgId);
   };
 
+  const handleStudyCategorySelect = (categoryId) => {
+    if (onStudyCategoryChange) {
+      onStudyCategoryChange(categoryId);
+    }
+    const recommended = STUDY_BG_MAP[categoryId];
+    if (recommended) {
+      setSelectedBg(recommended);
+      if (onBgChange) onBgChange(recommended);
+      try { backgroundStorage.set(recommended); } catch (e) {}
+    }
+  };
+
   const ActiveRenderer = RENDERERS[previewBg || selectedBg] || RENDERERS['cyber-grid'];
 
   if (!animationsEnabled) {
     return (
-      <div>
+      <div className={subordinate ? 'bg-subordinate' : ''}>
         <div className="static-background" aria-hidden="true" />
         {showStudio && <BackgroundSelector />}
       </div>
@@ -102,11 +122,71 @@ export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnab
   }
 
   return (
-    <div>
-      <ActiveRenderer />
+    <div className={subordinate ? 'bg-subordinate' : ''}>
+      <Suspense fallback={<div className="static-background" aria-hidden="true" />}>
+        <ActiveRenderer sharedLoop={sharedLoop} />
+      </Suspense>
       {showStudio && <BackgroundSelector />}
+      {showStudyDeck && <StudyDeckPanel />}
     </div>
   );
+
+  function StudyDeckPanel() {
+    return (
+      <div style={{
+        position: 'fixed',
+        top: 20,
+        right: 20,
+        background: 'rgba(3,5,10,0.95)',
+        border: '1px solid rgba(0,240,255,0.5)',
+        borderRadius: 12,
+        padding: 16,
+        maxWidth: 320,
+        boxShadow: '0 0 30px rgba(0,240,255,0.3)',
+        zIndex: 200
+      }} onClick={(e) => e.stopPropagation()}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <span style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9em' }}>Global Study Deck</span>
+          <button onClick={() => setShowStudyDeck(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2em' }}>Close</button>
+        </div>
+        <div style={{ color: 'var(--muted)', fontSize: '0.75em', marginBottom: 12 }}>
+          Select study focus to configure environment
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {Object.entries(STUDY_DECK_CATEGORIES).map(([id, cat]) => (
+            <button
+              key={id}
+              onClick={() => handleStudyCategorySelect(id)}
+              style={{
+                padding: '10px 12px',
+                borderRadius: 8,
+                border: `2px solid ${studyCategory === id ? 'var(--cyan)' : 'rgba(0,240,255,0.3)'}`,
+                background: studyCategory === id ? 'rgba(0,240,255,0.15)' : 'rgba(0,0,0,0.3)',
+                color: studyCategory === id ? 'var(--cyan)' : 'var(--text)',
+                cursor: 'pointer',
+                textAlign: 'left',
+                transition: 'all 0.15s',
+              }}
+            >
+              <div style={{ fontWeight: 600, fontSize: '0.85em' }}>{cat.label}</div>
+              <div style={{ color: 'var(--muted)', fontSize: '0.7em' }}>{cat.description}</div>
+              {STUDY_BG_MAP[id] && (
+                <div style={{ color: 'var(--muted)', fontSize: '0.65em', marginTop: 4 }}>
+                  Recommended BG: {BACKGROUNDS.find(b => b.id === STUDY_BG_MAP[id])?.name || STUDY_BG_MAP[id]}
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
+        {focusTimerLabel && (
+          <div style={{ marginTop: 12, padding: '8px 12px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(0,240,255,0.2)', borderRadius: 6 }}>
+            <span style={{ color: 'var(--muted)', fontSize: '0.7em' }}>Timer: </span>
+            <span style={{ color: 'var(--cyan)', fontSize: '0.85em', fontWeight: 700 }}>{focusTimerLabel}</span>
+          </div>
+        )}
+      </div>
+    );
+  }
 
   function BackgroundSelector() {
     return (
@@ -125,8 +205,8 @@ export default function BackgroundStudio({ bgSetting, onBgChange, animationsEnab
         zIndex: 200
       }} onClick={(e) => e.stopPropagation()}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <span style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9em' }}>🎨 Background Studio</span>
-          <button onClick={() => setShowStudio(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2em' }}>✕</button>
+          <span style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9em' }}>Background Studio</span>
+          <button onClick={() => setShowStudio(false)} style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '1.2em' }}>Close</button>
         </div>
         <div style={{ color: 'var(--muted)', fontSize: '0.75em', marginBottom: 12 }}>
           Current: <strong>{BACKGROUNDS.find(b => b.id === selectedBg)?.name || selectedBg}</strong>

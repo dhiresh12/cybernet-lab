@@ -1,6 +1,18 @@
 // Lab Parsers - Extracted from LabWorkspace
 import { DEVICE_TYPES } from '../../core/constants';
 
+function inferDeviceType(name) {
+  if (!name) return 'pc';
+  const lower = String(name).toLowerCase();
+  if (lower.startsWith('r')) return 'router';
+  if (lower.startsWith('sw') || lower.startsWith('switch')) return 'switch';
+  if (lower.startsWith('fw') || lower.includes('firewall')) return 'firewall';
+  if (lower.includes('server')) return 'server';
+  if (lower.includes('ap') || lower.includes('access')) return 'accessPoint';
+  if (lower.includes('cloud')) return 'cloud';
+  return 'pc';
+}
+
 export function parseLabDevices(lab) {
   const raw = lab?.devices || lab?.topology?.devices || {};
   const result = [];

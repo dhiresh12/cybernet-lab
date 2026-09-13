@@ -8,7 +8,7 @@ const port = server.address().port;
 function request(method, path, body) {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'localhost',
+      hostname: '127.0.0.1',
       port,
       path,
       method,
@@ -95,13 +95,13 @@ describe('Lab API Quality Gate', () => {
     const started = await request('POST', '/api/labs/REF-001/start');
     const sessionId = started.body.sessionId;
 
-    const mismatchedGet = await request('GET', `/api/labs/23/active-session/${sessionId}`);
+    const mismatchedGet = await request('GET', `/api/labs/23/sessions/${sessionId}`);
     expect(mismatchedGet.status).toBe(404);
 
-    const mismatchedReset = await request('POST', `/api/labs/23/reset-session/${sessionId}`);
+    const mismatchedReset = await request('DELETE', `/api/labs/23/sessions/${sessionId}`);
     expect(mismatchedReset.status).toBe(404);
 
-    const matchingGet = await request('GET', `/api/labs/REF-001/active-session/${sessionId}`);
+    const matchingGet = await request('GET', `/api/labs/REF-001/sessions/${sessionId}`);
     expect(matchingGet.status).toBe(200);
     expect(matchingGet.body.labId).toBe('REF-001');
   });

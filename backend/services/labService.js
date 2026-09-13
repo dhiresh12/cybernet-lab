@@ -98,6 +98,7 @@ async function verifyStep(session, stepId, payload) {
     labState.completedSteps.push(stepId);
     labState.score += result.xp || 10;
     labState.currentStep++;
+    labCache.set(session.id, labState);
 
     const nextStep = lab.steps[labState.currentStep];
 
@@ -108,6 +109,7 @@ async function verifyStep(session, stepId, payload) {
       nextStep
     };
   } else {
+    labCache.set(session.id, labState);
     return {
       type: 'step:failed',
       stepId,

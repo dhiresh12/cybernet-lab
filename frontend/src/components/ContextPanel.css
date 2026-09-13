@@ -1,0 +1,127 @@
+/* Context Panel Styles */
+.context-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.context-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-3);
+  border-bottom: 1px solid var(--panel-border-subtle);
+  padding-bottom: var(--space-2);
+}
+
+.context-tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.context-tab:hover {
+  color: var(--text);
+  background: rgba(0, 229, 255, 0.05);
+  border-color: var(--panel-border-subtle);
+}
+
+.context-tab.active {
+  color: var(--primary);
+  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.15);
+}
+
+.context-tab-label {
+  font-size: var(--text-xs);
+}
+
+.context-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: var(--space-1);
+}
+
+.context-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.context-notes-input {
+  width: 100%;
+  min-height: 200px;
+  margin-top: var(--space-2);
+  padding: var(--space-3);
+  background: var(--bg);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.context-notes-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
+}
+
+/* Panel design overrides */
+.panel-design-operations .context-tab {
+  color: #526579;
+}
+
+.panel-design-operations .context-tab:hover {
+  color: #172536;
+  background: rgba(7, 89, 133, 0.08);
+}
+
+.panel-design-operations .context-tab.active {
+  color: #075985;
+  background: rgba(7, 89, 133, 0.12);
+  border-color: #075985;
+}
+
+.panel-design-operations .context-notes-input {
+  background: #ffffff;
+  border-color: #c5d3e2;
+  color: #172536;
+}
+
+.panel-design-server-room .context-tab {
+  color: #a99478;
+}
+
+.panel-design-server-room .context-tab:hover {
+  color: #fff3df;
+  background: rgba(255, 180, 84, 0.08);
+}
+
+.panel-design-server-room .context-tab.active {
+  color: #ffb454;
+  background: rgba(255, 180, 84, 0.12);
+  border-color: #ffb454;
+}
+
+.panel-design-server-room .context-notes-input {
+  background: #080b10;
+  border-color: rgba(255, 170, 74, 0.42);
+  color: #fff3df;
+}

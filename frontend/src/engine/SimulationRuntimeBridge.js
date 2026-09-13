@@ -34,7 +34,7 @@ export class SimulationRuntimeBridge {
   }
 
   unbind() {
-    this._unsubs.forEach((unsub) => { try { unsub(); } catch (_) {} });
+    this._unsubs.forEach((unsub) => { try { unsub(); } catch (_) { /* ignore */ } });
     this._unsubs = [];
     this._bound = false;
     return this;

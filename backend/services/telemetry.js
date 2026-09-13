@@ -1,8 +1,9 @@
 class TelemetryStream {
   constructor() {
-    this.clients = new Set();
+    this.deviceManager = null;
     this.telemetryHistory = [];
     this.maxHistory = 1000;
+    this.subscribers = new Map();
   }
 
   initialize(deviceManager) {
@@ -12,11 +13,14 @@ class TelemetryStream {
 
   startTelemetryCollection() {
     setInterval(async () => {
+      if (!this.deviceManager) return;
       const devices = this.deviceManager.getAllDevices();
       const telemetry = {
         timestamp: Date.now(),
         devices: devices.map(d => ({
           id: d.id,
+          hostname: d.name || d.id,
+          type: d.type,
           cpu: Math.random() * 100,
           memory: Math.random() * 100,
           temperature: 40 + Math.random() * 40,
@@ -38,24 +42,34 @@ class TelemetryStream {
     }, 1000);
   }
 
-  addClient(client) {
-    this.clients.add(client);
+  subscribe(ws, deviceIds) {
+    this.subscribers.set(ws, deviceIds || []);
   }
 
-  removeClient(client) {
-    this.clients.delete(client);
+  unsubscribe(ws) {
+    this.subscribers.delete(ws);
   }
 
   broadcast(data) {
-    this.clients.forEach(client => {
-      if (client.readyState === 1) {
+    const { devices } = data;
+    for (const [client, deviceIds] of this.subscribers.entries()) {
+      if (client.readyState !== 1) continue;
+      if (deviceIds.length === 0) {
         client.send(JSON.stringify({ type: 'telemetry', data }));
+        continue;
       }
-    });
+      const relevantDevices = devices.filter(d => deviceIds.some(id => String(d.id) === String(id)));
+      if (relevantDevices.length > 0) {
+        client.send(JSON.stringify({ type: 'telemetry', data: { ...data, devices: relevantDevices } }));
+      }
+    }
   }
 
   async getLatest() {
-    return this.telemetryHistory[this.telemetryHistory.length - 1] || null;
+    if (this.telemetryHistory.length === 0) {
+      throw new Error('No telemetry data available');
+    }
+    return this.telemetryHistory[this.telemetryHistory.length - 1];
   }
 
   getHistory(duration = 3600000) {

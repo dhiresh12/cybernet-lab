@@ -1,15 +1,17 @@
 // Globe Renderer - 3D globe visualization using Three.js
+// Uses shared AnimationLoop coordinator. Pauses when document is hidden.
 import React, { useRef, useEffect } from 'react';
+import { AnimationLoop } from '../animationLoop';
 
-export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2 }) => {
+export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2, sharedLoop = null }) => {
   const canvasRef = useRef(null);
+  const rotationRef = useRef(0);
+  const loopRef = useRef(sharedLoop || AnimationLoop.shared());
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let raf;
-    let rotation = 0;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -18,7 +20,20 @@ export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2 }) => {
     resize();
     window.addEventListener('resize', resize);
 
-    const draw = () => {
+    const nodes = [
+      { lat: 40, lon: -74, label: 'NYC' },
+      { lat: 51, lon: 0, label: 'LON' },
+      { lat: 35, lon: 139, label: 'TYO' },
+      { lat: -33, lon: 151, label: 'SYD' },
+      { lat: -23, lon: -46, label: 'SAO' },
+      { lat: 25, lon: 55, label: 'DXB' },
+      { lat: 37, lon: -122, label: 'SFO' },
+      { lat: 48, lon: 2, label: 'PAR' },
+    ];
+    const loop = loopRef.current;
+
+    const draw = (msg) => {
+      if (msg.type === 'resize') return;
       ctx.fillStyle = 'rgba(3,5,10,0.95)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -36,7 +51,7 @@ export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2 }) => {
         const y = centerY + radius * Math.sin(lat * Math.PI / 180);
         ctx.beginPath();
         for (let lon = 0; lon <= 360; lon += 5) {
-          const x = centerX + r * Math.cos((lon + rotation) * Math.PI / 180);
+          const x = centerX + r * Math.cos((lon + rotationRef.current) * Math.PI / 180);
           const py = y;
           if (lon === 0) ctx.moveTo(x, py);
           else ctx.lineTo(x, py);
@@ -49,7 +64,7 @@ export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2 }) => {
         ctx.beginPath();
         for (let lat = -90; lat <= 90; lat += 5) {
           const r = radius * Math.cos(lat * Math.PI / 180);
-          const x = centerX + r * Math.cos((lon + rotation) * Math.PI / 180);
+          const x = centerX + r * Math.cos((lon + rotationRef.current) * Math.PI / 180);
           const y = centerY + radius * Math.sin(lat * Math.PI / 180);
           if (lat === -90) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
@@ -66,32 +81,25 @@ export const GlobeRenderer = ({ opacity = 0.9, zIndex = -2 }) => {
 
       // Nodes
       ctx.fillStyle = 'rgba(0, 229, 255, 0.8)';
-      const nodes = [
-        { lat: 40, lon: -74, label: 'NYC' },
-        { lat: 51, lon: 0, label: 'LON' },
-        { lat: 35, lon: 139, label: 'TYO' },
-        { lat: -33, lon: 151, label: 'SYD' },
-        { lat: -23, lon: -46, label: 'SAO' },
-        { lat: 25, lon: 55, label: 'DXB' },
-        { lat: 37, lon: -122, label: 'SFO' },
-        { lat: 48, lon: 2, label: 'PAR' },
-      ];
 
       nodes.forEach(node => {
-        const x = centerX + radius * Math.cos(node.lat * Math.PI / 180) * Math.cos((node.lon + rotation) * Math.PI / 180);
+        const x = centerX + radius * Math.cos(node.lat * Math.PI / 180) * Math.cos((node.lon + rotationRef.current) * Math.PI / 180);
         const y = centerY + radius * Math.sin(node.lat * Math.PI / 180);
         ctx.beginPath();
         ctx.arc(x, y, 4, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      rotation += 0.002;
-      raf = requestAnimationFrame(draw);
+      rotationRef.current += 0.002;
     };
-    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
+    const unsubscribe = loop.subscribe(draw);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', resize);
+    };
+  }, [loopRef.current]);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
 };

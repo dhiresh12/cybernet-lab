@@ -5,12 +5,12 @@ import labSmallOffice from './reference-labs/lab-small-office-lan.json';
 import labVlans from './reference-labs/lab-vlans-sales-accounts.json';
 import { isQuarantined } from './labQualityService.js';
 import { buildCatalogManifest } from './labCatalogManifest.js';
+import { getLabStudyStrategy } from './labStudyStrategy.js';
 
 // Reference labs (already in canonical format)
 const referenceLabs = [labSmallOffice, labVlans];
 
 // Cache for labs data
-let labsDataPromise = null;
 let labsManifest = null;
 let catalogLabsPromise = null;
 
@@ -74,6 +74,7 @@ function toCatalogLab(lab) {
       troubleshooting: errors.length > 0,
       questions: questions.length >= 15
     },
+    studyStrategy: getLabStudyStrategy(lab),
     labGuide: null
   };
 }
@@ -85,14 +86,6 @@ async function loadLabsManifest() {
     labsManifest = module.default;
   }
   return labsManifest;
-}
-
-// Full labs data - loaded only when detailed lab info is needed
-async function loadFullLabsData() {
-  if (!labsDataPromise) {
-    labsDataPromise = import('./labs.procedural.json').then(module => module.default);
-  }
-  return labsDataPromise;
 }
 
 async function getCatalogLabsData() {
@@ -134,11 +127,13 @@ export async function getLabById(id) {
   if (!catalogLab) return null;
 
   try {
-    const fullData = await loadFullLabsData();
-    const fullLab = fullData.find(l => String(l.id) === String(id));
+    const categoryId = catalogLab.category;
+    if (!categoryId) return catalogLab;
+    const module = await import(`./labs/${categoryId}.json`);
+    const fullLab = module.default?.find(l => String(l.id) === String(id));
     if (fullLab) return normalizeLab(fullLab);
   } catch (e) {
-    console.warn('Failed to load full lab data:', e);
+    console.warn('Failed to load category lab data:', e);
   }
 
   return catalogLab;

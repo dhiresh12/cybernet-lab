@@ -284,12 +284,13 @@ export function applyStateEvent(state, event) {
       newState.faults.push(payload);
       break;
       
-    case LAB_RUNTIME_EVENTS.FAULT_REMOVED:
+    case LAB_RUNTIME_EVENTS.FAULT_REMOVED: {
       const faultIndex = newState.faults.findIndex(f => f.id === payload.id);
       if (faultIndex >= 0) {
         newState.faults.splice(faultIndex, 1);
       }
       break;
+    }
       
     case LAB_RUNTIME_EVENTS.LOG_CREATED:
       newState.logs.push({ timestamp: Date.now(), ...payload });

@@ -4,9 +4,13 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 import { generateNodes, generateArcs } from './globeData';
+import { AnimationLoop } from '../backgrounds/animationLoop';
 
 const GLOBE_RADIUS = 1.5;
 const NODE_COUNT = 28;
+const MAX_NODE_COUNT_LOW_END = 14;
+const MAX_STARS_LOW_END = 400;
+const MAX_STARS_HIGH_END = 2000;
 
 const DESIGN_TOKENS = {
   primary: '#00E5FF',
@@ -35,11 +39,25 @@ const NODE_TYPE_SIZES = {
   endpoint: 0.028,
 };
 
-const Atmosphere = () => {
+/** Detect low-end device for adaptive particle counts */
+function isLowEndDevice() {
+  try {
+    const nav = typeof navigator !== 'undefined' ? navigator : {};
+    const hardwareConcurrency = nav.hardwareConcurrency || 4;
+    const deviceMemory = nav.deviceMemory || 4;
+    const isTouch = 'ontouchstart' in window || nav.maxTouchPoints > 0;
+    return hardwareConcurrency < 4 || deviceMemory < 4 || (isTouch && hardwareConcurrency < 6);
+  } catch {
+    return false;
+  }
+}
+
+const Atmosphere = ({ paused }) => {
   const meshRef = useRef();
   const materialRef = useRef();
   
   useFrame((state) => {
+    if (paused) return;
     if (materialRef.current) {
       materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
     }
@@ -344,6 +362,8 @@ const DataPulses = ({ nodes, arcs, paused }) => {
 
   useEffect(() => {
     if (paused || arcs.length === 0) return;
+    const lowEnd = isLowEndDevice();
+    const intervalMs = lowEnd ? 1200 : 400; // Reduce pulse frequency on low-end
     const interval = setInterval(() => {
       if (paused) return;
       const arc = arcs[Math.floor(Math.random() * arcs.length)];
@@ -364,7 +384,7 @@ const DataPulses = ({ nodes, arcs, paused }) => {
         fromNode,
         toNode,
       }]);
-    }, 400);
+    }, intervalMs);
     return () => clearInterval(interval);
   }, [arcs, nodes, paused]);
 
@@ -394,7 +414,9 @@ const Scene = ({
   onNodeHover, 
   onNodeSelect,
   controlsRef,
-  performanceMode
+  performanceMode,
+  attackArcs = [],
+  compromisedNodeIds = []
 }) => {
   const { camera } = useThree();
   
@@ -403,6 +425,9 @@ const Scene = ({
     camera.lookAt(0, 0, 0);
   }, [camera]);
 
+  // Reduce star count on low-end devices
+  const starCount = performanceMode ? MAX_STARS_LOW_END : MAX_STARS_HIGH_END;
+
   return (
     <>
       <ambientLight color={DESIGN_TOKENS.primaryBright} intensity={0.35} />
@@ -410,7 +435,7 @@ const Scene = ({
       <directionalLight position={[-5, -3, -5]} color={DESIGN_TOKENS.primaryDim} intensity={0.4} />
       <pointLight position={[0, 0, 0]} color={DESIGN_TOKENS.primary} intensity={0.3} />
       
-      <Atmosphere />
+      <Atmosphere paused={paused} />
       <GlobeSurface paused={paused} />
       
       <group name="nodes">
@@ -423,6 +448,7 @@ const Scene = ({
             onPointerOver={(e) => { e.stopPropagation(); onNodeHover(node.id); }}
             onPointerOut={() => onNodeHover(null)}
             onClick={(e) => { e.stopPropagation(); onNodeSelect(node.id); }}
+            paused={paused}
           />
         ))}
       </group>
@@ -432,6 +458,48 @@ const Scene = ({
           {arcs.map((arc, i) => (
             <NetworkArc key={i} from={nodes[arc.from].position} to={nodes[arc.to].position} intensity={arc.intensity} />
           ))}
+        </group>
+      )}
+      
+      {attackArcs.length > 0 && (
+        <group name="attack-arcs">
+          {attackArcs.map((arc, i) => {
+            const fromNode = nodes.find(n => n.id === arc.source || n.label === arc.source);
+            const toNode = nodes.find(n => n.id === arc.target || n.label === arc.target);
+            if (!fromNode || !toNode) return null;
+            return (
+              <line key={'attack-' + i} geometry={new THREE.BufferGeometry().setFromPoints(
+                new THREE.QuadraticBezierCurve3(
+                  new THREE.Vector3(...fromNode.position),
+                  new THREE.Vector3(...fromNode.position).add(new THREE.Vector3(...toNode.position)).multiplyScalar(0.5).normalize().multiplyScalar(GLOBE_RADIUS * 1.35),
+                  new THREE.Vector3(...toNode.position)
+                ).getPoints(64)
+              )}>
+                <lineBasicMaterial color={DESIGN_TOKENS.error} transparent opacity={0.9} blending={THREE.AdditiveBlending} depthWrite={false} />
+              </line>
+            );
+          })}
+        </group>
+      )}
+      
+      {compromisedNodeIds.length > 0 && (
+        <group name="compromised-nodes">
+          {compromisedNodeIds.map((nodeId, i) => {
+            const node = nodes.find(n => n.id === nodeId);
+            if (!node) return null;
+            return (
+              <group key={'compromised-' + i} position={node.position}>
+                <mesh>
+                  <sphereGeometry args={[NODE_TYPE_SIZES[node.type] || NODE_TYPE_SIZES.edge * 1.5, 16, 16]} />
+                  <meshStandardMaterial color={DESIGN_TOKENS.error} emissive={DESIGN_TOKENS.error} emissiveIntensity={1.5} metalness={0.3} roughness={0.4} />
+                </mesh>
+                <mesh scale={[1 + Math.sin(Date.now() * 0.01) * 0.3, 1 + Math.sin(Date.now() * 0.01) * 0.3, 1 + Math.sin(Date.now() * 0.01) * 0.3]}>
+                  <sphereGeometry args={[(NODE_TYPE_SIZES[node.type] || NODE_TYPE_SIZES.edge * 1.5) * 2.5, 16, 16]} />
+                  <meshBasicMaterial color={DESIGN_TOKENS.error} transparent opacity={0.25} depthWrite={false} blending={THREE.AdditiveBlending} />
+                </mesh>
+              </group>
+            );
+          })}
         </group>
       )}
       
@@ -452,7 +520,7 @@ const Scene = ({
         enableDamping={true}
       />
       
-      {!performanceMode && <Stars radius={50} depth={50} count={2000} factor={4} fade speed={1} />}
+      {!performanceMode && <Stars radius={50} depth={50} count={starCount} factor={4} fade speed={1} />}
     </>
   );
 };
@@ -467,6 +535,8 @@ const GlobeVisualization = forwardRef(({
   paused = false,
   performanceMode = false,
   showInfoPanel = true,
+  attackArcs = [],
+  compromisedNodeIds = [],
 }, ref) => {
   const [nodes] = useState(() => customNodes || generateNodes());
   const [arcs] = useState(() => customArcs || generateArcs(customNodes || generateNodes()));
@@ -476,6 +546,10 @@ const GlobeVisualization = forwardRef(({
   const [contextLost, setContextLost] = useState(false);
   const controlsRef = useRef();
   const canvasRef = useRef();
+
+  // Adaptive node count based on device capability
+  const lowEnd = isLowEndDevice();
+  const effectiveNodeCount = lowEnd ? Math.floor(NODE_COUNT * 0.5) : NODE_COUNT;
 
   useEffect(() => {
     const canvas = document.createElement('canvas');
@@ -493,6 +567,29 @@ const GlobeVisualization = forwardRef(({
 
   const handleContextRestored = useCallback(() => {
     setContextLost(false);
+  }, []);
+
+  // Pause-when-hidden: stop rendering when document is hidden to save CPU/GPU
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.hidden) {
+        // Pause: cancel any pending frame via the shared loop
+        const loop = AnimationLoop.shared();
+        if (loop._frameHandle) {
+          cancelAnimationFrame(loop._frameHandle);
+          loop._frameHandle = null;
+        }
+      } else {
+        // Resume: restart the shared loop
+        const loop = AnimationLoop.shared();
+        if (loop._running && !loop._frameHandle) {
+          loop._lastTime = performance.now();
+          loop._frameHandle = requestAnimationFrame(loop._loop.bind(loop));
+        }
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
   useImperativeHandle(ref, () => ({
@@ -575,6 +672,8 @@ const GlobeVisualization = forwardRef(({
           onNodeSelect={handleNodeSelect}
           controlsRef={controlsRef}
           performanceMode={performanceMode}
+          attackArcs={attackArcs}
+          compromisedNodeIds={compromisedNodeIds}
         />
       </Canvas>
       

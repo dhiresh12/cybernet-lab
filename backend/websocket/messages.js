@@ -89,7 +89,10 @@ async function handleStartLab(session, labId) {
 
 async function handleVerifyStep(session, stepId, payload) {
   const labState = labCache.get(session.id);
-  if (!labState) return;
+  if (!labState) {
+    session.ws.send(JSON.stringify({ type: 'error', message: 'No active lab session' }));
+    return;
+  }
 
   const result = await verifyStep(session, stepId, payload);
   if (result.error) {

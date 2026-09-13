@@ -1,109 +1,105 @@
-// Radar Renderer
+// Radar Network Renderer - Uses shared AnimationLoop coordinator.
 import React, { useRef, useEffect } from 'react';
+import { AnimationLoop } from '../animationLoop';
 
-export const RadarNetworkRenderer = ({ opacity = 0.8, zIndex = -2 }) => {
+export const RadarNetworkRenderer = ({ opacity = 0.8, zIndex = -2, sharedLoop = null }) => {
   const canvasRef = useRef(null);
+  const nodesRef = useRef([]);
+  const loopRef = useRef(sharedLoop || AnimationLoop.shared());
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let raf;
-    let sweepAngle = 0;
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      const radius = Math.min(cx, cy) * 0.7;
+      const nodes = [];
+      const count = 12;
+      for (let i = 0; i < count; i++) {
+        const angle = (i / count) * Math.PI * 2;
+        const r = radius * (0.3 + Math.random() * 0.7);
+        nodes.push({
+          x: cx + Math.cos(angle) * r,
+          y: cy + Math.sin(angle) * r,
+          pulsePhase: Math.random() * Math.PI * 2,
+          size: Math.random() * 3 + 2,
+        });
+      }
+      nodesRef.current = nodes;
     };
     resize();
     window.addEventListener('resize', resize);
 
-    const contacts = Array.from({ length: 12 }, () => ({
-      angle: Math.random() * Math.PI * 2,
-      distance: 0.3 + Math.random() * 0.6,
-      strength: Math.random(),
-      speed: (Math.random() - 0.5) * 0.0002,
-      size: Math.random() * 6 + 4,
-    }));
+    const loop = loopRef.current;
+    let angle = 0;
 
-    const draw = () => {
-      ctx.fillStyle = 'rgba(0,5,15,0.98)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    const draw = (msg) => {
+      if (msg.type === 'resize') return;
+      const { delta } = msg;
+      angle += delta * 1.5;
 
       const cx = canvas.width / 2;
       const cy = canvas.height / 2;
-      const maxR = Math.min(cx, cy) * 0.85;
+      const radius = Math.min(cx, cy) * 0.7;
 
-      // Range rings
+      ctx.fillStyle = 'rgba(3,5,10,0.95)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Radar circles
       ctx.strokeStyle = 'rgba(0, 229, 255, 0.1)';
       ctx.lineWidth = 1;
-      for (let r = 1; r <= 4; r++) {
+      for (let r = radius / 4; r <= radius; r += radius / 4) {
         ctx.beginPath();
-        ctx.arc(cx, cy, maxR * r / 4, 0, Math.PI * 2);
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
         ctx.stroke();
       }
 
-      // Bearing lines
-      for (let b = 0; b < 360; b += 30) {
-        const rad = b * Math.PI / 180;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(cx + Math.cos(rad) * maxR, cy + Math.sin(rad) * maxR);
-        ctx.stroke();
-      }
+      // Cross lines
+      ctx.beginPath();
+      ctx.moveTo(cx - radius, cy);
+      ctx.lineTo(cx + radius, cy);
+      ctx.moveTo(cx, cy - radius);
+      ctx.lineTo(cx, cy + radius);
+      ctx.stroke();
 
       // Sweep
-      sweepAngle += 0.01;
-      if (sweepAngle > Math.PI * 2) sweepAngle = 0;
-
-      const sweepGradient = ctx.createLinearGradient(
-        cx, cy,
-        cx + Math.cos(sweepAngle) * maxR,
-        cy + Math.sin(sweepAngle) * maxR
-      );
-      sweepGradient.addColorStop(0, 'rgba(0, 229, 255, 0.4)');
-      sweepGradient.addColorStop(1, 'transparent');
-      ctx.fillStyle = sweepGradient;
+      ctx.strokeStyle = 'rgba(0, 229, 255, 0.4)';
+      ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(cx, cy);
-      ctx.arc(cx, cy, maxR, sweepAngle - 0.05, sweepAngle);
+      ctx.lineTo(cx + Math.cos(angle) * radius, cy + Math.sin(angle) * radius);
+      ctx.stroke();
+
+      // Sweep trail
+      ctx.fillStyle = 'rgba(0, 229, 255, 0.03)';
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, radius, angle - 0.5, angle);
       ctx.closePath();
       ctx.fill();
 
-      // Contacts
-      contacts.forEach(c => {
-        c.angle += c.speed;
-        const x = cx + Math.cos(c.angle) * maxR * c.distance;
-        const y = cy + Math.sin(c.angle) * maxR * c.distance;
-        
-        // Blip
-        const blipAlpha = 0.5 + Math.sin(Date.now() * 0.005 + c.angle) * 0.3;
-        ctx.fillStyle = `rgba(0, 229, 255, ${blipAlpha})`;
+      const nodes = nodesRef.current;
+      nodes.forEach(n => {
+        const pulse = Math.sin(msg.timestamp * 3 + n.pulsePhase) * 0.5 + 0.5;
+        ctx.fillStyle = `rgba(0, 229, 255, ${0.3 + pulse * 0.5})`;
         ctx.beginPath();
-        ctx.arc(x, y, c.size, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, n.size * pulse, 0, Math.PI * 2);
         ctx.fill();
-
-        // Trail
-        ctx.strokeStyle = `rgba(0, 229, 255, ${0.2 * c.strength})`;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(cx, cy);
-        ctx.lineTo(x, y);
-        ctx.stroke();
       });
-
-      // Center
-      ctx.fillStyle = 'rgba(0, 229, 255, 0.3)';
-      ctx.beginPath();
-      ctx.arc(cx, cy, 8, 0, Math.PI * 2);
-      ctx.fill();
-
-      raf = requestAnimationFrame(draw);
     };
-    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
+    const unsubscribe = loop.subscribe(draw);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', resize);
+    };
+  }, [loopRef.current]);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
 };

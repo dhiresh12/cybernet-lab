@@ -1,33 +1,71 @@
 # CyberNet Lab
 
-High-fidelity autonomous networking virtual laboratory. 249 labs across 40+ categories with a stateful Cisco IOS-style CLI, real-time verification, and a NOC/SOC control-room interface.
+High-fidelity autonomous networking virtual laboratory. 247 labs across 30+ categories with a stateful Cisco IOS-style CLI, real-time verification, and a NOC/SOC control-room interface.
 
 **Project path:** `C:\Users\dhiresh\OneDrive\Desktop\code\learning\cybernet-lab`
 
-## Prerequisites
+---
 
-- Node.js 18+
-- npm 8+
-- Modern browser with WebGL 2.0 support
-- Windows/macOS/Linux
+## Table of Contents
+- [Quick Start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [npm Scripts](#npm-scripts)
+- [Environment Variables](#environment-variables)
+- [Production Deployment](#production-deployment)
+- [Docker Deployment](#docker-deployment)
+- [Kubernetes Deployment](#kubernetes-deployment)
+- [Architecture](#architecture)
+- [Testing](#testing)
+- [Build](#build)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
+---
 
 ## Quick Start
 
 ```bash
-# 1. Install dependencies
-npm install
+# 1. Clone and install dependencies
+git clone https://github.com/your-org/cybernet-lab.git
+cd cybernet-lab
+npm ci
 
-# 2. Start backend (Express + WebSocket, port 3000)
+# 2. Configure environment
+Copy-Item .env.example .env   # Windows PowerShell
+# cp .env.example .env        # macOS / Linux
+# Edit .env — set JWT_SECRET to a 64-char random string
+
+# 3. Start database services (Docker Compose)
+docker compose up -d postgres redis
+# Or start a local Postgres + Redis instance and update DATABASE_URL / REDIS_URL
+
+# 4. Run database migrations (if applicable)
+# node backend/scripts/migrate.js
+
+# 5. Start backend (Express + WebSocket, port 3000)
 npm run backend
 
-# 3. In another terminal, start frontend (Vite, port 5173)
+# 6. In another terminal, start frontend (Vite, port 5173)
 npm run frontend
 
-# 4. Open browser
+# 7. Open browser
 http://localhost:5173
 ```
 
-**Windows users:** You can also run `start.bat` from the repository root to install dependencies, build, and start both servers.
+**Windows shortcut:** Run `start.bat` from the repository root to install, build, and start both servers.
+
+---
+
+## Prerequisites
+
+- Node.js 20+ and npm 9+
+- PostgreSQL 14+ (local or managed)
+- Redis 7+ (local or managed)
+- Docker and Docker Compose (for containerized deployment)
+- Modern browser with WebGL 2.0 support
+- Windows/macOS/Linux
+
+---
 
 ## npm Scripts
 
@@ -37,126 +75,128 @@ http://localhost:5173
 | `npm run backend` | Start Express backend only |
 | `npm run frontend` | Start Vite dev server only |
 | `npm run build` | Build frontend for production |
-| `npm run start` | Start production backend (serves `dist/`) |
+| `npm run start` | Start production backend |
 | `npm test` | Run Jest tests |
-| `npm run package` | Package for deployment |
+| `npm run lint` | Run ESLint |
+| `npm run docker:build` | Build Docker image |
+| `npm run docker:up` | Start Docker Compose stack |
+| `npm run docker:down` | Stop Docker Compose stack |
+| `npm run k8s:apply` | Apply Kubernetes manifests |
+| `npm run k8s:delete` | Delete Kubernetes resources |
+
+---
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` and adjust as needed.
+Copy `.env.example` to `.env` and fill in production values. Required variables are marked with **Yes**.
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `NODE_ENV` | Yes | `development` | Set to `production` for deployment |
+| `PORT` | Yes | `3000` | Backend HTTP/WebSocket port |
+| `GRPC_PORT` | Yes | `50051` | gRPC telemetry port |
+| `DATABASE_URL` | Yes | — | PostgreSQL connection string (e.g. `postgresql://user:pass@host:5432/db`) |
+| `DB_HOST` | No | `localhost` | PostgreSQL host |
+| `DB_PORT` | No | `5432` | PostgreSQL port |
+| `DB_NAME` | No | `cybernet_lab` | PostgreSQL database name |
+| `DB_USER` | No | `postgres` | PostgreSQL user |
+| `DB_PASSWORD` | No | `postgres` | PostgreSQL password |
+| `REDIS_URL` | Yes | — | Redis connection string (e.g. `redis://host:6379`) |
+| `REDIS_HOST` | No | `localhost` | Redis host |
+| `REDIS_PORT` | No | `6379` | Redis port |
+| `JWT_SECRET` | **Yes** | — | 64-char random string for signing |
+| `ALLOWED_ORIGINS` | Yes | `http://localhost:5173` | Comma-separated CORS origins for production |
+| `RATE_LIMIT_WINDOW_MS` | No | `60000` | Rate limit window |
+| `RATE_LIMIT_MAX_REQUESTS` | No | `60` | Max requests per window |
+| `LOG_LEVEL` | No | `info` | Log level: error, warn, info, debug |
+| `LOG_FILE_PATH` | No | `./logs/cybernet-lab.log` | Log file path |
+
+### Frontend (Vite injects these at build time)
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `PORT` | `3000` | Backend HTTP/WebSocket port |
-| `REDIS_URL` | _unset_ | Optional Redis cache URL (falls back to in-memory NodeCache) |
+| `VITE_API_BASE_URL` | `http://localhost:3000` | Backend API base URL |
+| `VITE_WS_URL` | `ws://localhost:3000` | WebSocket URL |
 
-## Project Structure
+> **Security:** Never commit `.env` to version control. Use a secrets manager (Render Secrets, AWS Secrets Manager, Kubernetes Secrets) in production.
 
-```
-cybernet-lab/
-├── frontend/                    # React + Vite frontend (actual source root)
-│   ├── index.html
-│   ├── vite.config.js
-│   └── src/
-│       ├── main.jsx             # React entry point
-│       ├── App.jsx              # Root shell with view routing
-│       ├── styles/global.css    # Design tokens & NOC theme
-│       ├── components/          # Legacy/dead UI components (not imported by active build)
-│       │   ├── LabWorkspace.jsx  # Legacy lab workspace (~1352 lines, dead)
-│       │   ├── Terminal.jsx      # Legacy terminal (dead)
-│       │   ├── Dashboard.jsx     # Legacy dashboard (dead)
-│       │   ├── NetworkVisualization.jsx  # Legacy visualization (dead)
-│       │   ├── BackgroundStudio.jsx  # Legacy background studio (dead)
-│       │   ├── MusicPlayer.jsx   # Legacy music player (dead)
-│       │   ├── Header.jsx        # Header
-│       │   ├── Nav.jsx           # Navigation
-│       │   ├── Inspector.jsx     # Device inspector panel
-│       │   ├── StepPanel.jsx     # Step instructions panel
-│       │   ├── ToolCabinet.jsx   # Tool selection
-│       │   ├── Workbench.jsx     # Main workbench area
-│       │   ├── FocusMode.jsx     # Distraction-free mode
-│       │   ├── EngineerMode.jsx  # Quick task launcher
-│       │   ├── LearningRoadmap.jsx
-│       │   ├── CommandLibrary.jsx
-│       │   ├── LabStepViewer.jsx
-│       │   ├── ErrorBoundary.jsx
-│       │   └── *.css             # Component styles
-│       ├── engine/              # Core engines
-│       │   ├── LabEngine.js      # WebSocket lab orchestration (uses ConnectionManager)
-│       │   ├── connectionManager.js  # WebSocket connection management with reconnection & local mode
-│       │   ├── NetworkSimulationEngine.js
-│       │   ├── LabStateEngine.js
-│       │   ├── LabRuntimeState.js
-│       │   ├── WorkflowEngine.js
-│       │   └── TroubleshootingEngine.js
-│       ├── features/            # Feature modules
-│       │   ├── lab-workspace/   # LabWorkspace feature (ACTIVE, ~287 lines)
-│       │   │   ├── LabWorkspace.jsx
-│       │   │   ├── LabWorkspaceComponents.jsx
-│       │   │   ├── labParsers.js
-│       │   │   ├── useLabSimulation.js
-│       │   │   ├── useLabTerminal.js
-│       │   │   ├── useLabTopology.js
-│       │   │   ├── useLabVerification.js
-│       │   │   ├── useLabTroubleshooting.js
-│       │   │   ├── useLabTimer.js
-│       │   │   └── __tests__/
-│       │   ├── dashboard/       # Dashboard feature
-│       │   ├── cli/             # CLI command handlers
-│       │   ├── globe/           # 3D globe visualization
-│       │   ├── backgrounds/     # 20 background themes
-│       │   ├── music/           # Audio feature
-│       │   └── simulator/       # Network simulation state
-│       │       ├── index.js
-│       │       ├── verificationEngine.js
-│       │       └── troubleshootingEngine.js
-│       ├── core/                 # Shared utilities
-│       │   ├── storage/          # localStorage helpers
-│       │   ├── constants/        # App constants
-│       │   ├── utils/            # Utility functions
-│       │   └── types/            # Type definitions
-│       ├── app/                  # App views
-│       │   └── views/
-│       │       ├── LabExplorerView.jsx
-│       │       └── LabDetailView.jsx
-│       ├── data/                 # Lab data
-│       │   ├── labs.procedural.json  # 247 labs (152K lines)
-│       │   ├── labRegistry.js   # Lab registration
-│       │   ├── LabModel.js      # Canonical lab schema
-│       │   ├── labNormalizer.js # Legacy → canonical converter
-│       │   └── labs/            # Category-specific labs
-│       │       ├── index.json
-│       │       └── *.json
-│       ├── store/                # State management
-│       │   └── labStore.js       # Zustand store
-│       └── jest.config.js        # Frontend Jest config
-├── backend/                     # Express + WebSocket backend
-│   ├── server.js                # Entry point
-│   ├── state/state.js           # Shared state singleton
-│   ├── data/labLoader.js        # Lab data loading
-│   ├── services/                # Business logic
-│   │   ├── labService.js
-│   │   ├── verificationService.js
-│   │   └── labQualityService.js
-│   ├── routes/apiRoutes.js      # REST API handlers
-│   └── websocket/               # WebSocket handling
-│       ├── connection.js
-│       └── messages.js
-├── simulation/                  # Backend verification logic
-│   ├── verifiers.js
-│   └── packetTracer.js
-├── docs/                        # Developer documentation
-├── deploy/                      # Deployment configs
-├── package.json
-├── vite.config.js               # Root Vite config (legacy, use frontend/)
-├── start.bat                    # Windows startup script
-├── .env.example                 # Environment variables template
-├── MENU.md                      # Architecture map
-├── PROJECT_CHECKPOINT.md        # Phase history
-└── PROJECT_CONTEXT.md           # Project knowledge
+---
+
+## Production Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for full step-by-step guides for Render, Vercel, Docker Compose, Kubernetes, and AWS EC2.
+
+Quick links:
+- [Render guide](./DEPLOYMENT.md#option-1-render)
+- [Vercel + Render guide](./DEPLOYMENT.md#option-2-vercel--render)
+- [Docker Compose guide](./DEPLOYMENT.md#option-3-docker-compose)
+- [Kubernetes guide](./DEPLOYMENT.md#option-4-kubernetes)
+- [AWS EC2 guide](./DEPLOYMENT.md#option-5-aws-ec2)
+
+```bash
+# Docker Compose (self-hosted)
+docker compose up -d --build
+curl http://localhost:3000/api/health/live
+
+# Kubernetes
+kubectl apply -f k8s/
+kubectl get pods -n cybernet-lab
 ```
 
-> **Note:** A few legacy files exist at the repository root (`App.jsx`, `main.jsx`, `Dashboard.jsx`, etc.). They are not used by the current build. The actual source lives in `frontend/src/`.
+---
+
+## Smoke Testing
+
+After every deployment, run the checklist in [SMOKE_TEST.md](./SMOKE_TEST.md) to verify all systems are operational.
+
+---
+
+## Docker Deployment
+
+```bash
+# Build image
+docker build -t cybernet-lab:latest .
+
+# Start stack
+docker compose up -d
+
+# Check health
+curl http://localhost:3000/api/health/live
+
+# Stop stack
+docker compose down
+```
+
+---
+
+## Kubernetes Deployment
+
+```bash
+# Create namespace and secrets
+kubectl create namespace cybernet-lab
+
+kubectl create secret generic cybernet-secrets \
+  --from-literal=db-user=postgres \
+  --from-literal=db-password=<PASSWORD> \
+  --from-literal=db-name=cybernet_lab \
+  --from-literal=jwt-secret=<64_CHAR_SECRET> \
+  -n cybernet-lab
+
+kubectl create configmap cybernet-config \
+  --from-literal=cors-origin=https://cybernet-lab.example.com \
+  --from-literal=log-level=info \
+  -n cybernet-lab
+
+# Apply all manifests
+kubectl apply -f k8s/
+
+# Verify
+kubectl get pods -n cybernet-lab
+kubectl get services -n cybernet-lab
+kubectl get ingress -n cybernet-lab
+```
+
+---
 
 ## Architecture
 
@@ -165,73 +205,72 @@ cybernet-lab/
 - Zustand for global state
 - Feature-based organization under `frontend/src/features/`
 - Custom hooks for simulation, topology, verification, terminal
+- 20 background renderers via `BackgroundStudio.jsx`
+- 3D SOC visualization via Three.js / R3F Globe
 
 ### Backend
 - Express REST API + WebSocket on the same port
-- In-memory session state via NodeCache
+- In-memory session state with NodeCache fallback
 - Modular service layer (`services/`, `routes/`, `websocket/`)
+- Structured JSON logging to `logs/cybernet-lab.log`
+- Graceful shutdown on SIGINT / SIGTERM
+- Health checks: `/api/health`, `/api/health/live`, `/api/health/ready`
 
 ### Engines
-- `LabEngine` — WebSocket lab orchestration (backend path; NOT connected to the active practical learner workflow in `features/lab-workspace/`)
-- `NetworkSimulationEngine` — CLI simulation + device state (authoritative source for practical learner lab execution)
-- `LabStateEngine` — Pure state management functions for canonical runtime state
-- `LabRuntimeState` — Immutable runtime state schema and helpers
-- `WorkflowEngine` — Step progression & verification gate (exists but not integrated into LabWorkspace)
+- `LabEngine` — WebSocket lab orchestration
+- `NetworkSimulationEngine` — CLI simulation + device state (authoritative)
+- `LabStateEngine` — Pure state management
+- `LabRuntimeState` — Immutable runtime state schema
+- `WorkflowEngine` — Step progression & verification gate
 - `TroubleshootingEngine` — Fault injection scenarios
-- `SimulationRuntimeBridge` — Controlled bridge between NetworkSimulationEngine and LabRuntimeState
 
 ### State Ownership
-- **Practical learner device state**: `NetworkSimulationEngine.devices` (authoritative for REF-001 and active lab execution)
-- **LabWorkspace local state**: `canonicalDeviceStates` synced from NetworkSimulationEngine via `useLabSimulation`
-- **Canonical runtime state**: `LabRuntimeState` (via `LabStateEngine` helpers) — used by `SimulationRuntimeBridge` and `LabEngine`, but NOT the active practical learner path
-- **Backend session state**: `backend/state/state.js` (`labCache`)
+- **Practical learner device state**: `NetworkSimulationEngine.devices`
+- **LabWorkspace local state**: `canonicalDeviceStates`
+- **Backend session state**: `backend/state/state.js`
 - **Global UI state**: Zustand `labStore.js`
 
 ### Practical Learner Workflow (REF-001)
-The active runtime path for practical labs is:
 ```
 LabWorkspace → useLabSimulation → NetworkSimulationEngine
-                                    ↓
-                          device:stateChanged event
-                                    ↓
-                          syncDeviceStates → canonicalDeviceStates
-                                    ↓
-                    useLabTerminal / useLabTopology / useLabVerification
+                                     ↓
+                           device:stateChanged event
+                                     ↓
+                           syncDeviceStates → canonicalDeviceStates
+                                     ↓
+                     useLabTerminal / useLabTopology / useLabVerification
 ```
-`LabEngine` and `SimulationRuntimeBridge` are validated by unit tests but are NOT wired into the active practical learner workflow.
 
-### Verification
-- Frontend verification (`useLabVerification`) reads from `canonicalDeviceStates`
-- Backend verification (`simulation/verifiers.js`) supports: `cli`, `config`, `topology`, `typing`, `option`
-- Backend does NOT currently support: `state_check`, `ping`
-- Frontend `verifyPing` is a placeholder that returns success without actual connectivity checks
+---
 
 ## REST API
 
 ```
-GET  /api/labs                    # List all labs
-GET  /api/labs/:id               # Get lab by ID
-POST /api/labs/:id/start         # Start lab session
-GET  /api/labs/:id/active-session/:sessionId
-POST /api/labs/:id/reset-session/:sessionId
-GET  /api/user/labs/:labId/state # Get saved lab state
-POST /api/user/labs/:labId/state # Save lab state
-GET  /api/user/progress          # Get user progress
+GET  /api/health                   # Overall health
+GET  /api/health/live              # Liveness probe
+GET  /api/health/ready             # Readiness probe
+GET  /api/labs                     # List all 247 labs
+GET  /api/labs/:id                 # Get lab by ID
+POST /api/labs/:id/start           # Start lab session
+GET  /api/labs/:id/sessions/:id    # Get active session
+DELETE /api/labs/:id/sessions/:id  # Reset session
+GET  /api/labs/:id/state           # Get saved lab state
+PUT  /api/labs/:id/state           # Save lab state
+GET  /api/progress                 # Get user progress
+GET  /api/progress/:learnerId/available    # Available labs
+GET  /api/progress/:learnerId/locked       # Locked labs
+GET  /api/progress/:learnerId              # Learner progress
+POST /api/progress/:learnerId/start/:labId # Start lab
+POST /api/progress/:learnerId/complete/:labId # Complete lab
+GET  /api/tickets                  # List tickets
+POST /api/tickets                  # Create ticket
+GET  /api/tickets/:id              # Get ticket
+PUT  /api/tickets/:id/status       # Update ticket status
+DELETE /api/tickets/:id            # Delete ticket
+... (see API_DOCUMENTATION.md for full list)
 ```
 
-## WebSocket Messages
-
-```
-lab:start             → lab:started
-lab:step:verify       → step:passed | step:failed
-lab:hint              → hint
-device:config         → device:updated
-device:state          → device:state:synced
-topology:connect      → topology:update
-topology:disconnect    → topology:update
-error:inject          → error:injected
-telemetry:subscribe    → telemetry:subscribed
-```
+---
 
 ## Testing
 
@@ -253,60 +292,68 @@ npm test -- frontend/src/engine/LabRuntimeState.test.js
 
 | Suite | Location | Scope |
 |-------|----------|-------|
-| `LabRuntimeState.test.js` | `frontend/src/engine/` | Canonical runtime state creation, events, reset, serialization |
+| `LabRuntimeState.test.js` | `frontend/src/engine/` | Canonical runtime state |
 | `SimulationRuntimeBridge.test.js` | `frontend/src/engine/` | NSE → LabRuntimeState bridge |
-| `ref001-runtime.test.js` | `frontend/src/features/lab-workspace/__tests__/` | REF-001 end-to-end runtime path |
+| `ref001-runtime.test.js` | `frontend/src/features/lab-workspace/__tests__/` | REF-001 end-to-end |
+| `progressService.test.js` | `backend/tests/` | Progress engine (17 tests) |
+| `ticketApi.test.js` | `backend/tests/` | Ticket API (10 tests) |
 | `labQualityService.test.js` | `backend/tests/` | Quality gate unit tests |
-| `labApiQualityGate.test.js` | `backend/tests/` | API quality gate integration tests |
+| `labApiQualityGate.test.js` | `backend/tests/` | API quality gate integration |
+| `websocketIntegration.test.js` | `backend/tests/` | WebSocket integration |
+| `corsAndSecurity.test.js` | `backend/tests/` | Security tests |
+| `integrationSmoke.test.js` | `backend/tests/` | Smoke tests |
+
+---
 
 ## Build
 
 ```bash
 # Production build (outputs to frontend/dist/)
 npm run build
+
+# Verify build output
+Test-Path frontend/dist/index.html
 ```
+
+Production build features:
+- Terser minification with console/drop_debugger removal
+- Code splitting: vendor (React, Zustand) + three (Three.js) chunks
+- Tree shaking enabled
+- Source maps disabled in production
+- Chunk size warning limit: 500KB
+
+---
 
 ## Troubleshooting
 
 **Port 3000 already in use**
-```bash
-# Set a different port
+```powershell
 set PORT=3001 && npm run backend
 ```
 
 **Port 5173 already in use**
 ```bash
-# Vite will prompt to use another port automatically, or:
+# Vite will prompt to use another port automatically
 npx vite --port 5174 frontend
 ```
 
 **Build fails with module errors**
-```bash
-# Delete node_modules and reinstall
+```powershell
 Remove-Item -Recurse -Force node_modules
 npm install
 ```
 
 **Frontend stuck on "Loading CyberNet Lab v4.0..."**
-- Check that backend is running on port 3000
+- Check backend is running on port 3000
 - Check browser console for JavaScript errors
 - Ensure no syntax errors in `frontend/src/engine/`
 
-## Adding a New Lab
+**Health check failing in k8s**
+- Increase `initialDelaySeconds` in k8s liveness probe
+- Check pod logs: `kubectl logs <pod> -n cybernet-lab`
+- Verify environment variables in pod: `kubectl describe pod <pod> -n cybernet-lab`
 
-1. Use `frontend/src/data/reference-labs/` as a template
-2. Follow the canonical schema in `frontend/src/data/LabModel.js`
-3. Register via `frontend/src/data/labRegistry.js`
-4. Validate with `npm run build`
-
-## Development Rules
-
-- Preserve canonical state ownership boundaries
-- Do not introduce duplicate engines or state stores
-- Frontend must not implement simulator rules in UI components
-- Test before claiming completion
-- Build must pass after every change
-- Update `MENU.md` if architecture changes
+---
 
 ## License
 

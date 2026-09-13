@@ -39,9 +39,9 @@ export default function FocusMode({ children, onExit }) {
         alignItems: 'center'
       }}>
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-          <span style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9em' }}>🎯 FOCUS MODE</span>
-          <span style={{ color: 'var(--muted)', fontSize: '0.8em' }}>⏱️ {formatTime(timeSpent)}</span>
-          {breaks > 0 && <span style={{ color: 'var(--green)', fontSize: '0.8em' }}>☕ {breaks} breaks</span>}
+          <span style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9em' }}>Target FOCUS MODE</span>
+          <span style={{ color: 'var(--muted)', fontSize: '0.8em' }}>⏱ {formatTime(timeSpent)}</span>
+          {breaks > 0 && <span style={{ color: 'var(--green)', fontSize: '0.8em' }}>Coffee {breaks} breaks</span>}
         </div>
         <button
           onClick={onExit}

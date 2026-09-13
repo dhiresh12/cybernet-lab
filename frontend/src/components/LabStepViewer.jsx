@@ -79,7 +79,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
       setCopiedIdx(idx);
       audioRef?.current?.play('click');
       setTimeout(() => setCopiedIdx(null), 1200);
-    } catch (e) {}
+    } catch (e) { /* ignore */ }
   };
 
   const advanceWalk = () => {
@@ -95,20 +95,20 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
   const renderKind = (item, i) => {
     switch (item.kind) {
       case 'read':
-        return <div key={i} style={{ background: 'rgba(0,240,255,0.06)', borderLeft: '3px solid var(--cyan)', padding: 12, borderRadius: 6, color: 'var(--text)', marginBottom: 8 }}>📖 {item.text}</div>;
+        return <div key={i} style={{ background: 'rgba(0,240,255,0.06)', borderLeft: '3px solid var(--cyan)', padding: 12, borderRadius: 6, color: 'var(--text)', marginBottom: 8 }}>Book {item.text}</div>;
       case 'note':
-        return <div key={i} style={{ background: 'rgba(255,230,0,0.06)', borderLeft: '3px solid var(--yellow)', padding: 10, borderRadius: 6, color: 'var(--muted)', fontSize: '0.95em', marginBottom: 8 }}>ℹ️ {item.text}</div>;
+        return <div key={i} style={{ background: 'rgba(255,230,0,0.06)', borderLeft: '3px solid var(--yellow)', padding: 10, borderRadius: 6, color: 'var(--muted)', fontSize: '0.95em', marginBottom: 8 }}>ℹ {item.text}</div>;
       case 'cmd':
         return (
           <div key={i} style={{ position: 'relative', background: '#0a0a12', border: '1px solid rgba(0,240,255,0.35)', borderRadius: 6, padding: '10px 12px', marginBottom: 6, fontFamily: 'Courier New', color: 'var(--green)' }}>
             <span style={{ color: 'var(--cyan)', marginRight: 8 }}>$</span>{item.text}
-            <button onClick={() => copyCmd(item.text, i)} style={{ position: 'absolute', right: 8, top: 8, padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(0,240,255,0.4)', background: 'transparent', color: 'var(--cyan)', cursor: 'pointer', fontSize: '0.75em' }}>{copiedIdx === i ? '✓ Copied' : 'Copy'}</button>
+            <button onClick={() => copyCmd(item.text, i)} style={{ position: 'absolute', right: 8, top: 8, padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(0,240,255,0.4)', background: 'transparent', color: 'var(--cyan)', cursor: 'pointer', fontSize: '0.75em' }}>{copiedIdx === i ? '[OK] Copied' : 'Copy'}</button>
           </div>
         );
       case 'expect':
-        return <div key={i} style={{ background: 'rgba(0,255,136,0.06)', borderLeft: '3px solid var(--green)', padding: 10, borderRadius: 6, color: 'var(--green)', marginBottom: 8 }}>✅ {item.text}</div>;
+        return <div key={i} style={{ background: 'rgba(0,255,136,0.06)', borderLeft: '3px solid var(--green)', padding: 10, borderRadius: 6, color: 'var(--green)', marginBottom: 8 }}>[OK] {item.text}</div>;
       case 'tip':
-        return <div key={i} style={{ background: 'rgba(255,0,170,0.05)', borderLeft: '3px solid var(--magenta)', padding: 10, borderRadius: 6, color: 'var(--text)', marginBottom: 6, fontSize: '0.92em' }}>💡 {item.text}</div>;
+        return <div key={i} style={{ background: 'rgba(255,0,170,0.05)', borderLeft: '3px solid var(--magenta)', padding: 10, borderRadius: 6, color: 'var(--text)', marginBottom: 6, fontSize: '0.92em' }}>Tip {item.text}</div>;
       default:
         return <div key={i} style={{ marginBottom: 8, color: 'var(--text)' }}>{item.text}</div>;
     }
@@ -122,7 +122,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
           <div style={{ color: 'var(--cyan)', fontSize: '1.05em', fontWeight: 700 }}>{step.title || 'Step'}</div>
           <div style={{ color: 'var(--muted)', fontSize: '0.85em' }}>{step.stepId} • Step {stepIndex + 1} of {totalSteps}</div>
         </div>
-        {completed ? <span style={{ padding: '4px 10px', borderRadius: 999, background: 'rgba(0,255,136,0.15)', color: 'var(--green)', fontSize: '0.8em' }}>✓ COMPLETED</span> : null}
+        {completed ? <span style={{ padding: '4px 10px', borderRadius: 999, background: 'rgba(0,255,136,0.15)', color: 'var(--green)', fontSize: '0.8em' }}>[OK] COMPLETED</span> : null}
       </div>
       <div style={{ display: 'flex', gap: 4, marginBottom: 12, flexWrap: 'wrap', borderBottom: '1px solid rgba(0,240,255,0.2)', paddingBottom: 8 }}>
         {TABS.map(t => (
@@ -140,8 +140,8 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
           <div style={{ background: 'rgba(0,240,255,0.06)', borderLeft: '3px solid var(--cyan)', padding: 12, borderRadius: 6, color: 'var(--text)' }}>{step.instruction}</div>
           <div style={{ marginTop: 12, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             <span style={{ padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(0,240,255,0.45)', color: 'var(--cyan)', fontSize: '0.8em' }}>⏱ {lab.time || '20 min'}</span>
-            <span style={{ padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(0,240,255,0.45)', color: 'var(--cyan)', fontSize: '0.8em' }}>📊 {lab.level}</span>
-            <span style={{ padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(255,0,170,0.45)', color: 'var(--magenta)', fontSize: '0.8em' }}>🏷 {lab.category}</span>
+            <span style={{ padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(0,240,255,0.45)', color: 'var(--cyan)', fontSize: '0.8em' }}>Stats {lab.level}</span>
+            <span style={{ padding: '4px 10px', borderRadius: 999, border: '1px solid rgba(255,0,170,0.45)', color: 'var(--magenta)', fontSize: '0.8em' }}>Tag {lab.category}</span>
           </div>
         </div>
       )}
@@ -166,7 +166,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
             <div style={{ color: 'var(--muted)', fontSize: '0.85em' }}>{walkIndex + 1} / {walkthrough.length}</div>
             <div style={{ display: 'flex', gap: 8 }}>
               <button onClick={() => { audioRef?.current?.play('click'); setWalkIndex(Math.max(0, walkIndex - 1)); }} disabled={walkIndex === 0} style={{ padding: '8px 14px', borderRadius: 6, border: '1px solid rgba(0,240,255,0.4)', background: 'transparent', color: 'var(--cyan)', cursor: walkIndex === 0 ? 'not-allowed' : 'pointer', opacity: walkIndex === 0 ? 0.4 : 1 }}>◀ Back</button>
-              <button onClick={advanceWalk} style={{ padding: '8px 14px', borderRadius: 6, border: 'none', background: 'var(--cyan)', color: '#000', fontWeight: 700, cursor: 'pointer' }}>{walkIndex < walkthrough.length - 1 ? 'Next ▶' : '✓ Mark Complete'}</button>
+              <button onClick={advanceWalk} style={{ padding: '8px 14px', borderRadius: 6, border: 'none', background: 'var(--cyan)', color: '#000', fontWeight: 700, cursor: 'pointer' }}>{walkIndex < walkthrough.length - 1 ? 'Next ▶' : '[OK] Mark Complete'}</button>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
               {step.commands.map((cmd, i) => (
                 <div key={i} style={{ position: 'relative', background: '#0a0a12', border: '1px solid rgba(0,240,255,0.35)', borderRadius: 6, padding: '10px 12px', marginBottom: 6, fontFamily: 'Courier New', color: 'var(--green)' }}>
                   <span style={{ color: 'var(--cyan)', marginRight: 8 }}>$</span>{cmd}
-                  <button onClick={() => copyCmd(cmd, i)} style={{ position: 'absolute', right: 8, top: 8, padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(0,240,255,0.4)', background: 'transparent', color: 'var(--cyan)', cursor: 'pointer', fontSize: '0.75em' }}>{copiedIdx === i ? '✓ Copied' : 'Copy'}</button>
+                  <button onClick={() => copyCmd(cmd, i)} style={{ position: 'absolute', right: 8, top: 8, padding: '2px 8px', borderRadius: 4, border: '1px solid rgba(0,240,255,0.4)', background: 'transparent', color: 'var(--cyan)', cursor: 'pointer', fontSize: '0.75em' }}>{copiedIdx === i ? '[OK] Copied' : 'Copy'}</button>
                 </div>
               ))}
             </>
@@ -230,7 +230,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
           <div style={{ color: 'var(--muted)', marginBottom: 10, fontSize: '0.9em' }}>If something breaks, check these:</div>
           {step.errors && step.errors.length ? step.errors.map((err, i) => (
             <div key={i} style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(0,240,255,0.35)', borderRadius: 10, padding: 12, marginBottom: 10 }}>
-              <div style={{ color: 'var(--red)', marginBottom: 6 }}>❌ {err.error}</div>
+              <div style={{ color: 'var(--red)', marginBottom: 6 }}>[FAIL] {err.error}</div>
               {err.symptom && <div style={{ color: 'var(--muted)', fontSize: '0.9em', marginBottom: 4 }}>Symptom: {err.symptom}</div>}
               {err.fix && <div style={{ color: 'var(--green)' }}>Fix: {err.fix}</div>}
               {err.solution && <div style={{ color: 'var(--green)' }}>Solution: {err.solution}</div>}
@@ -247,7 +247,7 @@ export default function LabStepViewer({ lab, step, stepIndex, totalSteps, onComp
             <>
               <div style={{ color: 'var(--muted)', marginBottom: 8, fontSize: '0.9em' }}>Key concepts to internalize from this step:</div>
               {step.keypoints.map((k, i) => (
-                <div key={i} style={{ background: 'rgba(255,0,170,0.05)', borderLeft: '3px solid var(--magenta)', padding: 10, borderRadius: 6, color: 'var(--text)', marginBottom: 6 }}>💡 {k}</div>
+                <div key={i} style={{ background: 'rgba(255,0,170,0.05)', borderLeft: '3px solid var(--magenta)', padding: 10, borderRadius: 6, color: 'var(--text)', marginBottom: 6 }}>Tip {k}</div>
               ))}
             </>
           ) : null}

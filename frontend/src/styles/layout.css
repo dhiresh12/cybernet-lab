@@ -1,0 +1,185 @@
+/* Desktop Interface Layout Shell
+   TOP BAR | SIDEBAR | MAIN WORKSPACE | CONTEXT PANEL
+   Responsive: >=1400px full 3-column, 1024-1399px 2-column, <1024px collapsed
+*/
+
+.desktop-shell {
+  display: grid;
+  grid-template-rows: 48px 1fr;
+  grid-template-columns: 240px 1fr 280px;
+  grid-template-areas:
+    "topbar topbar topbar"
+    "sidebar main context";
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Medium screens: collapse context panel */
+@media (max-width: 1399px) {
+  .desktop-shell {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas:
+      "topbar topbar"
+      "sidebar main";
+  }
+  .context-panel {
+    display: none !important;
+  }
+}
+
+/* Small screens: collapse sidebar to icons */
+@media (max-width: 1023px) {
+  .desktop-shell {
+    grid-template-columns: 56px 1fr;
+    grid-template-areas:
+      "topbar topbar"
+      "sidebar main";
+  }
+  .sidebar .nav-label {
+    display: none;
+  }
+  .sidebar .nav-rail-item {
+    justify-content: center;
+    padding: var(--space-2) !important;
+  }
+}
+
+.top-bar {
+  grid-area: topbar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--panel-border);
+  background: linear-gradient(180deg, rgba(6,14,28,0.98), rgba(2,7,17,0.95));
+  backdrop-filter: blur(10px);
+  z-index: 10;
+  min-height: 48px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  overflow-y: auto;
+  border-right: 1px solid var(--panel-border-subtle);
+  background: var(--panel);
+  padding: var(--space-4);
+}
+
+.main-workspace {
+  grid-area: main;
+  overflow-y: auto;
+  position: relative;
+  background: transparent;
+}
+
+.context-panel {
+  grid-area: context;
+  overflow-y: auto;
+  border-left: 1px solid var(--panel-border-subtle);
+  background: var(--panel);
+  padding: var(--space-4);
+}
+
+/* Light theme overrides for layout */
+.panel-design-operations .top-bar,
+.panel-design-operations .sidebar,
+.panel-design-operations .context-panel {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: #c5d3e2 !important;
+}
+
+.panel-design-operations .main-workspace {
+  background: transparent !important;
+}
+
+/* Server room overrides */
+.panel-design-server-room .top-bar,
+.panel-design-server-room .sidebar,
+.panel-design-server-room .context-panel {
+  background: rgba(10, 18, 28, 0.94) !important;
+  border-color: rgba(255, 170, 74, 0.42) !important;
+}
+
+/* Content surface - ensures text readability over backgrounds */
+.content-surface {
+  position: relative;
+  z-index: 1;
+  background: rgba(2, 7, 17, 0.75);
+  backdrop-filter: blur(2px);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--panel-border-subtle);
+}
+
+.panel-design-operations .content-surface {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: #c5d3e2 !important;
+}
+
+.panel-design-server-room .content-surface {
+  background: rgba(10, 18, 28, 0.75) !important;
+  border-color: rgba(255, 170, 74, 0.3) !important;
+}
+
+/* NOC viewport - receives pointer events for topology/simulator */
+.noc-viewport {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Terminal block protection */
+.terminal-block {
+  position: relative;
+  z-index: 3;
+  background: rgba(2, 7, 17, 0.92) !important;
+  border: 1px solid var(--panel-border) !important;
+  backdrop-filter: blur(4px);
+}
+
+.panel-design-operations .terminal-block {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: #c5d3e2 !important;
+}
+
+.panel-design-server-room .terminal-block {
+  background: rgba(10, 18, 28, 0.92) !important;
+  border-color: rgba(255, 170, 74, 0.5) !important;
+}
+
+/* Background subordinate mode - dims backgrounds when in lab */
+.bg-subordinate {
+  z-index: -2 !important;
+  opacity: 0.35 !important;
+  filter: saturate(0.6) brightness(0.7) !important;
+}
+
+/* Contrast shield for text over animated backgrounds */
+.contrast-shield {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5);
+}
+
+/* No flash mode */
+.no-flash,
+.no-flash *,
+.no-flash *::before,
+.no-flash *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.15) 0px,
+    rgba(0,0,0,0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.35;
+}

@@ -12,4 +12,4 @@ export const DEFAULT_INTERFACE = {
 };
 
 export const DEFAULT_BG = 'noc-iceblue';
-export const DEFAULT_MUSIC = 'darkside';
+export const DEFAULT_MUSIC = 'none';

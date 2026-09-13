@@ -52,17 +52,31 @@ export default function CliTerminal({ engine, activeDeviceId, onOutput, onSend }
     : 'Router>';
 
   return (
-    <div className="terminal-block" onClick={() => inputRef.current?.focus()}>
+    <div
+      className="terminal-block"
+      onClick={() => inputRef.current?.focus()}
+      role="region"
+      aria-label="Network Operations Terminal"
+    >
       <div className="terminal-header-bar">
-        <span>Network Operations Terminal</span>
+        <span id="terminal-title">Network Operations Terminal</span>
         <div className="terminal-status">
-          <span className={`terminal-status-indicator ${device ? 'active' : ''}`}></span>
-          <span className="terminal-status-text">
+          <span
+            className={`terminal-status-indicator ${device ? 'active' : ''}`}
+            aria-hidden="true"
+          />
+          <span className="terminal-status-text" aria-live="polite">
             {device ? 'CONNECTED' : 'DISCONNECTED'}
           </span>
         </div>
       </div>
-      <div className="terminal-output">
+      <div
+        className="terminal-output"
+        role="log"
+        aria-live="polite"
+        aria-relevant="additions"
+        aria-label="Terminal output"
+      >
         {(onOutput || []).map((line, i) => {
           const lineType = typeof line === 'string' 
             ? (line.startsWith('%') ? 'error' : line.startsWith('Success') ? 'success' : 'system')
@@ -76,9 +90,11 @@ export default function CliTerminal({ engine, activeDeviceId, onOutput, onSend }
         <div ref={outputEndRef} />
       </div>
       <div className="terminal-input-row">
-        <span className="terminal-prompt">{prompt}</span>
+        <label htmlFor="terminal-cli-input" className="sr-only">Command input</label>
+        <span className="terminal-prompt" aria-hidden="true">{prompt}</span>
         <input 
           ref={inputRef}
+          id="terminal-cli-input"
           value={input} 
           onChange={(e) => setInput(e.target.value)} 
           onKeyDown={handleKeyDown} 
@@ -86,6 +102,8 @@ export default function CliTerminal({ engine, activeDeviceId, onOutput, onSend }
           className="terminal-input"
           spellCheck={false}
           autoComplete="off"
+          aria-label="Network command input"
+          placeholder="Enter command..."
         />
       </div>
     </div>

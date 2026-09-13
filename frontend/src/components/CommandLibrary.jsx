@@ -372,12 +372,14 @@ export default function CommandLibrary() {
   }, [search, selectedCategory]);
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2 style={{ color: 'var(--cyan)', marginBottom: 16 }}>📚 Cisco Command Library</h2>
+<div style={{ padding: 24 }}>
+      <h2 style={{ color: 'var(--cyan)', marginBottom: 16 }}>Library Cisco Command Library</h2>
       <p style={{ color: 'var(--muted)', marginBottom: 16 }}>Searchable reference for Cisco IOS commands</p>
 
       <div style={{ display: 'flex', gap: 10, marginBottom: 16, flexWrap: 'wrap' }}>
+        <label htmlFor="command-search" className="sr-only">Search commands</label>
         <input
+          id="command-search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search commands (e.g., 'show ip route')..."
@@ -392,7 +394,9 @@ export default function CommandLibrary() {
             flex: 1
           }}
         />
+        <label htmlFor="command-category" className="sr-only">Filter commands by category</label>
         <select
+          id="command-category"
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
           aria-label="Filter commands by category"
@@ -421,7 +425,7 @@ export default function CommandLibrary() {
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 10 }}>
               {cat.commands.map(cmd => (
-                <div key={cmd.command} style={{
+                <article key={cmd.command} style={{
                   background: 'var(--panel)',
                   border: '1px solid rgba(0,240,255,0.3)',
                   borderRadius: 8,
@@ -431,40 +435,40 @@ export default function CommandLibrary() {
                     const contract = getCommandContract(cmd.command);
                     return (
                       <>
-                  <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 6, fontSize: '0.95em' }}>
-                    {cmd.command}
-                  </div>
-                  <div style={{ color: 'var(--text)', marginBottom: 6, fontSize: '0.85em' }}>
-                    <b>Purpose:</b> {cmd.purpose}
-                  </div>
-                  <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.8em' }}>
-                    <b>Syntax:</b> <code style={{ background: 'rgba(0,0,0,0.4)', padding: '1px 4px', borderRadius: 3 }}>{cmd.syntax}</code>
-                  </div>
-                  <div style={{ color: 'var(--green)', marginBottom: 6, fontSize: '0.8em' }}>
-                    <b>Example:</b> <code style={{ background: 'rgba(0,0,0,0.4)', padding: '1px 4px', borderRadius: 3 }}>{cmd.example}</code>
-                  </div>
-                  <div style={{ color: 'var(--yellow)', marginBottom: 6, fontSize: '0.8em' }}>
-                    <b>Expected:</b> {cmd.expectedOutput}
-                  </div>
-                  <div style={{ color: 'var(--primary)', marginBottom: 6, fontSize: '0.78em' }}>
-                    <b>Contract:</b> {contract.mode} mode · {contract.mutatesState ? 'may mutate simulation state' : 'read-only'} · devices: {contract.deviceTypes.join(', ') || 'none'}
-                  </div>
-                  <div style={{ color: contract.status === 'conceptual' ? 'var(--red)' : 'var(--green)', marginBottom: 6, fontSize: '0.78em' }}>
-                    <b>Support:</b> {contract.status}
-                  </div>
-                  <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.78em' }}>
-                    <b>Verification:</b> {contract.verification}
-                  </div>
-                  <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.78em' }}>
-                    <b>Rollback:</b> {contract.rollback}
-                  </div>
-                  <div style={{ color: 'var(--red)', fontSize: '0.78em' }}>
-                    <b>Common Mistake:</b> {cmd.commonMistake}
-                  </div>
+                    <div style={{ color: 'var(--cyan)', fontWeight: 700, marginBottom: 6, fontSize: '0.95em' }}>
+                      {cmd.command}
+                    </div>
+                    <div style={{ color: 'var(--text)', marginBottom: 6, fontSize: '0.85em' }}>
+                      <b>Purpose:</b> {cmd.purpose}
+                    </div>
+                    <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.8em' }}>
+                      <b>Syntax:</b> <code style={{ background: 'rgba(0,0,0,0.4)', padding: '1px 4px', borderRadius: 3 }}>{cmd.syntax}</code>
+                    </div>
+                    <div style={{ color: 'var(--green)', marginBottom: 6, fontSize: '0.8em' }}>
+                      <b>Example:</b> <code style={{ background: 'rgba(0,0,0,0.4)', padding: '1px 4px', borderRadius: 3 }}>{cmd.example}</code>
+                    </div>
+                    <div style={{ color: 'var(--yellow)', marginBottom: 6, fontSize: '0.8em' }}>
+                      <b>Expected:</b> {cmd.expectedOutput}
+                    </div>
+                    <div style={{ color: 'var(--primary)', marginBottom: 6, fontSize: '0.78em' }}>
+                      <b>Contract:</b> {contract.mode} mode · {contract.mutatesState ? 'may mutate simulation state' : 'read-only'} · devices: {contract.deviceTypes.join(', ') || 'none'}
+                    </div>
+                    <div style={{ color: contract.status === 'conceptual' ? 'var(--red)' : 'var(--green)', marginBottom: 6, fontSize: '0.78em' }}>
+                      <b>Support:</b> {contract.status}
+                    </div>
+                    <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.78em' }}>
+                      <b>Verification:</b> {contract.verification}
+                    </div>
+                    <div style={{ color: 'var(--muted)', marginBottom: 6, fontSize: '0.78em' }}>
+                      <b>Rollback:</b> {contract.rollback}
+                    </div>
+                    <div style={{ color: 'var(--red)', fontSize: '0.78em' }}>
+                      <b>Common Mistake:</b> {cmd.commonMistake}
+                    </div>
                       </>
                     );
                   })()}
-                </div>
+                </article>
               ))}
             </div>
           </div>

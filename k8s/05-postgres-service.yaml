@@ -3,10 +3,14 @@ kind: Service
 metadata:
   name: postgres
   namespace: cybernet-lab
+  labels:
+    app: postgres
 spec:
   selector:
     app: postgres
   ports:
   - port: 5432
     targetPort: 5432
+    name: postgres
+    protocol: TCP
   type: ClusterIP

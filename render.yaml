@@ -1,0 +1,47 @@
+# Render Deployment Configuration
+# For: https://render.com
+# Service Type: Web Service
+
+services:
+  - type: web
+    name: cybernet-lab-backend
+    env: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 60000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 60
+      - key: LOG_LEVEL
+        value: info
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: cybernet-lab-redis
+          property: connectionString
+      - key: DATABASE_URL
+        fromService:
+          type: postgres
+          name: cybernet-lab-db
+          property: connectionString
+    healthCheckPath: /api/health/live
+
+  - type: redis
+    name: cybernet-lab-redis
+    plan: starter
+    maxmemoryPolicy: allkeys-lru
+
+  - type: postgres
+    name: cybernet-lab-db
+    plan: starter
+    databaseName: cybernet_lab
+    user: cybernet
+    ipAllowList: []

@@ -1,0 +1,14 @@
+node_modules/
+frontend/dist/
+backend/logs/
+.env
+.env.local
+*.log
+test-output.txt
+testout.txt
+normalizer-test-output.txt
+.idea/
+.vscode/
+.kilo/
+coverage/
+*.map

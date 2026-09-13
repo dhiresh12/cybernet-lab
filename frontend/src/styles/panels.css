@@ -1,0 +1,202 @@
+/* Panel Design System
+   Three required panel designs for CyberNet Lab.
+   Applied via parent class on the app root: .design-noc, .design-operations, .design-server-room
+*/
+
+/* ============================================
+   DESIGN 1: Dark NOC Neon (default)
+   ============================================ */
+.design-noc,
+.design-noc .panel,
+.design-noc .tech-card,
+.design-noc .lab-card,
+.design-noc .mission-block,
+.design-noc .cmd-btn,
+.design-noc .nav-rail-item,
+.design-noc .noc-header,
+.design-noc .noc-inspector,
+.design-noc .tool-cabinet {
+  background: rgba(6, 14, 28, 0.94) !important;
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  color: #e6f7ff !important;
+  border-radius: var(--radius) !important;
+  box-shadow: none !important;
+}
+
+.design-noc .panel-glow,
+.design-noc .panel[data-glow="true"] {
+  box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.03), 0 0 12px rgba(0, 229, 255, 0.15) !important;
+}
+
+.design-noc .nav-rail-item.active,
+.design-noc .cmd-btn.primary {
+  background: rgba(0, 229, 255, 0.12) !important;
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25) !important;
+}
+
+.design-noc .tech-label {
+  color: var(--primary-soft) !important;
+}
+
+.design-noc .noc-led {
+  color: var(--text-dim) !important;
+}
+
+/* ============================================
+   DESIGN 2: Operations Light
+   ============================================ */
+.design-operations,
+.design-operations .panel,
+.design-operations .tech-card,
+.design-operations .lab-card,
+.design-operations .mission-block,
+.design-operations .cmd-btn,
+.design-operations .nav-rail-item,
+.design-operations .noc-header,
+.design-operations .noc-inspector,
+.design-operations .tool-cabinet {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: #c5d3e2 !important;
+  color: #172536 !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 24px rgba(45, 72, 98, 0.12) !important;
+}
+
+.design-operations .panel-header {
+  color: #075985 !important;
+  text-shadow: none !important;
+}
+
+.design-operations .nav-rail-item.active,
+.design-operations .cmd-btn.primary {
+  background: #d7eef8 !important;
+  color: #075985 !important;
+  border-color: #67b7d4 !important;
+  box-shadow: none !important;
+}
+
+.design-operations .tech-label {
+  color: #0e7490 !important;
+}
+
+.design-operations .noc-led {
+  color: #40566c !important;
+}
+
+.design-operations .type-muted,
+.design-operations .text-muted {
+  color: #526579 !important;
+}
+
+.design-operations .noc-logo {
+  color: #075985 !important;
+  text-shadow: none !important;
+}
+
+.design-operations .noc-station {
+  color: #40566c !important;
+}
+
+/* ============================================
+   DESIGN 3: Server Room Console
+   ============================================ */
+.design-server-room,
+.design-server-room .panel,
+.design-server-room .tech-card,
+.design-server-room .lab-card,
+.design-server-room .mission-block,
+.design-server-room .cmd-btn,
+.design-server-room .nav-rail-item,
+.design-server-room .noc-header,
+.design-server-room .noc-inspector,
+.design-server-room .tool-cabinet {
+  background: rgba(10, 18, 28, 0.94) !important;
+  border-color: rgba(255, 170, 74, 0.42) !important;
+  color: #fff3df !important;
+  border-radius: 2px !important;
+  box-shadow: inset 0 0 18px rgba(255, 170, 74, 0.04), 0 8px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.design-server-room .panel-header {
+  color: #ffb454 !important;
+  text-shadow: 0 0 8px rgba(255, 180, 84, 0.3) !important;
+}
+
+.design-server-room .nav-rail-item.active,
+.design-server-room .cmd-btn.primary {
+  background: rgba(255, 180, 84, 0.16) !important;
+  color: #ffb454 !important;
+  border-color: #ffb454 !important;
+  box-shadow: 0 0 10px rgba(255, 180, 84, 0.25) !important;
+}
+
+.design-server-room .tech-label {
+  color: #ffd18a !important;
+}
+
+.design-server-room .noc-led {
+  color: #a99478 !important;
+}
+
+.design-server-room .type-muted,
+.design-server-room .text-muted {
+  color: #a99478 !important;
+}
+
+.design-server-room .noc-logo {
+  color: #ffb454 !important;
+  text-shadow: 0 0 8px rgba(255, 180, 84, 0.3) !important;
+}
+
+.design-server-room .noc-station {
+  color: #a99478 !important;
+}
+
+/* Panel design overrides for high contrast */
+.high-contrast.design-noc .panel,
+.high-contrast.design-noc .tech-card,
+.high-contrast.design-noc .lab-card,
+.high-contrast.design-operations .panel,
+.high-contrast.design-operations .tech-card,
+.high-contrast.design-operations .lab-card,
+.high-contrast.design-server-room .panel,
+.high-contrast.design-server-room .tech-card,
+.high-contrast.design-server-room .lab-card {
+  border-width: 2px !important;
+  border-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.high-contrast.design-operations .panel-header,
+.high-contrast.design-operations .noc-logo {
+  color: #000000 !important;
+}
+
+.high-contrast.design-operations .nav-rail-item.active,
+.high-contrast.design-operations .cmd-btn.primary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+/* Reduced transparency overrides */
+.reduced-transparency.design-noc .panel,
+.reduced-transparency.design-noc .tech-card,
+.reduced-transparency.design-noc .lab-card,
+.reduced-transparency.design-operations .panel,
+.reduced-transparency.design-operations .tech-card,
+.reduced-transparency.design-operations .lab-card,
+.reduced-transparency.design-server-room .panel,
+.reduced-transparency.design-server-room .tech-card,
+.reduced-transparency.design-server-room .lab-card {
+  background: var(--panel-solid) !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+.reduced-transparency.design-operations .panel,
+.reduced-transparency.design-operations .tech-card,
+.reduced-transparency.design-operations .lab-card {
+  background: #ffffff !important;
+}

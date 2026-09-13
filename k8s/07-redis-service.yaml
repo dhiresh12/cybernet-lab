@@ -3,10 +3,14 @@ kind: Service
 metadata:
   name: redis
   namespace: cybernet-lab
+  labels:
+    app: redis
 spec:
   selector:
     app: redis
   ports:
   - port: 6379
     targetPort: 6379
+    name: redis
+    protocol: TCP
   type: ClusterIP

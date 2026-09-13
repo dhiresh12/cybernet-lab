@@ -1,0 +1,16 @@
+# Vercel Deployment Configuration
+# For: https://vercel.com
+# Note: Frontend only; backend must be deployed separately (Render/AWS/Heroku)
+
+projectId: ${PROJECT_ID}
+
+frontend:
+  phases:
+    build:
+      commands:
+        - npm install
+        - npm run build
+  environment:
+    variables:
+      VITE_API_URL: ${API_URL}
+      VITE_WS_URL: ${WS_URL}

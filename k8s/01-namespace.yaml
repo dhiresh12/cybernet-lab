@@ -4,3 +4,5 @@ metadata:
   name: cybernet-lab
   labels:
     name: cybernet-lab
+    app.kubernetes.io/name: cybernet-lab
+    app.kubernetes.io/version: "4.0.0"

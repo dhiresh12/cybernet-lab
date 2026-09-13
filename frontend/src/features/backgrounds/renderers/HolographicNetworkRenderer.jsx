@@ -1,35 +1,41 @@
-// Holographic Network Renderer
+// Holographic Network Renderer - Uses shared AnimationLoop coordinator.
 import React, { useRef, useEffect } from 'react';
+import { AnimationLoop } from '../animationLoop';
 
-export const HolographicNetworkRenderer = ({ opacity = 0.7, zIndex = -2 }) => {
+export const HolographicNetworkRenderer = ({ opacity = 0.7, zIndex = -2, sharedLoop = null }) => {
   const canvasRef = useRef(null);
+  const nodesRef = useRef([]);
+  const loopRef = useRef(sharedLoop || AnimationLoop.shared());
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let raf;
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      const scale = AnimationLoop.getParticleScale();
+      const count = Math.floor(30 * scale);
+      nodesRef.current = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: Math.random() * 3 + 2,
+      }));
     };
     resize();
     window.addEventListener('resize', resize);
 
-    const nodes = Array.from({ length: 30 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      size: Math.random() * 3 + 2,
-    }));
+    const loop = loopRef.current;
 
-    const draw = () => {
+    const draw = (msg) => {
+      if (msg.type === 'resize') return;
       ctx.fillStyle = 'rgba(3,5,10,0.12)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Update positions
+      const nodes = nodesRef.current;
       nodes.forEach(n => {
         n.x += n.vx;
         n.y += n.vy;
@@ -39,7 +45,6 @@ export const HolographicNetworkRenderer = ({ opacity = 0.7, zIndex = -2 }) => {
         if (n.y > canvas.height) n.y = 0;
       });
 
-      // Draw connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -57,27 +62,27 @@ export const HolographicNetworkRenderer = ({ opacity = 0.7, zIndex = -2 }) => {
         }
       }
 
-      // Draw nodes
       nodes.forEach(n => {
         ctx.fillStyle = 'rgba(0, 229, 255, 0.6)';
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.size, 0, Math.PI * 2);
         ctx.fill();
-        
-        // Glow
+
         const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.size * 3);
         glow.addColorStop(0, 'rgba(0, 229, 255, 0.2)');
         glow.addColorStop(1, 'transparent');
         ctx.fillStyle = glow;
         ctx.fillRect(n.x - n.size * 3, n.y - n.size * 3, n.size * 6, n.size * 6);
       });
-
-      raf = requestAnimationFrame(draw);
     };
-    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
+    const unsubscribe = loop.subscribe(draw);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', resize);
+    };
+  }, [loopRef.current]);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
 };

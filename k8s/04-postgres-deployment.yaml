@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: postgres
   namespace: cybernet-lab
+  labels:
+    app: postgres
 spec:
   replicas: 1
   selector:
@@ -18,16 +20,24 @@ spec:
         image: postgres:15-alpine
         ports:
         - containerPort: 5432
+          name: postgres
+          protocol: TCP
         env:
         - name: POSTGRES_USER
-          value: "postgres"
+          valueFrom:
+            secretKeyRef:
+              name: cybernet-secrets
+              key: db-user
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: cybernet-secrets
-              key: postgres-password
+              key: db-password
         - name: POSTGRES_DB
-          value: "cybernet_lab"
+          valueFrom:
+            secretKeyRef:
+              name: cybernet-secrets
+              key: db-name
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data
@@ -42,3 +52,5 @@ spec:
       - name: postgres-storage
         persistentVolumeClaim:
           claimName: postgres-pvc
+      nodeSelector:
+        kubernetes.io/os: linux

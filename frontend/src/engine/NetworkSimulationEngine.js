@@ -173,6 +173,8 @@ export class NetworkSimulationEngine {
     } else if (lower === 'disable' || lower === 'exit') {
       if (dev.mode === 'interface') { dev.mode = 'config'; }
       else if (dev.mode === 'config') { dev.mode = 'enable'; }
+      else if (dev.mode === 'acl') { dev.mode = 'config'; dev.acl.currentAcl = null; }
+      else if (dev.mode === 'dhcp') { dev.mode = 'config'; dev.dhcp.currentPool = null; }
       else { dev.mode = 'user'; }
       output.push('');
       stateChanged = true;
@@ -460,11 +462,6 @@ export class NetworkSimulationEngine {
       dev.acl.entries.push({ action: 'permit', rule: cmd.substring(7) });
       output.push('');
       stateChanged = true;
-    } else if (lower === 'exit' && dev.mode === 'acl') {
-      dev.mode = 'config';
-      dev.acl.currentAcl = null;
-      output.push('');
-      stateChanged = true;
     } else if (lower.startsWith('ip access-group ') && dev.mode === 'config') {
       const parts = cmd.split(/\s+/);
       const aclName = parts[2];
@@ -535,11 +532,6 @@ export class NetworkSimulationEngine {
     } else if (lower.startsWith('ip dhcp excluded-address ') && dev.mode === 'config') {
       const parts = cmd.split(/\s+/);
       dev.dhcp.excluded.push({ start: parts[2], end: parts[3] || parts[2] });
-      output.push('');
-      stateChanged = true;
-    } else if (lower === 'exit' && dev.mode === 'dhcp') {
-      dev.mode = 'config';
-      dev.dhcp.currentPool = null;
       output.push('');
       stateChanged = true;
     }

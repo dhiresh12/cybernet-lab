@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Panel({ title, children, glow = false, className = '', style = {}, ...rest }) {
+export default function Panel({ title, children, glow = false, className = '', style = {}, design, ...rest }) {
+  const designClass = design ? `panel-design-${design}` : '';
   return (
     <div
-      className={`panel panel-glow ${className}`.trim()}
+      className={`panel panel-glow ${designClass} ${className}`.trim()}
       style={{
         border: '1px solid var(--panel-border-subtle)',
         background: 'var(--panel)',

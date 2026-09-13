@@ -1,97 +1,89 @@
-// Neural Network Renderer
+// Neural Network Renderer - Uses shared AnimationLoop coordinator.
 import React, { useRef, useEffect } from 'react';
+import { AnimationLoop } from '../animationLoop';
 
-export const NeuralNetworkRenderer = ({ opacity = 0.7, zIndex = -2 }) => {
+export const NeuralNetworkRenderer = ({ opacity = 0.8, zIndex = -2, sharedLoop = null }) => {
   const canvasRef = useRef(null);
+  const nodesRef = useRef([]);
+  const loopRef = useRef(sharedLoop || AnimationLoop.shared());
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let raf;
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      const layers = 5;
+      const nodesPerLayer = 6;
+      const nodes = [];
+      const layerSpacing = canvas.width / (layers + 1);
+      for (let l = 0; l < layers; l++) {
+        const x = layerSpacing * (l + 1);
+        const nodeSpacing = canvas.height / (nodesPerLayer + 1);
+        for (let n = 0; n < nodesPerLayer; n++) {
+          nodes.push({
+            x,
+            y: nodeSpacing * (n + 1),
+            layer: l,
+            activation: Math.random(),
+            pulsePhase: Math.random() * Math.PI * 2,
+          });
+        }
+      }
+      nodesRef.current = nodes;
     };
     resize();
     window.addEventListener('resize', resize);
 
-    const layers = 4;
-    const neuronsPerLayer = [8, 12, 10, 6];
-    const neurons = [];
+    const loop = loopRef.current;
 
-    let yOffset = 80;
-    neuronsPerLayer.forEach((count, layerIdx) => {
-      const x = (layerIdx + 1) * canvas.width / (layers + 1);
-      for (let i = 0; i < count; i++) {
-        const y = yOffset + (i + 1) * (canvas.height - 160) / (count + 1);
-        neurons.push({
-          x, y, layer: layerIdx,
-          activation: Math.random(),
-          vx: (Math.random() - 0.5) * 0.2,
-          vy: (Math.random() - 0.5) * 0.2,
-        });
-      }
-    });
-
-    const draw = () => {
+    const draw = (msg) => {
+      if (msg.type === 'resize') return;
+      const { timestamp } = msg;
       ctx.fillStyle = 'rgba(3,5,10,0.95)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      const nodes = nodesRef.current;
+
       // Connections
-      for (let i = 0; i < neurons.length; i++) {
-        const n1 = neurons[i];
-        for (let j = i + 1; j < neurons.length; j++) {
-          const n2 = neurons[j];
-          if (n2.layer === n1.layer + 1) {
-            const dx = n2.x - n1.x;
-            const dy = n2.y - n1.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 200) {
-              const alpha = 0.05 * n1.activation * n2.activation * (1 - dist / 200);
-              ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(n1.x, n1.y);
-              ctx.lineTo(n2.x, n2.y);
-              ctx.stroke();
-            }
+      ctx.strokeStyle = 'rgba(0, 229, 255, 0.06)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          if (nodes[j].layer === nodes[i].layer + 1) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
           }
         }
       }
 
-      // Update and draw neurons
-      neurons.forEach(n => {
-        n.x += n.vx;
-        n.y += n.vy;
-        n.activation = 0.3 + Math.sin(Date.now() * 0.001 + n.x * 0.01) * 0.7;
-
-        if (n.x < 50) n.vx = Math.abs(n.vx);
-        if (n.x > canvas.width - 50) n.vx = -Math.abs(n.vx);
-        if (n.y < 50) n.vy = Math.abs(n.vy);
-        if (n.y > canvas.height - 50) n.vy = -Math.abs(n.vy);
-
-        const size = 4 + n.activation * 6;
-        ctx.fillStyle = `rgba(0, 229, 255, ${0.4 + n.activation * 0.4})`;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, size, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Glow
-        const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, size * 3);
-        glow.addColorStop(0, `rgba(0, 229, 255, ${n.activation * 0.2})`);
+      // Nodes
+      nodes.forEach(node => {
+        const pulse = Math.sin(timestamp * 2 + node.pulsePhase) * 0.3 + 0.7;
+        const glow = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, 20 * pulse);
+        glow.addColorStop(0, 'rgba(0, 229, 255, 0.3)');
         glow.addColorStop(1, 'transparent');
         ctx.fillStyle = glow;
-        ctx.fillRect(n.x - size * 3, n.y - size * 3, size * 6, size * 6);
+        ctx.fillRect(node.x - 20, node.y - 20, 40, 40);
+
+        ctx.fillStyle = 'rgba(0, 229, 255, 0.8)';
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 5 * pulse, 0, Math.PI * 2);
+        ctx.fill();
       });
-
-      raf = requestAnimationFrame(draw);
     };
-    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
+    const unsubscribe = loop.subscribe(draw);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', resize);
+    };
+  }, [loopRef.current]);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
 };

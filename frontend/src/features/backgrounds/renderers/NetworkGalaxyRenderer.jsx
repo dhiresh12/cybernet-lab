@@ -1,15 +1,27 @@
 // Network Galaxy Renderer
-import React, { useRef, useEffect } from 'react';
+// Uses shared AnimationLoop coordinator. Particle count scales with device capability.
+import React, { useRef, useEffect, useCallback } from 'react';
+import { AnimationLoop } from '../animationLoop';
 
-export const NetworkGalaxyRenderer = ({ opacity = 0.8, zIndex = -2 }) => {
+export const NetworkGalaxyRenderer = ({ opacity = 0.8, zIndex = -2, sharedLoop = null }) => {
   const canvasRef = useRef(null);
+  const ctxRef = useRef(null);
+  const starsRef = useRef([]);
+  const rotationRef = useRef(0);
+  const loopRef = useRef(sharedLoop || AnimationLoop.shared());
+
+  const getStarCount = useCallback(() => {
+    const scale = AnimationLoop.getParticleScale();
+    const arms = 4;
+    const starsPerArm = Math.floor(150 * scale);
+    return { arms, starsPerArm };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let raf;
-    let rotation = 0;
+    ctxRef.current = ctx;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -18,26 +30,38 @@ export const NetworkGalaxyRenderer = ({ opacity = 0.8, zIndex = -2 }) => {
     resize();
     window.addEventListener('resize', resize);
 
-    const arms = 4;
-    const starsPerArm = 150;
-    const stars = [];
-
-    for (let a = 0; a < arms; a++) {
-      for (let i = 0; i < starsPerArm; i++) {
-        const t = i / starsPerArm;
-        const angle = (a / arms) * Math.PI * 2 + t * Math.PI * 4;
-        const r = Math.pow(t, 0.7) * Math.min(canvas.width, canvas.height) * 0.4;
-        stars.push({
-          baseAngle: angle,
-          radius: r,
-          speed: 0.0001 * (1 + Math.random() * 2),
-          size: Math.random() * 1.5 + 0.5,
-          color: Math.random() > 0.6 ? '#00e5ff' : '#7fe8ff',
-        });
+    const buildStars = () => {
+      const { arms, starsPerArm } = getStarCount();
+      const stars = [];
+      for (let a = 0; a < arms; a++) {
+        for (let i = 0; i < starsPerArm; i++) {
+          const t = i / starsPerArm;
+          const angle = (a / arms) * Math.PI * 2 + t * Math.PI * 4;
+          const r = Math.pow(t, 0.7) * Math.min(canvas.width, canvas.height) * 0.4;
+          stars.push({
+            baseAngle: angle,
+            radius: r,
+            speed: 0.0001 * (1 + Math.random() * 2),
+            size: Math.random() * 1.5 + 0.5,
+            color: Math.random() > 0.6 ? '#00e5ff' : '#7fe8ff',
+          });
+        }
       }
-    }
+      starsRef.current = stars;
+    };
+    buildStars();
 
-    const draw = () => {
+    const loop = loopRef.current;
+
+    const draw = (msg) => {
+      if (msg.type === 'resize') {
+        buildStars();
+        return;
+      }
+      const ctx = ctxRef.current;
+      const stars = starsRef.current;
+      if (!ctx || !stars.length) return;
+
       ctx.fillStyle = 'rgba(3,5,10,0.98)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -54,21 +78,24 @@ export const NetworkGalaxyRenderer = ({ opacity = 0.8, zIndex = -2 }) => {
 
       stars.forEach(star => {
         star.baseAngle += star.speed;
-        const x = cx + Math.cos(star.baseAngle + rotation) * star.radius;
-        const y = cy + Math.sin(star.baseAngle + rotation) * star.radius;
+        const x = cx + Math.cos(star.baseAngle + rotationRef.current) * star.radius;
+        const y = cy + Math.sin(star.baseAngle + rotationRef.current) * star.radius;
         ctx.fillStyle = star.color;
         ctx.beginPath();
         ctx.arc(x, y, star.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      rotation += 0.0001;
-      raf = requestAnimationFrame(draw);
+      rotationRef.current += 0.0001;
     };
-    draw();
 
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-  }, []);
+    const unsubscribe = loop.subscribe(draw);
+
+    return () => {
+      unsubscribe();
+      window.removeEventListener('resize', resize);
+    };
+  }, [getStarCount, loopRef.current]);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex, opacity }} />;
 };

@@ -333,7 +333,7 @@ export default class AudioEngine {
       { name: 'darkside', file: 'Darkside「AMV」Anime Mix.mp3' },
       { name: 'derniere', file: 'Indila Dernière Danse Joker remix new joker songs JOKER 2019 Joaquin Phoenix songs.mp3' },
       { name: 'odnogo', file: 'Odnogo Slowed.mp3' },
-      { name: 'sukuna', file: 'SUKUNA RAFTAAREIN Full Song 🔥 Attitude X Sigma😈 AMV EDIT.mp3' },
+      { name: 'sukuna', file: 'SUKUNA RAFTAAREIN Full Song Fire Attitude X SigmaDev AMV EDIT.mp3' },
       { name: 'alone', file: 'you’re not alone.mp3' },
       { name: 'matushka', file: 'Татьяна Куртукова Матушка.mp3' }
     ];

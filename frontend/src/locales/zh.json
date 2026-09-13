@@ -1,0 +1,139 @@
+{
+  "app": {
+    "title": "CyberNet Lab - 网络运营中心"
+  },
+  "header": {
+    "noc": "网络运营中心",
+    "systemsOnline": "系统在线",
+    "backend": "后端",
+    "simulation": "模拟",
+    "sound": "声音",
+    "mute": "静音",
+    "roadmap": "学习路径",
+    "dashboard": "仪表板",
+    "lab": "实验室",
+    "engineer": "工程师模式",
+    "progress": "进度",
+    "settings": "设置"
+  },
+  "nav": {
+    "dashboard": "仪表板",
+    "lab": "虚拟实验室",
+    "roadmap": "学习路径",
+    "engineer": "工程师模式",
+    "security": "安全",
+    "analytics": "分析",
+    "progress": "进度",
+    "settings": "设置",
+    "quickLoad": "快速加载",
+    "loadLab": "加载实验室"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "nocSoc": "NOC/SOC 指挥中心",
+    "labsTotal": "总实验室",
+    "beginner": "基础",
+    "intermediate": "中级",
+    "advanced": "高级",
+    "completed": "已完成",
+    "inProgress": "进行中",
+    "backendStatus": "后端状态",
+    "catalogStatus": "目录状态",
+    "healthy": "健康",
+    "degraded": "降级",
+    "retryCatalog": "重试目录",
+    "continueLearning": "继续学习",
+    "learningPath": "学习路径"
+  },
+  "roadmap": {
+    "title": "实践学习路径 / 精通关卡",
+    "subtitle": "通过实践、证明和解释来学习",
+    "description": "每个阶段遵循 观察 → 预测 → 执行 → 验证 → 解释 → 迁移。完成度基于真实的实验步骤和证据，而不是花费的时间或装饰性进度。",
+    "masteredStages": "从记录的实验证据中掌握了 {count} 个阶段，共 {total} 个阶段",
+    "stageLocked": "先决条件",
+    "labsCompleted": "{completed}/{total} 个匹配实验室已完成",
+    "transferChallenge": "迁移挑战",
+    "ifYouFail": "如果失败",
+    "startAlternatePractice": "开始替代练习: {title}",
+    "openMatchingLabs": "打开匹配的实用实验室 ({count})",
+    "transferNote": "这会打开一个具有相同技能领域但不同上下文的已发布实验室（如果可用）。除非实验室明确定义，否则不声称隐藏故障。",
+    "learningCycle": "学习循环",
+    "stages": {
+      "observe": "观察",
+      "predict": "预测",
+      "perform": "执行",
+      "verify": "验证",
+      "explain": "解释",
+      "transfer": "迁移"
+    },
+    "stageStatus": {
+      "mastered": "已掌握",
+      "transferred": "已迁移",
+      "verified": "已验证",
+      "practiced": "已练习",
+      "introduced": "已介绍",
+      "not_started": "未开始",
+      "available": "可用",
+      "unavailable": "需要内容"
+    }
+  },
+  "labDetail": {
+    "tabs": {
+      "guide": "20步指南",
+      "overview": "任务",
+      "devices": "所需设备",
+      "topology": "拓扑与IP规划",
+      "configuration": "配置",
+      "verification": "验证",
+      "troubleshooting": "故障排除",
+      "tutorial": "初学者教程",
+      "failure": "失败练习",
+      "concepts": "概念",
+      "errors": "错误",
+      "questions": "问题",
+      "evidence": "证据与反思"
+    },
+    "evidence": {
+      "title": "预测 → 执行 → 验证 → 解释",
+      "instructions": "在更改实验室之前写下你的预测。记录命令、观察和受影响的设备；切勿粘贴密钥或完整的终端日志。",
+      "prediction": "预测",
+      "predictionPlaceholder": "你期望发生什么，为什么？",
+      "evidence": "证据",
+      "evidencePlaceholder": "哪个验证命令/结果证明了更改？",
+      "explanation": "解释和迁移",
+      "explanationPlaceholder": "解释原因以及你将如何将其应用到不同的拓扑。",
+      "saveRecord": "保存学习记录",
+      "savedRecords": "已保存记录: {count}",
+      "exportJson": "导出 JSON",
+      "exportMarkdown": "导出 Markdown",
+      "exportText": "导出文本",
+      "noEvidence": "尚未为此实验室记录证据。完成验证步骤或保存反思以开始。"
+    },
+    "mission": {
+      "objective": "目标",
+      "realWorldScenario": "真实场景",
+      "beforeYouStart": "开始前",
+      "whyItMatters": "为什么重要",
+      "labTopology": "实验室拓扑与所需设备"
+    }
+  },
+  "music": {
+    "studyDeck": "学习套牌",
+    "focusAudio": "实验室练习的专注音频",
+    "sound": "声音",
+    "mute": "静音",
+    "play": "播放",
+    "pause": "暂停",
+    "volume": "音量",
+    "tracks": {
+      "studyFocusTunes": "学习专注曲目"
+    }
+  },
+  "locale": {
+    "label": "语言",
+    "en": "English",
+    "hi": "हिन्दी",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}

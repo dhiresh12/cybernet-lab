@@ -1,0 +1,139 @@
+{
+  "app": {
+    "title": "CyberNet Lab"
+  },
+  "header": {
+    "noc": "NOC",
+    "systemsOnline": "SYSTEMS ONLINE",
+    "backend": "BACKEND",
+    "simulation": "SIMULATION",
+    "sound": "Sound",
+    "mute": "Mute",
+    "roadmap": "ROADMAP",
+    "dashboard": "DASHBOARD",
+    "lab": "LAB",
+    "engineer": "ENGINEER",
+    "progress": "PROGRESS",
+    "settings": "SETTINGS"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "lab": "Virtual Lab",
+    "roadmap": "Learning Path",
+    "engineer": "Engineer Mode",
+    "security": "Security",
+    "analytics": "Analytics",
+    "progress": "Progress",
+    "settings": "Settings",
+    "quickLoad": "Quick Load",
+    "loadLab": "Load Lab"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "nocSoc": "NOC/SOC Command Center",
+    "labsTotal": "Total Labs",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "backendStatus": "Backend Status",
+    "catalogStatus": "Catalog Status",
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "retryCatalog": "Retry Catalog",
+    "continueLearning": "Continue Learning",
+    "learningPath": "Learning Path"
+  },
+  "roadmap": {
+    "title": "Practical Learning Path / Mastery Gates",
+    "subtitle": "Learn by doing, proving, and explaining",
+    "description": "Each stage follows observe → predict → perform → verify → explain → transfer. Completion is based on real lab steps and evidence, not time spent or decorative progress.",
+    "masteredStages": "{count} of {total} stages mastered from recorded lab evidence",
+    "stageLocked": "Prerequisite",
+    "labsCompleted": "{completed}/{total} matching labs completed",
+    "transferChallenge": "Transfer challenge",
+    "ifYouFail": "If you fail",
+    "startAlternatePractice": "Start alternate practice: {title}",
+    "openMatchingLabs": "Open matching practical labs ({count})",
+    "transferNote": "This opens a published lab with the same skill area and a different context when available. It does not claim a hidden fault unless the lab explicitly defines one.",
+    "learningCycle": "Learning Cycle",
+    "stages": {
+      "observe": "Observe",
+      "predict": "Predict",
+      "perform": "Perform",
+      "verify": "Verify",
+      "explain": "Explain",
+      "transfer": "Transfer"
+    },
+    "stageStatus": {
+      "mastered": "Mastered",
+      "transferred": "Transferred",
+      "verified": "Verified",
+      "practiced": "Practiced",
+      "introduced": "Introduced",
+      "not_started": "Not started",
+      "available": "Available",
+      "unavailable": "Needs content"
+    }
+  },
+  "labDetail": {
+    "tabs": {
+      "guide": "20-Step Guide",
+      "overview": "Mission",
+      "devices": "Required Devices",
+      "topology": "Topology & IP Plan",
+      "configuration": "Configuration",
+      "verification": "Verification",
+      "troubleshooting": "Troubleshooting",
+      "tutorial": "Beginner Tutorial",
+      "failure": "Failure Practice",
+      "concepts": "Concepts",
+      "errors": "Errors",
+      "questions": "Questions",
+      "evidence": "Evidence & Reflection"
+    },
+    "evidence": {
+      "title": "PREDICT → PERFORM → VERIFY → EXPLAIN",
+      "instructions": "Write your prediction before changing the lab. Record commands, observations, and affected devices; never paste secrets or full terminal logs.",
+      "prediction": "Prediction",
+      "predictionPlaceholder": "What do you expect to happen, and why?",
+      "evidence": "Evidence",
+      "evidencePlaceholder": "Which verification command/result proves the change?",
+      "explanation": "Explanation and transfer",
+      "explanationPlaceholder": "Explain the cause and how you would apply this to a different topology.",
+      "saveRecord": "Save learning record",
+      "savedRecords": "Saved records: {count}",
+      "exportJson": "Export JSON",
+      "exportMarkdown": "Export Markdown",
+      "exportText": "Export Text",
+      "noEvidence": "No evidence has been recorded for this lab yet. Complete a verification step or save a reflection to begin."
+    },
+    "mission": {
+      "objective": "OBJECTIVE",
+      "realWorldScenario": "REAL-WORLD SCENARIO",
+      "beforeYouStart": "BEFORE YOU START",
+      "whyItMatters": "WHY IT MATTERS",
+      "labTopology": "LAB TOPOLOGY AND REQUIRED DEVICES"
+    }
+  },
+  "music": {
+    "studyDeck": "STUDY DECK",
+    "focusAudio": "Focus audio for lab practice",
+    "sound": "Sound",
+    "mute": "Mute",
+    "play": "Play",
+    "pause": "Pause",
+    "volume": "Volume",
+    "tracks": {
+      "studyFocusTunes": "Study Focus Tunes"
+    }
+  },
+  "locale": {
+    "label": "Language",
+    "en": "English",
+    "hi": "हिन्दी",
+    "zh": "中文",
+    "ja": "日本語"
+  }
+}

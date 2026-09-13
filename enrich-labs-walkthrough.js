@@ -158,7 +158,7 @@ function enrichStep(step, idx, totalSteps) {
   }
   if (step.errors && step.errors.length) {
     step.errors.forEach(e => {
-      wt.push({ kind: 'note', text: `⚠ Common error: ${e.error} → ${e.fix || e.solution || 'See troubleshooting tab.'}` });
+      wt.push({ kind: 'note', text: '[Warning] Common error: ' + e.error + ' → ' + (e.fix || e.solution || 'See troubleshooting tab.') });
     });
   }
   return { ...step, walkthrough: wt };

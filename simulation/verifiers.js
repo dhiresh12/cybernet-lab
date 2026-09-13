@@ -75,127 +75,114 @@ function option(payload, expected, labState) {
 
 // state_check: verifies actual device state matches expected
 function state_check(payload, expected, labState) {
-  let stateExpected = payload;
-  
-  let { deviceId, interface: interfaceName, ip, mask } = stateExpected || {};
-  
-  const device = labState.deviceStates ? labState.deviceStates.get(deviceId) : null;
-  
-  if (!device) return { passed: false, feedback: 'Device state not found', details: { deviceId } };
-  
-  const iface = device.interfaces ? device.interfaces[interfaceName] : null;
-  
-  if (!iface) return { passed: false, feedback: `Interface ${interfaceName} not found on ${deviceId}`, details: { deviceId, interfaceName } };
-  
-  const actualIp = iface.ip || 'unassigned';
-  const actualMask = iface.mask || 'unassigned';
-  
-  const passed = actualIp === ip && actualMask === mask;
-  
-  return { 
-    passed, 
-    feedback: passed ? 'State check passed.' : `Expected IP ${ip}`,
-    details: { expectedIp: ip, expectedMask: mask, actualIp, actualMask, deviceId, interfaceName }
-  };
-}
+   let stateExpected = payload;
+   
+   let { deviceId, interface: interfaceName, ip, mask } = stateExpected || {};
+   
+   const device = labState.deviceStates ? labState.deviceStates.get(deviceId) : null;
+   
+   if (!device) return { passed: false, feedback: 'Device state not found', details: { deviceId }, xp: 0 };
+   
+   const iface = device.interfaces ? device.interfaces[interfaceName] : null;
+   
+   if (!iface) return { passed: false, feedback: `Interface ${interfaceName} not found on ${deviceId}`, details: { deviceId, interfaceName }, xp: 0 };
+   
+   const actualIp = iface.ip || 'unassigned';
+   const actualMask = iface.mask || 'unassigned';
+   
+   const passed = actualIp === ip && actualMask === mask;
+   
+   return { 
+     passed, 
+     feedback: passed ? 'State check passed.' : `Expected IP ${ip}`,
+     details: { expectedIp: ip, expectedMask: mask, actualIp, actualMask, deviceId, interfaceName },
+     xp: passed ? 15 : 0
+   };
+ }
 
 // ping: verifies connectivity between devices using simulation
-function ping(arg1, arg2, labState, simulation, step) {
-  // Determine which argument is the device info object and which is the expected string
-  let payload, expected;
-  if (typeof arg1 === 'object' && arg1 !== null && typeof arg2 === 'string') {
-    // First arg is device object, second is expected string
-    payload = arg1;
-    expected = arg2;
-  } else if (typeof arg1 === 'string' && typeof arg2 === 'object' && arg2 !== null) {
-    // First arg is expected string, second is device object
-    payload = arg2;
-    expected = arg1;
-  } else {
-    // Fallback: assume first is payload, second is expected (original signature)
-    payload = arg1;
-    expected = arg2;
-  }
-  
-  const expectedReachable = String(expected).toLowerCase() === 'reachable';
-  
-  let sourceDeviceId = null;
-  let targetIp = null;
-  
-  if (typeof payload === 'object' && payload !== null) {
-    sourceDeviceId = payload.sourceDeviceId;
-    targetIp = payload.targetIp;
-  }
-  
-  if (step) {
-    sourceDeviceId = step.targetDevice || sourceDeviceId;
-    const commands = step.commands || [];
-    if (commands.length > 0) {
-      const pingCmd = commands.find(c => String(c).toLowerCase().startsWith('ping '));
-      if (pingCmd) {
-        targetIp = String(pingCmd).split(' ')[1];
-      }
-    }
-  }
-  
-  if (!targetIp && payload && payload.targetIp) {
-    targetIp = payload.targetIp;
-  }
-  
-  const simEngine = simulation && simulation.simulatePing ? simulation : (simulation && simulation.engine ? simulation.engine : null);
-  if (simEngine && typeof simEngine.simulatePing === 'function' && sourceDeviceId && targetIp) {
-    try {
-      const result = simEngine.simulatePing(sourceDeviceId, targetIp);
-      const passed = expectedReachable ? result.success : !result.success;
-      return { 
-        passed, 
-        feedback: passed ? 'Ping connectivity verified.' : `Ping failed: ${result.output?.join('; ') || 'unreachable'}`,
-        details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: result.success, output: result.output }
-      };
-    } catch (e) {
-      return { passed: false, feedback: `Ping verification error: ${e.message}`, details: { error: e.message } };
-    }
-  }
-  
-  if (labState && labState.deviceStates) {
-    const sourceDevice = labState.deviceStates.get(sourceDeviceId);
-    if (!sourceDevice) {
-      return { passed: false, feedback: 'Device state not found', details: { sourceDeviceId, targetIp, expectedReachable } };
-    }
-    if (!sourceDevice.interfaces || Object.keys(sourceDevice.interfaces).length === 0) {
-      return { passed: false, feedback: 'no active interface', details: { sourceDeviceId, targetIp, expectedReachable } };
-    }
-    const iface = sourceDevice.interfaces['Ethernet0'] || Object.values(sourceDevice.interfaces)[0];
-    if (!iface || iface.status !== 'up' || iface.ip === 'unassigned') {
-      return { passed: false, feedback: 'no active interface', details: { sourceDeviceId, targetIp, expectedReachable } };
-    }
-    
-    let targetDeviceFound = false;
-    let targetIface = null;
-    
-    for (const [devId, dev] of labState.deviceStates) {
-      if (devId === sourceDeviceId) continue;
-      const devIface = dev.interfaces && dev.interfaces['Ethernet0'];
-      if (devIface && devIface.ip === targetIp && devIface.status === 'up') {
-        targetDeviceFound = true;
-        targetIface = devIface;
-        break;
-      }
-    }
-    
-    if (targetDeviceFound && targetIface) {
-      return { 
-        passed: expectedReachable, 
-        feedback: expectedReachable ? 'Ping connectivity verified.' : `Ping failed: target device not reachable`,
-        details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: expectedReachable }
-      };
-    }
-    
-    return { passed: false, feedback: 'unreachable', details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: false } };
-  }
-  
-  return { passed: false, feedback: 'Ping verification unavailable: simulation not ready', details: { sourceDeviceId, targetIp, expectedReachable } };
-}
+function ping(payload, expected, labState, simulation, step) {
+   const expectedReachable = String(expected).toLowerCase() === 'reachable';
+   
+   let sourceDeviceId = null;
+   let targetIp = null;
+   
+   if (typeof payload === 'object' && payload !== null) {
+     sourceDeviceId = payload.sourceDeviceId;
+     targetIp = payload.targetIp;
+   }
+   
+   if (step) {
+     sourceDeviceId = step.targetDevice || sourceDeviceId;
+     const commands = step.commands || [];
+     if (commands.length > 0) {
+       const pingCmd = commands.find(c => String(c).toLowerCase().startsWith('ping '));
+       if (pingCmd) {
+         targetIp = String(pingCmd).split(' ')[1];
+       }
+     }
+   }
+   
+   if (!targetIp && payload && payload.targetIp) {
+     targetIp = payload.targetIp;
+   }
+   
+   const simEngine = simulation && simulation.simulatePing ? simulation : (simulation && simulation.engine ? simulation.engine : null);
+   if (simEngine && typeof simEngine.simulatePing === 'function' && sourceDeviceId && targetIp) {
+     try {
+       const result = simEngine.simulatePing(sourceDeviceId, targetIp);
+       const passed = expectedReachable ? result.success : !result.success;
+       return { 
+         passed, 
+         feedback: passed ? 'Ping connectivity verified.' : `Ping failed: ${result.output?.join('; ') || 'unreachable'}`,
+         details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: result.success, output: result.output },
+         xp: passed ? 15 : 0
+       };
+     } catch (e) {
+       return { passed: false, feedback: `Ping verification error: ${e.message}`, details: { error: e.message }, xp: 0 };
+     }
+   }
+   
+   if (labState && labState.deviceStates) {
+     const sourceDevice = labState.deviceStates.get(sourceDeviceId);
+     if (!sourceDevice) {
+       return { passed: false, feedback: 'Device state not found', details: { sourceDeviceId, targetIp, expectedReachable }, xp: 0 };
+     }
+     if (!sourceDevice.interfaces || Object.keys(sourceDevice.interfaces).length === 0) {
+       return { passed: false, feedback: 'no active interface', details: { sourceDeviceId, targetIp, expectedReachable }, xp: 0 };
+     }
+     const iface = sourceDevice.interfaces['Ethernet0'] || Object.values(sourceDevice.interfaces)[0];
+     if (!iface || iface.status !== 'up' || iface.ip === 'unassigned') {
+       return { passed: false, feedback: 'no active interface', details: { sourceDeviceId, targetIp, expectedReachable }, xp: 0 };
+     }
+     
+     let targetDeviceFound = false;
+     let targetIface = null;
+     
+     for (const [devId, dev] of labState.deviceStates) {
+       if (devId === sourceDeviceId) continue;
+       const devIface = dev.interfaces && dev.interfaces['Ethernet0'];
+       if (devIface && devIface.ip === targetIp && devIface.status === 'up') {
+         targetDeviceFound = true;
+         targetIface = devIface;
+         break;
+       }
+     }
+     
+     if (targetDeviceFound && targetIface) {
+       return { 
+         passed: expectedReachable, 
+         feedback: expectedReachable ? 'Ping connectivity verified.' : `Ping failed: target device not reachable`,
+         details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: expectedReachable },
+         xp: expectedReachable ? 15 : 0
+       };
+     }
+     
+     return { passed: false, feedback: 'unreachable', details: { sourceDeviceId, targetIp, expectedReachable, actualReachable: false }, xp: 0 };
+   }
+   
+   return { passed: false, feedback: 'Ping verification unavailable: simulation not ready', details: { sourceDeviceId, targetIp, expectedReachable }, xp: 0 };
+ }
 
 function calculateSimilarity(a, b) {
   if (a === b) return 1;
@@ -213,7 +200,7 @@ function levenshtein(a, b) {
   for (let i = 1; i <= b.length; i++) {
     for (let j = 1; j <= a.length; j++) {
       if (b.charAt(i - 1) === a.charAt(j - 1)) matrix[i][j] = matrix[i - 1][j - 1];
-      else matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i - 1][j] + 1, matrix[i - 1][j] + 1);
+         else matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
     }
   }
   return matrix[b.length][a.length];

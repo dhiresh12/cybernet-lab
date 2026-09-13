@@ -14,6 +14,22 @@ describe('practical curriculum contract', () => {
     expect(PRACTICAL_CURRICULUM).toHaveLength(8);
     expect(PRACTICAL_CURRICULUM[0].level).toBe(0);
     expect(PRACTICAL_CURRICULUM[7].level).toBe(7);
+    PRACTICAL_CURRICULUM.forEach(stage => {
+      expect(stage).toHaveProperty('zh');
+      expect(stage).toHaveProperty('ja');
+      expect(stage).toHaveProperty('zhStrategy');
+      expect(stage).toHaveProperty('jaStrategy');
+      expect(stage.zh).toHaveProperty('title');
+      expect(stage.zh).toHaveProperty('description');
+      expect(stage.zh).toHaveProperty('gate');
+      expect(stage.zh).toHaveProperty('transfer');
+      expect(stage.zh).toHaveProperty('remediation');
+      expect(stage.ja).toHaveProperty('title');
+      expect(stage.ja).toHaveProperty('description');
+      expect(stage.ja).toHaveProperty('gate');
+      expect(stage.ja).toHaveProperty('transfer');
+      expect(stage.ja).toHaveProperty('remediation');
+    });
   });
 
   test('matches real catalog categories without fabricating lab completion', () => {
@@ -25,6 +41,15 @@ describe('practical curriculum contract', () => {
     expect(getStageLabs(stage, labs).map(lab => lab.id)).toEqual(['a']);
     expect(getStageStatus(stage, labs, [])).toBe('available');
     expect(getStageStatus(stage, labs, ['a-1'])).toBe('mastered');
+  });
+
+  test('each learning cycle phase has localized prompts', () => {
+    PRACTICAL_LEARNING_CYCLE.forEach(phase => {
+      expect(phase).toHaveProperty('zhPrompt');
+      expect(phase).toHaveProperty('jaPrompt');
+      expect(typeof phase.zhPrompt).toBe('string');
+      expect(typeof phase.jaPrompt).toBe('string');
+    });
   });
 
   test('selects the least-completed published lab for transfer practice', () => {

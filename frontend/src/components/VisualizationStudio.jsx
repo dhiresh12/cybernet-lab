@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const VisualizationStudio = ({ 
   visualizationComponent, 
@@ -168,7 +168,7 @@ const VisualizationStudio = ({
             padding: '4px 8px',
             cursor: 'pointer'
           }}>
-            ✕ Exit Fullscreen
+            [X] Exit Fullscreen
           </button>
         </div>
       )}

@@ -99,6 +99,7 @@ export default class LabEngine {
 
     if (type === 'lab:started') {
       this._applyState(msg.state);
+      this.sessionId = msg.sessionId || this.sessionId;
       this.emit('lab:active', { labId: this.state.labId, state: this.state });
     }
     if (type === 'step:passed') {
@@ -109,6 +110,10 @@ export default class LabEngine {
     }
     if (type === 'step:failed') {
       this.emit('step:failed', { stepId: msg.stepId, feedback: msg.feedback, hint: msg.hint });
+    }
+    if (type === 'hint') {
+      this.state.hintsUsed++;
+      this.emit('hint', { stepId: msg.stepId, tier: msg.tier, text: msg.text });
     }
     if (type === 'topology:update') {
       this.state.topology = msg.topology;
@@ -141,6 +146,13 @@ export default class LabEngine {
     this.state.startTime = backendState.startTime || this.state.startTime;
     this.state.topology = backendState.topology || this.state.topology;
     this.state.active = true;
+
+    if (backendState.deviceStates) {
+      const ds = Array.isArray(backendState.deviceStates)
+        ? Object.fromEntries(backendState.deviceStates)
+        : backendState.deviceStates;
+      this.state.deviceStates = ds;
+    }
   }
 
   _send(msg) {
@@ -210,24 +222,37 @@ export default class LabEngine {
       return this.state;
     }
 
-    await new Promise(resolve => {
-      const handler = (msg) => {
+    // Wait for session message from backend, then start the lab
+    return new Promise((resolve) => {
+      const sessionHandler = (msg) => {
         if (msg.type === 'session') {
           this.sessionId = msg.id;
           this._send({ type: 'lab:start', labId });
-          this.off('session', handler);
-          resolve();
+          this.off('session', sessionHandler);
+          resolve(this._waitForLabStarted());
         }
       };
-      this.on('session', handler);
-      this._waitFor('session', 5000).then(() => {
-        this.off('session', handler);
-        resolve();
-      });
+      this.on('session', sessionHandler);
     });
+  }
 
-    const result = await this._waitFor('lab:started', 15000);
-    return result ? result.state : this.state;
+  _waitForLabStarted(timeout = 15000) {
+    return new Promise((resolve) => {
+      const handler = (msg) => {
+        if (msg.type === 'lab:started') {
+          this._applyState(msg.state);
+          this.sessionId = msg.sessionId || this.sessionId;
+          this.emit('lab:active', { labId: this.state.labId, state: this.state });
+          this.off('lab:started', handler);
+          resolve(msg.state);
+        }
+      };
+      this.on('lab:started', handler);
+      setTimeout(() => {
+        this.off('lab:started', handler);
+        resolve(this.state);
+      }, timeout);
+    });
   }
 
   async verifyStep(stepId, payload) {

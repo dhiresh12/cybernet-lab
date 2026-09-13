@@ -715,3 +715,250 @@
     font-size: var(--text-xs);
   }
 }
+
+.dashboard-root.soc-active .dashboard-logo {
+  color: var(--error);
+  text-shadow: 0 0 12px rgba(255, 51, 85, 0.6);
+}
+
+.soc-threat-severity-critical {
+  color: var(--error);
+}
+
+.soc-threat-severity-high {
+  color: var(--warning);
+}
+
+.soc-threat-severity-medium {
+  color: var(--text);
+}
+
+.security-event {
+  border-left: 3px solid var(--primary);
+}
+
+.security-event:nth-child(2) {
+  border-left-color: var(--warning);
+}
+
+.security-event:nth-child(3) {
+  border-left-color: var(--error);
+}
+
+.traffic-metrics .metric-panel {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--panel-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.threat-item {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.threat-item:hover {
+  border-color: var(--error);
+  box-shadow: 0 0 10px rgba(255, 51, 85, 0.25);
+}
+
+.ticket-pipeline-panel {
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  background: linear-gradient(145deg, rgba(15, 25, 57, 0.9), rgba(6, 12, 31, 0.95));
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.incident-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.incident-item {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--panel-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.incident-item:hover {
+  border-color: var(--error);
+  box-shadow: 0 0 10px rgba(255, 51, 85, 0.2);
+}
+
+.incident-progress-bar {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.incident-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--cyan);
+  transition: width 0.3s;
+}
+
+.incident-progress-fill.complete {
+  background: var(--success);
+}
+
+.alert-triage-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  margin-bottom: var(--space-2);
+}
+
+.evidence-field {
+  margin-bottom: var(--space-3);
+}
+
+.evidence-field label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.evidence-field input,
+.evidence-field textarea {
+  width: 100%;
+  padding: var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  box-sizing: border-box;
+}
+
+.containment-step {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-2) var(--space-3);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+}
+
+.containment-step-number {
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 0.8rem;
+  min-width: 24px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  padding: var(--space-1) 0;
+}
+
+.timeline-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  min-width: 60px;
+  font-family: monospace;
+}
+
+.timeline-event {
+  color: var(--text);
+  font-size: var(--text-sm);
+}
+
+.timeline-add {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.timeline-add input {
+  flex: 1;
+  padding: var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+}
+
+.timeline-add button {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--cyan);
+  background: rgba(0, 240, 255, 0.12);
+  color: var(--cyan);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.incident-difficulty-badge {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.alert-triage-fp {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.root-cause-section,
+.recovery-section,
+.lessons-learned-section {
+  margin-bottom: var(--space-3);
+}
+
+.root-cause-section label,
+.recovery-section label,
+.lessons-learned-section label {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: var(--space-1);
+}
+
+.root-cause-section textarea,
+.recovery-section textarea,
+.lessons-learned-section textarea {
+  width: 100%;
+  padding: var(--space-2);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .threat-list,
+  .security-events,
+  .traffic-metrics {
+    max-height: 220px;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .threat-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}

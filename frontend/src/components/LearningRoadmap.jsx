@@ -6,6 +6,7 @@ import {
   getTransferLab,
   getStageStatus
 } from '../data/practicalCurriculum';
+import { useLocale } from '../context/LocaleContext';
 
 const STATUS_LABELS = {
   mastered: 'Mastered',
@@ -19,6 +20,7 @@ const STATUS_LABELS = {
 };
 
 export default function LearningRoadmap({ labs = [], completedSteps = [], evidenceRecords = [], transferAttempts = [], onSelectCategory, onStartLab, onStartTransfer }) {
+  const { locale } = useLocale();
   const [selectedStageId, setSelectedStageId] = useState('networking-foundations');
   const selectedStage = PRACTICAL_CURRICULUM.find(stage => stage.id === selectedStageId) || PRACTICAL_CURRICULUM[0];
 
@@ -63,7 +65,7 @@ export default function LearningRoadmap({ labs = [], completedSteps = [], eviden
         marginBottom: 20
       }} aria-label="Learning cycle">
         {PRACTICAL_LEARNING_CYCLE.map((phase, index) => (
-          <div key={phase.id} style={{
+          <article key={phase.id} style={{
             background: 'var(--panel)',
             border: '1px solid rgba(0,240,255,0.25)',
             borderRadius: 10,
@@ -71,9 +73,9 @@ export default function LearningRoadmap({ labs = [], completedSteps = [], eviden
           }}>
             <div style={{ color: 'var(--cyan)', fontWeight: 700 }}>{index + 1}. {phase.label}</div>
             <div style={{ color: 'var(--muted)', fontSize: '0.78rem', lineHeight: 1.4, marginTop: 5 }}>
-              {phase.prompt}
+              {locale === 'zh' ? (phase.zhPrompt || phase.prompt) : locale === 'ja' ? (phase.jaPrompt || phase.prompt) : (phase.prompt || '')}
             </div>
-          </div>
+          </article>
         ))}
       </section>
 
@@ -122,8 +124,8 @@ export default function LearningRoadmap({ labs = [], completedSteps = [], eviden
                     fontWeight: 800
                   }}>{stage.level}</div>
                   <div style={{ flex: 1 }}>
-                    <div style={{ color: stage.color, fontWeight: 700 }}>{stage.title}</div>
-                    <div style={{ color: 'var(--muted)', fontSize: '0.82rem', marginTop: 3 }}>{stage.description}</div>
+                    <div style={{ color: stage.color, fontWeight: 700 }}>{stage[locale]?.title || stage.title}</div>
+                    <div style={{ color: 'var(--muted)', fontSize: '0.82rem', marginTop: 3 }}>{stage[locale]?.description || stage.description}</div>
                   </div>
                   <div style={{ color: stage.status === 'mastered' ? 'var(--green)' : 'var(--muted)', fontSize: '0.78rem' }}>
                     {stage.locked ? 'Prerequisite' : STATUS_LABELS[stage.status]}
@@ -147,18 +149,33 @@ export default function LearningRoadmap({ labs = [], completedSteps = [], eviden
             <div style={{ color: selected.color, fontSize: '0.78rem', letterSpacing: '0.08em' }}>
               STAGE {selected.level} / {STATUS_LABELS[selected.status].toUpperCase()}
             </div>
-            <h3 style={{ color: 'var(--text)', margin: '8px 0' }}>{selected.title}</h3>
-            <p style={{ color: 'var(--muted)', lineHeight: 1.5 }}>{selected.gate}</p>
+            <h3 style={{ color: 'var(--text)', margin: '8px 0' }}>{selected[locale]?.title || selected.title}</h3>
+            <p style={{ color: 'var(--muted)', lineHeight: 1.5 }}>{selected[locale]?.gate || selected.gate}</p>
             <h4 style={{ color: 'var(--text)', marginBottom: 6 }}>Skills practiced</h4>
             <ul style={{ color: 'var(--muted)', paddingLeft: 18, lineHeight: 1.6 }}>
               {selected.skills.map(skill => <li key={skill}>{skill}</li>)}
             </ul>
             <div style={{ borderTop: '1px solid rgba(0,240,255,0.18)', marginTop: 12, paddingTop: 12 }}>
               <div style={{ color: 'var(--yellow)', fontWeight: 700 }}>Transfer challenge</div>
-              <p style={{ color: 'var(--muted)', fontSize: '0.86rem', lineHeight: 1.5 }}>{selected.transfer}</p>
+              <p style={{ color: 'var(--muted)', fontSize: '0.86rem', lineHeight: 1.5 }}>{selected[locale]?.transfer || selected.transfer}</p>
               <div style={{ color: 'var(--cyan)', fontWeight: 700 }}>If you fail</div>
-              <p style={{ color: 'var(--muted)', fontSize: '0.86rem', lineHeight: 1.5 }}>{selected.remediation}</p>
+              <p style={{ color: 'var(--muted)', fontSize: '0.86rem', lineHeight: 1.5 }}>{selected[locale]?.remediation || selected.remediation}</p>
             </div>
+            {selected.zhStrategy && selected.jaStrategy && (
+              <div style={{ borderTop: '1px solid rgba(0,240,255,0.18)', marginTop: 12, paddingTop: 12 }}>
+                <div style={{ color: 'var(--cyan)', fontWeight: 700, fontSize: '0.9rem', marginBottom: 8 }}>Study Strategies</div>
+                <div style={{ display: 'flex', flexDirection: 'row', gap: 16, flexWrap: 'wrap' }}>
+                  <div style={{ flex: 1, minWidth: 140 }}>
+                    <div style={{ color: 'var(--red)', fontWeight: 600, fontSize: '0.8rem', marginBottom: 4 }}>中国学习法</div>
+                    <p style={{ color: 'var(--muted)', fontSize: '0.76rem', lineHeight: 1.4 }}>{selected.zhStrategy}</p>
+                  </div>
+                  <div style={{ flex: 1, minWidth: 140 }}>
+                    <div style={{ color: 'var(--cyan)', fontWeight: 600, fontSize: '0.8rem', marginBottom: 4 }}>日本学び方</div>
+                    <p style={{ color: 'var(--muted)', fontSize: '0.76rem', lineHeight: 1.4 }}>{selected.jaStrategy}</p>
+                  </div>
+                </div>
+              </div>
+            )}
             <button
               type="button"
               onClick={() => transferLab && onStartLab

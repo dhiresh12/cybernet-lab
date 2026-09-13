@@ -1,6 +1,8 @@
 import { normalizeLab } from './labNormalizer';
 import proceduralLabs from './labs.procedural.json';
 import { buildCatalogManifest } from './labCatalogManifest';
+import { getLabStudyStrategy } from './labStudyStrategy';
+import manifestLabs from './labs.manifest.json';
 
 describe('legacy lab normalization', () => {
   test('builds a usable topology and initial device state from legacy fields', () => {
@@ -97,5 +99,39 @@ describe('legacy lab normalization', () => {
     expect(manifest.total).toBe(1);
     expect(manifest.uniqueTotal).toBe(1);
     expect(manifest.records[0].id).toBe(String(lab.id));
+  });
+
+  test('preserves studyStrategy field from manifest through normalization', () => {
+    const sampleManifest = manifestLabs.slice(0, 5);
+    sampleManifest.forEach(rawLab => {
+      const normalized = normalizeLab(rawLab);
+      expect(normalized.studyStrategy).toBeDefined();
+      expect(normalized.studyStrategy).toEqual(rawLab.studyStrategy);
+    });
+  });
+
+  test('getLabStudyStrategy computes same result as manifest injection', () => {
+    const sampleManifest = manifestLabs.slice(0, 10);
+    sampleManifest.forEach(rawLab => {
+      const computed = getLabStudyStrategy(rawLab);
+      const manifestStrategy = rawLab.studyStrategy;
+      expect(computed.stage).toBe(manifestStrategy.stage);
+      expect(computed.zhStrategy).toBe(manifestStrategy.zhStrategy);
+      expect(computed.jaStrategy).toBe(manifestStrategy.jaStrategy);
+      expect(computed.zhSyllabus).toEqual(manifestStrategy.zhSyllabus);
+      expect(computed.jaSyllabus).toEqual(manifestStrategy.jaSyllabus);
+    });
+  });
+
+  test('all manifest labs have valid studyStrategy with 6 syllabus items', () => {
+    expect(manifestLabs).toHaveLength(247);
+    manifestLabs.forEach(rawLab => {
+      const ss = rawLab.studyStrategy;
+      expect(ss).toBeDefined();
+      expect(ss.zhSyllabus).toHaveLength(6);
+      expect(ss.jaSyllabus).toHaveLength(6);
+      expect(ss.zhStrategy.length).toBeGreaterThan(20);
+      expect(ss.jaStrategy.length).toBeGreaterThan(20);
+    });
   });
 });

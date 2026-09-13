@@ -55,7 +55,7 @@ export default function GlobalSearch({ labs = [], onSelectLab, onClose }) {
       justifyContent: 'center',
       paddingTop: '10vh',
       backdropFilter: 'blur(4px)'
-    }} onClick={onClose}>
+    }} onClick={onClose} role="dialog" aria-modal="true" aria-label="Global search">
       <div style={{
         background: 'var(--panel)',
         border: '1px solid rgba(0,240,255,0.5)',
@@ -68,7 +68,7 @@ export default function GlobalSearch({ labs = [], onSelectLab, onClose }) {
         boxShadow: '0 0 40px rgba(0,240,255,0.3)'
       }} onClick={(e) => e.stopPropagation()}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-          <span style={{ color: 'var(--cyan)', fontSize: '1.2em' }}>🔍</span>
+          <span style={{ color: 'var(--cyan)', fontSize: '1.2em' }} aria-hidden="true">Search</span>
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -82,8 +82,7 @@ export default function GlobalSearch({ labs = [], onSelectLab, onClose }) {
               borderRadius: 6,
               color: 'var(--text)',
               padding: '10px 12px',
-              fontSize: '1em',
-              outline: 'none'
+              fontSize: '1em'
             }}
           />
           <button onClick={onClose} aria-label="Close global search" style={{
@@ -96,78 +95,72 @@ export default function GlobalSearch({ labs = [], onSelectLab, onClose }) {
           }}>✕</button>
         </div>
 
-        {query.length < 2 ? (
-          <div style={{ color: 'var(--muted)', textAlign: 'center', padding: 20 }}>
-            Type at least 2 characters to search.
-            <div style={{ marginTop: 12, fontSize: '0.85em' }}>
-              Try: VLAN, OSPF, ACL, show ip route, subnetting, troubleshooting
+        <div aria-live="polite" style={{ color: 'var(--muted)', textAlign: 'center', padding: 20, fontSize: '0.85em' }}>
+          {query.length < 2 ? (
+            <>Type at least 2 characters to search.<br />
+              <span style={{ marginTop: 12, display: 'inline-block' }}>
+                Try: VLAN, OSPF, ACL, show ip route, subnetting, troubleshooting
+              </span></>
+          ) : results.labs.length === 0 && results.concepts.length === 0 ? (
+            <>No results found for "{query}".</>
+          ) : null}
+        </div>
+
+        {query.length >= 2 && results.labs.length > 0 && (
+          <div role="list" aria-label="Search results - labs">
+            <div style={{ color: 'var(--cyan)', fontSize: '0.85em', fontWeight: 700, marginBottom: 6 }}>
+              Library Labs ({results.labs.length})
             </div>
+            {results.labs.map(lab => (
+              <div
+                key={lab.id}
+                onClick={() => { onSelectLab(lab); onClose(); }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onSelectLab(lab);
+                    onClose();
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`Open lab ${lab.title}, ${lab.level} level, ${lab.category} category`}
+                style={{
+                  padding: '8px 12px',
+                  marginBottom: 4,
+                  borderRadius: 6,
+                  background: 'rgba(0,0,0,0.3)',
+                  border: '1px solid rgba(0,240,255,0.2)',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--cyan)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(0,240,255,0.2)'; }}
+              >
+                <div style={{ color: 'var(--text)', fontSize: '0.9em', fontWeight: 700 }}>{lab.title}</div>
+                <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
+                  <span style={{ fontSize: '0.7em', color: 'var(--muted)' }}>{lab.level}</span>
+                  <span style={{ fontSize: '0.7em', color: 'var(--muted)' }}>• {lab.category}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ) : (
-          <div>
-            {results.labs.length > 0 && (
-              <div style={{ marginBottom: 16 }}>
-                <div style={{ color: 'var(--cyan)', fontSize: '0.85em', fontWeight: 700, marginBottom: 6 }}>
-                  📚 Labs ({results.labs.length})
-                </div>
-                {results.labs.map(lab => (
-                  <div
-                    key={lab.id}
-                    onClick={() => { onSelectLab(lab); onClose(); }}
-                    onKeyDown={(event) => {
-                      if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault();
-                        onSelectLab(lab);
-                        onClose();
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`Open lab ${lab.title}, ${lab.level} level, ${lab.category} category`}
-                    style={{
-                      padding: '8px 12px',
-                      marginBottom: 4,
-                      borderRadius: 6,
-                      background: 'rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(0,240,255,0.2)',
-                      cursor: 'pointer'
-                    }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--cyan)'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(0,240,255,0.2)'; }}
-                  >
-                    <div style={{ color: 'var(--text)', fontSize: '0.9em', fontWeight: 700 }}>{lab.title}</div>
-                    <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
-                      <span style={{ fontSize: '0.7em', color: 'var(--muted)' }}>{lab.level}</span>
-                      <span style={{ fontSize: '0.7em', color: 'var(--muted)' }}>• {lab.category}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
+        )}
 
-            {results.concepts.length > 0 && (
-              <div>
-                <div style={{ color: 'var(--cyan)', fontSize: '0.85em', fontWeight: 700, marginBottom: 6 }}>
-                  💡 Concepts & Errors ({results.concepts.length})
-                </div>
-                {results.concepts.map((c, i) => (
-                  <div key={i} style={{
-                    padding: '6px 12px',
-                    marginBottom: 4,
-                    borderRadius: 6,
-                    background: 'rgba(0,0,0,0.3)',
-                    color: 'var(--text)',
-                    fontSize: '0.85em'
-                  }}>{c}</div>
-                ))}
-              </div>
-            )}
-
-            {results.labs.length === 0 && results.concepts.length === 0 && (
-              <div style={{ color: 'var(--muted)', textAlign: 'center', padding: 20 }}>
-                No results found for "{query}".
-              </div>
-            )}
+        {query.length >= 2 && results.concepts.length > 0 && (
+          <div role="list" aria-label="Search results - concepts and errors">
+            <div style={{ color: 'var(--cyan)', fontSize: '0.85em', fontWeight: 700, marginBottom: 6, marginTop: results.labs.length > 0 ? 16 : 0 }}>
+              Tip Concepts & Errors ({results.concepts.length})
+            </div>
+            {results.concepts.map((c, i) => (
+              <div key={i} role="listitem" style={{
+                padding: '6px 12px',
+                marginBottom: 4,
+                borderRadius: 6,
+                background: 'rgba(0,0,0,0.3)',
+                color: 'var(--text)',
+                fontSize: '0.85em'
+              }}>{c}</div>
+            ))}
           </div>
         )}
       </div>

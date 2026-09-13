@@ -6,18 +6,38 @@ import { generatePacketTracerHint } from './simulation/packetTracer';
 import { BackgroundStudio } from './features/backgrounds';
 import Header from './components/Header';
 import Nav from './components/Nav';
+import ContextPanel from './components/ContextPanel';
 import GlobalSearch from './components/GlobalSearch';
 import EngineerMode from './components/EngineerMode';
 import FocusMode from './components/FocusMode';
 import LearningRoadmap from './components/LearningRoadmap';
+import LearningPathPlanner from './components/LearningPathPlanner';
+import ConceptVisualizationBoard from './components/ConceptVisualizationBoard';
 import CommandLibrary from './components/CommandLibrary';
+import TicketManager from './components/TicketManager';
+import DailyMission from './components/DailyMission';
+import RetrievalCenter from './components/RetrievalCenter';
+import EvidencePanel from './components/EvidencePanel';
+import FailureLab from './components/FailureLab';
+import TroubleshootingCoach from './components/TroubleshootingCoach';
+import ErrorBoundary from './components/ErrorBoundary';
+import ResearchLab from './components/ResearchLab';
+import Portfolio from './components/Portfolio';
+import StudyPlanner from './components/StudyPlanner';
+import SkillGraph from './components/SkillGraph';
+import Debrief from './components/Debrief';
+import InterviewRoom from './components/InterviewRoom';
+import CourseMode from './components/courses/index';
 import { MusicPlayer } from './features/music';
 import { Quiz } from './features/quiz';
 import { getAllLabs, getLabById, getCatalogManifest } from './data/labRegistry';
-import { progressStorage, evidenceStorage, engineerStorage, securityStorage, learningStorage, themeStorage, backgroundStorage, soundStorage, animationsStorage, invertColorsStorage, musicStorage } from './core/storage';
-import { BACKGROUNDS, DEFAULT_BG, DEFAULT_MUSIC } from './core/constants';
+import { progressStorage, evidenceStorage, engineerStorage, securityStorage, learningStorage, conceptBoardStorage, themeStorage, backgroundStorage, soundStorage, animationsStorage, invertColorsStorage, highContrastStorage, largerTextStorage, reducedTransparencyStorage, reducedGlowStorage, musicStorage, designModeStorage } from './core/storage';
+import { BACKGROUNDS, DEFAULT_BG, DEFAULT_MUSIC, THEMES } from './core/constants';
 import LabExplorerView from './app/views/LabExplorerView';
 import LabDetailView from './app/views/LabDetailView';
+import { LocaleProvider, useLocale } from './context/LocaleContext';
+import { progressEngine } from './services/progressEngine';
+import QADashboard from './components/QADashboard';
 
 const Dashboard = React.lazy(() => import('./features/dashboard').then(m => ({ default: m.Dashboard })));
 const LabWorkspace = React.lazy(() => import('./features/lab-workspace').then(m => ({ default: m.default })));
@@ -140,7 +160,7 @@ function SecurityCenter({ labs, onNavigate, onSelectLab }) {
         {modules.map(item => {
           const lab = securityLabs.find(candidate => `${candidate.title} ${candidate.category}`.toLowerCase().includes(item.id.replace('-', ' ')));
           return (
-          <div key={item.id} className="tech-card" style={{ cursor: 'pointer' }} onClick={() => setSelectedModule(item.id)}>
+          <div key={item.id} className="tech-card" style={{ cursor: 'pointer' }} onClick={() => setSelectedModule(item.id)} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setSelectedModule(item.id); } }} role="button" tabIndex={0} aria-label={`Open ${item.title} security module`}>
             <div style={{ color: 'var(--accent-soft)', fontWeight: 'var(--font-weight-bold)', marginBottom: 'var(--space-2)' }}>{item.title}</div>
             <div style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)' }}>{item.track} · {lab ? lab.title : 'No matching published lab yet'}</div>
           </div>
@@ -261,7 +281,7 @@ function ProgressMatrix({ progress, labsList, onNavigate }) {
       </h1>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 'var(--space-2)' }}>
         {skills.map(skill => (
-          <div key={skill.name} className="tech-card" style={{ cursor: 'pointer' }} onClick={() => onNavigate('lab')}>
+          <div key={skill.name} className="tech-card" style={{ cursor: 'pointer' }} onClick={() => onNavigate('lab')} onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onNavigate('lab'); } }} role="button" tabIndex={0} aria-label={`Open ${skill.name} skill lab`}>
             <div style={{ color: 'var(--text)', fontWeight: 'var(--font-weight-semibold)', marginBottom: 'var(--space-1)' }}>{skill.name}</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: statusColors.not_started }} />
@@ -274,74 +294,128 @@ function ProgressMatrix({ progress, labsList, onNavigate }) {
   );
 }
 
-function SettingsView({ theme, onThemeChange, designMode, onDesignModeChange, soundEnabled, onToggleSound, animationsEnabled, onToggleAnimations, invertColors, onToggleInvert, bgSetting, onBgChange }) {
+function SettingsView({ theme, onThemeChange, designMode, onDesignModeChange, soundEnabled, onToggleSound, animationsEnabled, onToggleAnimations, invertColors, onToggleInvert, highContrast, onToggleHighContrast, largerText, onToggleLargerText, reducedTransparency, onToggleReducedTransparency, reducedGlow, onToggleReducedGlow, bgSetting, onBgChange }) {
+  const themeColors = {
+    'cyber-blue': { primary: '#00E5FF', bg: '#020711', panel: 'rgba(6,14,28,0.94)' },
+    'emerald': { primary: '#28f2a2', bg: '#02100f', panel: 'rgba(6,28,24,0.94)' },
+    'crimson': { primary: '#ff6b81', bg: '#12050a', panel: 'rgba(28,6,10,0.94)' },
+    'purple': { primary: '#c084fc', bg: '#0c0618', panel: 'rgba(12,6,24,0.94)' },
+    'deep-space': { primary: '#b9c8ff', bg: '#02030a', panel: 'rgba(2,3,10,0.94)' },
+    'neon-cyan': { primary: '#00fff0', bg: '#020a0a', panel: 'rgba(2,10,10,0.94)' },
+    'stealth': { primary: '#b9c8ff', bg: '#02030a', panel: 'rgba(2,3,10,0.94)' },
+  };
+
+  const panelPreviews = {
+    noc: { bg: '#020711', panel: 'rgba(6,14,28,0.94)', border: 'rgba(0,229,255,0.35)', label: 'Dark NOC Neon' },
+    operations: { bg: '#eef3f8', panel: 'rgba(255,255,255,0.88)', border: '#c5d3e2', label: 'Operations Light' },
+    'server-room': { bg: '#080b10', panel: 'rgba(10,18,28,0.94)', border: 'rgba(255,170,74,0.42)', label: 'Server Room Console' },
+  };
+
   return (
-    <div style={{ padding: 'var(--space-6)', maxWidth: 800, margin: '0 auto' }}>
-      <h1 style={{ color: 'var(--primary)', margin: '0 0 var(--space-4)', fontSize: 'var(--text-xl)', fontWeight: 'var(--font-weight-extrabold)', letterSpacing: '1px' }}>
+    <div style={{ padding: 'var(--space-6)', maxWidth: 900, margin: '0 auto' }}>
+      <h1 className="type-page-title" style={{ margin: '0 0 var(--space-4)' }}>
         SYSTEM CONFIGURATION
       </h1>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
         <div className="tech-card">
-          <div className="tech-label">Appearance</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Theme</span>
-              <select value={theme} onChange={(e) => onThemeChange(e.target.value)} className="cmd-btn">
-                <option value="cyber-blue">Cyber Blue</option>
-                <option value="emerald">Emerald Matrix</option>
-                <option value="crimson">Crimson Command</option>
-                <option value="purple">Purple Galaxy</option>
-                <option value="deep-space">Deep Space</option>
-                <option value="neon-cyan">Neon Cyan</option>
-                <option value="stealth">Stealth Black</option>
-              </select>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Background</span>
-              <select value={bgSetting} onChange={(e) => onBgChange(e.target.value)} className="cmd-btn">
-                {BACKGROUNDS.map(background => (
-                  <option key={background.id} value={background.id}>{background.name}</option>
-                ))}
-              </select>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Panel design</span>
-              <select value={designMode} onChange={(e) => onDesignModeChange(e.target.value)} className="cmd-btn">
-                <option value="noc">Dark NOC Neon</option>
-                <option value="operations">Operations Light</option>
-                <option value="server-room">Server Room Console</option>
-              </select>
-            </div>
+          <div className="type-label" style={{ marginBottom: 'var(--space-3)' }}>Appearance — Theme</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 'var(--space-3)' }}>
+            {THEMES.map(t => {
+              const colors = themeColors[t.id] || themeColors['cyber-blue'];
+              const active = theme === t.id;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => onThemeChange(t.id)}
+                  className={`cmd-btn ${active ? 'primary' : ''}`}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 'var(--space-2)',
+                    padding: 'var(--space-3)',
+                    border: active ? '2px solid var(--primary)' : '1px solid var(--panel-border-subtle)',
+                    background: active ? 'rgba(0,229,255,0.1)' : 'var(--panel)',
+                    boxShadow: active ? '0 0 12px rgba(0,229,255,0.2)' : 'none',
+                  }}
+                  aria-pressed={active}
+                  aria-label={`Select ${t.name} theme`}
+                >
+                  <div style={{ width: 32, height: 32, borderRadius: '50%', background: colors.primary, boxShadow: `0 0 8px ${colors.primary}` }} />
+                  <span className="type-mono" style={{ fontSize: 'var(--text-xs)', color: active ? 'var(--primary)' : 'var(--text)' }}>{t.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
         <div className="tech-card">
-          <div className="tech-label">Interface</div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Ambient Sound</span>
-              <button className={`cmd-btn ${soundEnabled ? 'primary' : ''}`} onClick={onToggleSound}>
-                {soundEnabled ? 'ON' : 'OFF'}
-              </button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Animations</span>
-              <button className={`cmd-btn ${animationsEnabled ? 'primary' : ''}`} onClick={onToggleAnimations}>
-                {animationsEnabled ? 'ON' : 'OFF'}
-              </button>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: 'var(--text)' }}>Invert Colors</span>
-              <button className={`cmd-btn ${invertColors ? 'primary' : ''}`} onClick={onToggleInvert}>
-                {invertColors ? 'ON' : 'OFF'}
-              </button>
-            </div>
+          <div className="type-label" style={{ marginBottom: 'var(--space-3)' }}>Appearance — Background</div>
+          <select value={bgSetting} onChange={(e) => onBgChange(e.target.value)} className="cmd-btn" style={{ width: '100%', padding: 'var(--space-2) var(--space-3)' }}>
+            {BACKGROUNDS.map(background => (
+              <option key={background.id} value={background.id}>{background.name}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="tech-card">
+          <div className="type-label" style={{ marginBottom: 'var(--space-3)' }}>Appearance — Panel Design</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 'var(--space-3)' }}>
+            {Object.entries(panelPreviews).map(([key, preview]) => {
+              const active = designMode === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => onDesignModeChange(key)}
+                  className={`cmd-btn ${active ? 'primary' : ''}`}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 'var(--space-2)',
+                    padding: 'var(--space-3)',
+                    border: active ? '2px solid var(--primary)' : '1px solid var(--panel-border-subtle)',
+                    background: active ? 'rgba(0,229,255,0.1)' : 'var(--panel)',
+                    boxShadow: active ? '0 0 12px rgba(0,229,255,0.2)' : 'none',
+                  }}
+                  aria-pressed={active}
+                  aria-label={`Select ${preview.label} panel design`}
+                >
+                  <div style={{ width: '100%', height: 40, borderRadius: 'var(--radius)', background: preview.bg, border: `1px solid ${preview.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ width: '80%', height: 20, borderRadius: 'var(--radius-sm)', background: preview.panel, border: `1px solid ${preview.border}` }} />
+                  </div>
+                  <span className="type-mono" style={{ fontSize: 'var(--text-xs)', color: active ? 'var(--primary)' : 'var(--text)' }}>{preview.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="tech-card">
+          <div className="type-label">Interface</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginTop: 'var(--space-3)' }}>
+            {[
+              ['Ambient Sound', soundEnabled, onToggleSound],
+              ['Animations', animationsEnabled, onToggleAnimations],
+              ['Invert Colors', invertColors, onToggleInvert],
+              ['High Contrast', highContrast, onToggleHighContrast],
+              ['Larger Text', largerText, onToggleLargerText],
+              ['Reduced Transparency', reducedTransparency, onToggleReducedTransparency],
+              ['Reduced Glow', reducedGlow, onToggleReducedGlow],
+            ].map(([label, enabled, toggle]) => (
+              <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="type-body">{label}</span>
+                <button className={`cmd-btn ${enabled ? 'primary' : ''}`} onClick={toggle}>
+                  {enabled ? 'ON' : 'OFF'}
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="tech-card">
           <div className="tech-label">Application</div>
-          <div style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', lineHeight: 1.6 }}>
+          <div className="type-body-muted" style={{ marginTop: 'var(--space-2)' }}>
             CyberNet Lab v4.0 — Network Engineering Virtual Laboratory
           </div>
         </div>
@@ -359,6 +433,7 @@ export default function App() {
   const [labsList, setLabsList] = useState([]);
   const [catalogManifest, setCatalogManifest] = useState(null);
   const [progress, setProgress] = useState({ completedSteps: [], scores: {}, badges: [] });
+  const [learnerProgress, setLearnerProgress] = useState({ completedLabs: [], currentLab: null, skillMastery: {}, retrieval: {} });
   const [evidenceRecords, setEvidenceRecords] = useState(() => evidenceStorage.get());
   const [transferAttempts, setTransferAttempts] = useState(() => learningStorage.getTransfers());
   const [engineerAttempts, setEngineerAttempts] = useState(() => engineerStorage.get());
@@ -366,17 +441,29 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [filterCategory, setFilterCategory] = useState('all');
   const [filterLevel, setFilterLevel] = useState('all');
-  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(() => soundStorage.get());
   const [animationsEnabled, setAnimationsEnabled] = useState(() => animationsStorage.get());
   const [invertColors, setInvertColors] = useState(() => invertColorsStorage.get());
+  const [highContrast, setHighContrast] = useState(() => highContrastStorage.get());
+  const [largerText, setLargerText] = useState(() => largerTextStorage.get());
+  const [reducedTransparency, setReducedTransparency] = useState(() => reducedTransparencyStorage.get());
+  const [reducedGlow, setReducedGlow] = useState(() => reducedGlowStorage.get());
   const [musicTrack, setMusicTrack] = useState(DEFAULT_MUSIC);
+  const [conceptBoard, setConceptBoard] = useState(() => conceptBoardStorage.get());
   const [bgSetting, setBgSetting] = useState(DEFAULT_BG);
+  const [studyCategory, setStudyCategory] = useState('global-focus');
   const [packetTracerHint, setPacketTracerHint] = useState(null);
   const [theme, setTheme] = useState(() => themeStorage.get());
-  const [designMode, setDesignMode] = useState(() => localStorage.getItem('cybernet-design-mode') || 'noc');
+  const [designMode, setDesignMode] = useState(() => designModeStorage.get());
   const [showSearch, setShowSearch] = useState(false);
   const [focusMode, setFocusMode] = useState(false);
+  const [contextTab, setContextTab] = useState('evidence');
   const audioRef = useRef(null);
+  const [locale, setLocaleState] = useState(() => localStorage.getItem('cybernet-locale') || 'en');
+  const setLocale = useCallback((nextLocale) => {
+    setLocaleState(nextLocale);
+    localStorage.setItem('cybernet-locale', nextLocale);
+  }, []);
 
   const loadCatalog = useCallback(() => {
     let cancelled = false;
@@ -386,6 +473,7 @@ export default function App() {
       if (!cancelled) {
         setLabsList(labs);
         setCatalogManifest(manifest);
+        window.__CYBERNET_LABS__ = labs;
         setReady(true);
       }
     }).catch(error => {
@@ -414,6 +502,13 @@ export default function App() {
   }, [loadCatalog]);
 
   useEffect(() => {
+    const learnerId = progressEngine.getLearnerId();
+    progressEngine.fetchProgress(learnerId)
+      .then(p => setLearnerProgress(p))
+      .catch(() => setLearnerProgress({ completedLabs: [], currentLab: null, skillMastery: {}, retrieval: {} }));
+  }, []);
+
+  useEffect(() => {
     setProgress(progressStorage.get());
   }, []);
 
@@ -423,6 +518,10 @@ export default function App() {
     setSoundEnabled(soundStorage.get());
     setAnimationsEnabled(animationsStorage.get());
     setInvertColors(invertColorsStorage.get());
+    setHighContrast(highContrastStorage.get());
+    setLargerText(largerTextStorage.get());
+    setReducedTransparency(reducedTransparencyStorage.get());
+    setReducedGlow(reducedGlowStorage.get());
     setMusicTrack(musicStorage.get());
   }, []);
 
@@ -472,12 +571,28 @@ export default function App() {
   }, []);
 
   const handleStartLab = useCallback(async (labId) => {
+    const learnerId = progressEngine.getLearnerId();
+    const status = progressEngine.getLabStatus(learnerProgress, labId);
+    if (status === 'locked') {
+      const reason = progressEngine.getLockReason(learnerProgress, labId);
+      alert(`Lab locked: ${reason}`);
+      return;
+    }
+
+    try {
+      await progressEngine.startLab(learnerId, labId);
+      setLearnerProgress(prev => ({ ...prev, currentLab: String(labId) }));
+    } catch (e) {
+      alert(`Cannot start lab: ${e.message}`);
+      return;
+    }
+
     const lab = await getLabById(labId);
     if (!lab) return;
     setCurrentLab(lab);
     setView('lab');
     audioRef.current?.play('start');
-  }, []);
+  }, [learnerProgress]);
 
   const handleThemeChange = useCallback((newTheme) => {
     setTheme(newTheme);
@@ -486,7 +601,7 @@ export default function App() {
 
   const handleDesignModeChange = useCallback((nextMode) => {
     setDesignMode(nextMode);
-    localStorage.setItem('cybernet-design-mode', nextMode);
+    designModeStorage.set(nextMode);
   }, []);
 
   const handleBackgroundChange = useCallback((nextBackground) => {
@@ -519,6 +634,38 @@ export default function App() {
     });
   }, []);
 
+  const handleHighContrastToggle = useCallback(() => {
+    setHighContrast(enabled => {
+      const next = !enabled;
+      highContrastStorage.set(next);
+      return next;
+    });
+  }, []);
+
+  const handleLargerTextToggle = useCallback(() => {
+    setLargerText(enabled => {
+      const next = !enabled;
+      largerTextStorage.set(next);
+      return next;
+    });
+  }, []);
+
+  const handleReducedTransparencyToggle = useCallback(() => {
+    setReducedTransparency(enabled => {
+      const next = !enabled;
+      reducedTransparencyStorage.set(next);
+      return next;
+    });
+  }, []);
+
+  const handleReducedGlowToggle = useCallback(() => {
+    setReducedGlow(enabled => {
+      const next = !enabled;
+      reducedGlowStorage.set(next);
+      return next;
+    });
+  }, []);
+
   const openPacketTracerHint = useCallback(() => {
     if (!currentLab) return;
     setPacketTracerHint(generatePacketTracerHint(currentLab));
@@ -537,43 +684,48 @@ export default function App() {
     </div>;
   }
 
-  const currentStepIndex = 0;
-  const currentStep = currentLab?.steps?.[currentStepIndex] || null;
   const labProgressCount = progress.completedSteps?.filter(s => s.startsWith(String(currentLab?.id))).length || 0;
   const progressPercent = currentLab && currentLab.steps && currentLab.steps.length ? Math.round((labProgressCount / currentLab.steps.length) * 100) : 0;
 
   return (
+    <ErrorBoundary><LocaleProvider locale={locale} onLocaleChange={setLocale}>
     <div
-      className={`theme-${theme} design-${designMode} ${invertColors ? 'invert-colors' : ''} ${animationsEnabled ? '' : 'animations-off'}`}
-      style={{ minHeight: '100vh', position: 'relative', overflow: 'auto' }}
+      className={`theme-${theme} design-${designMode} ${invertColors ? 'invert-colors' : ''} ${animationsEnabled ? '' : 'animations-off'} ${highContrast ? 'high-contrast' : ''} ${largerText ? 'larger-text' : ''} ${reducedTransparency ? 'reduced-transparency' : ''} ${reducedGlow ? 'reduced-glow' : ''}`}
+      style={{ minHeight: '100vh', position: 'relative' }}
     >
-      <BackgroundStudio bgSetting={bgSetting} onBgChange={setBgSetting} animationsEnabled={animationsEnabled} />
+      <BackgroundStudio bgSetting={bgSetting} onBgChange={setBgSetting} animationsEnabled={animationsEnabled} studyCategory={studyCategory} onStudyCategoryChange={setStudyCategory} focusTimerLabel={null} subordinate={labWorkspaceMode || view === 'settings'} />
       <div className="floating-music-player">
         <MusicPlayer audioRef={audioRef} soundEnabled={soundEnabled} onToggleSound={handleSoundToggle} />
       </div>
       {!animationsEnabled && <div className="workbench" style={{ animation: 'none' }} />}
       <div className="scanlines" style={{ opacity: animationsEnabled ? 0.4 : 0.15 }} />
 
-      <Header
-        audio={audioRef.current}
-        soundEnabled={soundEnabled}
-        onToggleSound={handleSoundToggle}
-        view={view}
-        onChange={(next) => {
-          if (next === 'lab') {
-            setCurrentLab(null);
-            setLabWorkspaceMode(false);
-          }
-          setView(next);
-        }}
-      />
+      <div className="desktop-shell">
+        <Header
+          audio={audioRef.current}
+          soundEnabled={soundEnabled}
+          onToggleSound={handleSoundToggle}
+          view={view}
+          onChange={(next) => {
+            if (next === 'lab') {
+              setCurrentLab(null);
+              setLabWorkspaceMode(false);
+            }
+            setView(next);
+          }}
+          theme={theme}
+          onThemeChange={handleThemeChange}
+          designMode={designMode}
+          onDesignModeChange={handleDesignModeChange}
+          bgSetting={bgSetting}
+          onBgChange={handleBackgroundChange}
+        />
 
-      <div style={{ display: 'flex', minHeight: 'calc(100vh - 48px)' }}>
-        <aside style={{ width: 220, borderRight: '1px solid var(--panel-border-subtle)', background: 'var(--panel)', padding: 'var(--space-4)' }}>
+        <aside className="sidebar">
           <Nav view={view} onChange={setView} onStartLab={handleStartLab} />
         </aside>
 
-        <main style={{ flex: 1, overflow: 'auto', position: 'relative' }}>
+        <main className="main-workspace content-surface">
           {view === 'lab' && !currentLab && (
             <LabExplorerView
               labs={labsList}
@@ -591,6 +743,7 @@ export default function App() {
               onStartQuiz={() => setView('quiz')}
               onShowProgress={() => setView('progress')}
               onShowFocus={() => setFocusMode(true)}
+              learnerProgress={learnerProgress}
             />
           )}
 
@@ -613,6 +766,7 @@ export default function App() {
               onPacketTracerHint={openPacketTracerHint}
               evidenceRecords={evidenceRecords.filter(record => String(record.labId) === String(currentLab.id))}
               onSaveEvidence={saveEvidence}
+              learnerProgress={learnerProgress}
             />
           )}
 
@@ -630,6 +784,14 @@ export default function App() {
                 onToggleAnimations={handleAnimationsToggle}
                 invertColors={invertColors}
                 onToggleInvert={handleInvertToggle}
+                highContrast={highContrast}
+                onToggleHighContrast={handleHighContrastToggle}
+                largerText={largerText}
+                onToggleLargerText={handleLargerTextToggle}
+                reducedTransparency={reducedTransparency}
+                onToggleReducedTransparency={handleReducedTransparencyToggle}
+                reducedGlow={reducedGlow}
+                onToggleReducedGlow={handleReducedGlowToggle}
                 theme={theme}
                 onThemeChange={handleThemeChange}
                 designMode={designMode}
@@ -689,12 +851,23 @@ export default function App() {
               onToggleAnimations={handleAnimationsToggle}
               invertColors={invertColors}
               onToggleInvert={handleInvertToggle}
+              highContrast={highContrast}
+              onToggleHighContrast={handleHighContrastToggle}
+              largerText={largerText}
+              onToggleLargerText={handleLargerTextToggle}
+              reducedTransparency={reducedTransparency}
+              onToggleReducedTransparency={handleReducedTransparencyToggle}
+              reducedGlow={reducedGlow}
+              onToggleReducedGlow={handleReducedGlowToggle}
               bgSetting={bgSetting}
               onBgChange={handleBackgroundChange}
             />
           )}
 
+          {view === 'qa' && <QADashboard />}
+
           {view === 'commands' && <CommandLibrary />}
+          {view === 'tickets' && <TicketManager onClose={() => setView('lab')} />}
           {view === 'roadmap' && (
             <LearningRoadmap
               labs={labsList}
@@ -711,8 +884,29 @@ export default function App() {
           )}
           {view === 'practice' && <PracticeView lab={currentLab || labsList[0]} onSelectLab={handleStartLab} />}
           {view === 'quiz' && <QuizView lab={currentLab || labsList[0]} onSelectLab={handleStartLab} />}
+          {view === 'course' && <CourseMode onStartLab={handleStartLab} />}
           {view === 'games' && <GamesView labs={labsList} onScore={(score) => saveProgress(prev => ({ ...prev, scores: { ...prev.scores, games: (prev.scores?.games || 0) + score } }))} />}
+          {view === 'daily-mission' && <DailyMission onStartLab={handleStartLab} />}
+          {view === 'retrieval' && <RetrievalCenter onStartLab={handleStartLab} />}
+          {view === 'evidence' && <EvidencePanel labId={currentLab?.id} />}
+          {view === 'failure-lab' && <FailureLab lab={currentLab} onStartLab={handleStartLab} />}
+          {view === 'troubleshooting' && <TroubleshootingCoach lab={currentLab} onStartLab={handleStartLab} />}
+          {view === 'interview' && <InterviewRoom />}
+          {view === 'research' && <ResearchLab onStartLab={handleStartLab} />}
+          {view === 'portfolio' && <Portfolio labsList={labsList} onStartLab={handleStartLab} />}
+          {view === 'planner' && <StudyPlanner onStartLab={handleStartLab} />}
+          {view === 'skill-graph' && <SkillGraph skillMastery={learnerProgress.skillMastery} />}
+          {view === 'debrief' && <Debrief lab={currentLab} onStartLab={handleStartLab} />}
         </main>
+
+        <ContextPanel
+          activeTab={contextTab}
+          onTabChange={setContextTab}
+          evidence={evidenceRecords}
+          progress={progress}
+          hints={currentLab?.hints || []}
+          notes={currentLab?.notes || ''}
+        />
       </div>
 
       {packetTracerHint && <PacketTracerModal hint={packetTracerHint} onClose={() => setPacketTracerHint(null)} />}
@@ -722,23 +916,39 @@ export default function App() {
             lab={currentLab}
             onExit={() => setLabWorkspaceMode(false)}
             onEvidenceRecord={saveEvidence}
-            onComplete={(result) => {
+            onComplete={async (result) => {
               if (result) {
                 saveProgress(prev => ({
                   ...prev,
                   scores: { ...prev.scores, labs: (prev.scores?.labs || 0) + (result.xp || 0) }
                 }));
                  const transfer = transferAttempts.find(item =>
-                   String(item.labId) === String(currentLab.id) && item.passed !== true
-                 );
-                 if (transfer) {
-                   learningStorage.saveTransfer({
-                     ...transfer,
-                     passed: true,
-                     completedAt: new Date().toISOString(),
-                   });
-                   setTransferAttempts(learningStorage.getTransfers());
-                 }
+                    String(item.labId) === String(currentLab.id) && item.passed !== true
+                  );
+                  if (transfer) {
+                    learningStorage.saveTransfer({
+                      ...transfer,
+                      passed: true,
+                      completedAt: new Date().toISOString(),
+                    });
+                    setTransferAttempts(learningStorage.getTransfers());
+                  }
+
+                const learnerId = progressEngine.getLearnerId();
+                try {
+                  const contract = {
+                    theoryComplete: Boolean(result.theoryComplete),
+                    predictionComplete: Boolean(result.predictionComplete),
+                    actionsComplete: Boolean(result.actionsComplete),
+                    verificationPassed: Boolean(result.verificationPassed),
+                    troubleshootingComplete: Boolean(result.troubleshootingComplete),
+                    debriefComplete: Boolean(result.debriefComplete)
+                  };
+                  const updated = await progressEngine.completeLab(learnerId, currentLab.id, contract);
+                  setLearnerProgress(updated);
+                } catch (e) {
+                  console.warn('Progress completion failed:', e.message);
+                }
               }
             }}
           />
@@ -754,7 +964,7 @@ export default function App() {
       {focusMode && (
         <FocusMode onExit={() => setFocusMode(false)}>
           <div style={{ padding: 24 }}>
-            <h2 style={{ color: 'var(--cyan)', marginBottom: 16 }}>🎯 Focus Mode - Current Lab</h2>
+            <h2 style={{ color: 'var(--cyan)', marginBottom: 16 }}>Focus Mode - Current Lab</h2>
             {currentLab ? (
               <div>
                 <h3 style={{ color: 'var(--cyan)' }}>{currentLab.title}</h3>
@@ -767,6 +977,7 @@ export default function App() {
         </FocusMode>
       )}
     </div>
+    </LocaleProvider></ErrorBoundary>
   );
 }
 
@@ -844,11 +1055,11 @@ function GamesView({ labs, onScore }) {
 function PacketTracerModal({ hint, onClose }) {
   if (!hint) return null;
   return (
-    <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.75)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 24 }} onClick={onClose}>
+    <div style={{ position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(0,0,0,0.75)', display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 24 }} onClick={onClose} role="dialog" aria-modal="true" aria-label={hint.title}>
       <div style={{ background: 'var(--panel)', border: '1px solid rgba(0,240,255,0.5)', borderRadius: 12, padding: 20, maxWidth: 640, width: '100%', maxHeight: '80vh', overflow: 'auto' }} onClick={e => e.stopPropagation()}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
           <h3 style={{ color: 'var(--cyan)', margin: 0 }}>{hint.title}</h3>
-          <button onClick={onClose} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text)', cursor: 'pointer', borderRadius: 6, padding: '4px 10px' }}>✕</button>
+          <button onClick={onClose} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'var(--text)', cursor: 'pointer', borderRadius: 6, padding: '4px 10px' }}>Close</button>
         </div>
         {hint.devices?.length > 0 && (
           <div style={{ marginBottom: 12 }}>

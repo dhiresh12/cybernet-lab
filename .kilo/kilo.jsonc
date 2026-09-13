@@ -1,0 +1,38 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "permission": {
+    "external_directory": {
+      "C:\\Users\\dhiresh\\OneDrive\\Desktop\\code\\learning\\cybernet-lab\\backend\\routes\\*": "allow",
+      "C:\\Users\\dhiresh\\OneDrive\\Desktop\\code\\learning\\cybernet-lab\\frontend\\src\\features\\backgrounds\\renderers\\*": "allow",
+      "C:\\Users\\dhiresh\\OneDrive\\Desktop\\code\\learning\\cybernet-lab\\frontend\\src\\features\\dashboard\\*": "allow"
+    },
+    "bash": "allow",
+    "read": "allow"
+  },
+  "api_keys": {
+    "gemini": "${GEMINI_API_KEY}"
+  },
+  "hide_prompt_training_models": true,
+  "web_search": true,
+  "snapshot": true,
+  "code_edit_display": "expanded",
+  "mcp_tool_display": "expanded",
+  "compaction": {
+    "threshold_percent": 90
+  },
+  "indexing": {
+    "enabled": true,
+    "provider": "kilo",
+    "model": "perplexity/pplx-embed-v1-4b"
+  },
+  "remote_control": true,
+  "experimental": {
+    "batch_tool": true,
+    "image_generation": true,
+    "shared_agent_board": true,
+    "native_notebook_tools": true,
+    "continue_loop_on_deny": true,
+    "task_model_selection": true
+  }
+}
+
